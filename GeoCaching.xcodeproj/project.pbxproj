@@ -97,6 +97,7 @@
 		A397AABE2087645300289B7D /* GeoCaching */ = {
 			isa = PBXGroup;
 			children = (
+				A397AAF02087697100289B7D /* New Group */,
 				A397AABF2087645300289B7D /* AppDelegate.swift */,
 				A397AAC12087645300289B7D /* ViewController.swift */,
 				A397AAC32087645300289B7D /* Main.storyboard */,
@@ -123,6 +124,13 @@
 				A397AAE12087645500289B7D /* Info.plist */,
 			);
 			path = GeoCachingUITests;
+			sourceTree = "<group>";
+		};
+		A397AAF02087697100289B7D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
