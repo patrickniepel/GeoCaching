@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
-		A397AAC22087645300289B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAC12087645300289B7D /* ViewController.swift */; };
-		A397AAC52087645300289B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC32087645300289B7D /* Main.storyboard */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
 		A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC82087645400289B7D /* LaunchScreen.storyboard */; };
 		A397AAD52087645400289B7D /* GeoCachingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAD42087645400289B7D /* GeoCachingTests.swift */; };
 		A397AAE02087645500289B7D /* GeoCachingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AADF2087645500289B7D /* GeoCachingUITests.swift */; };
+		A397AAF420878BD500289B7D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF320878BD500289B7D /* GameViewController.swift */; };
+		A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF820878C2800289B7D /* CreateViewController.swift */; };
+		A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFA20878C3500289B7D /* ProfileViewController.swift */; };
+		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
+		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
 		C6570B03F6D8B8FE57A2B878 /* Pods_GeoCachingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */; };
 		FB6B52F867EBAE1EAFCCDFC0 /* Pods_GeoCachingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -44,8 +47,6 @@
 		9BC2814B3EEFEE0447FCDC88 /* Pods-GeoCaching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.release.xcconfig"; sourceTree = "<group>"; };
 		A397AABC2087645300289B7D /* GeoCaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A397AABF2087645300289B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A397AAC12087645300289B7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A397AAC42087645300289B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A397AAC62087645400289B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A397AAC92087645400289B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A397AACB2087645400289B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +56,11 @@
 		A397AADB2087645500289B7D /* GeoCachingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoCachingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A397AADF2087645500289B7D /* GeoCachingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCachingUITests.swift; sourceTree = "<group>"; };
 		A397AAE12087645500289B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A397AAF320878BD500289B7D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A397AAF820878C2800289B7D /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		A397AAFA20878C3500289B7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
+		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A3CEEA0C7C73D21A706ADBA8 /* Pods-GeoCachingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B27B21375A2FFB33B41C99 /* Pods-GeoCaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,9 +143,12 @@
 		A397AABE2087645300289B7D /* GeoCaching */ = {
 			isa = PBXGroup;
 			children = (
+				A397AAF720878C0700289B7D /* Create */,
+				A397AAF620878C0100289B7D /* Profile */,
+				A397AAF520878BFC00289B7D /* Highscore */,
+				A397AAF220878BAC00289B7D /* CurrentGame */,
+				A397AAF120878BA300289B7D /* Search */,
 				A397AABF2087645300289B7D /* AppDelegate.swift */,
-				A397AAC12087645300289B7D /* ViewController.swift */,
-				A397AAC32087645300289B7D /* Main.storyboard */,
 				A397AAC62087645400289B7D /* Assets.xcassets */,
 				A397AAC82087645400289B7D /* LaunchScreen.storyboard */,
 				A397AACB2087645400289B7D /* Info.plist */,
@@ -163,6 +172,46 @@
 				A397AAE12087645500289B7D /* Info.plist */,
 			);
 			path = GeoCachingUITests;
+			sourceTree = "<group>";
+		};
+		A397AAF120878BA300289B7D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A397AAFE20878C4F00289B7D /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A397AAF220878BAC00289B7D /* CurrentGame */ = {
+			isa = PBXGroup;
+			children = (
+				A397AAF320878BD500289B7D /* GameViewController.swift */,
+			);
+			path = CurrentGame;
+			sourceTree = "<group>";
+		};
+		A397AAF520878BFC00289B7D /* Highscore */ = {
+			isa = PBXGroup;
+			children = (
+				A397AAFC20878C4800289B7D /* HighscoreViewController.swift */,
+			);
+			path = Highscore;
+			sourceTree = "<group>";
+		};
+		A397AAF620878C0100289B7D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A397AAFA20878C3500289B7D /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A397AAF720878C0700289B7D /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				A397AAF820878C2800289B7D /* CreateViewController.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +325,6 @@
 			files = (
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
-				A397AAC52087645300289B7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +450,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A397AAC22087645300289B7D /* ViewController.swift in Sources */,
+				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
+				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
+				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
+				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
+				A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */,
 				A397AAC02087645300289B7D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,14 +491,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A397AAC32087645300289B7D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A397AAC42087645300289B7D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A397AAC82087645400289B7D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -13,9 +13,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        let uiTabBarVC = UITabBarController()
+        window?.rootViewController = UINavigationController.init(rootViewController: uiTabBarVC)
+        
+        let currentGameVC = GameViewController()
+        currentGameVC.title = "Game"
+        
+        let createGameVC = CreateViewController()
+        createGameVC.title = "Create"
+        
+        let profileVC = ProfileViewController()
+        profileVC.title = "Profile"
+        
+        let searchVC = SearchViewController()
+        searchVC.title = "Search"
+        
+        let highscoreVC = HighscoreViewController()
+        highscoreVC.title = "Highscore"
+        
+        let itemVCs = [searchVC, currentGameVC, createGameVC, highscoreVC, profileVC]
+        uiTabBarVC.viewControllers = itemVCs
+        
+        itemVCs.forEach { (item) in
+            item.view.backgroundColor = .white
+        }
+        
+        uiTabBarVC.tabBar.items?.forEach({ (item) in
+            item.image = UIImage(named: "pistol")
+        })
+        
+        
+       
+        
         return true
     }
 
