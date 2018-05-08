@@ -14,6 +14,21 @@
 		0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */; };
 		0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A56620A18D8B00486CAC /* AuthError.swift */; };
 		0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A56820A18D9900486CAC /* ProfileError.swift */; };
+		0FF2A56C20A1918B00486CAC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A56B20A1918B00486CAC /* User.swift */; };
+		0FF2A56E20A1919F00486CAC /* Achivement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A56D20A1919F00486CAC /* Achivement.swift */; };
+		0FF2A57120A191B600486CAC /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A57020A191B600486CAC /* Extension+Date.swift */; };
+		0FF2A57320A191D200486CAC /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A57220A191D200486CAC /* Rank.swift */; };
+		0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A57420A191E400486CAC /* AchivementType.swift */; };
+		0FF2A57820A192F800486CAC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2A57720A192F800486CAC /* Search.storyboard */; };
+		0FF2A57B20A1930300486CAC /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2A57A20A1930300486CAC /* Game.storyboard */; };
+		0FF2A57D20A1930A00486CAC /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2A57C20A1930A00486CAC /* Create.storyboard */; };
+		0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2A57E20A1931100486CAC /* Highscore.storyboard */; };
+		0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2A58020A1931700486CAC /* Profile.storyboard */; };
+		0FF2A58320A195E000486CAC /* SortMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A58220A195E000486CAC /* SortMe.swift */; };
+		0FF2A58520A1962200486CAC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A58420A1962200486CAC /* Extension+UIColor.swift */; };
+		0FF2A58720A19AE900486CAC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2A58620A19AE900486CAC /* Login.storyboard */; };
+		0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A58920A19B0A00486CAC /* LoginViewController.swift */; };
+		0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A58C20A19EAE00486CAC /* UIGeoButton.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
@@ -55,6 +70,21 @@
 		0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FF2A56620A18D8B00486CAC /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		0FF2A56820A18D9900486CAC /* ProfileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileError.swift; sourceTree = "<group>"; };
+		0FF2A56B20A1918B00486CAC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0FF2A56D20A1919F00486CAC /* Achivement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achivement.swift; sourceTree = "<group>"; };
+		0FF2A57020A191B600486CAC /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		0FF2A57220A191D200486CAC /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		0FF2A57420A191E400486CAC /* AchivementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementType.swift; sourceTree = "<group>"; };
+		0FF2A57720A192F800486CAC /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		0FF2A57A20A1930300486CAC /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		0FF2A57C20A1930A00486CAC /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
+		0FF2A57E20A1931100486CAC /* Highscore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Highscore.storyboard; sourceTree = "<group>"; };
+		0FF2A58020A1931700486CAC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0FF2A58220A195E000486CAC /* SortMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMe.swift; sourceTree = "<group>"; };
+		0FF2A58420A1962200486CAC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		0FF2A58620A19AE900486CAC /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		0FF2A58920A19B0A00486CAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0FF2A58C20A19EAE00486CAC /* UIGeoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGeoButton.swift; sourceTree = "<group>"; };
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +157,68 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		0FF2A56A20A1917F00486CAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A56B20A1918B00486CAC /* User.swift */,
+				0FF2A56D20A1919F00486CAC /* Achivement.swift */,
+				0FF2A57220A191D200486CAC /* Rank.swift */,
+				0FF2A57420A191E400486CAC /* AchivementType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FF2A56F20A191AB00486CAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A57020A191B600486CAC /* Extension+Date.swift */,
+				0FF2A58420A1962200486CAC /* Extension+UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FF2A57620A192E300486CAC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A57720A192F800486CAC /* Search.storyboard */,
+				0FF2A57A20A1930300486CAC /* Game.storyboard */,
+				0FF2A57C20A1930A00486CAC /* Create.storyboard */,
+				0FF2A57E20A1931100486CAC /* Highscore.storyboard */,
+				0FF2A58020A1931700486CAC /* Profile.storyboard */,
+				0FF2A58620A19AE900486CAC /* Login.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0FF2A58820A19AFE00486CAC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A58920A19B0A00486CAC /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0FF2A58B20A19E8400486CAC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A58C20A19EAE00486CAC /* UIGeoButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0FF2A58E20A19FB800486CAC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A58820A19AFE00486CAC /* Login */,
+				A397AAF120878BA300289B7D /* Search */,
+				A397AAF220878BAC00289B7D /* CurrentGame */,
+				A397AAF720878C0700289B7D /* Create */,
+				A397AAF520878BFC00289B7D /* Highscore */,
+				A397AAF620878C0100289B7D /* Profile */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		3126D2C19F5575A87BD64234 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,20 +267,21 @@
 		A397AABE2087645300289B7D /* GeoCaching */ = {
 			isa = PBXGroup;
 			children = (
-				0FF2A56520A18D8000486CAC /* Errors */,
-				0F0807A32099FB5200F716E1 /* Controller */,
-				0FD6C7A8209990CB00B8149D /* Controller.swift */,
-				0FD6C7A9209990CC00B8149D /* Model.swift */,
-				A397AAF720878C0700289B7D /* Create */,
-				A397AAF620878C0100289B7D /* Profile */,
-				A397AAF520878BFC00289B7D /* Highscore */,
-				A397AAF220878BAC00289B7D /* CurrentGame */,
-				A397AAF120878BA300289B7D /* Search */,
-				A397AABF2087645300289B7D /* AppDelegate.swift */,
 				A397AAC62087645400289B7D /* Assets.xcassets */,
+				0F0807A32099FB5200F716E1 /* Controller */,
+				0FF2A56520A18D8000486CAC /* Errors */,
+				0FF2A56F20A191AB00486CAC /* Extensions */,
+				0FF2A56A20A1917F00486CAC /* Model */,
+				0FF2A57620A192E300486CAC /* Storyboards */,
+				0FF2A58E20A19FB800486CAC /* ViewController */,
+				0FF2A58B20A19E8400486CAC /* Views */,
+				A397AABF2087645300289B7D /* AppDelegate.swift */,
 				A397AAC82087645400289B7D /* LaunchScreen.storyboard */,
 				0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */,
 				A397AACB2087645400289B7D /* Info.plist */,
+				0FD6C7A8209990CB00B8149D /* Controller.swift */,
+				0FD6C7A9209990CC00B8149D /* Model.swift */,
+				0FF2A58220A195E000486CAC /* SortMe.swift */,
 			);
 			path = GeoCaching;
 			sourceTree = "<group>";
@@ -361,8 +454,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
+				0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */,
+				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
 				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
+				0FF2A57820A192F800486CAC /* Search.storyboard in Resources */,
+				0FF2A57B20A1930300486CAC /* Game.storyboard in Resources */,
+				0FF2A57D20A1930A00486CAC /* Create.storyboard in Resources */,
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
+				0FF2A58720A19AE900486CAC /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,17 +587,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF2A56C20A1918B00486CAC /* User.swift in Sources */,
+				0FF2A57320A191D200486CAC /* Rank.swift in Sources */,
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
+				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
+				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
 				0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
+				0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */,
 				0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */,
+				0FF2A57120A191B600486CAC /* Extension+Date.swift in Sources */,
+				0FF2A56E20A1919F00486CAC /* Achivement.swift in Sources */,
+				0FF2A58520A1962200486CAC /* Extension+UIColor.swift in Sources */,
 				A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */,
 				A397AAC02087645300289B7D /* AppDelegate.swift in Sources */,
 				0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */,
+				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

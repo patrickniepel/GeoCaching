@@ -15,13 +15,32 @@ class CreateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        testButton.backgroundColor = UIColor.orange
         testButton.setTitle("Test me :)", for: .normal)
         testButton.addTarget(self, action: #selector(testFirebaseMethods), for: .touchUpInside)
         view.addSubview(testButton)
         
+        setupDesign()
+        setupText()
+        setupData()
     }
-
+    
+    
+    // MARK: - Setup
+    
+    func setupText() {
+        
+    }
+    
+    func setupDesign() {
+        view.backgroundColor = AppColor.background
+        testButton.backgroundColor = AppColor.right
+    }
+    
+    func setupData() {
+        
+    }
+    
+    
     @objc func testFirebaseMethods() {
         let email = "hello@web.de"
         let password = "passwort123"

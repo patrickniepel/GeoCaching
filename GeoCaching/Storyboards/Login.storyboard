@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="Hj1-YF-xan">
+            <objects>
+                <viewController storyboardIdentifier="storyboardID_login_vc" id="II4-Fp-dV7" customClass="LoginViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tp6-jz-pCc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lVA-Wb-ZHS">
+                                <rect key="frame" x="16" y="36" width="343" height="615"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-Zx-P7d">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="68.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zg2-1r-IIM">
+                                        <rect key="frame" x="0.0" y="68.5" width="343" height="68"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXm-Zk-WDh">
+                                        <rect key="frame" x="0.0" y="136.5" width="343" height="68.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKs-EG-RI9">
+                                        <rect key="frame" x="0.0" y="205" width="343" height="68.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1i-6q-42a" customClass="UIGeoButton" customModule="GeoCaching" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="273.5" width="343" height="68"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginAction:" destination="II4-Fp-dV7" eventType="touchUpInside" id="2EV-eY-ZRu"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iv-0v-ONK">
+                                        <rect key="frame" x="0.0" y="341.5" width="343" height="68.5"/>
+                                        <color key="backgroundColor" red="0.25253332188978134" green="0.70130076142131981" blue="0.26614602679503246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCg-q5-yqT">
+                                        <rect key="frame" x="0.0" y="410" width="343" height="68.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvs-Rt-uAc">
+                                        <rect key="frame" x="0.0" y="478.5" width="343" height="68"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiu-gg-pyP" customClass="UIGeoButton" customModule="GeoCaching" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="546.5" width="343" height="68.5"/>
+                                        <state key="normal" title="Register"/>
+                                        <connections>
+                                            <action selector="registerAction:" destination="II4-Fp-dV7" eventType="touchUpInside" id="ofe-aN-JoW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lVA-Wb-ZHS" firstAttribute="leading" secondItem="w9r-bi-t0z" secondAttribute="leading" constant="16" id="ENw-OQ-Sxa"/>
+                            <constraint firstItem="lVA-Wb-ZHS" firstAttribute="top" secondItem="w9r-bi-t0z" secondAttribute="top" constant="16" id="JuW-dk-CkU"/>
+                            <constraint firstItem="w9r-bi-t0z" firstAttribute="bottom" secondItem="lVA-Wb-ZHS" secondAttribute="bottom" constant="16" id="oqS-WV-sd0"/>
+                            <constraint firstItem="w9r-bi-t0z" firstAttribute="trailing" secondItem="lVA-Wb-ZHS" secondAttribute="trailing" constant="16" id="rkZ-WH-wWD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w9r-bi-t0z"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="RkA-Zx-P7d" id="bgU-yB-3BP"/>
+                        <outlet property="emailTextField" destination="Zg2-1r-IIM" id="rlf-RU-Gqn"/>
+                        <outlet property="passwordLabel" destination="dXm-Zk-WDh" id="3T2-GD-VI6"/>
+                        <outlet property="passwordTextField" destination="vKs-EG-RI9" id="oDA-XE-iM1"/>
+                        <outlet property="usernameLabel" destination="wCg-q5-yqT" id="tR5-f1-2cb"/>
+                        <outlet property="usernameTextField" destination="mvs-Rt-uAc" id="IFc-aS-7kB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5p-CE-QYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106.40000000000001" y="-17.541229385307346"/>
+        </scene>
+    </scenes>
+</document>

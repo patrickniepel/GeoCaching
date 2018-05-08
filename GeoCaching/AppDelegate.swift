@@ -22,37 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let uiTabBarVC = UITabBarController()
-        window?.rootViewController = UINavigationController.init(rootViewController: uiTabBarVC)
-        
-        let currentGameVC = GameViewController()
-        currentGameVC.title = "Game"
-        
-        let createGameVC = CreateViewController()
-        createGameVC.title = "Create"
-        
-        let profileVC = ProfileViewController()
-        profileVC.title = "Profile"
-        
-        let searchVC = SearchViewController()
-        searchVC.title = "Search"
-        
-        let highscoreVC = HighscoreViewController()
-        highscoreVC.title = "Highscore"
-        
-        let itemVCs = [searchVC, currentGameVC, createGameVC, highscoreVC, profileVC]
-        uiTabBarVC.viewControllers = itemVCs
-        
-        itemVCs.forEach { (item) in
-            item.view.backgroundColor = .white
-        }
-        
-        uiTabBarVC.tabBar.items?.forEach({ (item) in
-            item.image = UIImage(named: "pistol")
-        })
-        
-        
-       
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
+        window?.rootViewController = UINavigationController.init(rootViewController: loginViewCtrl)
         
         return true
     }
@@ -78,7 +50,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension AppDelegate {
+    func createAppTabBarController() -> UITabBarController {
+        let uiTabBarVC = UITabBarController()
+        
+        let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let searchVC = searchStoryboard.instantiateViewController(withIdentifier: "storyboardID_search_vc") as! SearchViewController
+        searchVC.title = "Search"
+        
+        let gameStoryboard = UIStoryboard(name: "Game", bundle: nil)
+        let currentGameVC = gameStoryboard.instantiateViewController(withIdentifier: "storyboardID_game_vc") as! GameViewController
+        currentGameVC.title = "Game"
+        
+        let createStoryboard = UIStoryboard(name: "Create", bundle: nil)
+        let createGameVC = createStoryboard.instantiateViewController(withIdentifier: "storyboardID_create_vc") as! CreateViewController
+        createGameVC.title = "Create"
+        
+        let highscoreStoryboard = UIStoryboard(name: "Highscore", bundle: nil)
+        let highscoreVC = highscoreStoryboard.instantiateViewController(withIdentifier: "storyboardID_highscore_vc") as! HighscoreViewController
+        highscoreVC.title = "Highscore"
+        
+        let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "storyboardID_profile_vc") as! ProfileViewController
+        profileVC.title = "Profile"
+        
+        let itemVCs = [searchVC, currentGameVC, createGameVC, highscoreVC, profileVC]
+        uiTabBarVC.viewControllers = itemVCs
+        
+        itemVCs.forEach { (item) in
+            item.view.backgroundColor = .white
+        }
+        
+        uiTabBarVC.tabBar.items?.forEach({ (item) in
+            item.image = UIImage(named: "apple")
+        })
+        
+        return uiTabBarVC
+    }
 }
 
