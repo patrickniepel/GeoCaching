@@ -8,45 +8,11 @@
 
 import UIKit
 import CoreLocation
+import FirebaseAuth
+import FirebaseDatabase
 
 
-// MARK: - Profile
 
-protocol ProfileDelegate {
-    func downloaded(currentUserProfile: User)
-    func downloaded(userProfile: User)
-    func downloaded(userProfileImage: UIImage?)
-}
-
-struct ProfileController {
-    
-    var delegate: ProfileDelegate?
-    
-    func downloadCurrentUserProfile() {
-        let currentUser = User(id: "123",
-                               username: "Marceeelll",
-                               userImage: nil,
-                               isPresenter: false,
-                               points: 1_233_321,
-                               earnedAchivements: [])
-        delegate?.downloaded(currentUserProfile: currentUser)
-    }
-    
-    func downloadUserProfile(withUserID userID: String) {
-        let otherUser = User(id: "3222",
-                             username: "Other Username",
-                             userImage: nil,
-                             isPresenter: false,
-                             points: 233_321,
-                             earnedAchivements: [])
-        delegate?.downloaded(userProfile: otherUser)
-    }
-    
-    func downloadUserProfileImage(forUserID userID: String) {
-        let downloadedImage = UIImage(named: "profileImage")
-        delegate?.downloaded(userProfileImage: downloadedImage)
-    }
-}
 
 
 // MARK: - Highscore
@@ -66,42 +32,10 @@ struct HighscoreController {
         delegate?.downloaded(gameHighscores: highscores)
     }
     
-    func downloadHighscore(withFilter filter: Filter, userWhoRequest user: User) {
+    func downloadHighscores(withFilter filter: Filter, userWhoRequest user: User) {
         let highscoreUser = UserHighscore(userID: "123", points: 1_234_111)
         let highscores = [highscoreUser]
         delegate?.downloaded(gameHighscores: highscores)
-    }
-}
-
-
-// MARK: - Auth
-
-protocol AuthDelegate {
-    func registered(user: User)
-    func loggedIn(user: User)
-}
-
-struct AuthController {
-    var delegate: AuthDelegate?
-    
-    func register(withEmail email: String, andPassword password: String) {
-        let user = User(id: "123",
-                        username: "Marceeelll",
-                        userImage: nil,
-                        isPresenter: false,
-                        points: 1_233_321,
-                        earnedAchivements: [])
-        delegate?.registered(user: user)
-    }
-    
-    func login(withEmail email: String, andPassword password: String) {
-        let user = User(id: "123",
-                        username: "Marceeelll",
-                        userImage: nil,
-                        isPresenter: false,
-                        points: 1_233_321,
-                        earnedAchivements: [])
-        delegate?.loggedIn(user: user)
     }
 }
 
@@ -134,7 +68,7 @@ struct GameController {
                         categories: [.nature, .city, .under10km],
                         duration: 97,
                         legth: 2.7,
-                        image: nil, raiting: 21)
+                        image: nil, raiting: 21, quests: [])
         delegate?.downloaded(games: [game])
     }
 }

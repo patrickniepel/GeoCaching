@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A42099FB5C00F716E1 /* AuthController.swift */; };
+		0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A62099FBC100F716E1 /* ProfileController.swift */; };
 		0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A8209990CB00B8149D /* Controller.swift */; };
 		0FD6C7AB209990CC00B8149D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A9209990CC00B8149D /* Model.swift */; };
+		0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */; };
+		0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A56620A18D8B00486CAC /* AuthError.swift */; };
+		0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A56820A18D9900486CAC /* ProfileError.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
@@ -43,8 +48,13 @@
 
 /* Begin PBXFileReference section */
 		0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F0807A42099FB5C00F716E1 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		0F0807A62099FBC100F716E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		0FD6C7A8209990CB00B8149D /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		0FD6C7A9209990CC00B8149D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0FF2A56620A18D8B00486CAC /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		0FF2A56820A18D9900486CAC /* ProfileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileError.swift; sourceTree = "<group>"; };
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +109,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F0807A32099FB5200F716E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F0807A42099FB5C00F716E1 /* AuthController.swift */,
+				0F0807A62099FBC100F716E1 /* ProfileController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FF2A56520A18D8000486CAC /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2A56620A18D8B00486CAC /* AuthError.swift */,
+				0FF2A56820A18D9900486CAC /* ProfileError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		3126D2C19F5575A87BD64234 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +175,8 @@
 		A397AABE2087645300289B7D /* GeoCaching */ = {
 			isa = PBXGroup;
 			children = (
+				0FF2A56520A18D8000486CAC /* Errors */,
+				0F0807A32099FB5200F716E1 /* Controller */,
 				0FD6C7A8209990CB00B8149D /* Controller.swift */,
 				0FD6C7A9209990CC00B8149D /* Model.swift */,
 				A397AAF720878C0700289B7D /* Create */,
@@ -157,6 +187,7 @@
 				A397AABF2087645300289B7D /* AppDelegate.swift */,
 				A397AAC62087645400289B7D /* Assets.xcassets */,
 				A397AAC82087645400289B7D /* LaunchScreen.storyboard */,
+				0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */,
 				A397AACB2087645400289B7D /* Info.plist */,
 			);
 			path = GeoCaching;
@@ -330,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
+				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,10 +488,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
+				0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */,
+				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
+				0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */,
 				A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */,
 				A397AAC02087645300289B7D /* AppDelegate.swift in Sources */,
 				0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */,
@@ -630,7 +666,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6C2B5VUSRK;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -649,7 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6C2B5VUSRK;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

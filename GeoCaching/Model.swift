@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseDatabase
 
 enum QuestionType {
     case textInput
@@ -70,6 +71,14 @@ enum AchivementType {
     
     static let allAchivementTypes = [AchivementType.geoSchnitzler, .noob]
     
+    init?(filename: String) {
+        switch filename {
+        case "geoSchnitzler.3dModelFileNamePostfix": self = .geoSchnitzler
+        case "noob.3dModelFileNamePostfix": self = .noob
+        default: return nil
+        }
+    }
+    
     var filename: String {
         switch self {
         case .geoSchnitzler: return "geoSchnitzler.3dModelFileNamePostfix"
@@ -105,19 +114,67 @@ enum Filter {
 }
 
 
+extension Date {
+    var dateDatabaseFormat: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+        return dateFormatter.string(from: self)
+    }
+    
+    init?(fromDatabaseFormat databaseString: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+        if let date = dateFormatter.date(from: databaseString) {
+            self = date
+        } else {
+            return nil
+        }
+    }
+}
+
 
 struct Achivement {
     var earnedDate: Date?
     var type: AchivementType
+    
+    init?(dict: [String:Any]) {
+        guard let earnedDateAsString = dict["earnedDate"] as? String,
+                let earnedDate = Date(fromDatabaseFormat: earnedDateAsString),
+                let achivementTypeFilename = dict["achivementType"] as? String,
+                let achivementType = AchivementType(filename: achivementTypeFilename) else {
+            return nil
+        }
+        
+        self.earnedDate = earnedDate
+        self.type = achivementType
+    }
+    
+    init(type: AchivementType) {
+        self.type = type
+        self.earnedDate = Date()
+    }
+    
+    var toDictionary: [String:Any] {
+        let dateAsString = earnedDate == nil ? "nil" : "\(earnedDate!.dateDatabaseFormat)"
+        return [
+            "earnedDate": dateAsString,
+            "achivementType": type.filename
+        ]
+    }
 }
 
 struct User {
     var id: String
     var username: String
     var userImage: UIImage?
+    var userImageFileName: String {
+        return id
+    }
     var isPresenter: Bool
     var points: Int
-    var earnedAchivements: [Achivement]
+    var earnedAchivements: [Achivement] = []
     var rank: Rank {
         return Rank.getRank(forPoints: points)
     }
@@ -131,6 +188,40 @@ struct User {
         self.isPresenter = isPresenter
         self.points = points
         self.earnedAchivements = earnedAchivements
+    }
+    
+    init?(snapshot: DataSnapshot) {
+        guard let dict = snapshot.value as? [String:Any],
+                let username = dict["username"] as? String,
+                let isPresenter = dict["isPresenter"] as? Bool,
+                let points = dict["points"] as? Int else {
+            return nil
+        }
+        
+        if let achievementDictionaries = dict["earnedAchivements"] as? [[String:Any]] {
+            var achievements: [Achivement] = []
+            for achievementDict in achievementDictionaries {
+                if let achievement =  Achivement(dict: achievementDict) {
+                    print(achievement)
+                    achievements.append(achievement)
+                }
+            }
+            self.earnedAchivements = achievements
+        }
+        
+        self.id = snapshot.key
+        self.username = username
+        self.isPresenter = isPresenter
+        self.points = points
+    }
+    
+    var toDictionary: [String:Any] {
+        return [
+            "username": username,
+            "isPresenter": isPresenter,
+            "points": points,
+            "earnedAchivements": earnedAchivements.map { $0.toDictionary }
+        ]
     }
 }
 
