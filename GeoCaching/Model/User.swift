@@ -13,6 +13,16 @@ import FirebaseDatabase
 struct User {
     var id: String
     var username: String
+    var usernameWithOnlineStatus: NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: username)
+        if isOnline {
+            let pointString = NSAttributedString(string: " • ", attributes: [NSAttributedStringKey.foregroundColor : UIColor.green])
+            attributedString.append(pointString)
+            // let onlineString = NSAttributedString(string: "online")//, attributes: [NSAttributedStringKey.font : UIFont(name: "Helvetica", size: 14.0)!])
+            //attributedString.append(onlineString)
+        }
+        return attributedString
+    }
     var userImage: UIImage?
     var userImageFileName: String {
         return id
@@ -31,6 +41,9 @@ struct User {
         return Rank.getRank(forPoints: points)
     }
     var currentLocation: CLLocationCoordinate2D? = nil
+    private var isOnline: Bool {
+        return true // TODO: ✅⚠️ zum debuggen auskommentiert currentLocation != nil
+    }
     
     init (id: String, username: String, userImage: UIImage?,
           isPresenter: Bool, points: Int, earnedAchivements: [Achivement]) {
