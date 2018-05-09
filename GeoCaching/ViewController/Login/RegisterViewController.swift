@@ -26,12 +26,19 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var registerButtonOutlet: UIButton!
     
+    var authController = AuthController()
+    
+    var emailText = ""
+    var passwordText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupDesign()
         setupText()
         setupData()
+        
+        hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,9 +67,9 @@ class RegisterViewController: UIViewController {
         emailSeparatorView.backgroundColor = AppColor.tint
         passwordSeparatorView.backgroundColor = AppColor.tint
     
-        
-        // Creating the same constraint using constraintLessThanOrEqualToConstant: TEST
-        // usernameBackgroundView.widthAnchor.constraint(lessThanOrEqualToConstant: 10.0).isActive = true
+        usernameTextField.tintColor = AppColor.tint
+        emailTextField.tintColor = AppColor.tint
+        passwordTextField.tintColor = AppColor.tint
         
     }
 
@@ -72,9 +79,47 @@ class RegisterViewController: UIViewController {
     
     func setupData() {
         
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        emailTextField.text = emailText
+        passwordTextField.text = passwordText
+        
     }
 
+    func registerUser() {
+        print("Register User")
+        registerButtonOutlet.isEnabled = false
+        
+        authController.register(withEmail: emailTextField.text! , andPassword: passwordTextField.text!, username: usernameTextField.text!) {
+            (user, error) in
+            
+            if let error = error{
+                self.handleErrorAlert(error: error)
+                self.registerButtonOutlet.isEnabled = true
+            }else if let user = user{
+                print("Hello \(user)")
+                self.showGameViewController()
+            }
+        }
+    }
 
+    func handleErrorAlert(error: Error) {
+        var errorMessage = ""
+        
+        if let authError = error as? AuthError {
+            errorMessage = authError.localizedDescription
+        } else if let profileError = error as? ProfileError {
+            errorMessage = profileError.localizedDescription
+        } else {
+            errorMessage = error.localizedDescription
+        }
+        
+        let errorAlert = UIAlertController(title: "Error occured", message: "\(errorMessage)", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        present(errorAlert, animated: true)
+    }
     
 }
 
@@ -83,6 +128,7 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController {
     @IBAction func registerAction(_ sender: UIButton) {
+        registerUser()
     }
     
     @IBAction func skipAction(_ sender: UIButton) {
@@ -101,5 +147,38 @@ extension RegisterViewController {
         navigationCtrl.navigationBar.barTintColor = AppColor.navigationBar
         navigationCtrl.navigationBar.tintColor = AppColor.text
         present(navigationCtrl, animated: true)
+    }
+}
+
+
+// MARK: - Keyboard
+
+extension RegisterViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        switch textField.tag {
+        case 1:
+            emailTextField.becomeFirstResponder()
+        case 2:
+            passwordTextField.becomeFirstResponder()
+        case 3:
+            registerUser()
+        default:
+            self.view.endEditing(true)
+        }
+        
+        return false
     }
 }

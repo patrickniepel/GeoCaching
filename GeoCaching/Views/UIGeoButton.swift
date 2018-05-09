@@ -24,6 +24,7 @@ class UIGeoButton: UIButton {
         self.backgroundColor = AppColor.tint
         self.setTitleColor(AppColor.text, for: .normal)
         self.layer.cornerRadius = 10
+        self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: 120, height: 35)
     }
     
 }

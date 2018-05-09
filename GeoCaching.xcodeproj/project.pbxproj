@@ -44,6 +44,7 @@
 		0FF2A59B20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59A20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift */; };
 		0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */; };
 		0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */; };
+		1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724710D20A392C300DC0AAE /* LoginSegues.swift */; };
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
@@ -116,6 +117,7 @@
 		0FF2A59A20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionTableViewDelegate.swift; sourceTree = "<group>"; };
 		0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegues.swift; sourceTree = "<group>"; };
 		0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionEntry.swift; sourceTree = "<group>"; };
+		1724710D20A392C300DC0AAE /* LoginSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSegues.swift; sourceTree = "<group>"; };
 		179F392D20A32971002BDCEE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				0FF2A58920A19B0A00486CAC /* LoginViewController.swift */,
 				179F392D20A32971002BDCEE /* RegisterViewController.swift */,
+				1724710D20A392C300DC0AAE /* LoginSegues.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */,
 				0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */,
+				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
