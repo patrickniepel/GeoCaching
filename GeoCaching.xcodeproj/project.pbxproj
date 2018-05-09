@@ -16,6 +16,7 @@
 		0FA96BD520A32228005485A3 /* HighscoreTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD420A32228005485A3 /* HighscoreTableViewDelegate.swift */; };
 		0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */; };
 		0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD820A3322E005485A3 /* HighscoreSegues.swift */; };
+		0FA96BDB20A34D75005485A3 /* ProfileAchievementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */; };
 		0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A8209990CB00B8149D /* Controller.swift */; };
 		0FD6C7AB209990CC00B8149D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A9209990CC00B8149D /* Model.swift */; };
 		0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */; };
@@ -86,6 +87,7 @@
 		0FA96BD420A32228005485A3 /* HighscoreTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewDelegate.swift; sourceTree = "<group>"; };
 		0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProfileImageView.swift; sourceTree = "<group>"; };
 		0FA96BD820A3322E005485A3 /* HighscoreSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreSegues.swift; sourceTree = "<group>"; };
+		0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementDetailViewController.swift; sourceTree = "<group>"; };
 		0FD6C7A8209990CB00B8149D /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		0FD6C7A9209990CC00B8149D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				A397AAFA20878C3500289B7D /* ProfileViewController.swift */,
+				0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */,
 				0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */,
 				0FF2A59E20A1DF9100486CAC /* Profile Action Model */,
 				0FF2A59120A1DECC00486CAC /* Profile Achievement CollectionView */,
@@ -664,6 +667,7 @@
 				0FF2A56C20A1918B00486CAC /* User.swift in Sources */,
 				0FF2A57320A191D200486CAC /* Rank.swift in Sources */,
 				0FF2A59320A1DEF700486CAC /* ProfileAchievementsCollectionViewCell.swift in Sources */,
+				0FA96BDB20A34D75005485A3 /* ProfileAchievementDetailViewController.swift in Sources */,
 				0FA96BD320A31FCE005485A3 /* HighscoreTableViewDataSource.swift in Sources */,
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,

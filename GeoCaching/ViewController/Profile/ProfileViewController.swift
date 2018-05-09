@@ -30,8 +30,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.orange
-        
         setupDesign()
         setupText()
         setupData()
@@ -41,10 +39,10 @@ class ProfileViewController: UIViewController {
     // MARK: - Setup
     
     func setupText() {
+        self.title = "Profile"
+        
         pointsLabel.text = user.formattedPoints
-        
         fullnameLabel.text = "\(user.username)"
-        
         titleLabel.text = "(\(Rank.getRank(forPoints: user.points)))"
     }
     
@@ -52,6 +50,15 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
         profileImageView.layer.borderColor = AppColor.tint.cgColor
         profileImageView.layer.borderWidth = 5.0
+        
+        self.view.backgroundColor = AppColor.background
+        pointsLabel.textColor = AppColor.text
+        fullnameLabel.textColor = AppColor.text
+        titleLabel.textColor = AppColor.text
+        achievementsTitleLabel.textColor = AppColor.text
+        
+        profileActionsTableView.backgroundColor = UIColor.clear
+        achievementsCollectionView.backgroundColor = UIColor.clear
     }
     
     func setupData() {
@@ -71,5 +78,11 @@ class ProfileViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: implement
+        if segue.identifier == ProfileStoryboardSegue.achievementDetail.identifier {
+            guard let selectedAchivement = sender as? Achivement, let destVCtrl = segue.destination as? ProfileAchievementDetailViewController else {
+                return
+            }
+            destVCtrl.achievement = selectedAchivement
+        }
     }
 }

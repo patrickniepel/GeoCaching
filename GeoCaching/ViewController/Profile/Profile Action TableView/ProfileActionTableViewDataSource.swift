@@ -19,6 +19,10 @@ class ProfileActionTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.tintColor = UIColor.green
+        cell.accessoryView?.tintColor = UIColor.red
+        cell.backgroundColor = AppColor.background
+        cell.textLabel?.textColor = AppColor.text
         
         let entry = getData(atIndexPath: indexPath)
         cell.textLabel?.text = entry.name

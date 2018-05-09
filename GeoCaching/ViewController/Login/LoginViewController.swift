@@ -65,9 +65,6 @@ extension LoginViewController {
     func showGameViewController() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let tabBarCtrl = appDelegate.createAppTabBarController()
-        let navigationCtrl = UINavigationController(rootViewController: tabBarCtrl)
-        navigationCtrl.navigationBar.barTintColor = AppColor.navigationBar
-        navigationCtrl.navigationBar.tintColor = AppColor.text
-        present(navigationCtrl, animated: true)
+        present(tabBarCtrl, animated: true)
     }
 }
