@@ -19,6 +19,13 @@ struct User {
     }
     var isPresenter: Bool
     var points: Int
+    var formattedPoints: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.groupingSeparator = "."
+        numberFormatter.numberStyle = .decimal
+        let points = NSNumber(value: self.points)
+        return "\(numberFormatter.string(from: points) ?? "0") points"
+    }
     var earnedAchivements: [Achivement] = []
     var rank: Rank {
         return Rank.getRank(forPoints: points)
