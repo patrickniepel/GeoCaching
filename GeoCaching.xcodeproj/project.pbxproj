@@ -17,6 +17,13 @@
 		0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */; };
 		0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD820A3322E005485A3 /* HighscoreSegues.swift */; };
 		0FA96BDB20A34D75005485A3 /* ProfileAchievementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */; };
+		0FA96BDD20A358E7005485A3 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDC20A358E7005485A3 /* ProfileFriendsViewController.swift */; };
+		0FA96BE020A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDF20A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift */; };
+		0FA96BE220A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE120A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift */; };
+		0FA96BE420A35BE8005485A3 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE320A35BE8005485A3 /* ProfileFriendsTableViewCell.swift */; };
+		0FA96BE920A361B1005485A3 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE620A361B1005485A3 /* Expandable.swift */; };
+		0FA96BEA20A361B1005485A3 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE720A361B1005485A3 /* Direction.swift */; };
+		0FA96BEB20A361B1005485A3 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE820A361B1005485A3 /* MenuButton.swift */; };
 		0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A8209990CB00B8149D /* Controller.swift */; };
 		0FD6C7AB209990CC00B8149D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A9209990CC00B8149D /* Model.swift */; };
 		0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */; };
@@ -89,6 +96,13 @@
 		0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProfileImageView.swift; sourceTree = "<group>"; };
 		0FA96BD820A3322E005485A3 /* HighscoreSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreSegues.swift; sourceTree = "<group>"; };
 		0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementDetailViewController.swift; sourceTree = "<group>"; };
+		0FA96BDC20A358E7005485A3 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
+		0FA96BDF20A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDataSource.swift; sourceTree = "<group>"; };
+		0FA96BE120A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
+		0FA96BE320A35BE8005485A3 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		0FA96BE620A361B1005485A3 /* Expandable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		0FA96BE720A361B1005485A3 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		0FA96BE820A361B1005485A3 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		0FD6C7A8209990CB00B8149D /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		0FD6C7A9209990CC00B8149D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -190,6 +204,34 @@
 			path = "Highscore TableView";
 			sourceTree = "<group>";
 		};
+		0FA96BDE20A3596E005485A3 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				0FA96BDF20A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift */,
+				0FA96BE120A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift */,
+				0FA96BE320A35BE8005485A3 /* ProfileFriendsTableViewCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		0FA96BE520A361B1005485A3 /* Expendable Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				0FA96BE620A361B1005485A3 /* Expandable.swift */,
+				0FA96BE720A361B1005485A3 /* Direction.swift */,
+			);
+			path = "Expendable Stuff";
+			sourceTree = "<group>";
+		};
+		0FA96BEC20A361B3005485A3 /* Expendable Menu Button */ = {
+			isa = PBXGroup;
+			children = (
+				0FA96BE520A361B1005485A3 /* Expendable Stuff */,
+				0FA96BE820A361B1005485A3 /* MenuButton.swift */,
+			);
+			path = "Expendable Menu Button";
+			sourceTree = "<group>";
+		};
 		0FF2A56520A18D8000486CAC /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +287,7 @@
 		0FF2A58B20A19E8400486CAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0FA96BEC20A361B3005485A3 /* Expendable Menu Button */,
 				0FF2A58C20A19EAE00486CAC /* UIGeoButton.swift */,
 				0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */,
 			);
@@ -408,6 +451,8 @@
 			children = (
 				A397AAFA20878C3500289B7D /* ProfileViewController.swift */,
 				0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */,
+				0FA96BDC20A358E7005485A3 /* ProfileFriendsViewController.swift */,
+				0FA96BDE20A3596E005485A3 /* Friends */,
 				0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */,
 				0FF2A59E20A1DF9100486CAC /* Profile Action Model */,
 				0FF2A59120A1DECC00486CAC /* Profile Achievement CollectionView */,
@@ -678,11 +723,13 @@
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */,
 				0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */,
+				0FA96BE020A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
 				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
 				0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */,
+				0FA96BE920A361B1005485A3 /* Expandable.swift in Sources */,
 				0FA96BCE20A2BDCC005485A3 /* AppColor.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
@@ -692,7 +739,11 @@
 				0FF2A57120A191B600486CAC /* Extension+Date.swift in Sources */,
 				0FF2A56E20A1919F00486CAC /* Achivement.swift in Sources */,
 				0FA96BD520A32228005485A3 /* HighscoreTableViewDelegate.swift in Sources */,
+				0FA96BE220A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift in Sources */,
+				0FA96BEB20A361B1005485A3 /* MenuButton.swift in Sources */,
 				0FF2A58520A1962200486CAC /* Extension+UIColor.swift in Sources */,
+				0FA96BEA20A361B1005485A3 /* Direction.swift in Sources */,
+				0FA96BE420A35BE8005485A3 /* ProfileFriendsTableViewCell.swift in Sources */,
 				0FF2A59920A1DF3100486CAC /* ProfileActionTableViewDataSource.swift in Sources */,
 				179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */,
 				A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */,
@@ -703,6 +754,7 @@
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
 				0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,
+				0FA96BDD20A358E7005485A3 /* ProfileFriendsViewController.swift in Sources */,
 				0FA96BCC20A2BAFC005485A3 /* Extension+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -870,7 +922,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -889,7 +941,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
