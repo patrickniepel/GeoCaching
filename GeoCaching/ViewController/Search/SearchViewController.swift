@@ -9,7 +9,13 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
+    private var cardCollectionViewDelegate : CardCollectionViewDelegate!
+    private var cardCollectionViewDataSource : CardCollectionViewDataSource!
+    
+    @IBOutlet weak var cardCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +37,13 @@ class SearchViewController: UIViewController {
     
     func setupData() {
         
+        cardCollectionViewDelegate = CardCollectionViewDelegate()
+        cardCollectionViewDataSource = CardCollectionViewDataSource()
+        
+        cardCollectionView.dataSource = cardCollectionViewDataSource
+        cardCollectionView.delegate = cardCollectionViewDelegate
+        cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
+        cardCollectionView.backgroundColor = .black
     }
 
 }

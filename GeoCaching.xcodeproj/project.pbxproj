@@ -38,6 +38,11 @@
 		0FF2A59B20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59A20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift */; };
 		0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */; };
 		0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */; };
+		17EE4C6920A31F0300241777 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C6720A31F0300241777 /* CardCollectionViewCell.swift */; };
+		17EE4C6A20A31F0300241777 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EE4C6820A31F0300241777 /* CardCollectionViewCell.xib */; };
+		17EE4C6C20A3246300241777 /* CardCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C6B20A3246300241777 /* CardCollectionViewDelegate.swift */; };
+		17EE4C6E20A3247600241777 /* CardCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C6D20A3247600241777 /* CardCollectionViewDataSource.swift */; };
+		17EE4C7120A3280500241777 /* CardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C7020A3280500241777 /* CardCollectionViewModel.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
@@ -103,6 +108,11 @@
 		0FF2A59A20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionTableViewDelegate.swift; sourceTree = "<group>"; };
 		0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegues.swift; sourceTree = "<group>"; };
 		0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionEntry.swift; sourceTree = "<group>"; };
+		17EE4C6720A31F0300241777 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		17EE4C6820A31F0300241777 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		17EE4C6B20A3246300241777 /* CardCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		17EE4C6D20A3247600241777 /* CardCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		17EE4C7020A3280500241777 /* CardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModel.swift; sourceTree = "<group>"; };
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +275,26 @@
 			path = "Profile Action Model";
 			sourceTree = "<group>";
 		};
+		17EE4C6620A31E3500241777 /* CardCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				17EE4C6F20A327E700241777 /* CardCollectionViewModel */,
+				17EE4C6720A31F0300241777 /* CardCollectionViewCell.swift */,
+				17EE4C6820A31F0300241777 /* CardCollectionViewCell.xib */,
+				17EE4C6B20A3246300241777 /* CardCollectionViewDelegate.swift */,
+				17EE4C6D20A3247600241777 /* CardCollectionViewDataSource.swift */,
+			);
+			path = CardCollectionView;
+			sourceTree = "<group>";
+		};
+		17EE4C6F20A327E700241777 /* CardCollectionViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				17EE4C7020A3280500241777 /* CardCollectionViewModel.swift */,
+			);
+			path = CardCollectionViewModel;
+			sourceTree = "<group>";
+		};
 		3126D2C19F5575A87BD64234 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +384,7 @@
 		A397AAF120878BA300289B7D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				17EE4C6620A31E3500241777 /* CardCollectionView */,
 				A397AAFE20878C4F00289B7D /* SearchViewController.swift */,
 			);
 			path = Search;
@@ -510,6 +541,7 @@
 				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
 				0FF2A57820A192F800486CAC /* Search.storyboard in Resources */,
 				0FF2A57B20A1930300486CAC /* Game.storyboard in Resources */,
+				17EE4C6A20A31F0300241777 /* CardCollectionViewCell.xib in Resources */,
 				0FF2A57D20A1930A00486CAC /* Create.storyboard in Resources */,
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
 				0FF2A58720A19AE900486CAC /* Login.storyboard in Resources */,
@@ -644,15 +676,19 @@
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
+				17EE4C6920A31F0300241777 /* CardCollectionViewCell.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
+				17EE4C6E20A3247600241777 /* CardCollectionViewDataSource.swift in Sources */,
 				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
 				0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */,
 				0FA96BCE20A2BDCC005485A3 /* AppColor.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
+				17EE4C6C20A3246300241777 /* CardCollectionViewDelegate.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
 				0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */,
+				17EE4C7120A3280500241777 /* CardCollectionViewModel.swift in Sources */,
 				0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */,
 				0FF2A59520A1DF0B00486CAC /* ProfileAchievementsCollectionViewDelegate.swift in Sources */,
 				0FF2A57120A191B600486CAC /* Extension+Date.swift in Sources */,
