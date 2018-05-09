@@ -1,5 +1,5 @@
 //
-//  SortMe.swift
+//  ProfileActionEntry.swift
 //  GeoCaching
 //
 //  Created by Marcel Hagmann on 08.05.18.
@@ -8,21 +8,8 @@
 
 import UIKit
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+struct ProfileActionEntry {
+    var name: String
+    var icon: UIImage?
+    var segue: ProfileStoryboardSegue
+}

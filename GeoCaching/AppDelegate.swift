@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
-        window?.rootViewController = UINavigationController.init(rootViewController: loginViewCtrl)
+        let navigationCtrl = UINavigationController(rootViewController: loginViewCtrl)
+        navigationCtrl.navigationBar.barTintColor = AppColor.navigationBar
+        window?.rootViewController = navigationCtrl
         
         return true
     }
@@ -51,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
+
+
+// MARK: - Navigation
 
 extension AppDelegate {
     func createAppTabBarController() -> UITabBarController {

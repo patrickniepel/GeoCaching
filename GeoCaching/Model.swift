@@ -119,15 +119,7 @@ struct Voucher {
     var description: String
     var discount: Int
     var qrCode: UIImage? {
-        let data = description.data(using: .ascii, allowLossyConversion: false)
-        let filter = CIFilter(name: "CIQRCodeGenerator")
-        filter?.setValue(data, forKey: "inputMessage")
-        
-        if let ciImage = filter?.outputImage {
-            let highResolutionCIImageQR = ciImage.transformed(by: CGAffineTransform(scaleX: 20, y: 20))
-            return UIImage(ciImage: highResolutionCIImageQR)
-        }
-        return nil
+        return description.qrCode(withScaleFactor: 20)
     }
 }
 
