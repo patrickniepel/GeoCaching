@@ -23,6 +23,7 @@ class UIGeoButton: UIButton {
     func initialize() {
         self.backgroundColor = AppColor.tint
         self.setTitleColor(AppColor.text, for: .normal)
+        self.layer.cornerRadius = 10
     }
     
 }

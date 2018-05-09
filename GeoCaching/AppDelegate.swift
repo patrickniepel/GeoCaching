@@ -81,10 +81,20 @@ extension AppDelegate {
         let profileVC = profileStoryboard.instantiateViewController(withIdentifier: "storyboardID_profile_vc") as! ProfileViewController
         profileVC.title = "Profile"
         
-        let itemVCs = [searchVC, currentGameVC, createGameVC, highscoreVC, profileVC]
-        uiTabBarVC.viewControllers = itemVCs
+        var itemViewControllers = [searchVC, currentGameVC, createGameVC, highscoreVC, profileVC]
         
-        itemVCs.forEach { (item) in
+        for index in 0..<itemViewControllers.count {
+            let viewCtrl = itemViewControllers[index]
+            let navCtrl = UINavigationController(rootViewController: viewCtrl)
+            navCtrl.navigationBar.barTintColor = AppColor.background
+            navCtrl.navigationBar.tintColor = AppColor.text
+            navCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+            itemViewControllers[index] = navCtrl
+        }
+        
+        uiTabBarVC.viewControllers = itemViewControllers
+        
+        itemViewControllers.forEach { (item) in
             item.view.backgroundColor = .white
         }
         

@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIProfileImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var achievementsTitleLabel: UILabel!
@@ -18,13 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileActionsTableView: UITableView!
     @IBOutlet weak var achievementsCollectionView: UICollectionView!
     
-    private var user = User(id: "the id", username: "GaryVee", userImage: UIImage(named: "gary")!,
-                            isPresenter: false, points: 2_364_477,
-                            earnedAchivements: [Achivement(type: AchivementType.geoSchnitzler),
-                                                Achivement(type: AchivementType.noob),
-                                                Achivement(type: AchivementType.noob),
-                                                Achivement(type: AchivementType.noob),
-                                                Achivement(type: AchivementType.noob)])
+    var user = DummyContent.sharedInstance.currentUser
     
     private var actionTableViewDataSource: ProfileActionTableViewDataSource!
     private var actionTableViewDelegate: ProfileActionTableViewDelegate!
@@ -45,14 +39,10 @@ class ProfileViewController: UIViewController {
     // MARK: - Setup
     
     func setupText() {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.groupingSeparator = "."
-        numberFormatter.numberStyle = .decimal
-        let points = NSNumber(value: user.points)
-        pointsLabel.text = "\(numberFormatter.string(from: points) ?? "0") points"
+        self.title = "Profile"
         
+        pointsLabel.text = user.formattedPoints
         fullnameLabel.text = "\(user.username)"
-        
         titleLabel.text = "(\(Rank.getRank(forPoints: user.points)))"
     }
     
@@ -60,6 +50,15 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
         profileImageView.layer.borderColor = AppColor.tint.cgColor
         profileImageView.layer.borderWidth = 5.0
+        
+        self.view.backgroundColor = AppColor.background
+        pointsLabel.textColor = AppColor.text
+        fullnameLabel.textColor = AppColor.text
+        titleLabel.textColor = AppColor.text
+        achievementsTitleLabel.textColor = AppColor.text
+        
+        profileActionsTableView.backgroundColor = UIColor.clear
+        achievementsCollectionView.backgroundColor = UIColor.clear
     }
     
     func setupData() {
@@ -79,5 +78,11 @@ class ProfileViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: implement
+        if segue.identifier == ProfileStoryboardSegue.achievementDetail.identifier {
+            guard let selectedAchivement = sender as? Achivement, let destVCtrl = segue.destination as? ProfileAchievementDetailViewController else {
+                return
+            }
+            destVCtrl.achievement = selectedAchivement
+        }
     }
 }

@@ -36,6 +36,15 @@ class LoginViewController: UIViewController {
         passwordLabel.textColor = AppColor.text
         usernameLabel.textColor = AppColor.text
         
+        emailTextField.layer.cornerRadius = 20
+        passwordTextField.layer.cornerRadius = 20
+        
+        emailTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderWidth = 1
+        
+        emailTextField.layer.borderColor = AppColor.tint.cgColor
+        passwordTextField.layer.borderColor = AppColor.tint.cgColor
+        
         self.view.backgroundColor = AppColor.background
     }
     
@@ -65,9 +74,6 @@ extension LoginViewController {
     func showGameViewController() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let tabBarCtrl = appDelegate.createAppTabBarController()
-        let navigationCtrl = UINavigationController(rootViewController: tabBarCtrl)
-        navigationCtrl.navigationBar.barTintColor = AppColor.navigationBar
-        navigationCtrl.navigationBar.tintColor = AppColor.text
-        present(navigationCtrl, animated: true)
+        present(tabBarCtrl, animated: true)
     }
 }
