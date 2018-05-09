@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIProfileImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var achievementsTitleLabel: UILabel!
@@ -18,13 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileActionsTableView: UITableView!
     @IBOutlet weak var achievementsCollectionView: UICollectionView!
     
-    private var user = User(id: "the id", username: "GaryVee", userImage: UIImage(named: "gary")!,
-                            isPresenter: false, points: 2_364_477,
-                            earnedAchivements: [Achivement(type: AchivementType.geoSchnitzler),
-                                                Achivement(type: AchivementType.noob),
-                                                Achivement(type: AchivementType.noob),
-                                                Achivement(type: AchivementType.noob),
-                                                Achivement(type: AchivementType.noob)])
+    var user = DummyContent.sharedInstance.currentUser
     
     private var actionTableViewDataSource: ProfileActionTableViewDataSource!
     private var actionTableViewDelegate: ProfileActionTableViewDelegate!
@@ -36,6 +30,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.orange
+        
         setupDesign()
         setupText()
         setupData()
@@ -45,11 +41,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Setup
     
     func setupText() {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.groupingSeparator = "."
-        numberFormatter.numberStyle = .decimal
-        let points = NSNumber(value: user.points)
-        pointsLabel.text = "\(numberFormatter.string(from: points) ?? "0") points"
+        pointsLabel.text = user.formattedPoints
         
         fullnameLabel.text = "\(user.username)"
         

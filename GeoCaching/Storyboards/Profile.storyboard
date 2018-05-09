@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gary" translatesAutoresizingMaskIntoConstraints="NO" id="tqK-hl-3hw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gary" translatesAutoresizingMaskIntoConstraints="NO" id="tqK-hl-3hw" customClass="UIProfileImageView" customModule="GeoCaching" customModuleProvider="target">
                                 <rect key="frame" x="107" y="117" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tqK-hl-3hw" secondAttribute="height" multiplier="1:1" id="Rvb-Y5-lir"/>
@@ -144,7 +144,7 @@
                         <outlet property="fullnameLabel" destination="JsR-J4-IRZ" id="WST-3s-72N"/>
                         <outlet property="pointsLabel" destination="KDf-Ky-vPF" id="3LG-1g-CIO"/>
                         <outlet property="profileActionsTableView" destination="aut-ae-K7O" id="zz8-ks-HFL"/>
-                        <outlet property="profileImageView" destination="tqK-hl-3hw" id="gja-sS-Krs"/>
+                        <outlet property="profileImageView" destination="tqK-hl-3hw" id="1i1-Be-DHt"/>
                         <outlet property="titleLabel" destination="PM5-zc-bDt" id="ria-Vp-vSO"/>
                         <segue destination="RV4-6a-PQx" kind="show" identifier="profileSegueCreatedRoutes" id="NwP-e5-aDI"/>
                         <segue destination="j8m-SA-uGc" kind="show" identifier="profileSegueHistory" id="H7Z-NQ-u16"/>
