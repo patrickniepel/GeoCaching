@@ -101,7 +101,6 @@
                                     <constraint firstAttribute="width" secondItem="FZK-mO-tIG" secondAttribute="height" multiplier="1:1" id="Fnf-hR-7pJ"/>
                                     <constraint firstAttribute="height" constant="60" id="c1X-AM-Xas"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="menuButtonAction:" destination="IZP-6K-N11" eventType="touchUpInside" id="WWQ-4y-aeQ"/>
                                 </connections>

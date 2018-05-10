@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GMSServices.provideAPIKey("AIzaSyAvtNY_CoMXKjIYQN975jUszLAeEkx2gPc")
+        GMSPlacesClient.provideAPIKey("AIzaSyAvtNY_CoMXKjIYQN975jUszLAeEkx2gPc")
         
         FirebaseApp.configure()
         
@@ -93,14 +98,21 @@ extension AppDelegate {
         }
         
         uiTabBarVC.viewControllers = itemViewControllers
+        uiTabBarVC.tabBar.tintColor = AppColor.tint
+        uiTabBarVC.tabBar.barTintColor = AppColor.background
         
         itemViewControllers.forEach { (item) in
             item.view.backgroundColor = .white
         }
         
-        uiTabBarVC.tabBar.items?.forEach({ (item) in
-            item.image = UIImage(named: "apple")
-        })
+        for index in 0..<itemViewControllers.count {
+            let viewCtrl = itemViewControllers[index]
+            if let tabBarItem = uiTabBarVC.tabBar.items?[index] {
+                let lowercasedTitle = viewCtrl.title?.lowercased() ?? ""
+                let iconName = "icon_\(lowercasedTitle)"
+                tabBarItem.image = UIImage(named: iconName)
+            }
+        }
         
         return uiTabBarVC
     }
