@@ -17,6 +17,7 @@
 		0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */; };
 		0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BD820A3322E005485A3 /* HighscoreSegues.swift */; };
 		0FA96BDB20A34D75005485A3 /* ProfileAchievementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */; };
+<<<<<<< HEAD
 		0FA96BDD20A358E7005485A3 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDC20A358E7005485A3 /* ProfileFriendsViewController.swift */; };
 		0FA96BE020A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BDF20A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift */; };
 		0FA96BE220A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE120A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift */; };
@@ -25,6 +26,8 @@
 		0FA96BEA20A361B1005485A3 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE720A361B1005485A3 /* Direction.swift */; };
 		0FA96BEB20A361B1005485A3 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA96BE820A361B1005485A3 /* MenuButton.swift */; };
 		0FA96BEE20A39726005485A3 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FA96BED20A39726005485A3 /* style.json */; };
+=======
+>>>>>>> b868d5a027f5f3267320e17662e3cd367e8575f6
 		0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A8209990CB00B8149D /* Controller.swift */; };
 		0FD6C7AB209990CC00B8149D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6C7A9209990CC00B8149D /* Model.swift */; };
 		0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */; };
@@ -52,14 +55,17 @@
 		0FF2A59B20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59A20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift */; };
 		0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */; };
 		0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */; };
+<<<<<<< HEAD
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
 		17EE4C6920A31F0300241777 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C6720A31F0300241777 /* CardCollectionViewCell.swift */; };
 		17EE4C6A20A31F0300241777 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EE4C6820A31F0300241777 /* CardCollectionViewCell.xib */; };
 		17EE4C6C20A3246300241777 /* CardCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C6B20A3246300241777 /* CardCollectionViewDelegate.swift */; };
 		17EE4C6E20A3247600241777 /* CardCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C6D20A3247600241777 /* CardCollectionViewDataSource.swift */; };
 		17EE4C7120A3280500241777 /* CardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE4C7020A3280500241777 /* CardCollectionViewModel.swift */; };
+=======
 		1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724710D20A392C300DC0AAE /* LoginSegues.swift */; };
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
+>>>>>>> b868d5a027f5f3267320e17662e3cd367e8575f6
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
@@ -104,6 +110,7 @@
 		0FA96BD620A326B7005485A3 /* UIProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProfileImageView.swift; sourceTree = "<group>"; };
 		0FA96BD820A3322E005485A3 /* HighscoreSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreSegues.swift; sourceTree = "<group>"; };
 		0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementDetailViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		0FA96BDC20A358E7005485A3 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
 		0FA96BDF20A359A2005485A3 /* ProfileFriendsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDataSource.swift; sourceTree = "<group>"; };
 		0FA96BE120A35AD3005485A3 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +119,8 @@
 		0FA96BE720A361B1005485A3 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		0FA96BE820A361B1005485A3 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		0FA96BED20A39726005485A3 /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+=======
+>>>>>>> b868d5a027f5f3267320e17662e3cd367e8575f6
 		0FD6C7A8209990CB00B8149D /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		0FD6C7A9209990CC00B8149D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -139,14 +148,17 @@
 		0FF2A59A20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionTableViewDelegate.swift; sourceTree = "<group>"; };
 		0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegues.swift; sourceTree = "<group>"; };
 		0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionEntry.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		179F392D20A32971002BDCEE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		17EE4C6720A31F0300241777 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		17EE4C6820A31F0300241777 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		17EE4C6B20A3246300241777 /* CardCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		17EE4C6D20A3247600241777 /* CardCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		17EE4C7020A3280500241777 /* CardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewModel.swift; sourceTree = "<group>"; };
+=======
 		1724710D20A392C300DC0AAE /* LoginSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSegues.swift; sourceTree = "<group>"; };
 		179F392D20A32971002BDCEE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+>>>>>>> b868d5a027f5f3267320e17662e3cd367e8575f6
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
