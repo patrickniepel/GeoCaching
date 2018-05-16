@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 
 class ProfileAchievementDetailViewController: UIViewController {
     @IBOutlet weak var achievementImageView: UIImageView!
@@ -29,10 +30,14 @@ class ProfileAchievementDetailViewController: UIViewController {
     
     // MARK: - Setup
     
+    private func setupScene() {
+    
+    }
+    
     func setupText() {
         achievementNameLabel.text = achievement.type.title
         achievementDescriptionLabel.text = achievement.type.conditionDescription
-        achievementImageView.image = UIImage(named: "gary")
+        //achievementImageView.image = UIImage(named: "gary")
     }
     
     func setupDesign() {
