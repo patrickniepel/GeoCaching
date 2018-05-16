@@ -16,7 +16,9 @@ enum SearchPopupFilter : Int {
     case local
     case friends
     
-    var filter : String {
+    static var allCases = [SearchPopupFilter.topRated, .distance, .duration, .stations, .local, .friends]
+    
+    var name : String {
         switch self {
             case .topRated:             return "Top Rated"
             case .distance:             return "Distance"
@@ -27,13 +29,7 @@ enum SearchPopupFilter : Int {
         }
     }
     
-    static var count : Int{
-        var max = 0
-        while let _ = SearchPopupFilter(rawValue: max){ max += 1}
-        return max
-    }
-    
     func getCaseByNumber(numberForCase number : Int) -> String{
-        return SearchPopupFilter(rawValue: number)?.filter ?? "Top Rated"
+        return SearchPopupFilter(rawValue: number)?.name ?? "Top Rated"
     }
 }
