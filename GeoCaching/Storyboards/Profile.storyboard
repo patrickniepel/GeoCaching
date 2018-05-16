@@ -225,32 +225,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JsS-rL-zLm">
-                                <rect key="frame" x="16" y="194" width="343" height="343"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpm-LO-GN3" customClass="SCNView">
+                                <rect key="frame" x="16" y="162" width="343" height="343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="JsS-rL-zLm" secondAttribute="height" multiplier="1:1" id="8zd-3E-gPz"/>
+                                    <constraint firstAttribute="width" secondItem="Jpm-LO-GN3" secondAttribute="height" multiplier="1:1" id="HAi-S7-usL"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="15H-VQ-Wcj"/>
                             <constraint firstItem="kF5-Qu-zWt" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="68r-9N-BR9"/>
+                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="centerX" secondItem="hh6-GD-49r" secondAttribute="centerX" id="8KH-vU-TUz"/>
                             <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="dwV-HZ-ATK" secondAttribute="trailing" constant="16" id="8wJ-SG-uJ3"/>
-                            <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="JsS-rL-zLm" secondAttribute="trailing" constant="16" id="DLx-mO-gCH"/>
+                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="centerY" secondItem="hh6-GD-49r" secondAttribute="centerY" id="JL9-J9-hJ5"/>
                             <constraint firstItem="dwV-HZ-ATK" firstAttribute="top" secondItem="kF5-Qu-zWt" secondAttribute="bottom" id="SUO-x1-Fox"/>
                             <constraint firstItem="dwV-HZ-ATK" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="TVZ-kF-k52"/>
                             <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="kF5-Qu-zWt" secondAttribute="trailing" constant="16" id="kC1-kg-Ge6"/>
-                            <constraint firstItem="JsS-rL-zLm" firstAttribute="centerX" secondItem="dEz-tK-pNm" secondAttribute="centerX" id="sbA-sX-unb"/>
                             <constraint firstItem="dEz-tK-pNm" firstAttribute="bottom" secondItem="dwV-HZ-ATK" secondAttribute="bottom" constant="20" id="sgV-6h-hde"/>
-                            <constraint firstItem="JsS-rL-zLm" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="ueZ-aa-tWH"/>
-                            <constraint firstItem="JsS-rL-zLm" firstAttribute="centerY" secondItem="dEz-tK-pNm" secondAttribute="centerY" id="xrO-4P-oRp"/>
+                            <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="Jpm-LO-GN3" secondAttribute="trailing" constant="16" id="vU6-ba-WGa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dEz-tK-pNm"/>
                     </view>
                     <connections>
                         <outlet property="achievementDescriptionLabel" destination="dwV-HZ-ATK" id="ItM-HX-ZkA"/>
-                        <outlet property="achievementImageView" destination="JsS-rL-zLm" id="L1o-2F-Q2W"/>
                         <outlet property="achievementNameLabel" destination="kF5-Qu-zWt" id="cuA-Sd-n17"/>
+                        <outlet property="achievementView" destination="Jpm-LO-GN3" id="AG4-Jj-OZu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="478-sC-c2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
