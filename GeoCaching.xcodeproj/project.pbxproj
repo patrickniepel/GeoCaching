@@ -54,6 +54,11 @@
 		0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */; };
 		0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */; };
 		1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724710D20A392C300DC0AAE /* LoginSegues.swift */; };
+		174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9D320AC0B5000E0A776 /* FilterPopupViewController.swift */; };
+		174EB9D620AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9D520AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift */; };
+		174EB9D820AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9D720AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift */; };
+		174EB9DC20AC12CD00E0A776 /* SearchIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9DB20AC12CD00E0A776 /* SearchIdentifiers.swift */; };
+		174EB9DE20AC168900E0A776 /* SearchPopupFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9DD20AC168900E0A776 /* SearchPopupFilter.swift */; };
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
@@ -136,6 +141,11 @@
 		0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegues.swift; sourceTree = "<group>"; };
 		0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionEntry.swift; sourceTree = "<group>"; };
 		1724710D20A392C300DC0AAE /* LoginSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSegues.swift; sourceTree = "<group>"; };
+		174EB9D320AC0B5000E0A776 /* FilterPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewController.swift; sourceTree = "<group>"; };
+		174EB9D520AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupTableViewDelegate.swift; sourceTree = "<group>"; };
+		174EB9D720AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupTableViewDataSource.swift; sourceTree = "<group>"; };
+		174EB9DB20AC12CD00E0A776 /* SearchIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIdentifiers.swift; sourceTree = "<group>"; };
+		174EB9DD20AC168900E0A776 /* SearchPopupFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopupFilter.swift; sourceTree = "<group>"; };
 		179F392D20A32971002BDCEE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +353,17 @@
 			path = "Profile Action Model";
 			sourceTree = "<group>";
 		};
+		174EB9D220AC0B3200E0A776 /* FilterPopup */ = {
+			isa = PBXGroup;
+			children = (
+				174EB9D320AC0B5000E0A776 /* FilterPopupViewController.swift */,
+				174EB9D520AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift */,
+				174EB9D720AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift */,
+				174EB9DD20AC168900E0A776 /* SearchPopupFilter.swift */,
+			);
+			path = FilterPopup;
+			sourceTree = "<group>";
+		};
 		3126D2C19F5575A87BD64234 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,8 +454,10 @@
 		A397AAF120878BA300289B7D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				174EB9D220AC0B3200E0A776 /* FilterPopup */,
 				0F44FFC520A97BD6007D1093 /* CardCollectionView */,
 				A397AAFE20878C4F00289B7D /* SearchViewController.swift */,
+				174EB9DB20AC12CD00E0A776 /* SearchIdentifiers.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -728,6 +751,7 @@
 				0F44FFC320A97BBD007D1093 /* CardCollectionViewModel.swift in Sources */,
 				0FF2A59320A1DEF700486CAC /* ProfileAchievementsCollectionViewCell.swift in Sources */,
 				0FA96BDB20A34D75005485A3 /* ProfileAchievementDetailViewController.swift in Sources */,
+				174EB9D620AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift in Sources */,
 				0F44FFC020A97BBD007D1093 /* CardCollectionViewCell.swift in Sources */,
 				0FA96BD320A31FCE005485A3 /* HighscoreTableViewDataSource.swift in Sources */,
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
@@ -738,13 +762,17 @@
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */,
 				0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */,
+				174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */,
 				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
 				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
+				174EB9D820AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift in Sources */,
 				0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */,
+				174EB9DC20AC12CD00E0A776 /* SearchIdentifiers.swift in Sources */,
 				0FA96BCE20A2BDCC005485A3 /* AppColor.swift in Sources */,
+				174EB9DE20AC168900E0A776 /* SearchPopupFilter.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
 				0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */,
