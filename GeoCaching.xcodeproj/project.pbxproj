@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */; };
 		0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */; };
+		0F01DDB220AC6F5D0064ED11 /* CreateSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */; };
+		0F01DDB420AC6FDF0064ED11 /* CreateQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDB320AC6FDF0064ED11 /* CreateQuestViewController.swift */; };
+		0F01DDB720AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDB620AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift */; };
+		0F01DDBA20AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDB920AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift */; };
+		0F01DDBC20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDBB20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift */; };
 		0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A42099FB5C00F716E1 /* AuthController.swift */; };
 		0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A62099FBC100F716E1 /* ProfileController.swift */; };
 		0F44FFC020A97BBD007D1093 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44FFBB20A97BBC007D1093 /* CardCollectionViewCell.swift */; };
@@ -103,6 +108,11 @@
 		0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUploadController.swift; sourceTree = "<group>"; };
 		0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageManager.swift; sourceTree = "<group>"; };
+		0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSegues.swift; sourceTree = "<group>"; };
+		0F01DDB320AC6FDF0064ED11 /* CreateQuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestViewController.swift; sourceTree = "<group>"; };
+		0F01DDB620AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICreateAddQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		0F01DDB920AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestAnswerTableViewDataSource.swift; sourceTree = "<group>"; };
+		0F01DDBB20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestAnswerTableViewDelegate.swift; sourceTree = "<group>"; };
 		0F0807A42099FB5C00F716E1 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		0F0807A62099FBC100F716E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		0F44FFBB20A97BBC007D1093 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -215,6 +225,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F01DDB820AC995B0064ED11 /* Create Quest */ = {
+			isa = PBXGroup;
+			children = (
+				0F01DDB320AC6FDF0064ED11 /* CreateQuestViewController.swift */,
+				0F01DDB620AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift */,
+				0F01DDB920AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift */,
+				0F01DDBB20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift */,
+			);
+			path = "Create Quest";
+			sourceTree = "<group>";
+		};
 		0F0807A32099FB5200F716E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,7 +554,9 @@
 		A397AAF720878C0700289B7D /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				0F01DDB820AC995B0064ED11 /* Create Quest */,
 				A397AAF820878C2800289B7D /* CreateViewController.swift */,
+				0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -796,14 +819,17 @@
 				A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */,
 				0F81259720A441BA0045C268 /* Expandable.swift in Sources */,
 				0F81259820A441BA0045C268 /* Direction.swift in Sources */,
+				0F01DDB220AC6F5D0064ED11 /* CreateSegues.swift in Sources */,
 				0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
+				0F01DDB420AC6FDF0064ED11 /* CreateQuestViewController.swift in Sources */,
 				0FA96BD120A31F07005485A3 /* HighscoreTableViewCell.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */,
 				0FA96BD920A3322E005485A3 /* HighscoreSegues.swift in Sources */,
 				174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */,
 				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
+				0F01DDB720AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */,
@@ -826,6 +852,7 @@
 				0FF2A58520A1962200486CAC /* Extension+UIColor.swift in Sources */,
 				0FF2A59920A1DF3100486CAC /* ProfileActionTableViewDataSource.swift in Sources */,
 				179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */,
+				0F01DDBA20AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift in Sources */,
 				A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */,
 				0F44FFC420A97BBD007D1093 /* CardCollectionViewDataSource.swift in Sources */,
 				0F44FFC120A97BBD007D1093 /* CardCollectionViewDelegate.swift in Sources */,
@@ -834,6 +861,7 @@
 				0F81259620A441BA0045C268 /* MenuButton.swift in Sources */,
 				0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */,
 				0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */,
+				0F01DDBC20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift in Sources */,
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
 				0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */,
 				A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */,
@@ -1006,7 +1034,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1025,7 +1053,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -10,14 +10,11 @@ import UIKit
 
 class CreateViewController: UIViewController {
     
-    var testButton = UIButton(frame: CGRect(x: 30, y: 100, width: 200, height: 40))
-    var auth = AuthController()
+    private var gameUploadController: GameUploadController!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        testButton.setTitle("Test me :)", for: .normal)
-        testButton.addTarget(self, action: #selector(testFirebaseMethods), for: .touchUpInside)
-        view.addSubview(testButton)
         
         setupDesign()
         setupText()
@@ -33,32 +30,13 @@ class CreateViewController: UIViewController {
     
     func setupDesign() {
         view.backgroundColor = AppColor.background
-        testButton.backgroundColor = AppColor.right
     }
     
     func setupData() {
-        
+        gameUploadController = GameUploadController()
     }
     
     
-    @objc func testFirebaseMethods() {
-        let email = "hello@web.de"
-        let password = "passwort123"
-//        auth.register(withEmail: email, andPassword: password, username: "Usernameee") { (user, error) in
-//            if let error = error {
-//                self.handleErrorAlert(error: error)
-//            } else if let user = user {
-//                print("User: \(user)")
-//            }
-//        }
-        auth.login(withEmail: email, andPassword: password) { (user, error) in
-            if let error = error {
-                self.handleErrorAlert(error: error)
-            } else if let user = user {
-                print("User: \(user)")
-            }
-        }
-    }
     
     func handleErrorAlert(error: Error) {
         var errorMessage = ""
