@@ -56,6 +56,11 @@
 		1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724710D20A392C300DC0AAE /* LoginSegues.swift */; };
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
+		A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */ = {isa = PBXBuildFile; fileRef = A33C82CD20AC0C2B005762C2 /* testy2.dae */; };
+		A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */; };
+		A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */; };
+		A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */; };
+		A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
 		A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC82087645400289B7D /* LaunchScreen.storyboard */; };
@@ -141,6 +146,11 @@
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9BC2814B3EEFEE0447FCDC88 /* Pods-GeoCaching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.release.xcconfig"; sourceTree = "<group>"; };
+		A33C82CD20AC0C2B005762C2 /* testy2.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = testy2.dae; sourceTree = "<group>"; };
+		A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
+		A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
+		A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDataSource.swift; sourceTree = "<group>"; };
+		A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A397AABC2087645300289B7D /* GeoCaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A397AABF2087645300289B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A397AAC62087645400289B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -366,6 +376,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A33C82CC20AC0C10005762C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A33C82CD20AC0C2B005762C2 /* testy2.dae */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A33C82D220AC10FD005762C2 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */,
+				A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */,
+				A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
 		A397AAB32087645300289B7D = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +428,7 @@
 				0FF2A57620A192E300486CAC /* Storyboards */,
 				0FF2A58E20A19FB800486CAC /* ViewController */,
 				0FF2A58B20A19E8400486CAC /* Views */,
+				A33C82CC20AC0C10005762C2 /* Resources */,
 				A397AABF2087645300289B7D /* AppDelegate.swift */,
 				A397AAC82087645400289B7D /* LaunchScreen.storyboard */,
 				0FD6C7AD209992D600B8149D /* GoogleService-Info.plist */,
@@ -460,6 +489,8 @@
 		A397AAF620878C0100289B7D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A33C82D220AC10FD005762C2 /* Friends */,
+				A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */,
 				A397AAFA20878C3500289B7D /* ProfileViewController.swift */,
 				0FA96BDA20A34D75005485A3 /* ProfileAchievementDetailViewController.swift */,
 				0FF2A59C20A1DF8200486CAC /* ProfileSegues.swift */,
@@ -592,6 +623,7 @@
 				0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */,
 				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
 				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
+				A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */,
 				0F44FFC220A97BBD007D1093 /* CardCollectionViewCell.xib in Resources */,
 				0FF2A57820A192F800486CAC /* Search.storyboard in Resources */,
 				0FF2A57B20A1930300486CAC /* Game.storyboard in Resources */,
@@ -731,6 +763,7 @@
 				0F44FFC020A97BBD007D1093 /* CardCollectionViewCell.swift in Sources */,
 				0FA96BD320A31FCE005485A3 /* HighscoreTableViewDataSource.swift in Sources */,
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
+				A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */,
 				0F81259720A441BA0045C268 /* Expandable.swift in Sources */,
 				0F81259820A441BA0045C268 /* Direction.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
@@ -741,8 +774,10 @@
 				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
 				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
+				A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
 				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
+				A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */,
 				0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */,
 				0FA96BCE20A2BDCC005485A3 /* AppColor.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
@@ -765,6 +800,7 @@
 				0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */,
 				0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */,
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
+				A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */,
 				0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,
 				0FA96BCC20A2BAFC005485A3 /* Extension+String.swift in Sources */,
