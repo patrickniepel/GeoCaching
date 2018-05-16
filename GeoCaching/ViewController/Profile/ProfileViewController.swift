@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var pointsLabel: UILabel!
@@ -26,9 +27,20 @@ class ProfileViewController: UIViewController {
     private var achievementsCollectionViewDataSource: ProfileAchievementsCollectionViewDataSource!
     private var achievementsCollectionViewDelegate: ProfileAchievementsCollectionViewDelegate!
     
+    var gameUploadController: GameUploadController!
+    
+    @IBAction func testAction(_ sender: UIButton) {
+        let quest = Quest(answers: ["Antwort 1", "Antwort 2"], question: "Hier steht die Frage", image: UIImage(named: "apple"),
+                          questionType: QuestionType.number, locationPolygonPoints: [CLLocationCoordinate2D(latitude: 123.222, longitude: 111.222)])
+        gameUploadController.upload(quest: quest) { (error) in
+            print("Quest upload error: \(error)")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameUploadController = GameUploadController()
         
         setupDesign()
         setupText()

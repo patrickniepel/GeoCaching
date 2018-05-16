@@ -61,14 +61,13 @@ struct GameController {
     var delegate: GameDelegate?
     
     func downloadGames(withFilter filter: Filter, userWhoRequest user: User) {
-        let game = Game(id: "1111",
-                        name: "Hof Adventure",
+        let game = Game(name: "Hof Adventure",
                         shortDescription: "Die besten Plätze rund um Hof",
                         longDescription: "Hier steht die lange Beschreibung",
                         categories: [.nature, .city, .under10km],
-                        duration: 97,
-                        legth: 2.7,
-                        image: nil, raiting: 21, quests: [])
+                        duration: 97, length: 2.7,
+                        image: nil,
+                        rating: 21, quests: [])
         delegate?.downloaded(games: [game])
     }
 }
