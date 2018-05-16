@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */; };
+		0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */; };
 		0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A42099FB5C00F716E1 /* AuthController.swift */; };
 		0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A62099FBC100F716E1 /* ProfileController.swift */; };
 		0F44FFC020A97BBD007D1093 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44FFBB20A97BBC007D1093 /* CardCollectionViewCell.swift */; };
@@ -99,6 +101,8 @@
 
 /* Begin PBXFileReference section */
 		0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUploadController.swift; sourceTree = "<group>"; };
+		0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageManager.swift; sourceTree = "<group>"; };
 		0F0807A42099FB5C00F716E1 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		0F0807A62099FBC100F716E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		0F44FFBB20A97BBC007D1093 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 			children = (
 				0F0807A42099FB5C00F716E1 /* AuthController.swift */,
 				0F0807A62099FBC100F716E1 /* ProfileController.swift */,
+				0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */,
+				0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -790,6 +796,7 @@
 				A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */,
 				0F81259720A441BA0045C268 /* Expandable.swift in Sources */,
 				0F81259820A441BA0045C268 /* Direction.swift in Sources */,
+				0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
 				0FA96BD120A31F07005485A3 /* HighscoreTableViewCell.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
@@ -828,6 +835,7 @@
 				0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */,
 				0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */,
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
+				0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */,
 				A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */,
 				0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,

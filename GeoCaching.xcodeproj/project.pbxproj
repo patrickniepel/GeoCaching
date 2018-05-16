@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */; };
+		0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */; };
 		0F0807A52099FB5C00F716E1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A42099FB5C00F716E1 /* AuthController.swift */; };
 		0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0807A62099FBC100F716E1 /* ProfileController.swift */; };
 		0F44FFC020A97BBD007D1093 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44FFBB20A97BBC007D1093 /* CardCollectionViewCell.swift */; };
@@ -76,6 +78,7 @@
 		A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFA20878C3500289B7D /* ProfileViewController.swift */; };
 		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
 		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
+		A39B091020AC623700D46CFD /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B090F20AC623700D46CFD /* Extension+ViewController.swift */; };
 		C6570B03F6D8B8FE57A2B878 /* Pods_GeoCachingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */; };
 		FB6B52F867EBAE1EAFCCDFC0 /* Pods_GeoCachingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -99,6 +102,8 @@
 
 /* Begin PBXFileReference section */
 		0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUploadController.swift; sourceTree = "<group>"; };
+		0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageManager.swift; sourceTree = "<group>"; };
 		0F0807A42099FB5C00F716E1 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		0F0807A62099FBC100F716E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		0F44FFBB20A97BBC007D1093 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +182,7 @@
 		A397AAFA20878C3500289B7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A39B090F20AC623700D46CFD /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
 		A3CEEA0C7C73D21A706ADBA8 /* Pods-GeoCachingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B27B21375A2FFB33B41C99 /* Pods-GeoCaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +222,8 @@
 			children = (
 				0F0807A42099FB5C00F716E1 /* AuthController.swift */,
 				0F0807A62099FBC100F716E1 /* ProfileController.swift */,
+				0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */,
+				0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +294,7 @@
 				0FF2A57020A191B600486CAC /* Extension+Date.swift */,
 				0FF2A58420A1962200486CAC /* Extension+UIColor.swift */,
 				0FA96BCB20A2BAFC005485A3 /* Extension+String.swift */,
+				A39B090F20AC623700D46CFD /* Extension+ViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -790,6 +799,7 @@
 				A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */,
 				0F81259720A441BA0045C268 /* Expandable.swift in Sources */,
 				0F81259820A441BA0045C268 /* Direction.swift in Sources */,
+				0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
 				0FA96BD120A31F07005485A3 /* HighscoreTableViewCell.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
@@ -815,6 +825,7 @@
 				0FF2A59520A1DF0B00486CAC /* ProfileAchievementsCollectionViewDelegate.swift in Sources */,
 				0FF2A57120A191B600486CAC /* Extension+Date.swift in Sources */,
 				0FF2A56E20A1919F00486CAC /* Achivement.swift in Sources */,
+				A39B091020AC623700D46CFD /* Extension+ViewController.swift in Sources */,
 				0FA96BD520A32228005485A3 /* HighscoreTableViewDelegate.swift in Sources */,
 				0FF2A58520A1962200486CAC /* Extension+UIColor.swift in Sources */,
 				0FF2A59920A1DF3100486CAC /* ProfileActionTableViewDataSource.swift in Sources */,
@@ -828,6 +839,7 @@
 				0FD6C7AA209990CC00B8149D /* Controller.swift in Sources */,
 				0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */,
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
+				0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */,
 				A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */,
 				0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,
