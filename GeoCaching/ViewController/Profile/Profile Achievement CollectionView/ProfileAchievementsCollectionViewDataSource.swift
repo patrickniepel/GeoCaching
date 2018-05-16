@@ -24,6 +24,7 @@ class ProfileAchievementsCollectionViewDataSource: NSObject, UICollectionViewDat
         
         let achievement = getAchievement(atIndexPath: indexPath)
         cell.achievementImageView.image = UIImage(named: "gary")
+        cell.setup()
         
         return cell
     }
