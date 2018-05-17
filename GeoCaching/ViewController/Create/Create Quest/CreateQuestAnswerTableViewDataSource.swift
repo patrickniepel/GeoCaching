@@ -11,6 +11,18 @@ import UIKit
 class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
     var answers: [String] = []
     
+    override init() {
+        super.init()
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(didEnteredAnswer(_:)), name: NSNotification.Name.didAddQuestAnswer, object: nil)
+    }
+    
+    deinit {
+        let nc = NotificationCenter.default
+        nc.removeObserver(self, name: NSNotification.Name.didAddQuestAnswer, object: nil)
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count + 1 // + 1 für die Add-question Celle
     }
@@ -23,7 +35,6 @@ class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
             cell.titleLabel.textColor = AppColor.text
             cell.addQuestionButton.tintColor = AppColor.tint
             cell.backgroundColor = AppColor.background
-            cell.delegate = self
             
             return cell
         } else {
@@ -40,14 +51,18 @@ class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
     func isAddAnswerCell(indexPath: IndexPath) -> Bool {
         return answers.count == indexPath.row
     }
-}
-
-extension CreateQuestAnswerTableViewDataSource: UICreateAddQuestionTableViewCellDelegate {
-    func didEntered(answer: String, inTableView tableView: UITableView) {
-        if !answer.isEmpty {
-            answers.append(answer)
-            let lastIndex = IndexPath(row: answers.count-1, section: 0)
-            tableView.insertRows(at: [lastIndex], with: .right)
+    
+    @objc private func didEnteredAnswer(_ notification: Notification) {
+        if let answer = notification.userInfo?["newAnswer"] as? String,
+            let tableView = notification.userInfo?["tableView"] as? UITableView {
+            
+            if !answer.isEmpty {
+                answers.append(answer)
+                let lastIndex = IndexPath(row: answers.count-1, section: 0)
+                tableView.insertRows(at: [lastIndex], with: .right)
+            }
         }
+        print("in here 1 :)")
     }
 }
+

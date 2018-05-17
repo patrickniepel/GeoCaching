@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol UICreateAddQuestionTableViewCellDelegate {
-    func didEntered(answer: String, inTableView tableView: UITableView)
-}
-
 class UICreateAddQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var answerInpputTextField: UITextField!
     @IBOutlet weak var addQuestionButton: UIButton!
     
-    var delegate: UICreateAddQuestionTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,10 +26,10 @@ class UICreateAddQuestionTableViewCell: UITableViewCell {
     }
 
     @IBAction func addAnswerAction(_ sender: UIButton) {
-        print("add question action")
         if let answer = answerInpputTextField.text, let tableView = self.superview as? UITableView {
-            print("\(self.superview)")
-            delegate?.didEntered(answer: answer, inTableView: tableView)
+            let nc = NotificationCenter.default
+            nc.post(name: NSNotification.Name.didAddQuestAnswer, object: self, userInfo: ["newAnswer":answer,
+                                                                                          "tableView": tableView])
         }
         answerInpputTextField.text = ""
     }

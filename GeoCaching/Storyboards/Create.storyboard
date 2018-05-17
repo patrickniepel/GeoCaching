@@ -160,6 +160,14 @@
                                     <constraint firstAttribute="width" secondItem="flx-1P-nhj" secondAttribute="height" multiplier="1:1" id="ybm-BE-sxY"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbl-P6-UPc">
+                                <rect key="frame" x="16" y="409" width="144" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Auf Map einzeichnen"/>
+                                <connections>
+                                    <segue destination="8jM-4d-LKt" kind="show" identifier="createSegueAddQuestArea" id="IXh-5S-T98"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -195,6 +203,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ME6-8X-wcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504.8" y="26.53673163418291"/>
+        </scene>
+        <!--Draw Quest Area View Controller-->
+        <scene sceneID="H5z-qY-WXS">
+            <objects>
+                <viewController id="8jM-4d-LKt" customClass="DrawQuestAreaViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cy2-wu-Ewc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o4f-Ti-cFw">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GX9-as-vBj">
+                                        <rect key="frame" x="-2" y="0.0" width="285" height="31"/>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VX9-FD-uDQ">
+                                        <rect key="frame" x="301" y="0.0" width="42" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o4f-Ti-cFw" firstAttribute="leading" secondItem="SX7-eV-jpW" secondAttribute="leading" constant="16" id="Wvz-Ug-yRH"/>
+                            <constraint firstItem="SX7-eV-jpW" firstAttribute="trailing" secondItem="o4f-Ti-cFw" secondAttribute="trailing" constant="16" id="gGL-JD-X1h"/>
+                            <constraint firstItem="SX7-eV-jpW" firstAttribute="bottom" secondItem="o4f-Ti-cFw" secondAttribute="bottom" constant="20" id="uBa-uo-7S3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SX7-eV-jpW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LI-lE-o1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2554" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HOv-q1-8ne">

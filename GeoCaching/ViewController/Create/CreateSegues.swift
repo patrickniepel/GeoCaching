@@ -10,10 +10,12 @@ import Foundation
 
 enum CreateStoryboardSegue {
     case createQuest
+    case addQuestArea
     
     var identifier: String {
         switch self {
         case .createQuest: return "createSegueCreateQuest"
+        case .addQuestArea: return "createSegueAddQuestArea"
         }
     }
 }
