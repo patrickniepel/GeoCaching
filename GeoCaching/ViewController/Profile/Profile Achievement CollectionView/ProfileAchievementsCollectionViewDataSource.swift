@@ -23,8 +23,8 @@ class ProfileAchievementsCollectionViewDataSource: NSObject, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProfileAchievementsCollectionViewCell
         
         let achievement = getAchievement(atIndexPath: indexPath)
-        cell.achievementImageView.image = UIImage(named: "gary")
-        cell.setup()
+        let imageName = AchievementController().getAchievementImageName(for: achievement)
+        cell.achievementImageView.image = UIImage(named: imageName)
         
         return cell
     }

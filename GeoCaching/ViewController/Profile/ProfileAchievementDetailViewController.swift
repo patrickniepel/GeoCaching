@@ -22,32 +22,23 @@ class ProfileAchievementDetailViewController: UIViewController {
         
         self.title = achievement.type.title
         
-        //setupScene()
+        setupScene()
         setupDesign()
         setupText()
         setupData()
-  
     }
-    
-    override func viewDidLayoutSubviews() {
-        setupScene()
-    }
-    
-    
+
     // MARK: - Setup
     
     private func setupScene() {
-        let scene = SCNScene(named: "testy2.dae")
         
-       
-        
-
+        let sceneName = AchievementController().getSceneName(for: achievement)
+        let scene = SCNScene(named: sceneName)
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera();
-        cameraNode.position = SCNVector3(0, 0, 3)
+        cameraNode.position = SCNVector3(0, 0, 4)
         scene?.rootNode.addChildNode(cameraNode)
-
         
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
@@ -55,19 +46,12 @@ class ProfileAchievementDetailViewController: UIViewController {
         lightNode.position = SCNVector3(0, 5, 10)
         scene?.rootNode.addChildNode(lightNode)
 
-        
-        
-        let rotateAction = SCNAction.repeatForever(SCNAction.rotate(by: 130, around: SCNVector3Make(0, 0, 1), duration: 100))
+        let rotateAction = SCNAction.repeatForever(SCNAction.rotate(by: 130, around: SCNVector3Make(1, 1, 1), duration: 100))
         scene?.rootNode.runAction(rotateAction)
 
-        
         achievementView.allowsCameraControl = true
         achievementView.scene = scene
         achievementView.backgroundColor = AppColor.background
-
-       
-        
-       
     }
     
     func setupText() {
