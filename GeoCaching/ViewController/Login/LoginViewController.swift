@@ -7,9 +7,14 @@
 //
 
 import UIKit
+//import NVActivityIndicatorView
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController , NVActivityIndicatorViewable{
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -22,7 +27,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButtonOutlet: UIGeoButton!
     @IBOutlet weak var registerButtonOutlet: UIButton!
     
+    @IBOutlet weak var indicatorView: NVActivityIndicatorView!
+    
     let authController = AuthController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +44,8 @@ class LoginViewController: UIViewController {
     // MARK: - Setup
     
     func setupText() {
+        
+        title = "Welcome"
         
     }
     
@@ -61,10 +71,18 @@ class LoginViewController: UIViewController {
         emailSeparatorView.backgroundColor = AppColor.tint
         passwordSeparatorView.backgroundColor = AppColor.tint
         
+        indicatorView.type = .pacman
+        indicatorView.color = AppColor.tint
+        indicatorView.layer.cornerRadius = 10
+        //      indicatorView.backgroundColor = AppColor.background
+        
     }
-
+    
     
     func setupData() {
+        
+        
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -84,36 +102,27 @@ class LoginViewController: UIViewController {
     
     func loginUser(){
         
+        indicatorView.startAnimating()
+        
         loginButtonOutlet.isEnabled = false
+        
         
         authController.login(withEmail: emailTextField.text!, andPassword: passwordTextField.text!) {
             (user, error) in
             
             if let error = error{
-                self.handleErrorAlert(error: error)
+                //self.handleErrorAlert(error: error)
+                self.handleErrorPopupDialog(error: error)
                 self.loginButtonOutlet.isEnabled = true
             }else if let user = user{
                 print(user)
                 self.showGameViewController()
             }
+            
+            self.indicatorView.stopAnimating()
         }
     }
     
-    func handleErrorAlert(error: Error) {
-        var errorMessage = ""
-        
-        if let authError = error as? AuthError {
-            errorMessage = authError.localizedDescription
-        } else if let profileError = error as? ProfileError {
-            errorMessage = profileError.localizedDescription
-        } else {
-            errorMessage = error.localizedDescription
-        }
-        
-        let errorAlert = UIAlertController(title: "Error occured", message: "\(errorMessage)", preferredStyle: .alert)
-        errorAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        present(errorAlert, animated: true)
-    }
 }
 
 
@@ -122,6 +131,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     @IBAction func loginAction(_ sender: UIButton) {
         print("login")
+        
         loginUser()
     }
     
