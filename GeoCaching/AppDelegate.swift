@@ -91,7 +91,7 @@ extension AppDelegate {
         for index in 0..<itemViewControllers.count {
             let viewCtrl = itemViewControllers[index]
             let navCtrl = UINavigationController(rootViewController: viewCtrl)
-            navCtrl.navigationBar.barTintColor = AppColor.background
+            navCtrl.navigationBar.barTintColor = AppColor.navigationBar
             navCtrl.navigationBar.tintColor = AppColor.text
             navCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
             itemViewControllers[index] = navCtrl

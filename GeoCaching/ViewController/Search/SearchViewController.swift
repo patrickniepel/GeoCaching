@@ -10,43 +10,33 @@ import UIKit
 
 class SearchViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
+    // MARK: - Private Properties
+    
     private var cardCollectionViewDelegate : CardCollectionViewDelegate!
     private var cardCollectionViewDataSource : CardCollectionViewDataSource!
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var cardCollectionView: UICollectionView!
     @IBOutlet weak var filterBarButttonItem: UIBarButtonItem!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    // MARK: - IBActions
+    
+    @IBAction func changeSearchScreen(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupDesign()
         setupText()
         setupData()
-    }
-    
-    
-    // MARK: - Setup
-
-    func setupText() {
+        setupDesign()
         
     }
     
-    func setupDesign() {
-        filterBarButttonItem.tintColor = AppColor.tint
-    }
-    
-    func setupData() {
-        
-        cardCollectionViewDelegate = CardCollectionViewDelegate()
-        cardCollectionViewDataSource = CardCollectionViewDataSource()
-        
-        cardCollectionView.dataSource = cardCollectionViewDataSource
-        cardCollectionView.delegate = cardCollectionViewDelegate
-        cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
-        cardCollectionView.backgroundColor = .black
-    }
-    
-    // MARK: - Segues
+    // MARK: - Segues/Presentation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == SearchIdentifiers.segue2FilterPopup.identifier{
@@ -61,6 +51,35 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+// MARK: - Setup
+
+extension SearchViewController{
+    
+    func setupText() {
+        segmentedControl.setTitle("Search", forSegmentAt: 0)
+        segmentedControl.setTitle("Map", forSegmentAt: 1)
+    }
+    
+    func setupDesign() {
+        self.view.backgroundColor = AppColor.background
+        filterBarButttonItem.tintColor = AppColor.tint
+        segmentedControl.backgroundColor = UIColor.clear
+        segmentedControl.tintColor = AppColor.tint
+        cardCollectionView.backgroundColor = AppColor.background
+    }
+    
+    func setupData() {
+        
+        cardCollectionViewDelegate = CardCollectionViewDelegate()
+        cardCollectionViewDataSource = CardCollectionViewDataSource()
+        
+        cardCollectionView.dataSource = cardCollectionViewDataSource
+        cardCollectionView.delegate = cardCollectionViewDelegate
+        cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
+        
     }
     
 }

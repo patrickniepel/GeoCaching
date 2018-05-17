@@ -17,12 +17,6 @@ class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondIconLabel: UILabel!
     @IBOutlet weak var cardTitleLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
-//    @IBOutlet weak var sideLabelView: UIView!{
-//        didSet{
-//            let rotateBy = CGFloat(Measurement(value: 35, unit: UnitAngle.degrees).converted(to: .radians).value)
-//            sideLabelView.transform = CGAffineTransform(rotationAngle: rotateBy)
-//        }
-//    }
     
     
     
