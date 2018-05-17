@@ -30,13 +30,13 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mqY-ax-euc" userLabel="FirstIconImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_clock" translatesAutoresizingMaskIntoConstraints="NO" id="mqY-ax-euc" userLabel="FirstIconImageView">
                         <rect key="frame" x="20" y="20" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="mqY-ax-euc" secondAttribute="height" multiplier="1:1" id="WdL-jw-uQP"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-dP-zit" userLabel="SecondIconImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_walking" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-dP-zit" userLabel="SecondIconImageView">
                         <rect key="frame" x="135.66666666666666" y="20" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="p9P-dP-zit" secondAttribute="height" multiplier="1:1" id="5PR-kl-n3I"/>
@@ -115,6 +115,8 @@
     </objects>
     <resources>
         <image name="banner" width="60" height="60"/>
+        <image name="icon_clock" width="18" height="18"/>
+        <image name="icon_walking" width="12" height="18"/>
         <image name="yoga" width="5269" height="3513"/>
     </resources>
 </document>

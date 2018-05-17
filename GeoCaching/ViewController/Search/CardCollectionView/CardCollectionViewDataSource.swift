@@ -10,7 +10,7 @@ import UIKit
 
 class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    var exampleArray : [CardCollectionViewModel] = [CardCollectionViewModel(backgroundImageView: UIImage(named: "yoga"), icon1: UIImage(named: "abc"),icon1Text: "1h 27 min",icon2: UIImage(named: "def"), icon2Text: "2.82 km", cardTitle: "Dies ist der beste Titel", cardDescription: "Und dies die beste Beschreibung")]
+    var exampleArray : [CardCollectionViewModel] = [CardCollectionViewModel(backgroundImageView: UIImage(named: "yoga"), icon1: UIImage(named: "icon_clock"),icon1Text: "1h 27 min",icon2: UIImage(named: "icon_walking"), icon2Text: "2.82 km", cardTitle: "Dies ist der beste Titel", cardDescription: "Und dies die beste Beschreibung")]
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,7 +34,7 @@ class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func addExampleModels(){
         for _ in 0..<5 {
-            exampleArray.append(CardCollectionViewModel(backgroundImageView: UIImage(named: "yoga"), icon1: UIImage(named: "abc"),icon1Text: "1h 27 min",icon2: UIImage(named: "def"), icon2Text: "2.82 km", cardTitle: "Dies ist der beste Titel", cardDescription: "Und dies die beste Beschreibung"))
+            exampleArray.append(CardCollectionViewModel(backgroundImageView: UIImage(named: "yoga"), icon1: UIImage(named: "icon_clock"),icon1Text: "1h 27 min",icon2: UIImage(named: "icon_walking"), icon2Text: "2.82 km", cardTitle: "Dies ist der beste Titel", cardDescription: "Und dies die beste Beschreibung"))
         }
     }
     
