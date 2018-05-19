@@ -73,10 +73,5 @@ struct GameController {
 }
 
 
-// MARK: - Create Game
-
-struct CreateGameController {
-}
-
 
 

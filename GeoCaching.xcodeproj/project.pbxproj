@@ -63,6 +63,7 @@
 		0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */; };
 		0FFF636920AD26E600C8F955 /* DrawQuestAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF636820AD26E600C8F955 /* DrawQuestAreaViewController.swift */; };
 		0FFF636B20AD55CD00C8F955 /* Extension+NSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF636A20AD55CD00C8F955 /* Extension+NSNotification.swift */; };
+		0FFF636D20AD5DC900C8F955 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF636C20AD5DC900C8F955 /* CreateGameController.swift */; };
 		1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1724710D20A392C300DC0AAE /* LoginSegues.swift */; };
 		174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9D320AC0B5000E0A776 /* FilterPopupViewController.swift */; };
 		174EB9D620AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9D520AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift */; };
@@ -82,7 +83,7 @@
 		A397AAD52087645400289B7D /* GeoCachingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAD42087645400289B7D /* GeoCachingTests.swift */; };
 		A397AAE02087645500289B7D /* GeoCachingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AADF2087645500289B7D /* GeoCachingUITests.swift */; };
 		A397AAF420878BD500289B7D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF320878BD500289B7D /* GameViewController.swift */; };
-		A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF820878C2800289B7D /* CreateViewController.swift */; };
+		A397AAF920878C2800289B7D /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF820878C2800289B7D /* CreateGameViewController.swift */; };
 		A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFA20878C3500289B7D /* ProfileViewController.swift */; };
 		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
 		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
@@ -166,6 +167,7 @@
 		0FF2A59F20A1DFB400486CAC /* ProfileActionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionEntry.swift; sourceTree = "<group>"; };
 		0FFF636820AD26E600C8F955 /* DrawQuestAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawQuestAreaViewController.swift; sourceTree = "<group>"; };
 		0FFF636A20AD55CD00C8F955 /* Extension+NSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSNotification.swift"; sourceTree = "<group>"; };
+		0FFF636C20AD5DC900C8F955 /* CreateGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
 		1724710D20A392C300DC0AAE /* LoginSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSegues.swift; sourceTree = "<group>"; };
 		174EB9D320AC0B5000E0A776 /* FilterPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewController.swift; sourceTree = "<group>"; };
 		174EB9D520AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -194,7 +196,7 @@
 		A397AADF2087645500289B7D /* GeoCachingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCachingUITests.swift; sourceTree = "<group>"; };
 		A397AAE12087645500289B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A397AAF320878BD500289B7D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		A397AAF820878C2800289B7D /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		A397AAF820878C2800289B7D /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		A397AAFA20878C3500289B7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */,
 				0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */,
 				0F01DDBD20AC9B9E0064ED11 /* CreateQuestController.swift */,
+				0FFF636C20AD5DC900C8F955 /* CreateGameController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -575,7 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				0F01DDB820AC995B0064ED11 /* Create Quest */,
-				A397AAF820878C2800289B7D /* CreateViewController.swift */,
+				A397AAF820878C2800289B7D /* CreateGameViewController.swift */,
 				0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */,
 			);
 			path = Create;
@@ -838,6 +841,7 @@
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
 				A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */,
 				0F81259720A441BA0045C268 /* Expandable.swift in Sources */,
+				0FFF636D20AD5DC900C8F955 /* CreateGameController.swift in Sources */,
 				0F81259820A441BA0045C268 /* Direction.swift in Sources */,
 				0F01DDB220AC6F5D0064ED11 /* CreateSegues.swift in Sources */,
 				0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */,
@@ -850,7 +854,7 @@
 				174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */,
 				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
 				0F01DDB720AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift in Sources */,
-				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
+				A397AAF920878C2800289B7D /* CreateGameViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,

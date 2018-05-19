@@ -140,6 +140,7 @@ extension CreateQuestViewController: UIImagePickerControllerDelegate, UINavigati
 
 
 // MARK: - Create Quest Controller Delegate
+
 extension CreateQuestViewController: CreateQuestControllerDelegate {
     func canCreateQuest(canCreate: Bool) {
         navigationItem.rightBarButtonItem?.isEnabled = canCreate

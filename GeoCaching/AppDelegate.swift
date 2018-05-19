@@ -75,7 +75,7 @@ extension AppDelegate {
         currentGameVC.title = "Game"
         
         let createStoryboard = UIStoryboard(name: "Create", bundle: nil)
-        let createGameVC = createStoryboard.instantiateViewController(withIdentifier: "storyboardID_create_vc") as! CreateViewController
+        let createGameVC = createStoryboard.instantiateViewController(withIdentifier: "storyboardID_create_vc") as! CreateGameViewController
         createGameVC.title = "Create"
         
         let highscoreStoryboard = UIStoryboard(name: "Highscore", bundle: nil)
