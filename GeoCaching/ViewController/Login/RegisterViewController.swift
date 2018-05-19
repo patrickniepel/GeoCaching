@@ -9,7 +9,7 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,6 +26,10 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var registerButtonOutlet: UIButton!
     
+    @IBOutlet weak var indicatorView: NVActivityIndicatorView!
+    
+    
+    
     var authController = AuthController()
     
     var emailText = ""
@@ -33,14 +37,14 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupDesign()
         setupText()
         setupData()
         
         hideKeyboardWhenTappedAround()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,14 +70,19 @@ class RegisterViewController: UIViewController {
         usernameSeparatorView.backgroundColor = AppColor.tint
         emailSeparatorView.backgroundColor = AppColor.tint
         passwordSeparatorView.backgroundColor = AppColor.tint
-    
+        
         usernameTextField.tintColor = AppColor.tint
         emailTextField.tintColor = AppColor.tint
         passwordTextField.tintColor = AppColor.tint
         
+        indicatorView.type = .pacman
+        indicatorView.color = AppColor.tint
+        indicatorView.layer.cornerRadius = 10
+        
     }
-
+    
     func setupText() {
+        title = "Register"
         
     }
     
@@ -87,8 +96,11 @@ class RegisterViewController: UIViewController {
         passwordTextField.text = passwordText
         
     }
-
+    
     func registerUser() {
+        
+        indicatorView.startAnimating()
+        
         print("Register User")
         registerButtonOutlet.isEnabled = false
         
@@ -96,31 +108,16 @@ class RegisterViewController: UIViewController {
             (user, error) in
             
             if let error = error{
-                self.handleErrorAlert(error: error)
+                self.handleErrorPopupDialog(error: error)
                 self.registerButtonOutlet.isEnabled = true
             }else if let user = user{
                 print("Hello \(user)")
                 self.showGameViewController()
             }
+            
+            self.indicatorView.stopAnimating()
         }
     }
-
-    func handleErrorAlert(error: Error) {
-        var errorMessage = ""
-        
-        if let authError = error as? AuthError {
-            errorMessage = authError.localizedDescription
-        } else if let profileError = error as? ProfileError {
-            errorMessage = profileError.localizedDescription
-        } else {
-            errorMessage = error.localizedDescription
-        }
-        
-        let errorAlert = UIAlertController(title: "Error occured", message: "\(errorMessage)", preferredStyle: .alert)
-        errorAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        present(errorAlert, animated: true)
-    }
-    
 }
 
 
@@ -182,3 +179,4 @@ extension RegisterViewController: UITextFieldDelegate {
         return false
     }
 }
+

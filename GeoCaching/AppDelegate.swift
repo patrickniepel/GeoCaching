@@ -27,10 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
+        
+        // Statusbar white
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
         let navigationCtrl = UINavigationController(rootViewController: loginViewCtrl)
-        navigationCtrl.navigationBar.barTintColor = AppColor.navigationBar
+        navigationCtrl.navigationBar.tintColor = AppColor.tint
+        navigationCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        navigationCtrl.navigationBar.barTintColor = .black
+        navigationCtrl.navigationBar.isTranslucent = false
         window?.rootViewController = navigationCtrl
         
         return true
@@ -91,7 +98,7 @@ extension AppDelegate {
         for index in 0..<itemViewControllers.count {
             let viewCtrl = itemViewControllers[index]
             let navCtrl = UINavigationController(rootViewController: viewCtrl)
-            navCtrl.navigationBar.barTintColor = AppColor.background
+            navCtrl.navigationBar.barTintColor = AppColor.navigationBar
             navCtrl.navigationBar.tintColor = AppColor.text
             navCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
             itemViewControllers[index] = navCtrl

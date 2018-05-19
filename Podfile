@@ -11,6 +11,8 @@ target 'GeoCaching' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'NVActivityIndicatorView'
+  pod 'DynamicBlurView'
 
   target 'GeoCachingTests' do
     inherit! :search_paths

@@ -10,16 +10,4 @@ import UIKit
 
 class ProfileAchievementsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var achievementImageView: UIImageView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    func setup() {
-        achievementImageView.image = #imageLiteral(resourceName: "achievementTest")
-    }
 }

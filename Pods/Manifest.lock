@@ -1,4 +1,5 @@
 PODS:
+  - DynamicBlurView (2.0.2)
   - Firebase/Auth (4.8.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.1)
@@ -56,16 +57,22 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.2.1):
+    - NVActivityIndicatorView/Presenter (= 4.2.1)
+  - NVActivityIndicatorView/Presenter (4.2.1)
 
 DEPENDENCIES:
+  - DynamicBlurView
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
   - GoogleMaps
   - GooglePlaces
+  - NVActivityIndicatorView
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - DynamicBlurView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -79,8 +86,10 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
   Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: dc0dd403beca5b2b016aac89c2d0b8dad1c81926
@@ -94,7 +103,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
 
-PODFILE CHECKSUM: 271d7c7dd73c0361d08918ea54afa5a7386c76d3
+PODFILE CHECKSUM: 68bc90a3f26ac3dd5ea677b61530e7ecd96ad20a
 
 COCOAPODS: 1.5.0
