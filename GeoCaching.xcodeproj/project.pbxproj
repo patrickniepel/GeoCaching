@@ -132,6 +132,8 @@
 		A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */; };
 		A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */; };
 		A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */; };
+		A35EB2CA20B538A900A1025F /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2C920B538A900A1025F /* CreateGameViewController.swift */; };
+		A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CB20B53C7800A1025F /* CreateGameController.swift */; };
 		A37D689B20AD56EC0060C29F /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D689A20AD56EC0060C29F /* AchievementController.swift */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
@@ -139,7 +141,6 @@
 		A397AAD52087645400289B7D /* GeoCachingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAD42087645400289B7D /* GeoCachingTests.swift */; };
 		A397AAE02087645500289B7D /* GeoCachingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AADF2087645500289B7D /* GeoCachingUITests.swift */; };
 		A397AAF420878BD500289B7D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF320878BD500289B7D /* GameViewController.swift */; };
-		A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAF820878C2800289B7D /* CreateViewController.swift */; };
 		A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFA20878C3500289B7D /* ProfileViewController.swift */; };
 		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
 		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
@@ -296,6 +297,8 @@
 		A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
 		A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		A35EB2C920B538A900A1025F /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		A35EB2CB20B53C7800A1025F /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
 		A37D689A20AD56EC0060C29F /* AchievementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		A397AABC2087645300289B7D /* GeoCaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A397AABF2087645300289B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -309,7 +312,6 @@
 		A397AADF2087645500289B7D /* GeoCachingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCachingUITests.swift; sourceTree = "<group>"; };
 		A397AAE12087645500289B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A397AAF320878BD500289B7D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		A397AAF820878C2800289B7D /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		A397AAFA20878C3500289B7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */,
 				A37D689A20AD56EC0060C29F /* AchievementController.swift */,
 				0F01DDBD20AC9B9E0064ED11 /* CreateQuestController.swift */,
+				A35EB2CB20B53C7800A1025F /* CreateGameController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -780,7 +783,7 @@
 			isa = PBXGroup;
 			children = (
 				0F01DDB820AC995B0064ED11 /* Create Quest */,
-				A397AAF820878C2800289B7D /* CreateViewController.swift */,
+				A35EB2C920B538A900A1025F /* CreateGameViewController.swift */,
 				0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */,
 			);
 			path = Create;
@@ -1042,6 +1045,7 @@
 				17BC44C320AD6E4200062876 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				A37D689B20AD56EC0060C29F /* AchievementController.swift in Sources */,
 				17BC44DF20AD6E4200062876 /* NVActivityIndicatorAnimationLineScale.swift in Sources */,
+				A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */,
 				17BC450620AD6E5600062876 /* TransitionAnimations.swift in Sources */,
 				17BC450420AD6E5600062876 /* PopupDialog+Keyboard.swift in Sources */,
 				17BC44C820AD6E4200062876 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
@@ -1093,7 +1097,6 @@
 				17BC44D620AD6E4200062876 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				17BD38C420AD65A200D23F76 /* Extension+UIViewController.swift in Sources */,
 				0F01DDB720AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift in Sources */,
-				A397AAF920878C2800289B7D /* CreateViewController.swift in Sources */,
 				A397AAF420878BD500289B7D /* GameViewController.swift in Sources */,
 				A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */,
 				17BC44C220AD6E4200062876 /* NVActivityIndicatorShape.swift in Sources */,
@@ -1134,6 +1137,7 @@
 				0FFF636B20AD55CD00C8F955 /* Extension+NSNotification.swift in Sources */,
 				179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */,
 				17BC44CA20AD6E4200062876 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
+				A35EB2CA20B538A900A1025F /* CreateGameViewController.swift in Sources */,
 				0F01DDBA20AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift in Sources */,
 				A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */,
 				17BC44D120AD6E4200062876 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
