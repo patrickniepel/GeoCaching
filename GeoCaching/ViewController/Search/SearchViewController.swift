@@ -78,6 +78,7 @@ extension SearchViewController{
         
         cardCollectionView.dataSource = cardCollectionViewDataSource
         cardCollectionView.delegate = cardCollectionViewDelegate
+        cardCollectionViewDelegate.vc = self
         cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
         
     }
