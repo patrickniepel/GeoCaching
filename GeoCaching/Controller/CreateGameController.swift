@@ -64,8 +64,14 @@ struct CreateGameController {
         updateProgress()
     }
     
-    mutating func set(quests: [Quest]) {
-        game.quests = quests
+    mutating func append(newQuest: Quest) {
+        game.quests.append(newQuest)
+        checkGameConditions()
+        updateProgress()
+    }
+    
+    mutating func update(quest: Quest, atIndex index: Int) {
+        game.quests[index] = quest
         checkGameConditions()
         updateProgress()
     }

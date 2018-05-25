@@ -20,14 +20,20 @@ struct CreateQuestController {
             delegate?.canCreateQuest(canCreate: canCreateQuest)
         }
     }
-    var quest: Quest
+    var quest: Quest {
+        didSet {
+            checkQuestConditions()
+            updateProgress()
+        }
+    }
     
     var delegate: CreateQuestControllerDelegate?
     
     
-    init(questionType: QuestionType) {
+    init() {
+        let defaultQuestionType = QuestionType.textInput
         quest = Quest(answers: [], question: "", image: nil,
-                      questionType: questionType, locationPolygonPoints: [])
+                      questionType: defaultQuestionType, locationPolygonPoints: [])
     }
     
     

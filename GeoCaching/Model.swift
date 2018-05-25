@@ -17,6 +17,8 @@ enum QuestionType: Int, Codable {
     case image
     case number
     
+    static var allCases: [QuestionType] = [.textInput, .fourChoices, .date, .image, .number]
+    
     init?(dbName: String) {
         switch dbName {
         case "textinput": self = .textInput

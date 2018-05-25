@@ -11,6 +11,7 @@
 		0F01770620B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01770520B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift */; };
 		0F01770820B88C0200CEFCD8 /* CreateGameQuestOverviewCollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01770720B88C0200CEFCD8 /* CreateGameQuestOverviewCollectionViewDragDelegate.swift */; };
 		0F01770A20B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01770920B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift */; };
+		0F01770D20B8AB1B00CEFCD8 /* CreateQuestSelectQuestGameCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01770C20B8AB1B00CEFCD8 /* CreateQuestSelectQuestGameCategoryTableViewController.swift */; };
 		0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */; };
 		0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */; };
 		0F01DDB220AC6F5D0064ED11 /* CreateSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */; };
@@ -183,6 +184,7 @@
 		0F01770520B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameQuestOverviewCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		0F01770720B88C0200CEFCD8 /* CreateGameQuestOverviewCollectionViewDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameQuestOverviewCollectionViewDragDelegate.swift; sourceTree = "<group>"; };
 		0F01770920B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameQuestOverviewCollectionViewDropDelegate.swift; sourceTree = "<group>"; };
+		0F01770C20B8AB1B00CEFCD8 /* CreateQuestSelectQuestGameCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestSelectQuestGameCategoryTableViewController.swift; sourceTree = "<group>"; };
 		0F01DDAD20AC05E90064ED11 /* GameUploadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUploadController.swift; sourceTree = "<group>"; };
 		0F01DDAF20AC67A30064ED11 /* FirebaseImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageManager.swift; sourceTree = "<group>"; };
 		0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSegues.swift; sourceTree = "<group>"; };
@@ -372,6 +374,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F01770B20B88FBA00CEFCD8 /* Create Game */ = {
+			isa = PBXGroup;
+			children = (
+				A35EB2C920B538A900A1025F /* CreateGameViewController.swift */,
+				0F56B95720B541BC00CEAEBE /* AddGameCategoriesTableViewController.swift */,
+				0FB6478520B6926F0047780B /* CreateGameQuestOverviewCollectionViewCell.swift */,
+				0F01770520B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift */,
+				0F01770720B88C0200CEFCD8 /* CreateGameQuestOverviewCollectionViewDragDelegate.swift */,
+				0F01770920B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift */,
+			);
+			path = "Create Game";
+			sourceTree = "<group>";
+		};
 		0F01DDB820AC995B0064ED11 /* Create Quest */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +395,7 @@
 				0F01DDB620AC7EE00064ED11 /* UICreateAddQuestionTableViewCell.swift */,
 				0F01DDB920AC996B0064ED11 /* CreateQuestAnswerTableViewDataSource.swift */,
 				0F01DDBB20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift */,
+				0F01770C20B8AB1B00CEFCD8 /* CreateQuestSelectQuestGameCategoryTableViewController.swift */,
 			);
 			path = "Create Quest";
 			sourceTree = "<group>";
@@ -818,14 +834,9 @@
 		A397AAF720878C0700289B7D /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				0F01DDB820AC995B0064ED11 /* Create Quest */,
-				A35EB2C920B538A900A1025F /* CreateGameViewController.swift */,
 				0F01DDB120AC6F5D0064ED11 /* CreateSegues.swift */,
-				0F56B95720B541BC00CEAEBE /* AddGameCategoriesTableViewController.swift */,
-				0FB6478520B6926F0047780B /* CreateGameQuestOverviewCollectionViewCell.swift */,
-				0F01770520B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift */,
-				0F01770720B88C0200CEFCD8 /* CreateGameQuestOverviewCollectionViewDragDelegate.swift */,
-				0F01770920B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift */,
+				0F01770B20B88FBA00CEFCD8 /* Create Game */,
+				0F01DDB820AC995B0064ED11 /* Create Quest */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1210,6 +1221,7 @@
 				0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */,
 				A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */,
 				0FFF636920AD26E600C8F955 /* DrawQuestAreaViewController.swift in Sources */,
+				0F01770D20B8AB1B00CEFCD8 /* CreateQuestSelectQuestGameCategoryTableViewController.swift in Sources */,
 				0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,
 				17BC44E420AD6E4200062876 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
@@ -1380,7 +1392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FM446M8BR4;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1399,7 +1411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FM446M8BR4;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

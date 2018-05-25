@@ -10,6 +10,11 @@ import UIKit
 import MobileCoreServices
 import CoreLocation
 
+protocol CreateQuestDelegate {
+    func didCreate(newQuest: Quest)
+    func didUpdated(quest: Quest)
+}
+
 class CreateQuestViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var questionTextField: UITextField!
@@ -17,12 +22,20 @@ class CreateQuestViewController: UIViewController {
     @IBOutlet weak var answerTableView: UITableView!
     @IBOutlet weak var questImageView: UIImageView!
     
+    private var questImageViewImage: UIImage? = nil {
+        didSet {
+            questImageView.image = questImageViewImage ?? UIImage(named: "icon_image_select")
+        }
+    }
+    
     private var answerTableViewDelegate: CreateQuestAnswerTableViewDelegate!
     private var answerTableViewDataSource: CreateQuestAnswerTableViewDataSource!
     
     private var questCreatorController: CreateQuestController!
     
-    var receivedQuestionType: QuestionType! = .number
+    var receivedQuestToEdit: Quest? = nil
+    
+    var delegate: CreateQuestDelegate?
 
     
     deinit {
@@ -63,8 +76,15 @@ class CreateQuestViewController: UIViewController {
         answerTableViewDelegate = CreateQuestAnswerTableViewDelegate()
         answerTableView.delegate = answerTableViewDelegate
         
-        questCreatorController = CreateQuestController(questionType: receivedQuestionType)
+        questCreatorController = CreateQuestController()
         questCreatorController.delegate = self
+        if let questToEdit = receivedQuestToEdit {
+            questCreatorController.quest = questToEdit
+            
+            questionTextField.text = questToEdit.question
+            answerTableViewDataSource.answers = questToEdit.answers
+            questImageViewImage = questToEdit.image
+        }
         
         questionTextField.addTarget(self, action: #selector(questionDidChange), for: .editingChanged)
         
@@ -80,7 +100,11 @@ class CreateQuestViewController: UIViewController {
     
     @objc func addQuestAction() {
         let quest = questCreatorController.quest
-        print("TODO: ✅ delegate created quest - \(quest)")
+        if receivedQuestToEdit == nil {
+            delegate?.didCreate(newQuest: quest)
+        } else {
+            delegate?.didUpdated(quest: quest)
+        }
     }
     
     @objc func questionDidChange() {
@@ -98,12 +122,20 @@ class CreateQuestViewController: UIViewController {
         questCreatorController.set(answers: answers)
     }
     
+    @IBAction func changeQuestionTypeAction(_ sender: UIButton) {
+        performSegue(withIdentifier: CreateStoryboardSegue.selectQuestType.identifier, sender: nil)
+    }
+    
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == CreateStoryboardSegue.addQuestArea.identifier {
             let destVCtrl = segue.destination as? DrawQuestAreaViewController
+            destVCtrl?.delegate = self
+        } else if segue.identifier == CreateStoryboardSegue.selectQuestType.identifier {
+            let destVCtrl = segue.destination as? CreateQuestSelectQuestGameCategoryTableViewController
+            destVCtrl?.receiveSelectedQuestionType = questCreatorController.quest.questionType
             destVCtrl?.delegate = self
         }
     }
@@ -163,4 +195,11 @@ extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
     }
 }
 
+extension CreateQuestViewController: CreateQuestSelectQuestGameCategoryTableViewControllerDelegate {
+    func didSelect(questionType: QuestionType) {
+        print("selectedQuestionType: \(questionType)")
+        questCreatorController.set(questionType: questionType)
+        navigationController?.popViewController(animated: true)
+    }
+}
 

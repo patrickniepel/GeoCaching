@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol CreateGameQuestOverviewCollectionViewDataChangedDelegate {
+    func didMovedQuest(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath)
+}
+
 class CreateGameQuestOverviewCollectionViewDropDelegate: NSObject, UICollectionViewDropDelegate {
+    
+    var delegate: CreateGameQuestOverviewCollectionViewDataChangedDelegate?
+    
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         let destinationIndexPath: IndexPath
         if let indexPath = coordinator.destinationIndexPath {
@@ -39,6 +46,9 @@ class CreateGameQuestOverviewCollectionViewDropDelegate: NSObject, UICollectionV
                             dSource.quests.insert(quest.quest, at: destIndexPath.row)
                             collectionView.deleteItems(at: [sourceIndexPath])
                             collectionView.insertItems(at: [destIndexPath])
+                            
+                            self.delegate?.didMovedQuest(sourceIndexPath: sourceIndexPath,
+                                                         destinationIndexPath: destIndexPath)
                         })
                     }
                     

@@ -26,6 +26,7 @@ class CreateGameViewController: UIViewController {
     private var gameUploadController: GameUploadController!
     private var gameCreatorController: CreateGameController!
     
+    private var questCollectionViewDelegate: CreateGameQuestOverviewCollectionViewDelegate!
     private var questCollectionViewDataSource: CreateGameQuestOverviewCollectionViewDataSource!
     private var questCollectionViewDragDelegate: CreateGameQuestOverviewCollectionViewDragDelegate!
     private var questCollectionViewDropDelegate: CreateGameQuestOverviewCollectionViewDropDelegate!
@@ -37,6 +38,7 @@ class CreateGameViewController: UIViewController {
         setupDesign()
         setupText()
         setupData()
+        setupGestures()
     }
     
     
@@ -66,16 +68,30 @@ class CreateGameViewController: UIViewController {
         questCollectionViewDataSource = CreateGameQuestOverviewCollectionViewDataSource()
         questCollectionView.dataSource = questCollectionViewDataSource
         
+        questCollectionViewDelegate = CreateGameQuestOverviewCollectionViewDelegate(vCtrl: self)
+        questCollectionView.delegate = questCollectionViewDelegate
+        
         questCollectionViewDragDelegate = CreateGameQuestOverviewCollectionViewDragDelegate()
         questCollectionViewDropDelegate = CreateGameQuestOverviewCollectionViewDropDelegate()
         questCollectionView.dragInteractionEnabled = true
         questCollectionView.dragDelegate = questCollectionViewDragDelegate
         questCollectionView.dropDelegate = questCollectionViewDropDelegate
+        
+        questCollectionViewDropDelegate.delegate = self
+    }
+    
+    func setupGestures() {
+        let imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageWasTapped))
+        gameImageView.isUserInteractionEnabled = true
+        gameImageView.addGestureRecognizer(imageTapGestureRecognizer)
     }
     
     @IBAction func addCategoryAction(_ sender: UIButton) {
     }
+    
     @IBAction func addQuestAction(_ sender: UIButton) {
+        let identifier = CreateStoryboardSegue.createQuest.identifier
+        performSegue(withIdentifier: identifier, sender: nil)
     }
     
     @objc func gameNameDidChange() {
@@ -110,10 +126,25 @@ class CreateGameViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == CreateStoryboardSegue.addGameCategories.identifier {
+            // Create new Quest
+            print("### addGameCategories")
             let destCtrl = segue.destination as! AddGameCategoriesTableViewController
             destCtrl.delegate = self
             destCtrl.selectedCategories = Set(gameCreatorController.game.categories)
+        } else if segue.identifier == CreateStoryboardSegue.editQuest.identifier {
+            // Edit Quest
+            print("### edit")
+            if let questToEdit = sender as? Quest {
+                let destCtrl = segue.destination as! CreateQuestViewController
+                destCtrl.receivedQuestToEdit = questToEdit
+                destCtrl.delegate = self
+            }
+        } else if segue.identifier == CreateStoryboardSegue.createQuest.identifier {
+            print("### createQuest")
+            let destCtrl = segue.destination as! CreateQuestViewController
+            destCtrl.delegate = self
         }
     }
     
@@ -155,6 +186,9 @@ extension CreateGameViewController: CreateGameControllerDelegate {
     }
 }
 
+
+// MARK: - UITextViewDelegate
+
 extension CreateGameViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         print("-longDescriptionDidChange")
@@ -165,7 +199,8 @@ extension CreateGameViewController: UITextViewDelegate {
 }
 
 
-// MARK: Add Game Categories Delegate
+// MARK: - Add Game Categories Delegate
+
 extension CreateGameViewController: AddGameCategoriesDelegate {
     func receive(selectedCategories: [QuestCategory]) {
         gameCreatorController.set(categories: selectedCategories)
@@ -176,4 +211,71 @@ extension CreateGameViewController: AddGameCategoriesDelegate {
 }
 
 
+// MARK: - CreateGameQuestOverviewCollectionViewDelegate
+
+extension CreateGameViewController: CreateGameQuestOverviewCollectionViewDataChangedDelegate {
+    
+    func didMovedQuest(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
+        print("TODO ✅ @Patrick - Calculate new route - source: \(sourceIndexPath) - dest: \(destinationIndexPath)")
+    }
+    
+}
+
+
+// MARK: - CreateQuestDelegate
+
+extension CreateGameViewController: CreateQuestDelegate {
+    func didCreate(newQuest: Quest) {
+        gameCreatorController.append(newQuest: newQuest)
+        questCollectionViewDataSource.quests = gameCreatorController.game.quests
+        
+        let numberOfElements = questCollectionViewDataSource.quests.count
+        let lastIndexPath = IndexPath(row: numberOfElements - 1, section: 0)
+        questCollectionView.insertItems(at: [lastIndexPath])
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func didUpdated(quest: Quest) {
+        for index in 0..<gameCreatorController.game.quests.count {
+            if quest.id == gameCreatorController.game.quests[index].id {
+                gameCreatorController.update(quest: quest, atIndex: index)
+                questCollectionViewDataSource.quests = gameCreatorController.game.quests
+                
+                let indexPathToUpdate = IndexPath(row: index, section: 0)
+                questCollectionView.reloadItems(at: [indexPathToUpdate])
+                break
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+
+// MARK: - Image Picker
+
+extension CreateGameViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @objc private func imageWasTapped() {
+        let sourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let availableMediaTypes = UIImagePickerController.availableMediaTypes(for: sourceType) ?? []
+            let imagePickerCtrl = UIImagePickerController()
+            imagePickerCtrl.mediaTypes = availableMediaTypes
+            imagePickerCtrl.allowsEditing = false
+            imagePickerCtrl.sourceType = sourceType
+            imagePickerCtrl.delegate = self
+            present(imagePickerCtrl, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            gameImageView.image = image
+            gameCreatorController.set(image: image)
+        }
+        
+        dismiss(animated: true)
+    }
+}
 
