@@ -75,6 +75,11 @@
 		174EB9D820AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9D720AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift */; };
 		174EB9DC20AC12CD00E0A776 /* SearchIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9DB20AC12CD00E0A776 /* SearchIdentifiers.swift */; };
 		174EB9DE20AC168900E0A776 /* SearchPopupFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174EB9DD20AC168900E0A776 /* SearchPopupFilter.swift */; };
+		17508EF520B5487000E3C0EA /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17508EF420B5487000E3C0EA /* GameDetailViewController.swift */; };
+		17508EFE20B6916800E3C0EA /* GameDetailHighscoreTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17508EFD20B6916800E3C0EA /* GameDetailHighscoreTableViewDelegate.swift */; };
+		17508F0020B691A200E3C0EA /* GameDetailHighscoreTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17508EFF20B691A200E3C0EA /* GameDetailHighscoreTableViewDataSource.swift */; };
+		17508F0320B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17508F0120B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift */; };
+		17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17508F0220B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib */; };
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
 		17BC44C220AD6E4200062876 /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC449820AD6E3F00062876 /* NVActivityIndicatorShape.swift */; };
 		17BC44C320AD6E4200062876 /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC449920AD6E3F00062876 /* NVActivityIndicatorAnimationDelegate.swift */; };
@@ -242,6 +247,11 @@
 		174EB9D720AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupTableViewDataSource.swift; sourceTree = "<group>"; };
 		174EB9DB20AC12CD00E0A776 /* SearchIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIdentifiers.swift; sourceTree = "<group>"; };
 		174EB9DD20AC168900E0A776 /* SearchPopupFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopupFilter.swift; sourceTree = "<group>"; };
+		17508EF420B5487000E3C0EA /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
+		17508EFD20B6916800E3C0EA /* GameDetailHighscoreTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailHighscoreTableViewDelegate.swift; sourceTree = "<group>"; };
+		17508EFF20B691A200E3C0EA /* GameDetailHighscoreTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailHighscoreTableViewDataSource.swift; sourceTree = "<group>"; };
+		17508F0120B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailHighscoreTableViewCell.swift; sourceTree = "<group>"; };
+		17508F0220B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDetailHighscoreTableViewCell.xib; sourceTree = "<group>"; };
 		179F392D20A32971002BDCEE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		17BC449820AD6E3F00062876 /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		17BC449920AD6E3F00062876 /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
@@ -556,6 +566,18 @@
 			path = FilterPopup;
 			sourceTree = "<group>";
 		};
+		17508EF320B5484700E3C0EA /* GameDetail */ = {
+			isa = PBXGroup;
+			children = (
+				17508EF420B5487000E3C0EA /* GameDetailViewController.swift */,
+				17508EFD20B6916800E3C0EA /* GameDetailHighscoreTableViewDelegate.swift */,
+				17508EFF20B691A200E3C0EA /* GameDetailHighscoreTableViewDataSource.swift */,
+				17508F0120B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift */,
+				17508F0220B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib */,
+			);
+			path = GameDetail;
+			sourceTree = "<group>";
+		};
 		17BC449720AD6E1E00062876 /* NVActivityIndicatorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +773,7 @@
 		A397AAF120878BA300289B7D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				17508EF320B5484700E3C0EA /* GameDetail */,
 				174EB9D220AC0B3200E0A776 /* FilterPopup */,
 				0F44FFC520A97BD6007D1093 /* CardCollectionView */,
 				A397AAFE20878C4F00289B7D /* SearchViewController.swift */,
@@ -917,6 +940,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA96BEE20A39726005485A3 /* style.json in Resources */,
+				17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */,
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
 				0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */,
 				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
@@ -1127,6 +1151,7 @@
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
 				0F01770820B88C0200CEFCD8 /* CreateGameQuestOverviewCollectionViewDragDelegate.swift in Sources */,
 				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
+				17508EFE20B6916800E3C0EA /* GameDetailHighscoreTableViewDelegate.swift in Sources */,
 				17BC450120AD6E5600062876 /* PopupDialogButton.swift in Sources */,
 				174EB9D820AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift in Sources */,
 				17BC44C620AD6E4200062876 /* NVActivityIndicatorViewable.swift in Sources */,
@@ -1137,6 +1162,7 @@
 				0FB6478620B6926F0047780B /* CreateGameQuestOverviewCollectionViewCell.swift in Sources */,
 				174EB9DC20AC12CD00E0A776 /* SearchIdentifiers.swift in Sources */,
 				0FA96BCE20A2BDCC005485A3 /* AppColor.swift in Sources */,
+				17508EF520B5487000E3C0EA /* GameDetailViewController.swift in Sources */,
 				174EB9DE20AC168900E0A776 /* SearchPopupFilter.swift in Sources */,
 				17BC44DD20AD6E4200062876 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				17BC44C920AD6E4200062876 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
@@ -1156,6 +1182,7 @@
 				A39B091020AC623700D46CFD /* Extension+ViewController.swift in Sources */,
 				0FA96BD520A32228005485A3 /* HighscoreTableViewDelegate.swift in Sources */,
 				0FF2A58520A1962200486CAC /* Extension+UIColor.swift in Sources */,
+				17508F0020B691A200E3C0EA /* GameDetailHighscoreTableViewDataSource.swift in Sources */,
 				17BC450520AD6E5600062876 /* PopupDialogDefaultViewController.swift in Sources */,
 				0FF2A59920A1DF3100486CAC /* ProfileActionTableViewDataSource.swift in Sources */,
 				0FFF636B20AD55CD00C8F955 /* Extension+NSNotification.swift in Sources */,
@@ -1178,6 +1205,7 @@
 				0F01DDBC20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift in Sources */,
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
 				17BC44DE20AD6E4200062876 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
+				17508F0320B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift in Sources */,
 				17BC44DC20AD6E4200062876 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				0F01DDAE20AC05E90064ED11 /* GameUploadController.swift in Sources */,
 				A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */,
@@ -1352,7 +1380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DB3XUQ936;
+				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1371,7 +1399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DB3XUQ936;
+				DEVELOPMENT_TEAM = FM446M8BR4;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

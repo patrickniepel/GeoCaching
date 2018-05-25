@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,16 +15,20 @@
             <objects>
                 <viewController storyboardIdentifier="storyboardID_login_vc" modalTransitionStyle="flipHorizontal" id="eQm-MW-RoU" customClass="LoginViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="miU-jD-2bj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundLoginRegisterTest" translatesAutoresizingMaskIntoConstraints="NO" id="aMJ-Sh-pIX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2J-Co-VDg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-54-jeq">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wb1-1v-FBN">
+                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb1-1v-FBN">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tuZ-QY-YQY">
@@ -115,7 +119,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUJ-tD-1Y0" customClass="UIGeoButton" customModule="GeoCaching" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="193" width="120" height="35"/>
+                                                <rect key="frame" x="127.66666666666669" y="193" width="120" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="FPv-fS-Rei"/>
                                                     <constraint firstAttribute="height" constant="35" id="LyQ-Yh-Dm3"/>
@@ -127,7 +131,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hb-wt-SSt">
-                                                <rect key="frame" x="127.5" y="236" width="120" height="35"/>
+                                                <rect key="frame" x="127.66666666666669" y="236" width="120" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="5EY-fy-eow"/>
                                                     <constraint firstAttribute="width" constant="120" id="pXR-Yw-j7W"/>
@@ -153,7 +157,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HlD-So-hAV">
-                                        <rect key="frame" x="0.0" y="352" width="375" height="295"/>
+                                        <rect key="frame" x="0.0" y="439" width="375" height="295"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEp-Wv-6Mb">
                                                 <rect key="frame" x="147" y="257" width="80" height="30"/>
@@ -174,7 +178,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="HlD-So-hAV" secondAttribute="bottom" id="76Q-Ec-i6h"/>
                                     <constraint firstItem="Wb1-1v-FBN" firstAttribute="top" secondItem="54L-54-jeq" secondAttribute="top" id="7SM-Rh-6u4"/>
@@ -186,7 +190,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79s-r4-0Jd" customClass="NVActivityIndicatorView" customModule="GeoCaching" customModuleProvider="target">
-                                <rect key="frame" x="157" y="313.5" width="60" height="60"/>
+                                <rect key="frame" x="157" y="381" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="h5f-bq-0cj"/>
@@ -199,16 +203,20 @@
                         <constraints>
                             <constraint firstItem="54L-54-jeq" firstAttribute="bottom" secondItem="sCg-yC-uev" secondAttribute="bottom" id="0Et-GK-jGs"/>
                             <constraint firstItem="79s-r4-0Jd" firstAttribute="centerX" secondItem="sCg-yC-uev" secondAttribute="centerX" id="4yY-h5-ZPB"/>
-                            <constraint firstItem="aMJ-Sh-pIX" firstAttribute="bottom" secondItem="sCg-yC-uev" secondAttribute="bottom" id="DWl-C5-uOg"/>
+                            <constraint firstAttribute="bottom" secondItem="aMJ-Sh-pIX" secondAttribute="bottom" id="EQV-HC-0GT"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="trailing" secondItem="sCg-yC-uev" secondAttribute="trailing" id="EUd-Nb-M7O"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="leading" secondItem="sCg-yC-uev" secondAttribute="leading" id="IYs-PI-vQl"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="leading" secondItem="sCg-yC-uev" secondAttribute="leading" id="JzE-d4-Ooa"/>
                             <constraint firstItem="79s-r4-0Jd" firstAttribute="centerY" secondItem="sCg-yC-uev" secondAttribute="centerY" id="P6h-Po-HRF"/>
-                            <constraint firstItem="aMJ-Sh-pIX" firstAttribute="trailing" secondItem="sCg-yC-uev" secondAttribute="trailing" id="TKL-0P-sRK"/>
-                            <constraint firstItem="aMJ-Sh-pIX" firstAttribute="leading" secondItem="sCg-yC-uev" secondAttribute="leading" id="VMZ-Ow-DAN"/>
+                            <constraint firstAttribute="trailing" secondItem="aMJ-Sh-pIX" secondAttribute="trailing" id="SnB-zg-31U"/>
+                            <constraint firstItem="D2J-Co-VDg" firstAttribute="top" secondItem="miU-jD-2bj" secondAttribute="top" id="b9W-gz-iP4"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="top" secondItem="sCg-yC-uev" secondAttribute="top" id="d3p-aE-smh"/>
-                            <constraint firstItem="aMJ-Sh-pIX" firstAttribute="top" secondItem="sCg-yC-uev" secondAttribute="top" id="iDV-ws-dAp"/>
+                            <constraint firstAttribute="bottom" secondItem="D2J-Co-VDg" secondAttribute="bottom" id="gXi-qE-o8O"/>
+                            <constraint firstItem="D2J-Co-VDg" firstAttribute="leading" secondItem="sCg-yC-uev" secondAttribute="leading" id="h72-U2-UDS"/>
+                            <constraint firstItem="aMJ-Sh-pIX" firstAttribute="leading" secondItem="sCg-yC-uev" secondAttribute="leading" id="j5z-rK-TE1"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="bottom" secondItem="sCg-yC-uev" secondAttribute="bottom" id="kv4-7H-YKn"/>
+                            <constraint firstItem="aMJ-Sh-pIX" firstAttribute="top" secondItem="miU-jD-2bj" secondAttribute="top" id="o8Z-ly-Jm6"/>
+                            <constraint firstItem="D2J-Co-VDg" firstAttribute="trailing" secondItem="sCg-yC-uev" secondAttribute="trailing" id="v0l-Xc-gvr"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="trailing" secondItem="sCg-yC-uev" secondAttribute="trailing" id="wVd-c8-NYE"/>
                             <constraint firstItem="54L-54-jeq" firstAttribute="top" secondItem="sCg-yC-uev" secondAttribute="top" id="wz0-CW-kGd"/>
                         </constraints>
@@ -228,28 +236,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0k6-jI-QaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106.40000000000001" y="-17.541229385307346"/>
+            <point key="canvasLocation" x="-106.40000000000001" y="-17.733990147783253"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="tny-7J-hB7">
             <objects>
                 <viewController id="q2O-P7-MgR" customClass="RegisterViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WTK-Pk-Lek" userLabel="BackgroundView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundLoginRegisterTest" translatesAutoresizingMaskIntoConstraints="NO" id="hrO-9w-FBw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7W-d3-VMW">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yB-Ld-Ebe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="367"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EHb-ZY-fs5">
-                                        <rect key="frame" x="14" y="109" width="347" height="115"/>
+                                        <rect key="frame" x="14" y="126" width="347" height="115"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IbL-GQ-IfK">
                                                 <rect key="frame" x="0.0" y="0.0" width="347" height="35"/>
@@ -377,7 +385,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-YA-ZqH" customClass="UIGeoButton" customModule="GeoCaching" customModuleProvider="target">
-                                        <rect key="frame" x="127.5" y="232" width="120" height="35"/>
+                                        <rect key="frame" x="127.66666666666669" y="249" width="120" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="LhN-2O-gQp"/>
                                             <constraint firstAttribute="height" constant="35" id="PrX-Pa-zlC"/>
@@ -397,10 +405,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OM5-14-O7h">
-                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="411" width="375" height="367"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lq-0r-zZS">
-                                        <rect key="frame" x="147" y="295.5" width="80" height="30"/>
+                                        <rect key="frame" x="147" y="329" width="80" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="1zk-vG-VOE"/>
                                             <constraint firstAttribute="height" constant="30" id="Rzi-77-6ry"/>
@@ -417,7 +425,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bio-ZI-b9l" customClass="NVActivityIndicatorView" customModule="GeoCaching" customModuleProvider="target">
-                                <rect key="frame" x="157" y="313.5" width="60" height="60"/>
+                                <rect key="frame" x="157" y="381" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xaw-Qe-HXM"/>
@@ -428,20 +436,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hrO-9w-FBw" firstAttribute="leading" secondItem="70E-2H-Q9v" secondAttribute="leading" id="0KL-U9-5Gu"/>
-                            <constraint firstItem="70E-2H-Q9v" firstAttribute="bottom" secondItem="k7W-d3-VMW" secondAttribute="bottom" id="4Ny-kQ-qBH"/>
-                            <constraint firstItem="hrO-9w-FBw" firstAttribute="top" secondItem="70E-2H-Q9v" secondAttribute="top" id="69l-IA-J24"/>
                             <constraint firstItem="OM5-14-O7h" firstAttribute="leading" secondItem="70E-2H-Q9v" secondAttribute="leading" id="7mx-zv-kWk"/>
-                            <constraint firstItem="70E-2H-Q9v" firstAttribute="bottom" secondItem="hrO-9w-FBw" secondAttribute="bottom" id="7s2-EQ-vbG"/>
                             <constraint firstItem="OM5-14-O7h" firstAttribute="height" secondItem="1yB-Ld-Ebe" secondAttribute="height" id="Flh-C5-yv9"/>
                             <constraint firstItem="1yB-Ld-Ebe" firstAttribute="leading" secondItem="70E-2H-Q9v" secondAttribute="leading" id="Hgp-Be-1bW"/>
-                            <constraint firstItem="k7W-d3-VMW" firstAttribute="top" secondItem="70E-2H-Q9v" secondAttribute="top" id="Myt-Cn-c1f"/>
-                            <constraint firstItem="1yB-Ld-Ebe" firstAttribute="top" secondItem="WTK-Pk-Lek" secondAttribute="top" id="PdV-dT-2dc"/>
+                            <constraint firstItem="hrO-9w-FBw" firstAttribute="top" secondItem="WTK-Pk-Lek" secondAttribute="top" id="TKE-fV-Fsi"/>
+                            <constraint firstItem="k7W-d3-VMW" firstAttribute="top" secondItem="WTK-Pk-Lek" secondAttribute="top" id="YnJ-Zw-Ryh"/>
                             <constraint firstItem="70E-2H-Q9v" firstAttribute="trailing" secondItem="hrO-9w-FBw" secondAttribute="trailing" id="cl4-Rd-ppg"/>
                             <constraint firstItem="1yB-Ld-Ebe" firstAttribute="trailing" secondItem="70E-2H-Q9v" secondAttribute="trailing" id="hIs-Vf-67P"/>
+                            <constraint firstItem="1yB-Ld-Ebe" firstAttribute="top" secondItem="70E-2H-Q9v" secondAttribute="top" id="hYB-vV-Hs4"/>
                             <constraint firstItem="OM5-14-O7h" firstAttribute="bottom" secondItem="70E-2H-Q9v" secondAttribute="bottom" id="hgg-qB-QJZ"/>
                             <constraint firstItem="bio-ZI-b9l" firstAttribute="centerX" secondItem="70E-2H-Q9v" secondAttribute="centerX" id="jJM-CV-XVp"/>
+                            <constraint firstAttribute="bottom" secondItem="hrO-9w-FBw" secondAttribute="bottom" id="o1h-oa-bcl"/>
                             <constraint firstItem="70E-2H-Q9v" firstAttribute="trailing" secondItem="k7W-d3-VMW" secondAttribute="trailing" id="piP-hA-Zze"/>
                             <constraint firstItem="k7W-d3-VMW" firstAttribute="leading" secondItem="70E-2H-Q9v" secondAttribute="leading" id="vyT-i6-8Nj"/>
+                            <constraint firstAttribute="bottom" secondItem="k7W-d3-VMW" secondAttribute="bottom" id="xHu-zH-pUh"/>
                             <constraint firstItem="OM5-14-O7h" firstAttribute="top" secondItem="1yB-Ld-Ebe" secondAttribute="bottom" id="xwT-UR-Dwu"/>
                             <constraint firstItem="OM5-14-O7h" firstAttribute="trailing" secondItem="70E-2H-Q9v" secondAttribute="trailing" id="ypO-B4-u0J"/>
                             <constraint firstItem="bio-ZI-b9l" firstAttribute="centerY" secondItem="70E-2H-Q9v" secondAttribute="centerY" id="zYa-fO-awj"/>
@@ -465,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SE7-WD-dUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760.79999999999995" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="760.79999999999995" y="-18.472906403940886"/>
         </scene>
     </scenes>
     <resources>
