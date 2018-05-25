@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MobileCoreServices
+import CoreLocation
+
 
 class CreateGameViewController: UIViewController {
     @IBOutlet weak var gameNameTextField: UITextField!
@@ -22,6 +25,10 @@ class CreateGameViewController: UIViewController {
     
     private var gameUploadController: GameUploadController!
     private var gameCreatorController: CreateGameController!
+    
+    private var questCollectionViewDataSource: CreateGameQuestOverviewCollectionViewDataSource!
+    private var questCollectionViewDragDelegate: CreateGameQuestOverviewCollectionViewDragDelegate!
+    private var questCollectionViewDropDelegate: CreateGameQuestOverviewCollectionViewDropDelegate!
 
     
     override func viewDidLoad() {
@@ -55,6 +62,15 @@ class CreateGameViewController: UIViewController {
         gameNameTextField.addTarget(self, action: #selector(gameNameDidChange), for: .editingChanged)
         shortDescriptionTextField.addTarget(self, action: #selector(shortDescriptionDidChange), for: .editingChanged)
         longDescriptionTextView.delegate = self
+        
+        questCollectionViewDataSource = CreateGameQuestOverviewCollectionViewDataSource()
+        questCollectionView.dataSource = questCollectionViewDataSource
+        
+        questCollectionViewDragDelegate = CreateGameQuestOverviewCollectionViewDragDelegate()
+        questCollectionViewDropDelegate = CreateGameQuestOverviewCollectionViewDropDelegate()
+        questCollectionView.dragInteractionEnabled = true
+        questCollectionView.dragDelegate = questCollectionViewDragDelegate
+        questCollectionView.dropDelegate = questCollectionViewDropDelegate
     }
     
     @IBAction func addCategoryAction(_ sender: UIButton) {
@@ -92,6 +108,30 @@ class CreateGameViewController: UIViewController {
         errorAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         present(errorAlert, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == CreateStoryboardSegue.addGameCategories.identifier {
+            let destCtrl = segue.destination as! AddGameCategoriesTableViewController
+            destCtrl.delegate = self
+            destCtrl.selectedCategories = Set(gameCreatorController.game.categories)
+        }
+    }
+    
+    private func displayCategories() {
+        var result = ""
+        for category in gameCreatorController.game.categories {
+            if category.name == gameCreatorController.game.categories.last?.name {
+                result += "\(category.name)"
+            } else {
+                result += "\(category.name), "
+            }
+        }
+        categoriesLabel.text = result
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
 
 
@@ -124,6 +164,16 @@ extension CreateGameViewController: UITextViewDelegate {
     }
 }
 
+
+// MARK: Add Game Categories Delegate
+extension CreateGameViewController: AddGameCategoriesDelegate {
+    func receive(selectedCategories: [QuestCategory]) {
+        gameCreatorController.set(categories: selectedCategories)
+        navigationController?.popViewController(animated: true)
+        
+        displayCategories()
+    }
+}
 
 
 

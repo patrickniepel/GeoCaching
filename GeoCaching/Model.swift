@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import FirebaseDatabase
 
-enum QuestionType {
+enum QuestionType: Int, Codable {
     case textInput
     case fourChoices
     case date
@@ -53,6 +53,8 @@ enum QuestCategory {
     case nature
     case city
     case under10km
+    
+    static var allCases: [QuestCategory] = [.nature, .city, .under10km]
     
     init?(dbName: String) {
         switch dbName {
@@ -191,54 +193,7 @@ struct Game {
 }
 
 
-struct Quest {
-    
-    init(answers: [String], question: String, image: UIImage?, questionType: QuestionType, locationPolygonPoints: [CLLocationCoordinate2D]) {
-        self.id = UUID().uuidString
-        self.answers = answers
-        self.question = question
-        self.image = image
-        self.questionType = questionType
-        self.locationPolygonPoints = locationPolygonPoints
-    }
-    
-    init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String:Any],
-            let id = dict["id"] as? String,
-            let answers = dict["answers"] as? [String],
-            let question = dict["question"] as? String,
-            let questionTypeDBName = dict["questionType"] as? String,
-            let questionType = QuestionType(dbName: questionTypeDBName),
-            let locationPolygonPoints = dict["locationPolygonPoints"] as? [CLLocationCoordinate2D] else {
-                return nil
-        }
-        
-        self.id = id
-        self.answers = answers
-        self.question = question
-        self.questionType = questionType
-        self.locationPolygonPoints = locationPolygonPoints
-    }
-    
-    var id: String
-    var answers: [String]
-    var correctAnswer: String {
-        return answers.first ?? "Error"
-    }
-    var question: String
-    var image: UIImage?
-    var questionType: QuestionType
-    var locationPolygonPoints: [CLLocationCoordinate2D]
-    var toDictionary: [String:Any] {
-        return [
-            "answers": answers,
-            "correctAnswer": correctAnswer,
-            "question": question,
-            "questionType": questionType.dbName,
-            "locationPolygonPoints": locationPolygonPoints.map { "\($0.latitude);\($0.latitude)" }
-        ]
-    }
-}
+
 
 func isPoint(_ point: CLLocationCoordinate2D, locatedIn polygon: [CLLocationCoordinate2D]) -> Bool {
     return false
