@@ -54,6 +54,10 @@ class CreateGameViewController: UIViewController {
         buttonElementCollection.forEach { $0.setTitleColor(AppColor.tint, for: .normal) }
         textElementCollection.forEach { $0.textColor = AppColor.text }
         longDescriptionTextView.textColor = AppColor.text
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(uploadGameAction))
+        navigationItem.rightBarButtonItem?.tintColor = AppColor.tint
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func setupData() {
@@ -84,6 +88,27 @@ class CreateGameViewController: UIViewController {
         let imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageWasTapped))
         gameImageView.isUserInteractionEnabled = true
         gameImageView.addGestureRecognizer(imageTapGestureRecognizer)
+    }
+    
+    @objc func uploadGameAction() {
+        let group = DispatchGroup()
+        group.notify(queue: .main) {
+            print("Uploaded all successfully")
+        }
+        
+        group.enter()
+        let game = gameCreatorController.game
+        gameUploadController.upload(game: game) { (error) in
+            group.leave()
+        }
+        
+        for quest in game.quests {
+            group.enter()
+            gameUploadController.upload(quest: quest) { (error) in
+                group.leave()
+            }
+        }
+        
     }
     
     @IBAction func addCategoryAction(_ sender: UIButton) {
@@ -182,7 +207,7 @@ extension CreateGameViewController: CreateGameControllerDelegate {
     
     func createGame(progress: Float) {
         print("PROGRESS: \(progress)")
-        self.title = String(format: "%.0f %%", progress*100)
+        navigationItem.rightBarButtonItem?.isEnabled = progress >= 1.0
     }
 }
 
@@ -217,6 +242,9 @@ extension CreateGameViewController: CreateGameQuestOverviewCollectionViewDataCha
     
     func didMovedQuest(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
         print("TODO ✅ @Patrick - Calculate new route - source: \(sourceIndexPath) - dest: \(destinationIndexPath)")
+        // update methoden für Patrick
+//        gameCreatorController.set(duration: 1.0)
+//        gameCreatorController.set(length: 1.0)
     }
     
 }
@@ -233,6 +261,9 @@ extension CreateGameViewController: CreateQuestDelegate {
         let lastIndexPath = IndexPath(row: numberOfElements - 1, section: 0)
         questCollectionView.insertItems(at: [lastIndexPath])
         navigationController?.popViewController(animated: true)
+        
+        gameCreatorController.set(duration: 1.0)
+        gameCreatorController.set(length: 1.0)
     }
     
     func didUpdated(quest: Quest) {

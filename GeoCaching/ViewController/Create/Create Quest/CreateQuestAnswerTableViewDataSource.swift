@@ -58,11 +58,12 @@ class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
             
             if !answer.isEmpty {
                 answers.append(answer)
-                let lastIndex = IndexPath(row: answers.count-1, section: 0)
-                tableView.insertRows(at: [lastIndex], with: .right)
+                // TODO: ✅🚨
+//                let lastIndex = IndexPath(row: answers.count-1, section: 0)
+//                tableView.insertRows(at: [lastIndex], with: .right)
+                tableView.reloadData()
             }
         }
-        print("in here 1 :)")
     }
 }
 

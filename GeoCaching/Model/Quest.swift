@@ -52,7 +52,6 @@ struct Quest {
     var toDictionary: [String:Any] {
         return [
             "answers": answers,
-            "correctAnswer": correctAnswer,
             "question": question,
             "questionType": questionType.dbName,
             "locationPolygonPoints": locationPolygonPoints.map { "\($0.latitude);\($0.latitude)" }

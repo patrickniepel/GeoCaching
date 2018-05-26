@@ -117,14 +117,6 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rax-kp-nbB">
-                                        <rect key="frame" x="27" y="53" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="testAction:" destination="q9d-Z5-NM4" eventType="touchUpInside" id="IXP-Q8-18F"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="KDf-Ky-vPF" firstAttribute="centerX" secondItem="HR7-Pa-8VN" secondAttribute="centerX" id="1He-tW-eBg"/>

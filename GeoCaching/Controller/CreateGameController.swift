@@ -76,6 +76,18 @@ struct CreateGameController {
         updateProgress()
     }
     
+    mutating func set(duration: Double) {
+        game.duration = duration
+        checkGameConditions()
+        updateProgress()
+    }
+    
+    mutating func set(length: Double) {
+        game.length = length
+        checkGameConditions()
+        updateProgress()
+    }
+    
     
     // MARK: - Quest Condition
     
