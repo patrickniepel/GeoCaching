@@ -82,6 +82,7 @@
 		17508F0320B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17508F0120B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift */; };
 		17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17508F0220B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib */; };
 		179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F392D20A32971002BDCEE /* RegisterViewController.swift */; };
+		17B59B3A20BED5AE006F7F16 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B59B3920BED5AE006F7F16 /* Extension+UIView.swift */; };
 		17BC44C220AD6E4200062876 /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC449820AD6E3F00062876 /* NVActivityIndicatorShape.swift */; };
 		17BC44C320AD6E4200062876 /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC449920AD6E3F00062876 /* NVActivityIndicatorAnimationDelegate.swift */; };
 		17BC44C420AD6E4200062876 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC449B20AD6E4000062876 /* NVActivityIndicatorView.swift */; };
@@ -255,6 +256,7 @@
 		17508F0120B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailHighscoreTableViewCell.swift; sourceTree = "<group>"; };
 		17508F0220B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDetailHighscoreTableViewCell.xib; sourceTree = "<group>"; };
 		179F392D20A32971002BDCEE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		17B59B3920BED5AE006F7F16 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		17BC449820AD6E3F00062876 /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		17BC449920AD6E3F00062876 /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		17BC449A20AD6E4000062876 /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				A39B090F20AC623700D46CFD /* Extension+ViewController.swift */,
 				17BD38C320AD65A100D23F76 /* Extension+UIViewController.swift */,
 				0FFF636A20AD55CD00C8F955 /* Extension+NSNotification.swift */,
+				17B59B3920BED5AE006F7F16 /* Extension+UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1133,6 +1136,7 @@
 				0F56B95820B541BC00CEAEBE /* AddGameCategoriesTableViewController.swift in Sources */,
 				0F01DDB020AC67A30064ED11 /* FirebaseImageManager.swift in Sources */,
 				0FF2A58320A195E000486CAC /* SortMe.swift in Sources */,
+				17B59B3A20BED5AE006F7F16 /* Extension+UIView.swift in Sources */,
 				0F01DDB420AC6FDF0064ED11 /* CreateQuestViewController.swift in Sources */,
 				0FA96BD120A31F07005485A3 /* HighscoreTableViewCell.swift in Sources */,
 				0F01770620B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift in Sources */,
@@ -1392,7 +1396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DB3XUQ936;
+				DEVELOPMENT_TEAM = SX59NJ9YBW;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1411,7 +1415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DB3XUQ936;
+				DEVELOPMENT_TEAM = SX59NJ9YBW;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

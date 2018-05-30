@@ -43,9 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootCtrl = createAppTabBarController()
         window?.rootViewController = rootCtrl
         
-        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
-        rootCtrl.present(loginViewCtrl, animated: true, completion: nil)
+
+        let loginViewCtrl = goToLogin()
+        
+        rootCtrl.present(loginViewCtrl, animated: false, completion: nil)
         
         return true
     }
@@ -129,6 +130,13 @@ extension AppDelegate {
         }
         
         return uiTabBarVC
+    }
+
+    func goToLogin() -> LoginViewController {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
+        
+        return loginViewCtrl
     }
 }
 

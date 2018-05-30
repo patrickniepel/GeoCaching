@@ -41,32 +41,21 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         checkUserSignedIn()
     }
-    
     
     // MARK: - Setup
     
     func setupText() {
-        
         title = "Welcome"
-        
     }
     
     func setupDesign() {
-        emailBackgroundView.layer.cornerRadius = 10
-        passwordBackgroundView.layer.cornerRadius = 10
+        makeButtonViewsPretty(views: [emailBackgroundView, passwordBackgroundView])
+
         registerButtonOutlet.layer.cornerRadius = 10
-        
-        emailBackgroundView.layer.borderWidth = 1
-        passwordBackgroundView.layer.borderWidth = 1
         registerButtonOutlet.layer.borderWidth = 1
-        
-        emailBackgroundView.layer.borderColor = AppColor.tint.cgColor
-        emailBackgroundView.backgroundColor = .clear
-        passwordBackgroundView.layer.borderColor = AppColor.tint.cgColor
-        passwordBackgroundView.backgroundColor = .clear
         registerButtonOutlet.layer.borderColor = AppColor.tint.cgColor
         registerButtonOutlet.backgroundColor = .clear
         
@@ -83,11 +72,12 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
         
     }
     
+    func makeButtonViewsPretty(views: [UIView]){
+        _ = views.map { $0.makeButtonViewPretty() }
+    }
+    
     
     func setupData() {
-        
-        
-        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -97,7 +87,7 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
     func checkUserSignedIn() {
 
         if authController.checkIfUserAlreadySignedI() {
-            showGameViewController()
+            dismissLogin()
             print("""
             ##########
             Auto Login User
@@ -133,7 +123,7 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
                 self.loginButtonOutlet.isEnabled = true
             }else if let user = user{
                 print(user)
-                self.showGameViewController()
+                self.dismissLogin()
             }
             
             self.indicatorView.stopAnimating()
@@ -157,7 +147,7 @@ extension LoginViewController {
     }
     
     @IBAction func SkipAction(_ sender: UIButton) {
-        showGameViewController()
+        dismissLogin()
     }
     
 }
@@ -166,10 +156,12 @@ extension LoginViewController {
 // MARK: - Navigation
 
 extension LoginViewController {
-    func showGameViewController() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let tabBarCtrl = appDelegate.createAppTabBarController()
-        present(tabBarCtrl, animated: true)
+    func dismissLogin() {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let tabBarCtrl = appDelegate.createAppTabBarController()
+//        present(tabBarCtrl, animated: true)
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

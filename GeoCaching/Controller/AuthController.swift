@@ -76,6 +76,17 @@ struct AuthController {
         return false
     }
     
+    func logoutUser(){
+        
+        do {
+            try Auth.auth().signOut()
+            print("User loged out")
+        } catch  {
+            print("Could not sign out user")
+        }
+        
+    }
+    
     private func checkIfUsernameIsAlreadyInUse(username: String, completion: @escaping (Bool, Error?) -> Void) {
         userDB.observeSingleEvent(of: .value) { (dataSnapshot) in
             var usernameIsAlreadyInUse = false

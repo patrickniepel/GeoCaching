@@ -25,9 +25,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet var backgroundView: UIView!
     
     @IBOutlet weak var registerButtonOutlet: UIButton!
+    @IBOutlet weak var backButtonOutlet: UIButton!
     
     @IBOutlet weak var indicatorView: NVActivityIndicatorView!
     
+
     
     
     var authController = AuthController()
@@ -52,20 +54,7 @@ class RegisterViewController: UIViewController {
     
     func setupDesign(){
         
-        usernameBackgroundView.layer.cornerRadius = 10
-        emailBackgroundView.layer.cornerRadius = 10
-        passwordBackgroundView.layer.cornerRadius = 10
-        
-        usernameBackgroundView.layer.borderWidth = 1
-        emailBackgroundView.layer.borderWidth = 1
-        passwordBackgroundView.layer.borderWidth = 1
-        
-        usernameBackgroundView.layer.borderColor = AppColor.tint.cgColor
-        usernameBackgroundView.backgroundColor = .clear
-        emailBackgroundView.layer.borderColor = AppColor.tint.cgColor
-        emailBackgroundView.backgroundColor = .clear
-        passwordBackgroundView.layer.borderColor = AppColor.tint.cgColor
-        passwordBackgroundView.backgroundColor = .clear
+        makeButtonViewsPretty(views: [usernameBackgroundView, emailBackgroundView, passwordBackgroundView])
         
         usernameSeparatorView.backgroundColor = AppColor.tint
         emailSeparatorView.backgroundColor = AppColor.tint
@@ -75,10 +64,16 @@ class RegisterViewController: UIViewController {
         emailTextField.tintColor = AppColor.tint
         passwordTextField.tintColor = AppColor.tint
         
+        backButtonOutlet.tintColor = AppColor.tint
+        
         indicatorView.type = .pacman
         indicatorView.color = AppColor.tint
         indicatorView.layer.cornerRadius = 10
         
+    }
+    
+    func makeButtonViewsPretty(views: [UIView]){
+       _ = views.map { $0.makeButtonViewPretty() }
     }
     
     func setupText() {
@@ -112,14 +107,14 @@ class RegisterViewController: UIViewController {
                 self.registerButtonOutlet.isEnabled = true
             }else if let user = user{
                 print("Hello \(user)")
-                self.dismiss(animated: true, completion: nil)
-                //self.showGameViewController()
+                self.dismiss(animated: false, completion: nil)
             }
             
             self.indicatorView.stopAnimating()
         }
     }
 }
+
 
 
 // MARK: - Actions
@@ -131,6 +126,10 @@ extension RegisterViewController {
     
     @IBAction func skipAction(_ sender: UIButton) {
         //showGameViewController()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
