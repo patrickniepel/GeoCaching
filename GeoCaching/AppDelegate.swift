@@ -44,9 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootCtrl = createAppTabBarController()
         window?.rootViewController = rootCtrl
         
-        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
-        rootCtrl.present(loginViewCtrl, animated: true, completion: nil)
+
+        let loginViewCtrl = goToLogin()
+        
+        rootCtrl.present(loginViewCtrl, animated: false, completion: nil)
         
         let source = CLLocationCoordinate2D(latitude: 50.171311, longitude: 12.1339323)
         let dest = CLLocationCoordinate2D(latitude: 51.3396955, longitude: 12.3730747)
@@ -138,6 +139,13 @@ extension AppDelegate {
         }
         
         return uiTabBarVC
+    }
+
+    func goToLogin() -> LoginViewController {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
+        
+        return loginViewCtrl
     }
 }
 

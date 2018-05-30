@@ -15,10 +15,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var achievementsTitleLabel: UILabel!
+    @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
     
     @IBOutlet weak var profileActionsTableView: UITableView!
     @IBOutlet weak var achievementsCollectionView: UICollectionView!
     
+
+    var authController : AuthController!
     var user = DummyContent.sharedInstance.currentUser
     
     private var actionTableViewDataSource: ProfileActionTableViewDataSource!
@@ -60,6 +63,8 @@ class ProfileViewController: UIViewController {
         
         profileActionsTableView.backgroundColor = UIColor.clear
         achievementsCollectionView.backgroundColor = UIColor.clear
+        
+        logoutButtonOutlet.tintColor = AppColor.tint
     }
     
     func setupData() {
@@ -72,6 +77,8 @@ class ProfileViewController: UIViewController {
         achievementsCollectionViewDelegate = ProfileAchievementsCollectionViewDelegate(viewCtrl: self)
         achievementsCollectionView.dataSource = achievementsCollectionViewDataSource
         achievementsCollectionView.delegate = achievementsCollectionViewDelegate
+        
+        authController = AuthController()
     }
     
     
@@ -85,5 +92,26 @@ class ProfileViewController: UIViewController {
             }
             destVCtrl.achievement = selectedAchivement
         }
+    }
+    
+   
+}
+
+
+// MARK: - Actions
+extension ProfileViewController {
+    @IBAction func logoutAction(_ sender: UIBarButtonItem) {
+        authController.logoutUser()
+        print("Logout User")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let loginViewCtrl = appDelegate.goToLogin()
+        
+        present(loginViewCtrl, animated: false, completion: nil)
+        
+//        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+//        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
+//        present(loginViewCtrl, animated: false, completion: nil)
     }
 }

@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="Kq7-4U-7Vn">
             <objects>
-                <viewController storyboardIdentifier="storyboardID_login_vc" modalTransitionStyle="flipHorizontal" id="eQm-MW-RoU" customClass="LoginViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyboardID_login_vc" modalTransitionStyle="crossDissolve" id="eQm-MW-RoU" customClass="LoginViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="miU-jD-2bj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +241,7 @@
         <!--Register View Controller-->
         <scene sceneID="tny-7J-hB7">
             <objects>
-                <viewController id="q2O-P7-MgR" customClass="RegisterViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="q2O-P7-MgR" customClass="RegisterViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WTK-Pk-Lek" userLabel="BackgroundView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,11 +395,24 @@
                                             <action selector="registerAction:" destination="q2O-P7-MgR" eventType="touchUpInside" id="jVT-7N-9NP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gt-4u-hq0">
+                                        <rect key="frame" x="8" y="8" width="54" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="Jxg-0T-RKv"/>
+                                            <constraint firstAttribute="height" constant="30" id="gZM-OK-L1h"/>
+                                        </constraints>
+                                        <state key="normal" title="〈 Back"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="q2O-P7-MgR" eventType="touchUpInside" id="0cZ-0c-PU7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bEB-YA-ZqH" firstAttribute="top" secondItem="EHb-ZY-fs5" secondAttribute="bottom" constant="8" id="AUI-SO-gsR"/>
                                     <constraint firstItem="EHb-ZY-fs5" firstAttribute="centerY" secondItem="1yB-Ld-Ebe" secondAttribute="centerY" id="DZj-3M-Gji"/>
+                                    <constraint firstItem="4gt-4u-hq0" firstAttribute="top" secondItem="1yB-Ld-Ebe" secondAttribute="top" constant="8" id="Fpe-lE-FKf"/>
                                     <constraint firstItem="EHb-ZY-fs5" firstAttribute="leading" secondItem="1yB-Ld-Ebe" secondAttribute="leading" constant="14" id="ddl-0C-R4A"/>
+                                    <constraint firstItem="4gt-4u-hq0" firstAttribute="leading" secondItem="1yB-Ld-Ebe" secondAttribute="leading" constant="8" id="jWM-gH-aEh"/>
                                     <constraint firstItem="bEB-YA-ZqH" firstAttribute="centerX" secondItem="1yB-Ld-Ebe" secondAttribute="centerX" id="nvg-5A-S7m"/>
                                     <constraint firstAttribute="trailing" secondItem="EHb-ZY-fs5" secondAttribute="trailing" constant="14" id="z1K-hr-X3K"/>
                                 </constraints>
@@ -457,6 +470,7 @@
                         <viewLayoutGuide key="safeArea" id="70E-2H-Q9v"/>
                     </view>
                     <connections>
+                        <outlet property="backButtonOutlet" destination="4gt-4u-hq0" id="3Pl-o4-5HB"/>
                         <outlet property="backgroundView" destination="WTK-Pk-Lek" id="ERz-rS-1sr"/>
                         <outlet property="emailBackgroundView" destination="v8X-Jo-pVE" id="rcl-7O-hx4"/>
                         <outlet property="emailSeparatorView" destination="394-7n-WeA" id="tYF-Fa-4tM"/>
