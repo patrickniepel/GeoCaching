@@ -153,11 +153,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1TN-f5-qQh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dSq-Vh-dZz"/>
+                    <navigationItem key="navigationItem" id="dSq-Vh-dZz">
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="T1r-0m-pMR">
+                            <connections>
+                                <action selector="logoutAction:" destination="q9d-Z5-NM4" id="X2n-dU-nuM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="achievementsCollectionView" destination="rLq-9k-aK6" id="imK-yh-JKc"/>
                         <outlet property="achievementsTitleLabel" destination="Ce4-uC-SEn" id="hqR-VH-4id"/>
                         <outlet property="fullnameLabel" destination="JsR-J4-IRZ" id="WST-3s-72N"/>
+                        <outlet property="logoutButtonOutlet" destination="T1r-0m-pMR" id="WY7-sv-7nY"/>
                         <outlet property="pointsLabel" destination="KDf-Ky-vPF" id="3LG-1g-CIO"/>
                         <outlet property="profileActionsTableView" destination="aut-ae-K7O" id="zz8-ks-HFL"/>
                         <outlet property="profileImageView" destination="tqK-hl-3hw" id="1i1-Be-DHt"/>
