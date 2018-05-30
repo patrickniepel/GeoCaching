@@ -67,6 +67,15 @@ struct AuthController {
         }
     }
     
+    func checkIfUserAlreadySignedI() -> Bool{
+        
+        if Auth.auth().currentUser != nil{
+            return true
+        }
+        
+        return false
+    }
+    
     private func checkIfUsernameIsAlreadyInUse(username: String, completion: @escaping (Bool, Error?) -> Void) {
         userDB.observeSingleEvent(of: .value) { (dataSnapshot) in
             var usernameIsAlreadyInUse = false
