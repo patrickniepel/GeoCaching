@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationCtrl.navigationBar.isTranslucent = false
         window?.rootViewController = navigationCtrl
         
+        RouteController().imTheTesterFunction()
+        
         return true
     }
 

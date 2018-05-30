@@ -134,6 +134,7 @@
 		A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */; };
 		A35EB2CA20B538A900A1025F /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2C920B538A900A1025F /* CreateGameViewController.swift */; };
 		A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CB20B53C7800A1025F /* CreateGameController.swift */; };
+		A35EB2CE20B5473F00A1025F /* RouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CD20B5473F00A1025F /* RouteController.swift */; };
 		A37D689B20AD56EC0060C29F /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D689A20AD56EC0060C29F /* AchievementController.swift */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
@@ -299,6 +300,7 @@
 		A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A35EB2C920B538A900A1025F /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		A35EB2CB20B53C7800A1025F /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
+		A35EB2CD20B5473F00A1025F /* RouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteController.swift; sourceTree = "<group>"; };
 		A37D689A20AD56EC0060C29F /* AchievementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		A397AABC2087645300289B7D /* GeoCaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A397AABF2087645300289B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				A37D689A20AD56EC0060C29F /* AchievementController.swift */,
 				0F01DDBD20AC9B9E0064ED11 /* CreateQuestController.swift */,
 				A35EB2CB20B53C7800A1025F /* CreateGameController.swift */,
+				A35EB2CD20B5473F00A1025F /* RouteController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1104,6 +1107,7 @@
 				17BC44D520AD6E4200062876 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				A397AAFB20878C3500289B7D /* ProfileViewController.swift in Sources */,
 				0FF2A58A20A19B0A00486CAC /* LoginViewController.swift in Sources */,
+				A35EB2CE20B5473F00A1025F /* RouteController.swift in Sources */,
 				17BC450120AD6E5600062876 /* PopupDialogButton.swift in Sources */,
 				174EB9D820AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift in Sources */,
 				17BC44C620AD6E4200062876 /* NVActivityIndicatorViewable.swift in Sources */,
