@@ -38,6 +38,11 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
         setupDesign()
         setupText()
         setupData()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkUserSignedIn()
     }
     
     
@@ -87,6 +92,18 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
         passwordTextField.delegate = self
         
         hideKeyboardWhenTappedAround()
+    }
+    
+    func checkUserSignedIn() {
+
+        if authController.checkIfUserAlreadySignedI() {
+            showGameViewController()
+            print("""
+            ##########
+            Auto Login User
+            ##########
+            """)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -161,7 +178,7 @@ extension LoginViewController {
 
 extension LoginViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:    #selector(self.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
