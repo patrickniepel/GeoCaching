@@ -10,7 +10,7 @@ import UIKit
 
 class CardCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
 
-    
+    weak var vc : UIViewController!
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 16.0, bottom: 16.0, right: 16.0)
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -28,5 +28,12 @@ class CardCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let rootVC = collectionView.window?.rootViewController as! UITabBarController
+//        let navVC = rootVC.selectedViewController as! UINavigationController
+//        let currentVC = navVC.topViewController as! SearchViewController
+        vc.performSegue(withIdentifier: SearchIdentifiers.segue2GameDetail.identifier, sender: nil)
     }
 }

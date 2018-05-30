@@ -31,14 +31,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Statusbar white
         UIApplication.shared.statusBarStyle = .lightContent
         
+//        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+//        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
+//        let navigationCtrl = UINavigationController(rootViewController: loginViewCtrl)
+//        navigationCtrl.navigationBar.tintColor = AppColor.tint
+//        navigationCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+//        navigationCtrl.navigationBar.barTintColor = .black
+//        navigationCtrl.navigationBar.isTranslucent = false
+        
+        
+        let rootCtrl = createAppTabBarController()
+        window?.rootViewController = rootCtrl
+        
         let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
-        let navigationCtrl = UINavigationController(rootViewController: loginViewCtrl)
-        navigationCtrl.navigationBar.tintColor = AppColor.tint
-        navigationCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-        navigationCtrl.navigationBar.barTintColor = .black
-        navigationCtrl.navigationBar.isTranslucent = false
-        window?.rootViewController = navigationCtrl
+        rootCtrl.present(loginViewCtrl, animated: true, completion: nil)
         
         RouteController().imTheTesterFunction()
         

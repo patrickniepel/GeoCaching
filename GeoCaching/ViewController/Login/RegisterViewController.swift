@@ -112,7 +112,8 @@ class RegisterViewController: UIViewController {
                 self.registerButtonOutlet.isEnabled = true
             }else if let user = user{
                 print("Hello \(user)")
-                self.showGameViewController()
+                self.dismiss(animated: true, completion: nil)
+                //self.showGameViewController()
             }
             
             self.indicatorView.stopAnimating()
@@ -129,7 +130,8 @@ extension RegisterViewController {
     }
     
     @IBAction func skipAction(_ sender: UIButton) {
-        showGameViewController()
+        //showGameViewController()
+        dismiss(animated: true, completion: nil)
     }
 }
 

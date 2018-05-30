@@ -53,10 +53,17 @@ struct GameUploadController {
             if let error = error {
                 completion(error)
             } else {
-                
+                if let image = game.image {
+                    self.gameImageManager.upload(image: image, withImageName: game.id, completion: { (error) in
+                        completion(error)
+                    })
+                } else {
+                    // TODO: ✅ kein Bild vorhanden error zurück geben
+                }
             }
         }
     }
+    
 }
 
 
