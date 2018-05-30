@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleMaps
 import GooglePlaces
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,7 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController
         rootCtrl.present(loginViewCtrl, animated: true, completion: nil)
         
-        RouteController().imTheTesterFunction()
+        let source = CLLocationCoordinate2D(latitude: 50.171311, longitude: 12.1339323)
+        let dest = CLLocationCoordinate2D(latitude: 51.3396955, longitude: 12.3730747)
+        
+        RouteController().calculateEntireRoute(with: [source, dest], transportType: .any) { (distance, travelTime) in
+             print("Distance: \(distance), Time: \(travelTime)")
+        }
         
         return true
     }
