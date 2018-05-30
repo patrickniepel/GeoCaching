@@ -50,8 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let source = CLLocationCoordinate2D(latitude: 50.171311, longitude: 12.1339323)
         let dest = CLLocationCoordinate2D(latitude: 51.3396955, longitude: 12.3730747)
+        let dest2 = CLLocationCoordinate2D(latitude: 53.3396955, longitude: 12.3730747)
         
-        RouteController().calculateEntireRoute(with: [source, dest], transportType: .any) { (distance, travelTime) in
+        RouteController().calculateEntireRoute(with: [source, dest, dest2], transportType: .any) { (distance, travelTime) in
              print("Distance: \(distance), Time: \(travelTime)")
         }
         

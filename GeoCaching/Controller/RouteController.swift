@@ -12,7 +12,7 @@ import MapKit
 
 class RouteController {
     
-    /** Returns a dictionary with values for the keys 'travelTime' and 'distance' */
+    /** Returns distance and travelTime for entire route */
     func calculateEntireRoute(with locations: [CLLocationCoordinate2D], transportType: MKDirectionsTransportType, completion: @escaping (String, String) -> ()) {
         
         var distance : Double = 0
@@ -85,11 +85,11 @@ class RouteController {
         var time : Double = 0
         //return time < 60 ? "\(time) s" : time < 3600 ? "\(time / 60 ) min" : "\(time / 60 / 60) h"
         
-        if travelTime > 60 {
+        if travelTime < 60 {
             time = travelTime
             return "\(Int(round(time))) s"
         }
-        else if travelTime > 3600 {
+        else if travelTime < 3600 {
             time = (travelTime / 60)
             return "\(Int(round(time))) min"
         }
