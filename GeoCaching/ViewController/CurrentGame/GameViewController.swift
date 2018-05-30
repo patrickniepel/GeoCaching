@@ -20,7 +20,6 @@ class GameViewController: UIViewController {
     let speedButton = UIButton()
     let button6 = UIButton()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

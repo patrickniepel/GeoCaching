@@ -27,9 +27,13 @@
                                     <segment title="Second"/>
                                 </segments>
                                 <connections>
-                                    <action selector="changeSearchScreen:" destination="PRo-uk-2V7" eventType="valueChanged" id="Bcg-Mh-tDS"/>
+                                    <action selector="changeView:" destination="PRo-uk-2V7" eventType="valueChanged" id="3vj-C4-7rs"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3C-bF-kOi" customClass="GMSMapView">
+                                <rect key="frame" x="8" y="132" width="359" height="638"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-pu-ZfO">
                                 <rect key="frame" x="0.0" y="125" width="375" height="653"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,10 +62,14 @@
                         <constraints>
                             <constraint firstItem="Vcr-pu-ZfO" firstAttribute="trailing" secondItem="Heg-bT-mkM" secondAttribute="trailing" id="1nt-vv-Q5p"/>
                             <constraint firstItem="Vcr-pu-ZfO" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" id="3Wm-OI-2xs"/>
+                            <constraint firstItem="E3C-bF-kOi" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" constant="8" id="Gw6-6c-qgw"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="trailing" secondItem="ueT-tt-spp" secondAttribute="trailing" constant="8" id="Ira-VA-EBV"/>
                             <constraint firstItem="ueT-tt-spp" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" constant="8" id="Qjy-6m-cBg"/>
+                            <constraint firstItem="E3C-bF-kOi" firstAttribute="top" secondItem="ueT-tt-spp" secondAttribute="bottom" constant="8" id="czm-Na-5MR"/>
+                            <constraint firstItem="Heg-bT-mkM" firstAttribute="bottom" secondItem="E3C-bF-kOi" secondAttribute="bottom" constant="8" id="e47-kf-0hV"/>
                             <constraint firstItem="ueT-tt-spp" firstAttribute="top" secondItem="Heg-bT-mkM" secondAttribute="top" constant="8" id="mOK-Gj-1Qo"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="bottom" secondItem="Vcr-pu-ZfO" secondAttribute="bottom" id="r0h-CI-R3u"/>
+                            <constraint firstItem="Heg-bT-mkM" firstAttribute="trailing" secondItem="E3C-bF-kOi" secondAttribute="trailing" constant="8" id="u1X-6F-fQN"/>
                             <constraint firstItem="Vcr-pu-ZfO" firstAttribute="top" secondItem="ueT-tt-spp" secondAttribute="bottom" constant="1" id="vbE-M7-9iN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Heg-bT-mkM"/>
@@ -79,12 +87,13 @@
                     <connections>
                         <outlet property="cardCollectionView" destination="Vcr-pu-ZfO" id="T8i-jp-2ZT"/>
                         <outlet property="filterBarButttonItem" destination="6Wu-kv-B7i" id="p5F-Al-x6S"/>
+                        <outlet property="gameView" destination="E3C-bF-kOi" id="pIq-kT-uYa"/>
                         <outlet property="segmentedControl" destination="ueT-tt-spp" id="k9y-bJ-vLO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJW-P6-JSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872.79999999999995" y="68.815592203898049"/>
+            <point key="canvasLocation" x="872.79999999999995" y="68.7192118226601"/>
         </scene>
         <!--Game Detail View Controller-->
         <scene sceneID="ci9-ua-s1R">
@@ -292,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fa-bs-HpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648.8" y="68.815592203898049"/>
+            <point key="canvasLocation" x="2406" y="69"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9by-Y7-f2r">

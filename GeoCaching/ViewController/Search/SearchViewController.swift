@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class SearchViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
@@ -14,18 +15,28 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     
     private var cardCollectionViewDelegate : CardCollectionViewDelegate!
     private var cardCollectionViewDataSource : CardCollectionViewDataSource!
+    private let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     
     // MARK: - IBOutlets
     
     @IBOutlet weak var cardCollectionView: UICollectionView!
     @IBOutlet weak var filterBarButttonItem: UIBarButtonItem!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var gameView: GMSMapView!
+    
     
     // MARK: - IBActions
     
-    @IBAction func changeSearchScreen(_ sender: Any) {
-        
+    @IBAction func changeView(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+            gameView.isHidden = true
+            cardCollectionView.isHidden = false
+        }else{
+            gameView.isHidden = false
+            cardCollectionView.isHidden = true
+        }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +80,15 @@ extension SearchViewController{
         segmentedControl.backgroundColor = UIColor.clear
         segmentedControl.tintColor = AppColor.tint
         cardCollectionView.backgroundColor = AppColor.background
+        gameView.isHidden = true
+        //Get MapViewData
+        do {
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                gameView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            }
+        } catch {
+            print("Google-Map-JSON-Style-Error: \(error)")
+        }
     }
     
     func setupData() {
@@ -82,5 +102,11 @@ extension SearchViewController{
         cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
         
     }
+    
+}
+
+
+//MARK: - GameScreen
+extension SearchViewController{
     
 }
