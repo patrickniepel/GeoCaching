@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vcr-pu-ZfO">
-                                <rect key="frame" x="0.0" y="125" width="375" height="653"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="646"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kYy-uA-v0E">
                                     <size key="itemSize" width="375" height="157"/>
@@ -70,7 +70,7 @@
                             <constraint firstItem="ueT-tt-spp" firstAttribute="top" secondItem="Heg-bT-mkM" secondAttribute="top" constant="8" id="mOK-Gj-1Qo"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="bottom" secondItem="Vcr-pu-ZfO" secondAttribute="bottom" id="r0h-CI-R3u"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="trailing" secondItem="E3C-bF-kOi" secondAttribute="trailing" constant="8" id="u1X-6F-fQN"/>
-                            <constraint firstItem="Vcr-pu-ZfO" firstAttribute="top" secondItem="ueT-tt-spp" secondAttribute="bottom" constant="1" id="vbE-M7-9iN"/>
+                            <constraint firstItem="Vcr-pu-ZfO" firstAttribute="top" secondItem="ueT-tt-spp" secondAttribute="bottom" constant="8" id="vbE-M7-9iN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Heg-bT-mkM"/>
                     </view>
