@@ -8,9 +8,10 @@
 
 import UIKit
 
-class HighscoreViewController: UIViewController {
+class HighscoreViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var highscoreTableView: UITableView!
     @IBOutlet weak var expendableMenuButton: MenuButton!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     
     private var highscoreTableViewDataSource: HighscoreTableViewDataSource!
     private var highscoreTableViewDelegate: HighscoreTableViewDelegate!
@@ -44,6 +45,8 @@ class HighscoreViewController: UIViewController {
         expendableMenuButton.layer.cornerRadius = expendableMenuButton.frame.width/2
         expendableMenuButton.expandingDirection = .degree(221)
         setDesign(forButton: expendableMenuButton)
+        
+        filterButton.tintColor = AppColor.tint
     }
     
     func setupData() {
@@ -78,6 +81,17 @@ class HighscoreViewController: UIViewController {
             
             destVCtrl.user = selectedUser
         }
+        if segue.identifier == HighscoreStoryboardSegue.segue2FilterPopup.identifier{
+            let popoverViewController = segue.destination as! FilterPopupViewController
+            popoverViewController.modalPresentationStyle = .popover
+            popoverViewController.popoverPresentationController!.delegate = self
+            popoverViewController.popoverPresentationController?.backgroundColor = AppColor.tint
+            popoverViewController.preferredContentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height*0.3)
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     
