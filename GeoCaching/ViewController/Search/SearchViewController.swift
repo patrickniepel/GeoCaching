@@ -115,7 +115,7 @@ extension SearchViewController{
             print("Google-Map-JSON-Style-Error: \(error)")
         }
         for location in testLocations{
-            var marker = GMSMarker(position: location)
+            let marker = GMSMarker(position: location)
             marker.title = "Event"
             marker.icon = GMSMarker.markerImage(with: AppColor.tint)
             marker.map = gameView
