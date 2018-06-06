@@ -117,9 +117,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="78u-J0-pCb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6g3-04-rur"/>
+                    <navigationItem key="navigationItem" id="6g3-04-rur">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="filter" id="ghB-fh-etz">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="W9J-sM-uQs" kind="popoverPresentation" identifier="FilterPopup" popoverAnchorBarButtonItem="ghB-fh-etz" id="Du8-Uo-VzS">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="expendableMenuButton" destination="FZK-mO-tIG" id="ykW-f4-tHa"/>
+                        <outlet property="filterButton" destination="ghB-fh-etz" id="7PO-R3-1Kh"/>
                         <outlet property="highscoreTableView" destination="gAl-Oj-RPj" id="cW9-uk-jMO"/>
                         <segue destination="gFN-2x-Hzn" kind="show" identifier="highscoreSegueUserdetail" id="bMT-R4-RLh"/>
                     </connections>
@@ -154,8 +164,60 @@
             </objects>
             <point key="canvasLocation" x="-295.19999999999999" y="27.436281859070466"/>
         </scene>
+        <!--Filter Popup View Controller-->
+        <scene sceneID="t08-wH-62N">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="W9J-sM-uQs" customClass="FilterPopupViewController" customModule="GeoCaching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="88Q-xR-TYL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cme-dn-Q4e">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchFilterCell" textLabel="qM2-ic-Lhz" style="IBUITableViewCellStyleDefault" id="Pbt-lq-531">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pbt-lq-531" id="aGp-3A-LG2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Filter 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qM2-ic-Lhz">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cme-dn-Q4e" firstAttribute="top" secondItem="csV-hM-jop" secondAttribute="top" id="C6e-60-bx3"/>
+                            <constraint firstItem="csV-hM-jop" firstAttribute="bottom" secondItem="Cme-dn-Q4e" secondAttribute="bottom" id="FFG-sf-ZBa"/>
+                            <constraint firstItem="Cme-dn-Q4e" firstAttribute="leading" secondItem="csV-hM-jop" secondAttribute="leading" id="GAZ-28-bPM"/>
+                            <constraint firstItem="csV-hM-jop" firstAttribute="trailing" secondItem="Cme-dn-Q4e" secondAttribute="trailing" id="GER-3U-WGs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="csV-hM-jop"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pNH-D1-LOo"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="88Q-xR-TYL" id="AX6-kR-Wb4"/>
+                        <outlet property="tableView" destination="Cme-dn-Q4e" id="y3Z-He-1eK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHa-4w-GY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="806"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="filter" width="20" height="20"/>
         <image name="gary" width="275" height="183"/>
     </resources>
 </document>

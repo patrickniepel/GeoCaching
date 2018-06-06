@@ -10,10 +10,13 @@ import Foundation
 
 enum HighscoreStoryboardSegue {
     case userDetail
+    case segue2FilterPopup
+    
     
     var identifier: String {
         switch self {
         case .userDetail: return "highscoreSegueUserdetail"
+        case .segue2FilterPopup: return "FilterPopup"
         }
     }
 }
