@@ -139,6 +139,7 @@
 		17BC450920AD6E5600062876 /* PopupDialogContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC44F920AD6E5600062876 /* PopupDialogContainerView.swift */; };
 		17BD38C420AD65A200D23F76 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD38C320AD65A100D23F76 /* Extension+UIViewController.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
+		9A5F503D20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F503C20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift */; };
 		A30CC5CB20C7B1A30017DEE1 /* HighscoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5CA20C7B1A30017DEE1 /* HighscoreController.swift */; };
 		A30CC5CD20C7B1DD0017DEE1 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5CC20C7B1DD0017DEE1 /* PermissionController.swift */; };
 		A30CC5CF20C7B1E90017DEE1 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5CE20C7B1E90017DEE1 /* GameController.swift */; };
@@ -325,6 +326,7 @@
 		1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCachingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
+		9A5F503C20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchnitzlrBoarWaitingAnimationView.swift; sourceTree = "<group>"; };
 		9BC2814B3EEFEE0447FCDC88 /* Pods-GeoCaching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.release.xcconfig"; sourceTree = "<group>"; };
 		A30CC5CA20C7B1A30017DEE1 /* HighscoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreController.swift; sourceTree = "<group>"; };
 		A30CC5CC20C7B1DD0017DEE1 /* PermissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionController.swift; sourceTree = "<group>"; };
@@ -734,6 +736,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A5F503B20D0342B0017281A /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9A5F503C20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		A33C82CC20AC0C10005762C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +792,7 @@
 				0F0807A32099FB5200F716E1 /* Controller */,
 				0FF2A56520A18D8000486CAC /* Errors */,
 				0FF2A56F20A191AB00486CAC /* Extensions */,
+				9A5F503B20D0342B0017281A /* Animations */,
 				0FF2A56A20A1917F00486CAC /* Model */,
 				0FF2A57620A192E300486CAC /* Storyboards */,
 				0FF2A58E20A19FB800486CAC /* ViewController */,
@@ -1128,6 +1139,7 @@
 				17BC44C320AD6E4200062876 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				A37D689B20AD56EC0060C29F /* AchievementController.swift in Sources */,
 				17BC44DF20AD6E4200062876 /* NVActivityIndicatorAnimationLineScale.swift in Sources */,
+				9A5F503D20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift in Sources */,
 				A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */,
 				17BC450620AD6E5600062876 /* TransitionAnimations.swift in Sources */,
 				17BC450420AD6E5600062876 /* PopupDialog+Keyboard.swift in Sources */,
