@@ -19,8 +19,12 @@ class CreateGameQuestOverviewCollectionViewDataSource: NSObject, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CreateGameQuestOverviewCollectionViewCell
         
         let quest = getQuest(atIndexPath: indexPath)
-        cell.infoLabel.text = "\(quest.id)"
+        cell.infoLabel.text = "\(quest.question)"
         cell.questImageView.image = quest.image
+        
+        cell.cellBackgroundView.layer.cornerRadius = 10
+        cell.cellBackgroundView.backgroundColor = AppColor.backgroundLighter2
+        cell.infoLabel.textColor = AppColor.text
         
         return cell
     }

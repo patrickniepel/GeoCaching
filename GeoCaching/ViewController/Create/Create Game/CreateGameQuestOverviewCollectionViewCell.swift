@@ -11,5 +11,5 @@ import UIKit
 class CreateGameQuestOverviewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var questImageView: UIImageView!
     @IBOutlet weak var infoLabel: UILabel!
-    
+    @IBOutlet weak var cellBackgroundView: UIView!
 }

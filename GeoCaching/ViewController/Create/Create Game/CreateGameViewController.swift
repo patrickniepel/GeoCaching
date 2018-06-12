@@ -11,6 +11,9 @@ import MobileCoreServices
 import CoreLocation
 
 
+// Nach redesign geht Kategorien nicht mehr und publish Button muss noch mit der funktionalität belegt werden.
+// Cells sind noch nicht wirklich schön 
+
 class CreateGameViewController: UIViewController {
     @IBOutlet weak var gameNameTextField: UITextField!
     @IBOutlet weak var shortDescriptionTextField: UITextField!
@@ -20,6 +23,11 @@ class CreateGameViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     @IBOutlet weak var questCollectionView: UICollectionView!
+    @IBOutlet weak var publishButtonOutlet: UIButton!
+    @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var informationBackgroundView: UIView!
+    
     @IBOutlet var textElementCollection: [UILabel]!
     @IBOutlet var buttonElementCollection: [UIButton]!
     
@@ -49,15 +57,54 @@ class CreateGameViewController: UIViewController {
     }
     
     func setupDesign() {
-        view.backgroundColor = AppColor.background
+        backgroundView.backgroundColor = AppColor.background
+        longDescriptionTextView.textColor = AppColor.text
+        scrollview.backgroundColor = AppColor.tint
         
-        buttonElementCollection.forEach { $0.setTitleColor(AppColor.tint, for: .normal) }
         textElementCollection.forEach { $0.textColor = AppColor.text }
+        buttonElementCollection.forEach {
+            $0.setTitleColor(AppColor.tint, for: .normal)
+            $0.layer.cornerRadius = 10
+            $0.layer.borderColor = AppColor.tint.cgColor
+            $0.layer.borderWidth = 1
+        }
+        
+        gameNameTextField.backgroundColor = .clear
+        gameNameTextField.layer.borderColor = AppColor.tint.cgColor
+        gameNameTextField.layer.borderWidth = 1
+        gameNameTextField.layer.cornerRadius = 10
+        gameNameTextField.tintColor = AppColor.tint
+        gameNameTextField.textColor = AppColor.text
+        
+        shortDescriptionTextField.backgroundColor = .clear
+        shortDescriptionTextField.layer.borderColor = AppColor.tint.cgColor
+        shortDescriptionTextField.layer.borderWidth = 1
+        shortDescriptionTextField.layer.cornerRadius = 10
+        shortDescriptionTextField.tintColor = AppColor.tint
+        shortDescriptionTextField.textColor = AppColor.text
+        
+        longDescriptionTextView.backgroundColor = .clear
+        longDescriptionTextView.layer.borderColor = AppColor.tint.cgColor
+        longDescriptionTextView.layer.borderWidth = 1
+        longDescriptionTextView.layer.cornerRadius = 10
+        longDescriptionTextView.tintColor = AppColor.tint
         longDescriptionTextView.textColor = AppColor.text
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(uploadGameAction))
-        navigationItem.rightBarButtonItem?.tintColor = AppColor.tint
-        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        // Fat Publish Button
+        publishButtonOutlet.layer.borderWidth = 2
+
+        questCollectionView.layer.cornerRadius = 10
+        questCollectionView.backgroundColor = AppColor.backgroundLighter
+        
+        informationBackgroundView.layer.cornerRadius = 10
+        informationBackgroundView.backgroundColor = AppColor.backgroundLighter
+        
+        // Old Marcel
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(uploadGameAction))
+//        navigationItem.rightBarButtonItem?.tintColor = AppColor.tint
+//        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func setupData() {
@@ -82,6 +129,8 @@ class CreateGameViewController: UIViewController {
         questCollectionView.dropDelegate = questCollectionViewDropDelegate
         
         questCollectionViewDropDelegate.delegate = self
+        
+        hideKeyboardWhenTappedAround()
     }
     
     func setupGestures() {
@@ -109,6 +158,8 @@ class CreateGameViewController: UIViewController {
             }
         }
         
+    }
+    @IBAction func publishButton(_ sender: UIButton) {
     }
     
     @IBAction func addCategoryAction(_ sender: UIButton) {
@@ -307,6 +358,19 @@ extension CreateGameViewController: UIImagePickerControllerDelegate, UINavigatio
         }
         
         dismiss(animated: true)
+    }
+}
+
+// MARK: - Keyboard
+
+extension CreateGameViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
