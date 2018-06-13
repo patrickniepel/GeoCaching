@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -94,24 +94,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZK-mO-tIG" customClass="MenuButton" customModule="GeoCaching" customModuleProvider="target">
-                                <rect key="frame" x="285" y="577" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.41650105223732858" green="1" blue="0.48556343709981742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FZK-mO-tIG" secondAttribute="height" multiplier="1:1" id="Fnf-hR-7pJ"/>
-                                    <constraint firstAttribute="height" constant="60" id="c1X-AM-Xas"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="menuButtonAction:" destination="IZP-6K-N11" eventType="touchUpInside" id="WWQ-4y-aeQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gAl-Oj-RPj" firstAttribute="leading" secondItem="78u-J0-pCb" secondAttribute="leading" id="1r6-7o-Haj"/>
                             <constraint firstItem="78u-J0-pCb" firstAttribute="bottom" secondItem="gAl-Oj-RPj" secondAttribute="bottom" id="OeY-7h-HP8"/>
-                            <constraint firstItem="78u-J0-pCb" firstAttribute="trailing" secondItem="FZK-mO-tIG" secondAttribute="trailing" constant="30" id="dhp-99-I0b"/>
-                            <constraint firstItem="78u-J0-pCb" firstAttribute="bottom" secondItem="FZK-mO-tIG" secondAttribute="bottom" constant="30" id="nMh-TU-BtO"/>
                             <constraint firstItem="78u-J0-pCb" firstAttribute="trailing" secondItem="gAl-Oj-RPj" secondAttribute="trailing" id="vIe-SS-guw"/>
                             <constraint firstItem="gAl-Oj-RPj" firstAttribute="top" secondItem="78u-J0-pCb" secondAttribute="top" id="y5w-2l-0hA"/>
                         </constraints>
@@ -128,7 +115,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="expendableMenuButton" destination="FZK-mO-tIG" id="ykW-f4-tHa"/>
                         <outlet property="filterButton" destination="ghB-fh-etz" id="7PO-R3-1Kh"/>
                         <outlet property="highscoreTableView" destination="gAl-Oj-RPj" id="cW9-uk-jMO"/>
                         <segue destination="gFN-2x-Hzn" kind="show" identifier="highscoreSegueUserdetail" id="bMT-R4-RLh"/>

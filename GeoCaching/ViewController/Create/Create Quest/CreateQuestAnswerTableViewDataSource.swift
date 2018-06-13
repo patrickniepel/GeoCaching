@@ -34,15 +34,25 @@ class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
             
             cell.titleLabel.textColor = AppColor.text
             cell.addQuestionButton.tintColor = AppColor.tint
-            cell.backgroundColor = AppColor.background
+            cell.backgroundColor = .clear
+            
+            cell.answerInpputTextField.backgroundColor = .clear
+            cell.answerInpputTextField.layer.cornerRadius = 10
+            cell.answerInpputTextField.layer.borderColor = AppColor.tint.cgColor
+            cell.answerInpputTextField.layer.borderWidth = 1
+            cell.answerInpputTextField.tintColor = AppColor.tint
+            cell.answerInpputTextField.textColor = AppColor.text
+            
+            cell.setup()
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "quest_overview_cell", for: indexPath)
             
-            cell.backgroundColor = AppColor.background
+            cell.backgroundColor = .clear
             cell.textLabel?.text = answers[indexPath.row]
             cell.textLabel?.textColor = AppColor.text
+            
             
             return cell
         }

@@ -18,18 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Schnitzlr_Pig" translatesAutoresizingMaskIntoConstraints="NO" id="ulc-d2-Nh8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schnitzlr Version 0.8.37 (13.06.2018)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9e-23-Aqj">
+                                <rect key="frame" x="8" y="622" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Schnitzlr_Boar" translatesAutoresizingMaskIntoConstraints="NO" id="ezT-yf-epO">
                                 <rect key="frame" x="87" y="243.5" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="3T8-2r-lxO"/>
-                                    <constraint firstAttribute="width" constant="200" id="D4L-aW-AUK"/>
+                                    <constraint firstAttribute="width" constant="200" id="Ci0-ZH-Zn8"/>
+                                    <constraint firstAttribute="height" constant="200" id="KLa-5H-ZlE"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ulc-d2-Nh8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Yir-Km-Rrp"/>
-                            <constraint firstItem="ulc-d2-Nh8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="h0a-zG-AIM"/>
+                            <constraint firstItem="ezT-yf-epO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cac-eu-8K0"/>
+                            <constraint firstItem="K9e-23-Aqj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Kys-Ar-eA1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="K9e-23-Aqj" secondAttribute="bottom" constant="24" id="Opa-Ii-QMQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K9e-23-Aqj" secondAttribute="trailing" constant="8" id="PZP-JR-rWK"/>
+                            <constraint firstItem="ezT-yf-epO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="tI9-QR-o7s"/>
+                            <constraint firstItem="K9e-23-Aqj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tUs-G4-kr4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Schnitzlr_Pig" width="671" height="871"/>
+        <image name="Schnitzlr_Boar" width="671" height="871"/>
     </resources>
 </document>
