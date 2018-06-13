@@ -18,7 +18,17 @@ class UICreateAddQuestionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
+    func setup() {
+        addQuestionButton.layer.borderWidth = 1
+        addQuestionButton.layer.borderColor = AppColor.tint.cgColor
+        addQuestionButton.layer.cornerRadius = 10
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

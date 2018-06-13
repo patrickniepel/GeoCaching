@@ -577,7 +577,7 @@
 			children = (
 				0FF2A58820A19AFE00486CAC /* Login */,
 				A397AAF120878BA300289B7D /* Search */,
-				A397AAF220878BAC00289B7D /* CurrentGame */,
+				A397AAF220878BAC00289B7D /* Game */,
 				A397AAF720878C0700289B7D /* Create */,
 				A397AAF520878BFC00289B7D /* Highscore */,
 				A397AAF620878C0100289B7D /* Profile */,
@@ -863,12 +863,12 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		A397AAF220878BAC00289B7D /* CurrentGame */ = {
+		A397AAF220878BAC00289B7D /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				A397AAF320878BD500289B7D /* GameViewController.swift */,
 			);
-			path = CurrentGame;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		A397AAF520878BFC00289B7D /* Highscore */ = {

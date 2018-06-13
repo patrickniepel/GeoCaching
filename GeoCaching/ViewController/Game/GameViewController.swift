@@ -13,6 +13,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var expendableMenuButton: MenuButton!
     var mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     
+    @IBOutlet weak var informationBackground: UIView!
+    @IBOutlet weak var informationImage: UIImageView!
+    @IBOutlet weak var informationButtonOutlet: UIButton!
+    
+    
     let hightButton = UIButton()
     let locationButton = UIButton()
     let stopwatchButton = UIButton()
@@ -43,6 +48,11 @@ class GameViewController: UIViewController {
         speedButton.setImage(UIImage(named: "icon_speed"), for: .normal)
         button6.setImage(UIImage(named: ""), for: .normal)
         
+        
+        // ###########
+        informationBackground.makeButtonViewPretty()
+        informationButtonOutlet.tintColor = AppColor.tint
+        
         expendableMenuButton.backgroundColor = AppColor.background
         expendableMenuButton.tintColor = AppColor.tint
         expendableMenuButton.layer.cornerRadius = expendableMenuButton.frame.width/2
@@ -65,6 +75,8 @@ class GameViewController: UIViewController {
         
         self.view = mapView
         self.view.addSubview(expendableMenuButton)
+        
+        
     }
     
     func setupData() {
@@ -76,9 +88,17 @@ class GameViewController: UIViewController {
         button6.addTarget(self, action: #selector(siwssArmyButtonAction(_:)), for: .touchUpInside)
     }
 
+    
+    // MARK: - IBActions
+    
     @IBAction func menuButtonAction(_ sender: MenuButton) {
         sender.toggle(onView: view)
     }
+    
+    @IBAction func informationButton(_ sender: UIButton) {
+    }
+    
+    
     
     
     // MARK: - Helperfunctions

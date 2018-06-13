@@ -21,6 +21,15 @@ class CreateQuestViewController: UIViewController {
     @IBOutlet weak var answersLabel: UILabel!
     @IBOutlet weak var answerTableView: UITableView!
     @IBOutlet weak var questImageView: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var questionTypeLabel: UILabel!
+    @IBOutlet weak var addimageLabel: UILabel!
+    
+    @IBOutlet var labelCollection: [UILabel]!
+    @IBOutlet var buttonCollection: [UIButton]!
+    
+    
+    
     
     private var questImageViewImage: UIImage? = nil {
         didSet {
@@ -59,9 +68,30 @@ class CreateQuestViewController: UIViewController {
     
     func setupDesign() {
         view.backgroundColor = AppColor.background
-        questionLabel.textColor = AppColor.text
-        answersLabel.textColor = AppColor.text
         answerTableView.backgroundColor = AppColor.background
+        
+        labelCollection.forEach { (label) in
+            label.textColor = AppColor.text
+        }
+        buttonCollection.forEach { (button) in
+            button.layer.cornerRadius = 10
+            button.layer.borderColor = AppColor.tint.cgColor
+            button.layer.borderWidth = 1
+            button.tintColor = AppColor.tint
+        }
+        
+        answerTableView.layer.cornerRadius = 10
+        answerTableView.backgroundColor = AppColor.backgroundLighter
+        
+        
+        questionTextField.layer.cornerRadius = 10
+        questionTextField.layer.borderColor = AppColor.tint.cgColor
+        questionTextField.layer.borderWidth = 1
+        questionTextField.tintColor = AppColor.tint
+        questionTextField.backgroundColor = .clear
+        questionTextField.tintColor = AppColor.tint
+        questionTextField.textColor = AppColor.text
+        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self, action: #selector(addQuestAction))
