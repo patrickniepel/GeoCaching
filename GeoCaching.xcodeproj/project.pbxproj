@@ -154,10 +154,17 @@
 		A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */; };
 		A33C82D720AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */; };
 		A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */; };
+		A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */ = {isa = PBXBuildFile; fileRef = A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */; };
+		A342AFC320D156EA00B2DD55 /* firstChallengeAccepted.dae in Resources */ = {isa = PBXBuildFile; fileRef = A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */; };
+		A35E495120D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */; };
 		A35EB2CA20B538A900A1025F /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2C920B538A900A1025F /* CreateGameViewController.swift */; };
 		A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CB20B53C7800A1025F /* CreateGameController.swift */; };
 		A35EB2CE20B5473F00A1025F /* RouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CD20B5473F00A1025F /* RouteController.swift */; };
 		A37D689B20AD56EC0060C29F /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D689A20AD56EC0060C29F /* AchievementController.swift */; };
+		A39537A620D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif in Resources */ = {isa = PBXBuildFile; fileRef = A39537A520D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif */; };
+		A39537A820D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A39537A720D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff */; };
+		A39537AA20D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A39537A920D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff */; };
+		A39537AC20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A39537AB20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff */; };
 		A397AAC02087645300289B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AABF2087645300289B7D /* AppDelegate.swift */; };
 		A397AAC72087645400289B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC62087645400289B7D /* Assets.xcassets */; };
 		A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A397AAC82087645400289B7D /* LaunchScreen.storyboard */; };
@@ -168,7 +175,7 @@
 		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
 		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
 		A39B091020AC623700D46CFD /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B090F20AC623700D46CFD /* Extension+ViewController.swift */; };
-		A3B8185520D1435300B39722 /* Trophy.dae in Resources */ = {isa = PBXBuildFile; fileRef = A3B8185420D1435300B39722 /* Trophy.dae */; };
+		A3B8185520D1435300B39722 /* firstOfAll.dae in Resources */ = {isa = PBXBuildFile; fileRef = A3B8185420D1435300B39722 /* firstOfAll.dae */; };
 		C6570B03F6D8B8FE57A2B878 /* Pods_GeoCachingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */; };
 		FB6B52F867EBAE1EAFCCDFC0 /* Pods_GeoCachingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -343,10 +350,17 @@
 		A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
 		A33C82D420AC10FD005762C2 /* ProfileFriendsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstChallengeCompleted.dae; sourceTree = "<group>"; };
+		A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstChallengeAccepted.dae; sourceTree = "<group>"; };
+		A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_Wenge_1024_albedo.tiff; sourceTree = "<group>"; };
 		A35EB2C920B538A900A1025F /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		A35EB2CB20B53C7800A1025F /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
 		A35EB2CD20B5473F00A1025F /* RouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteController.swift; sourceTree = "<group>"; };
 		A37D689A20AD56EC0060C29F /* AchievementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
+		A39537A520D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_GoldPaint_1024_albedo.tif; sourceTree = "<group>"; };
+		A39537A720D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_BaseSteel_1024_albedo.tiff; sourceTree = "<group>"; };
+		A39537A920D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_ScratchedMetal_1024_albedo.tiff; sourceTree = "<group>"; };
+		A39537AB20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_RepolishedCopper_1024_albedo.tiff; sourceTree = "<group>"; };
 		A397AABC2087645300289B7D /* GeoCaching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCaching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A397AABF2087645300289B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A397AAC62087645400289B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -363,7 +377,7 @@
 		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A39B090F20AC623700D46CFD /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
-		A3B8185420D1435300B39722 /* Trophy.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = Trophy.dae; sourceTree = "<group>"; };
+		A3B8185420D1435300B39722 /* firstOfAll.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstOfAll.dae; sourceTree = "<group>"; };
 		A3CEEA0C7C73D21A706ADBA8 /* Pods-GeoCachingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B27B21375A2FFB33B41C99 /* Pods-GeoCaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.debug.xcconfig"; sourceTree = "<group>"; };
@@ -749,7 +763,14 @@
 		A33C82CC20AC0C10005762C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A3B8185420D1435300B39722 /* Trophy.dae */,
+				A39537AB20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff */,
+				A39537A920D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff */,
+				A39537A720D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff */,
+				A39537A520D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif */,
+				A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */,
+				A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */,
+				A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */,
+				A3B8185420D1435300B39722 /* firstOfAll.dae */,
 				A33C82CD20AC0C2B005762C2 /* testy2.dae */,
 			);
 			path = Resources;
@@ -994,9 +1015,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39537AC20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff in Resources */,
 				0FA96BEE20A39726005485A3 /* style.json in Resources */,
+				A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */,
 				17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */,
+				A39537A820D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff in Resources */,
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
+				A39537A620D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif in Resources */,
+				A39537AA20D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff in Resources */,
 				0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */,
 				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
 				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
@@ -1005,10 +1031,12 @@
 				0FF2A57820A192F800486CAC /* Search.storyboard in Resources */,
 				0FF2A57B20A1930300486CAC /* Game.storyboard in Resources */,
 				0FF2A57D20A1930A00486CAC /* Create.storyboard in Resources */,
+				A342AFC320D156EA00B2DD55 /* firstChallengeAccepted.dae in Resources */,
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
 				0FF2A58720A19AE900486CAC /* Login.storyboard in Resources */,
 				17BC44C720AD6E4200062876 /* Info.plist in Resources */,
-				A3B8185520D1435300B39722 /* Trophy.dae in Resources */,
+				A3B8185520D1435300B39722 /* firstOfAll.dae in Resources */,
+				A35E495120D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1448,7 +1476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 6C2B5VUSRK;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1467,7 +1495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 6C2B5VUSRK;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
