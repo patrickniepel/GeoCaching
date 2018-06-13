@@ -12,7 +12,7 @@ struct AchievementController {
     
     func getSceneName(for achievement: Achivement) -> String {
         //return "\(achievement.type).dae"
-        return "testy2.dae"
+        return "Trophy.dae"
     }
     
     func getAchievementImageName(for achievement: Achivement) -> String {
