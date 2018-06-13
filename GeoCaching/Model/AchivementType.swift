@@ -24,7 +24,7 @@ enum AchivementType {
                                      .creator, .trendsetter, .supporter, .becomeMmoderator, .move5km, .withoutMistakes, .noob]
     
     init?(filename: String) {
-        let postfix = ".3dModelFileNamePostfix"
+        let postfix = ".dae"
         switch filename {
         case "firstChallengeAccepted\(postfix)": self = .firstChallengeAccepted
         case "firstChallengeCompleted\(postfix)": self = .firstChallengeCompleted
@@ -40,7 +40,7 @@ enum AchivementType {
     }
     
     var filename: String {
-        let postfix = ".3dModelFileNamePostfix"
+        let postfix = ".dae"
         switch self {
         case .firstChallengeAccepted: return "firstChallengeAccepted\(postfix)"
         case .firstChallengeCompleted: return "firstChallengeCompleted\(postfix)"
@@ -56,30 +56,30 @@ enum AchivementType {
     }
     var title: String {
         switch self {
-        case .firstChallengeAccepted: return "firstChallengeAccepted"
-        case .firstChallengeCompleted: return "firstChallengeCompleted"
-        case .firstOfAll: return "firstOfAll"
-        case .creator: return "creator"
-        case .trendsetter: return "trendsetter"
-        case .supporter: return "supporter"
-        case .becomeMmoderator: return "becomeMmoderator"
-        case .move5km: return "move5km"
-        case .withoutMistakes: return "withoutMistakes"
-        case .noob: return "noob"
+        case .firstChallengeAccepted: return "First Challenge Accepted"
+        case .firstChallengeCompleted: return "First Challenge Completed"
+        case .firstOfAll: return "First Of All"
+        case .creator: return "Creator"
+        case .trendsetter: return "Trendsetter"
+        case .supporter: return "Supporter"
+        case .becomeMmoderator: return "Moderator"
+        case .move5km: return "Move 5km"
+        case .withoutMistakes: return "No Mistakes"
+        case .noob: return "Noob"
         }
     }
     var conditionDescription: String {
         switch self {
-        case .firstChallengeAccepted: return "Nehme an deiner ersten Schnitzeljagd teil."
-        case .firstChallengeCompleted: return "Schließe deine erste Schnitzeljagd ab."
-        case .firstOfAll: return "Schließe eine Schnitzeljagd als erstes ab."
-        case .creator: return "Erstelle deine erste eigene Schnitzeljagd."
-        case .trendsetter: return "Lade einen Freund ein."
-        case .supporter: return "Nehme an der gleichen Schnitzeljagd teil, wie ein Freund von dir."
-        case .becomeMmoderator: return "Werde Moderator."
-        case .move5km: return "Bewege dich mit der App 5km."
-        case .withoutMistakes: return "Schließe eine Schnitzeljagd ab ohne einen einzigen Fehler zu machen."
-        case .noob: return "Sei einfach du selbst."
+        case .firstChallengeAccepted: return "Participate At A Schnitzlr-Hunt."
+        case .firstChallengeCompleted: return "Complete Your First Schnitzlr-Hunt."
+        case .firstOfAll: return "Be The Fastest To Complete A Schnitzlr-Hunt."
+        case .creator: return "Create Your First Schnitzlr-Hunt."
+        case .trendsetter: return "Invite A Friend."
+        case .supporter: return "Participate At The Same Schnitlr-Hunt As One Of Your Friends."
+        case .becomeMmoderator: return "Become A Moderator."
+        case .move5km: return "Walk 5km While Using The App."
+        case .withoutMistakes: return "Complete A Schnitzlr-Hunt Without Any Mistakes."
+        case .noob: return "Be Yourself."
         }
     }
 }

@@ -9,9 +9,9 @@
 import UIKit
 
 class ProfileActionTableViewDataSource: NSObject, UITableViewDataSource {
-    let data = [ProfileActionEntry(name: "Erstellte Strecken", icon: UIImage(named: "icon_create"), segue: .createdRoutes),
-                ProfileActionEntry(name: "Verlauf", icon: UIImage(named: "icon_history"), segue: .history),
-                ProfileActionEntry(name: "Freunde", icon: UIImage(named: "icon_friends"), segue: .friends)]
+    let data = [ProfileActionEntry(name: "Created Tracks", icon: UIImage(named: "icon_create"), segue: .createdRoutes),
+                ProfileActionEntry(name: "History", icon: UIImage(named: "icon_history"), segue: .history),
+                ProfileActionEntry(name: "Friends", icon: UIImage(named: "icon_friends"), segue: .friends)]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count

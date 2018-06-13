@@ -82,20 +82,22 @@ class RouteController {
     }
     
     private func getCorrectValue(travelTime: TimeInterval) -> String {
-        var time : Double = 0
-        //return time < 60 ? "\(time) s" : time < 3600 ? "\(time / 60 ) min" : "\(time / 60 / 60) h"
         
-        if travelTime < 60 {
-            time = travelTime
-            return "\(Int(round(time))) s"
-        }
-        else if travelTime < 3600 {
-            time = (travelTime / 60)
-            return "\(Int(round(time))) min"
-        }
-        else {
-            time = (travelTime / 60 / 60)
-            return "\(Double(round(time * 10) / 10)) h"
-        }
+        // Bestes & übersichtlichstes Statement wo gibt 💪🏻
+        return travelTime < 60 ? "\(Int(round(travelTime))) s" : travelTime < 3600 ? "\(Int(round((travelTime / 60)))) min" : "\(Double(round((travelTime / 60 / 60) * 10) / 10)) h"
+        
+//        var time : Double = 0
+//        if travelTime < 60 {
+//            time = travelTime
+//            return "\(Int(round(time))) s"
+//        }
+//        else if travelTime < 3600 {
+//            time = (travelTime / 60)
+//            return "\(Int(round(time))) min"
+//        }
+//        else {
+//            time = (travelTime / 60 / 60)
+//            return "\(Double(round(time * 10) / 10)) h"
+//        }
     }
 }
