@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 //import NVActivityIndicatorView
 
 class LoginViewController: UIViewController , NVActivityIndicatorViewable{
@@ -27,10 +28,14 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
     @IBOutlet weak var loginButtonOutlet: UIGeoButton!
     @IBOutlet weak var registerButtonOutlet: UIButton!
     
+    @IBOutlet weak var animationView: SchnitzlrBoarWaitingAnimationView!
+    
+    
     @IBOutlet weak var indicatorView: NVActivityIndicatorView!
     
     let authController = AuthController()
     
+    var timer : Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +48,11 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
     
     override func viewWillAppear(_ animated: Bool) {
         checkUserSignedIn()
+        startAnimation()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        stopAnimation()
     }
     
     // MARK: - Setup
@@ -81,7 +91,22 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        timer = Timer()
+        
         hideKeyboardWhenTappedAround()
+    }
+    
+    func startAnimation() {
+        
+        self.animationView.addSchnitzlrBoarWaitingAnimation()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { (timer) in
+            self.animationView.addSchnitzlrBoarWaitingAnimation()
+        })
+    }
+    
+    func stopAnimation() {
+        timer.invalidate()
     }
     
     func checkUserSignedIn() {
