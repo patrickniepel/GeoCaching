@@ -235,38 +235,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achivement Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF5-Qu-zWt">
-                                <rect key="frame" x="16" y="602.5" width="343" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achivement Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-HZ-ATK">
-                                <rect key="frame" x="16" y="626.5" width="343" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpm-LO-GN3" customClass="SCNView">
-                                <rect key="frame" x="16" y="162" width="343" height="343"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achivement Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-HZ-ATK">
+                                        <rect key="frame" x="16" y="558.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achivement Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF5-Qu-zWt">
+                                        <rect key="frame" x="16" y="534.5" width="343" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Jpm-LO-GN3" secondAttribute="height" multiplier="1:1" id="HAi-S7-usL"/>
+                                    <constraint firstItem="dwV-HZ-ATK" firstAttribute="top" secondItem="kF5-Qu-zWt" secondAttribute="bottom" id="GeH-bs-dnL"/>
+                                    <constraint firstAttribute="bottom" secondItem="dwV-HZ-ATK" secondAttribute="bottom" constant="24" id="Nkt-gl-haM"/>
+                                    <constraint firstAttribute="trailing" secondItem="kF5-Qu-zWt" secondAttribute="trailing" constant="16" id="XrY-H5-ETE"/>
+                                    <constraint firstItem="dwV-HZ-ATK" firstAttribute="leading" secondItem="Jpm-LO-GN3" secondAttribute="leading" constant="16" id="cGc-y8-NQQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="dwV-HZ-ATK" secondAttribute="trailing" constant="16" id="cic-7b-t0U"/>
+                                    <constraint firstItem="kF5-Qu-zWt" firstAttribute="leading" secondItem="Jpm-LO-GN3" secondAttribute="leading" constant="16" id="wcR-Za-8VR"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="15H-VQ-Wcj"/>
-                            <constraint firstItem="kF5-Qu-zWt" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="68r-9N-BR9"/>
-                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="centerX" secondItem="hh6-GD-49r" secondAttribute="centerX" id="8KH-vU-TUz"/>
-                            <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="dwV-HZ-ATK" secondAttribute="trailing" constant="16" id="8wJ-SG-uJ3"/>
-                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="centerY" secondItem="hh6-GD-49r" secondAttribute="centerY" id="JL9-J9-hJ5"/>
-                            <constraint firstItem="dwV-HZ-ATK" firstAttribute="top" secondItem="kF5-Qu-zWt" secondAttribute="bottom" id="SUO-x1-Fox"/>
-                            <constraint firstItem="dwV-HZ-ATK" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" constant="16" id="TVZ-kF-k52"/>
-                            <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="kF5-Qu-zWt" secondAttribute="trailing" constant="16" id="kC1-kg-Ge6"/>
-                            <constraint firstItem="dEz-tK-pNm" firstAttribute="bottom" secondItem="dwV-HZ-ATK" secondAttribute="bottom" constant="20" id="sgV-6h-hde"/>
-                            <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="Jpm-LO-GN3" secondAttribute="trailing" constant="16" id="vU6-ba-WGa"/>
+                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="leading" secondItem="dEz-tK-pNm" secondAttribute="leading" id="15H-VQ-Wcj"/>
+                            <constraint firstItem="dEz-tK-pNm" firstAttribute="bottom" secondItem="Jpm-LO-GN3" secondAttribute="bottom" id="eTs-Re-XMY"/>
+                            <constraint firstItem="Jpm-LO-GN3" firstAttribute="top" secondItem="dEz-tK-pNm" secondAttribute="top" id="vFn-h6-07f"/>
+                            <constraint firstItem="dEz-tK-pNm" firstAttribute="trailing" secondItem="Jpm-LO-GN3" secondAttribute="trailing" id="vU6-ba-WGa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dEz-tK-pNm"/>
                     </view>

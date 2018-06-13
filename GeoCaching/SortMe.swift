@@ -19,16 +19,9 @@ struct DummyContent {
     
     var currentUser = User(id: "the id1", username: "GaryVee", userImage: UIImage(named: "gary")!,
                            isPresenter: false, points: 2_364_477,
-                           earnedAchivements: [Achivement(type: AchivementType.firstChallengeAccepted),
+                           earnedAchivements: [Achivement(type: AchivementType.firstOfAll),
                                                Achivement(type: AchivementType.firstChallengeCompleted),
-                                               Achivement(type: AchivementType.firstOfAll),
-                                               Achivement(type: AchivementType.creator),
-                                               Achivement(type: AchivementType.trendsetter),
-                                               Achivement(type: AchivementType.supporter),
-                                               Achivement(type: AchivementType.becomeMmoderator),
-                                               Achivement(type: AchivementType.move5km),
-                                               Achivement(type: AchivementType.withoutMistakes),
-                                               Achivement(type: AchivementType.noob)])
+                                               Achivement(type: AchivementType.firstChallengeAccepted)])
     
     var users = [User(id: "the id2", username: "MH", userImage: UIImage(named: "gary")!,
                       isPresenter: false, points: 1_364_477,
