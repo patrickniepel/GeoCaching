@@ -13,7 +13,7 @@ import MapKit
 class RouteController {
     
     /** Returns distance and travelTime for entire route */
-    func calculateEntireRoute(with locations: [CLLocationCoordinate2D], transportType: MKDirectionsTransportType, completion: @escaping (String, String) -> ()) {
+    func calculateEntireRoute(with locations: [CLLocationCoordinate2D], transportType: MKDirectionsTransportType, completion: @escaping ((distance: Double, travelTime: Double)) -> ()) {
         
         var distance : Double = 0
         var travelTime : Double = 0
@@ -40,10 +40,7 @@ class RouteController {
         }
         
         routeCreationGroup.notify(queue: DispatchQueue.main) {
-          
-            let distanceToPresent = self.getCorrectValue(distance: distance)
-            let travelTimeToPresent = self.getCorrectValue(travelTime: travelTime)
-            completion(distanceToPresent, travelTimeToPresent)
+            completion((distance, travelTime))
         }
     }
     
@@ -77,27 +74,12 @@ class RouteController {
     }
     
     
-    private func getCorrectValue(distance: CLLocationDistance) -> String {
+    func readableValue(forDistance distance: Double) -> String {
         return distance < 1000 ? "\(distance) m" : "\(distance / 1000) km"
     }
     
-    private func getCorrectValue(travelTime: TimeInterval) -> String {
-        
+    func readableValue(forTravelTime travelTime: Double) -> String {
         // Bestes & übersichtlichstes Statement wo gibt 💪🏻
         return travelTime < 60 ? "\(Int(round(travelTime))) s" : travelTime < 3600 ? "\(Int(round((travelTime / 60)))) min" : "\(Double(round((travelTime / 60 / 60) * 10) / 10)) h"
-        
-//        var time : Double = 0
-//        if travelTime < 60 {
-//            time = travelTime
-//            return "\(Int(round(time))) s"
-//        }
-//        else if travelTime < 3600 {
-//            time = (travelTime / 60)
-//            return "\(Int(round(time))) min"
-//        }
-//        else {
-//            time = (travelTime / 60 / 60)
-//            return "\(Double(round(time * 10) / 10)) h"
-//        }
     }
 }

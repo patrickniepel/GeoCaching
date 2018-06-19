@@ -38,7 +38,9 @@ class CreateGameViewController: UIViewController {
     private var questCollectionViewDataSource: CreateGameQuestOverviewCollectionViewDataSource!
     private var questCollectionViewDragDelegate: CreateGameQuestOverviewCollectionViewDragDelegate!
     private var questCollectionViewDropDelegate: CreateGameQuestOverviewCollectionViewDropDelegate!
-
+    
+    let routeCtrl = RouteController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,12 +101,6 @@ class CreateGameViewController: UIViewController {
         
         informationBackgroundView.layer.cornerRadius = 10
         informationBackgroundView.backgroundColor = AppColor.backgroundLighter
-        
-        // Old Marcel
-        
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(uploadGameAction))
-//        navigationItem.rightBarButtonItem?.tintColor = AppColor.tint
-//        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func setupData() {
@@ -236,6 +232,23 @@ class CreateGameViewController: UIViewController {
         categoriesLabel.text = result
     }
     
+    private func updateWaypointInformation() {
+        gameCreatorController.set(duration: 1.0)
+        gameCreatorController.set(length: 1.0)
+        
+        let waypoints = gameCreatorController.waypoints
+        routeCtrl.calculateEntireRoute(with: waypoints, transportType: .walking) { route in
+            self.gameCreatorController.set(duration: route.travelTime)
+            self.gameCreatorController.set(length: route.distance)
+            
+            let travelTimeString = self.routeCtrl.readableValue(forDistance: route.distance)
+            let distanceString = self.routeCtrl.readableValue(forTravelTime: route.travelTime)
+            
+            self.durationLabel.text = travelTimeString
+            self.lengthLabel.text = distanceString
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -279,6 +292,7 @@ extension CreateGameViewController: UITextViewDelegate {
 
 extension CreateGameViewController: AddGameCategoriesDelegate {
     func receive(selectedCategories: [QuestCategory]) {
+        print("------- :)")
         gameCreatorController.set(categories: selectedCategories)
         navigationController?.popViewController(animated: true)
         
@@ -296,6 +310,10 @@ extension CreateGameViewController: CreateGameQuestOverviewCollectionViewDataCha
         // update methoden für Patrick
 //        gameCreatorController.set(duration: 1.0)
 //        gameCreatorController.set(length: 1.0)
+        let tmpQuest = gameCreatorController.game.quests[destinationIndexPath.row]
+        gameCreatorController.game.quests[destinationIndexPath.row] = gameCreatorController.game.quests[sourceIndexPath.row]
+        gameCreatorController.game.quests[sourceIndexPath.row] = tmpQuest
+        updateWaypointInformation()
     }
     
 }
@@ -313,8 +331,7 @@ extension CreateGameViewController: CreateQuestDelegate {
         questCollectionView.insertItems(at: [lastIndexPath])
         navigationController?.popViewController(animated: true)
         
-        gameCreatorController.set(duration: 1.0)
-        gameCreatorController.set(length: 1.0)
+        updateWaypointInformation()
     }
     
     func didUpdated(quest: Quest) {

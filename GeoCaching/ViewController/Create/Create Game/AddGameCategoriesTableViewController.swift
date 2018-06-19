@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AddGameCategoriesDelegate {
+protocol AddGameCategoriesDelegate: class {
     func receive(selectedCategories: [QuestCategory])
 }
 
@@ -22,6 +22,9 @@ class AddGameCategoriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        print("------ heeeeelllo. \(delegate)")
         
         setupDesign()
         setupText()
