@@ -11,12 +11,10 @@ import UIKit
 struct AchievementController {
     
     func getSceneName(for achievement: Achivement) -> String {
-        //return "\(achievement.type).dae"
-        return "testy2.dae"
+        return achievement.type.filename
     }
     
     func getAchievementImageName(for achievement: Achivement) -> String {
-        //return "\(achievement.type)"
-        return "achievementTest"
+        return "\(achievement.type)"
     }
 }

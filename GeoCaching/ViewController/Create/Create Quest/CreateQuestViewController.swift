@@ -21,6 +21,20 @@ class CreateQuestViewController: UIViewController {
     @IBOutlet weak var answersLabel: UILabel!
     @IBOutlet weak var answerTableView: UITableView!
     @IBOutlet weak var questImageView: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var questionTypeLabel: UILabel!
+    @IBOutlet weak var addimageLabel: UILabel!
+    
+    @IBOutlet var labelCollection: [UILabel]!
+    @IBOutlet var buttonCollection: [UIButton]!
+    
+    var questionType = QuestionType.fourChoices {
+        didSet {
+            answerTableViewDataSource.questionType = questionType
+            answerTableView.reloadData()
+        }
+    }
+    
     
     private var questImageViewImage: UIImage? = nil {
         didSet {
@@ -55,13 +69,36 @@ class CreateQuestViewController: UIViewController {
 
     
     func setupText() {
+        set(location: nil)
+        set(questionType: questionType)
     }
     
     func setupDesign() {
         view.backgroundColor = AppColor.background
-        questionLabel.textColor = AppColor.text
-        answersLabel.textColor = AppColor.text
         answerTableView.backgroundColor = AppColor.background
+        
+        labelCollection.forEach { (label) in
+            label.textColor = AppColor.text
+        }
+        buttonCollection.forEach { (button) in
+            button.layer.cornerRadius = 10
+            button.layer.borderColor = AppColor.tint.cgColor
+            button.layer.borderWidth = 1
+            button.tintColor = AppColor.tint
+        }
+        
+        answerTableView.layer.cornerRadius = 10
+        answerTableView.backgroundColor = AppColor.backgroundLighter
+        
+        
+        questionTextField.layer.cornerRadius = 10
+        questionTextField.layer.borderColor = AppColor.tint.cgColor
+        questionTextField.layer.borderWidth = 1
+        questionTextField.tintColor = AppColor.tint
+        questionTextField.backgroundColor = .clear
+        questionTextField.tintColor = AppColor.tint
+        questionTextField.textColor = AppColor.text
+        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self, action: #selector(addQuestAction))
@@ -70,7 +107,8 @@ class CreateQuestViewController: UIViewController {
     }
     
     func setupData() {
-        answerTableViewDataSource = CreateQuestAnswerTableViewDataSource()
+        
+        answerTableViewDataSource = CreateQuestAnswerTableViewDataSource(questionType: questionType)
         answerTableView.dataSource = answerTableViewDataSource
         
         answerTableViewDelegate = CreateQuestAnswerTableViewDelegate()
@@ -139,6 +177,34 @@ class CreateQuestViewController: UIViewController {
             destVCtrl?.delegate = self
         }
     }
+    
+    
+    // MARK: - UI Update Stuff
+    private func set(location: CLLocationCoordinate2D? = nil) {
+        if location == nil {
+            locationLabel.text = "Location:"
+        } else {
+            locationLabel.text = "Location: latitude: \(location!.latitude), longitude: \(location!.longitude)"
+        }
+    }
+    
+    private func set(questionType: QuestionType? = nil) {
+        if questionType == nil {
+            questionTypeLabel.text = "Questiontype:"
+        } else {
+            questionTypeLabel.text = "Questiontype: \(questionType!.name)"
+        }
+    }
+    
+    private func updateUI(forQuestionType questionType: QuestionType) {
+        switch questionType {
+        case .date: break
+        case .fourChoices: break
+        case .image: break
+        case .number: break
+        case .textInput: break
+        }
+    }
 }
 
 
@@ -190,6 +256,7 @@ extension CreateQuestViewController: CreateQuestControllerDelegate {
 extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
     func didAdd(locationCoordinate2D: CLLocationCoordinate2D, withRadius radius: Float) {
         print("coordinate: \(locationCoordinate2D) - \(radius)")
+        set(location: locationCoordinate2D)
         questCreatorController.set(locationPolygonPoints: [locationCoordinate2D])
         navigationController?.popViewController(animated: true)
     }
@@ -198,6 +265,8 @@ extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
 extension CreateQuestViewController: CreateQuestSelectQuestGameCategoryTableViewControllerDelegate {
     func didSelect(questionType: QuestionType) {
         print("selectedQuestionType: \(questionType)")
+        set(questionType: questionType)
+        self.questionType = questionType
         questCreatorController.set(questionType: questionType)
         navigationController?.popViewController(animated: true)
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol CreateGameControllerDelegate {
     func canCreateGame(canCreate: Bool)
@@ -22,6 +23,10 @@ struct CreateGameController {
         }
     }
     var game: Game
+    
+    var waypoints: [CLLocationCoordinate2D] {
+        return game.quests.compactMap { $0.locationPolygonPoints.first }
+    }
     
     var delegate: CreateGameControllerDelegate?
     

@@ -52,12 +52,15 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     // MARK: - Segues/Presentation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SearchIdentifiers.segue2FilterPopup.identifier{
+        if segue.identifier == SearchIdentifiers.segue2FilterPopup.identifier {
             let popoverViewController = segue.destination as! FilterPopupViewController
             popoverViewController.modalPresentationStyle = .popover
             popoverViewController.popoverPresentationController!.delegate = self
             popoverViewController.popoverPresentationController?.backgroundColor = AppColor.tint
             popoverViewController.preferredContentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height*0.3)
+        } else if segue.identifier == SearchIdentifiers.segue2GameDetail.identifier {
+            let destCtrl = segue.destination as! GameDetailViewController
+            destCtrl.game = sender as? Game
         }
         
     }
@@ -88,7 +91,7 @@ extension SearchViewController{
     func setupData() {
         
         cardCollectionViewDelegate = CardCollectionViewDelegate()
-        cardCollectionViewDataSource = CardCollectionViewDataSource()
+        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame])
         
         cardCollectionView.dataSource = cardCollectionViewDataSource
         cardCollectionView.delegate = cardCollectionViewDelegate

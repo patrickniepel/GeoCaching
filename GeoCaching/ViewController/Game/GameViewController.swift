@@ -9,9 +9,23 @@
 import UIKit
 import GoogleMaps
 
+
 class GameViewController: UIViewController {
     @IBOutlet weak var expendableMenuButton: MenuButton!
     var mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
+    
+    var locationManager = CLLocationManager()
+    
+    @IBOutlet weak var informationBackground: UIView!
+    @IBOutlet weak var informationImage: UIImageView!
+    @IBOutlet weak var informationButtonOutlet: UIButton!
+    
+    var activeGameController: ActiveGameController! {
+        didSet {
+            print("GAME STARTED :)")
+        }
+    }
+    
     
     let hightButton = UIButton()
     let locationButton = UIButton()
@@ -43,6 +57,11 @@ class GameViewController: UIViewController {
         speedButton.setImage(UIImage(named: "icon_speed"), for: .normal)
         button6.setImage(UIImage(named: ""), for: .normal)
         
+        
+        // ###########
+        informationBackground.makeButtonViewPretty()
+        informationButtonOutlet.tintColor = AppColor.tint
+        
         expendableMenuButton.backgroundColor = AppColor.background
         expendableMenuButton.tintColor = AppColor.tint
         expendableMenuButton.layer.cornerRadius = expendableMenuButton.frame.width/2
@@ -55,6 +74,7 @@ class GameViewController: UIViewController {
                                                    timerButton, speedButton, button6]
         setDesign(forButton: expendableMenuButton)
         
+        mapView.isMyLocationEnabled = true
         do {
             if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
                 mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
@@ -65,6 +85,15 @@ class GameViewController: UIViewController {
         
         self.view = mapView
         self.view.addSubview(expendableMenuButton)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Game", style: .done, target: self, action: #selector(doIt))
+        
+    }
+    
+    @objc func doIt() {
+        print("Game start :)")
+        let game = DummyContent.sharedInstance.universityGame
+        activeGameController = ActiveGameController(game: game)
     }
     
     func setupData() {
@@ -74,11 +103,23 @@ class GameViewController: UIViewController {
         timerButton.addTarget(self, action: #selector(siwssArmyButtonAction(_:)), for: .touchUpInside)
         speedButton.addTarget(self, action: #selector(siwssArmyButtonAction(_:)), for: .touchUpInside)
         button6.addTarget(self, action: #selector(siwssArmyButtonAction(_:)), for: .touchUpInside)
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
+    
+    // MARK: - IBActions
+    
     @IBAction func menuButtonAction(_ sender: MenuButton) {
         sender.toggle(onView: view)
     }
+    
+    @IBAction func informationButton(_ sender: UIButton) {
+    }
+    
+    
     
     
     // MARK: - Helperfunctions
@@ -99,6 +140,17 @@ class GameViewController: UIViewController {
             default: break
             }
             expendableMenuButton.toggle(onView: self.view)
+        }
+    }
+}
+
+extension GameViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                                  longitude: location.coordinate.longitude, zoom: 17.0)
+            self.mapView.animate(to: camera)
+            print("location: \(location)")
         }
     }
 }

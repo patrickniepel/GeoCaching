@@ -10,8 +10,10 @@ import UIKit
 
 class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
     var answers: [String] = []
+    var questionType: QuestionType
     
-    override init() {
+    init(questionType: QuestionType) {
+        self.questionType = questionType
         super.init()
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(didEnteredAnswer(_:)), name: NSNotification.Name.didAddQuestAnswer, object: nil)
@@ -34,15 +36,35 @@ class CreateQuestAnswerTableViewDataSource: NSObject, UITableViewDataSource {
             
             cell.titleLabel.textColor = AppColor.text
             cell.addQuestionButton.tintColor = AppColor.tint
-            cell.backgroundColor = AppColor.background
+            cell.backgroundColor = .clear
+            
+            cell.answerInpputTextField.backgroundColor = .clear
+            cell.answerInpputTextField.layer.cornerRadius = 10
+            cell.answerInpputTextField.layer.borderColor = AppColor.tint.cgColor
+            cell.answerInpputTextField.layer.borderWidth = 1
+            cell.answerInpputTextField.tintColor = AppColor.tint
+            cell.answerInpputTextField.textColor = AppColor.text
+            
+            switch questionType {
+            case .textInput: fallthrough
+            case .image: fallthrough
+            case .fourChoices: cell.answerInpputTextField.keyboardType = .default
+            case .number: cell.answerInpputTextField.keyboardType = .decimalPad
+            case .date:
+                print("Date :)")
+                break
+            }
+            
+            cell.setup()
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "quest_overview_cell", for: indexPath)
             
-            cell.backgroundColor = AppColor.background
+            cell.backgroundColor = .clear
             cell.textLabel?.text = answers[indexPath.row]
             cell.textLabel?.textColor = AppColor.text
+            
             
             return cell
         }

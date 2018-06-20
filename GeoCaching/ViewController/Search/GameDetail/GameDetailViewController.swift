@@ -21,6 +21,8 @@ class GameDetailViewController: UIViewController {
     var dataSource : GameDetailHighscoreTableViewDataSource!
     var delegate : GameDetailHighscoreTableViewDelegate!
     
+    var game: Game!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +46,8 @@ class GameDetailViewController: UIViewController {
     }
     
     private func setupText(){
-        descriptionLabel.text = "From the edge of the Fichtelgebirge, the Saale meanders in countless loops through Bayer to the Rhine. On its way it flows through picturesque valleys with wooded slopes, steep vineyards and rugged cliffs. On other passages, green meadows line the banks of wide fields and idyllic towns. Along the river, the Saale valley cycle path from Hof to Bayreuth covers about 370 kilometers (230 miles). On the way from its origin to the mouth of the Rhine, it flows past not only beatiful countryside, but also beautiful cities such as Oberkotzau and Neila."
+        titleLabel.text = game.name
+        descriptionLabel.text = game.longDescription
     }
     
     private func setupDesign(){
