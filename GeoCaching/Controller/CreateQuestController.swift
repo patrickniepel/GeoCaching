@@ -33,7 +33,7 @@ struct CreateQuestController {
     init() {
         let defaultQuestionType = QuestionType.textInput
         quest = Quest(answers: [], question: "", image: nil,
-                      questionType: defaultQuestionType, locationPolygonPoints: [])
+                      questionType: defaultQuestionType, locationPolygonPoint: nil)
     }
     
     
@@ -63,8 +63,8 @@ struct CreateQuestController {
         updateProgress()
     }
     
-    mutating func set(locationPolygonPoints: [CLLocationCoordinate2D]) {
-        quest.locationPolygonPoints = locationPolygonPoints
+    mutating func set(locationPolygonPoint: CLLocationCoordinate2D) {
+        quest.locationPolygonPoint = locationPolygonPoint
         checkQuestConditions()
         updateProgress()
     }
@@ -98,7 +98,7 @@ struct CreateQuestController {
     }
     
     private func checkQuestPolygonPoints() -> Bool {
-        return quest.locationPolygonPoints.count > 0
+        return quest.locationPolygonPoint != nil
     }
     
     private func updateProgress() {
