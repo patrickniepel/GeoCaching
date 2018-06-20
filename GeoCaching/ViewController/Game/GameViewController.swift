@@ -25,17 +25,11 @@ class GameViewController: UIViewController {
         didSet {
             print("GAME STARTED :)")
             informationBackground.isHidden = false
-            drawLocationsInMap()
+            
         }
     }
     
-    func drawLocationsInMap() {
-        let allGameQuests = activeGameController.game.quests
-        allGameQuests.map { $0. }
-        for quest in allGameQuests {
-            for
-        }
-    }
+
     
     let hightButton = UIButton()
     let locationButton = UIButton()
