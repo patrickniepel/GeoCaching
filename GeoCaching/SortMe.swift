@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 struct DummyContent {
     
@@ -73,78 +74,97 @@ struct DummyContent {
                       isPresenter: false, points: 4_364_477,
                       earnedAchivements: [Achivement(type: AchivementType.firstChallengeAccepted)])]
     
-    var quests = [Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 1",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.325067, longitude: 11.941689)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 2",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.323757, longitude: 11.939341)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 3",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.323428, longitude: 11.936133)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 4",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324984, longitude: 11.932994)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 5",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.326696, longitude: 11.932930)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 6",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.325792, longitude: 11.935548)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 7",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324141, longitude: 11.936387)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 8",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.321826, longitude: 11.938286)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 9",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.322175, longitude: 11.942642)]),
-                  Quest(answers: ["Hier steht die Antwort 1",
-                                  "Hier steht die Antwort 2",
-                                  "Hier steht die Antwort 3",
-                                  "Hier steht die Antwort 4"],
-                        question: "Hier steht die Frage 10",
-                        image: nil, questionType: QuestionType.fourChoices,
-                        locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324572, longitude: 11.945818)])]
+    var universityGame = Game(name: "Hochschule Game",
+                              shortDescription: "Kurze Beschreibung",
+                              longDescription: "From the edge of the Fichtelgebirge, the Saale meanders in countless loops through Bayer to the Rhine. On its way it flows through picturesque valleys with wooded slopes, steep vineyards and rugged cliffs. On other passages, green meadows line the banks of wide fields and idyllic towns. Along the river, the Saale valley cycle path from Hof to Bayreuth covers about 370 kilometers (230 miles). On the way from its origin to the mouth of the Rhine, it flows past not only beatiful countryside, but also beautiful cities such as Oberkotzau and Neila.",
+                              categories: [QuestCategory.nature, .under10km],
+                              duration: 21,
+                              length: 1.4,
+                              image: UIImage(named: "yoga"),
+                              rating: 5,
+                              quests: [Quest(answers: ["Antwort 1"],
+                                             question: "Wer ist der Ehrenbürger der Stadt Hof der im Dezember 1991 gestorben ist und in Verbindung mit der Hochschule steht.",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.date,
+                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324774,
+                                                                                            longitude: 11.941077)]),
+                                       Quest(answers: ["Norden", "Osten", "Süden", "nach links"],
+                                             question: "In welche Himmelsrichtung zeigt dieser Pfeil an der Bushaltestelle?",
+                                             image: UIImage(named: ""),
+                                             questionType: QuestionType.fourChoices,
+                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.323779,
+                                                                                            longitude: 11.940323)]),
+                                       Quest(answers: ["20", "100", "1.000.000", "welches Dach?"],
+                                             question: "Wie viele Fahrradstellplätze gibt es unter diesem Dach?",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.date,
+                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324181,
+                                                                                            longitude: 11.939300)]),
+                                       Quest(answers: ["2", "4", "8", "16"],
+                                             question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.date,
+                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324931,
+                                                                                            longitude: 11.938181)]),
+                                       Quest(answers: ["Unisee"],
+                                             question: "Wie heißt der bei Studenten beliebte See direkt neben der Universität? (Punkt 31 auf der Karte)",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.date,
+                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.326699,
+                                                                                            longitude: 11.937674)])
+                                       ])
 }
 
+struct ActiveGameController {
+    private var game: Game
+    private(set) var currentQuestIndex: Int = 0 {
+        didSet {
+            if currentQuestIndex >= game.quests.count {
+                currentQuestIndex = game.quests.count - 1
+            }
+        }
+    }
+    var currentQuest: Quest {
+        return game.quests[currentQuestIndex]
+    }
+    
+    
+    init(game: Game) {
+        self.game = game
+    }
+    
+    
+    func hasGameCompleted() -> Bool {
+        return false
+    }
+    
+    func isUserAnswerCorrect(userAnswer: String) -> Bool {
+        let correctAnswer = currentQuest.correctAnswer.lowercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return correctAnswer ==  userAnswer.lowercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+    
+    mutating func nextQuest() -> Quest {
+        currentQuestIndex += 1
+        return game.quests[currentQuestIndex]
+    }
+    
+    func isUserAllowedToAnswerTheQuest(userLocation: CLLocationCoordinate2D) -> Bool {
+        let currentQuest = game.quests[currentQuestIndex]
+        let questLocation = currentQuest.locationPolygonPoints.first!
+        let questRadius: Double = 100 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
+        
+        let point1 = MKMapPointForCoordinate(questLocation)
+        let point2 = MKMapPointForCoordinate(userLocation)
+        let distance = MKMetersBetweenMapPoints(point1, point2)
+        
+        return distance < questRadius
+    }
+    
+    
+    
+    
+    
+}
 
 
 

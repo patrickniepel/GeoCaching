@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -174,7 +173,7 @@
                                                 <state key="normal" title="+"/>
                                                 <connections>
                                                     <action selector="addCategoryAction:" destination="yGQ-0I-YCG" eventType="touchUpInside" id="1Cd-Rh-6oX"/>
-                                                    <segue destination="mVY-dr-rCX" kind="show" id="FTf-k1-ZKM"/>
+                                                    <segue destination="mVY-dr-rCX" kind="show" identifier="createSegueAddGameCategories" id="FTf-k1-ZKM"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add some Quests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xR9-kE-L9E">

@@ -10,11 +10,25 @@ import UIKit
 
 class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    var exampleArray : [CardCollectionViewModel] = [CardCollectionViewModel(backgroundImageView: UIImage(named: "yoga"), icon1: UIImage(named: "icon_clock"),icon1Text: "1h 27 min",icon2: UIImage(named: "icon_walking"), icon2Text: "2.82 km", cardTitle: "Dies ist der beste Titel", cardDescription: "Und dies die beste Beschreibung")]
+    private var games = [Game]()
+    var exampleArray = [CardCollectionViewModel]()
+    
+    init(games: [Game]) {
+        self.games = games
+        for game in games {
+            let readableDistance = RouteController().readableValue(forDistance: game.length)
+            let readableTime = RouteController().readableValue(forTravelTime: game.duration)
+            let cardModel = CardCollectionViewModel(backgroundImageView: game.image,
+                                                    icon1: UIImage(named: "icon_clock"), icon1Text: readableTime,
+                                                    icon2: UIImage(named: "icon_walking"), icon2Text: readableDistance,
+                                                    cardTitle: game.name,
+                                                    cardDescription: game.shortDescription)
+            exampleArray.append(cardModel)
+        }
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        addExampleModels()
         return exampleArray.count
     }
     
@@ -30,13 +44,8 @@ class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
         return cell
     }
-
     
-    func addExampleModels(){
-        for _ in 0..<5 {
-            exampleArray.append(CardCollectionViewModel(backgroundImageView: UIImage(named: "yoga"), icon1: UIImage(named: "icon_clock"),icon1Text: "1h 27 min",icon2: UIImage(named: "icon_walking"), icon2Text: "2.82 km", cardTitle: "Dies ist der beste Titel", cardDescription: "Und dies die beste Beschreibung"))
-        }
+    func getGame(atIndexPath indexPath: IndexPath) -> Game {
+        return games[indexPath.row]
     }
-    
-
 }
