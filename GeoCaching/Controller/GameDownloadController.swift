@@ -54,6 +54,7 @@ struct GameDownloadController {
     
     func downloadGameWithQuests(for id: String, completion: @escaping (Game?, Error?) -> ()) {
         downloadGame(for: id) { (downloadedGame, error) in
+            var gameToPass : Game? = nil
             if let error = error{
                 completion(nil, error)
             }else{
@@ -62,12 +63,12 @@ struct GameDownloadController {
                         if let error = error{
                             completion(nil, error)
                         }else{
-                            var gameToPass = game
-                            gameToPass.quests = downloadedQuestList!
+                            gameToPass?.quests = downloadedQuestList!
+                            completion(gameToPass, nil)
                         }
                     }
                 }
-                completion(downloadedGame, nil)
+                
             }
         }
     }
