@@ -31,6 +31,8 @@ class CardCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        vc.performSegue(withIdentifier: SearchIdentifiers.segue2GameDetail.identifier, sender: nil)
+        let dSource = collectionView.dataSource as! CardCollectionViewDataSource
+        let selectedGame = dSource.getGame(atIndexPath: indexPath)
+        vc.performSegue(withIdentifier: SearchIdentifiers.segue2GameDetail.identifier, sender: selectedGame)
     }
 }
