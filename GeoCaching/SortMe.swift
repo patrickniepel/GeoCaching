@@ -116,7 +116,7 @@ struct DummyContent {
 }
 
 struct ActiveGameController {
-    private var game: Game
+    private(set) var game: Game
     private(set) var currentQuestIndex: Int = 0 {
         didSet {
             if currentQuestIndex >= game.quests.count {
@@ -160,7 +160,15 @@ struct ActiveGameController {
         return distance < questRadius
     }
     
+    // in die Location noch den Radius reinschreiben
     
+    // 0. Alle Quests in die Karte einzeichnen
+    //      - Alle Punkte miteinander verbinden?
+    // 1. Button an neue Quest anpassen
+    //      - Title
+    //      - die Farbe vom Rand, je nachdem wie nah man dran ist
+    // 2. Button aktivieren, wenn man nahgenug ist
+    // 3. Quest an Patrick seinen ViewController schicken
     
     
     
