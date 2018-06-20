@@ -175,7 +175,7 @@
 		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
 		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
 		A39B091020AC623700D46CFD /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B090F20AC623700D46CFD /* Extension+ViewController.swift */; };
-		A3B8185520D1435300B39722 /* firstOfAll.dae in Resources */ = {isa = PBXBuildFile; fileRef = A3B8185420D1435300B39722 /* firstOfAll.dae */; };
+		A3E5F2D520D2473700CA6156 /* firstOfAll.dae in Resources */ = {isa = PBXBuildFile; fileRef = A3E5F2D420D2473700CA6156 /* firstOfAll.dae */; };
 		C6570B03F6D8B8FE57A2B878 /* Pods_GeoCachingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */; };
 		FB6B52F867EBAE1EAFCCDFC0 /* Pods_GeoCachingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -377,8 +377,8 @@
 		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A39B090F20AC623700D46CFD /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
-		A3B8185420D1435300B39722 /* firstOfAll.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstOfAll.dae; sourceTree = "<group>"; };
 		A3CEEA0C7C73D21A706ADBA8 /* Pods-GeoCachingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3E5F2D420D2473700CA6156 /* firstOfAll.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstOfAll.dae; sourceTree = "<group>"; };
 		AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B27B21375A2FFB33B41C99 /* Pods-GeoCaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.debug.xcconfig"; sourceTree = "<group>"; };
 		BBC62D53B36AAB3263CC0D6C /* Pods-GeoCachingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -763,6 +763,7 @@
 		A33C82CC20AC0C10005762C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3E5F2D420D2473700CA6156 /* firstOfAll.dae */,
 				A39537AB20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff */,
 				A39537A920D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff */,
 				A39537A720D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff */,
@@ -770,7 +771,6 @@
 				A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */,
 				A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */,
 				A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */,
-				A3B8185420D1435300B39722 /* firstOfAll.dae */,
 				A33C82CD20AC0C2B005762C2 /* testy2.dae */,
 			);
 			path = Resources;
@@ -1017,6 +1017,7 @@
 			files = (
 				A39537AC20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff in Resources */,
 				0FA96BEE20A39726005485A3 /* style.json in Resources */,
+				A3E5F2D520D2473700CA6156 /* firstOfAll.dae in Resources */,
 				A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */,
 				17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */,
 				A39537A820D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff in Resources */,
@@ -1035,7 +1036,6 @@
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
 				0FF2A58720A19AE900486CAC /* Login.storyboard in Resources */,
 				17BC44C720AD6E4200062876 /* Info.plist in Resources */,
-				A3B8185520D1435300B39722 /* firstOfAll.dae in Resources */,
 				A35E495120D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
