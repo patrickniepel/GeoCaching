@@ -86,32 +86,32 @@ struct DummyContent {
                                              question: "Wer ist der Ehrenbürger der Stadt Hof der im Dezember 1991 gestorben ist und in Verbindung mit der Hochschule steht.",
                                              image: UIImage(named: "yoga"),
                                              questionType: QuestionType.date,
-                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324774,
-                                                                                            longitude: 11.941077)]),
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324774,
+                                                                                            longitude: 11.941077)),
                                        Quest(answers: ["Norden", "Osten", "Süden", "nach links"],
                                              question: "In welche Himmelsrichtung zeigt dieser Pfeil an der Bushaltestelle?",
                                              image: UIImage(named: ""),
                                              questionType: QuestionType.fourChoices,
-                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.323779,
-                                                                                            longitude: 11.940323)]),
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.323779,
+                                                                                            longitude: 11.940323)),
                                        Quest(answers: ["20", "100", "1.000.000", "welches Dach?"],
                                              question: "Wie viele Fahrradstellplätze gibt es unter diesem Dach?",
                                              image: UIImage(named: "yoga"),
                                              questionType: QuestionType.date,
-                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324181,
-                                                                                            longitude: 11.939300)]),
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324181,
+                                                                                            longitude: 11.939300)),
                                        Quest(answers: ["2", "4", "8", "16"],
                                              question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
                                              image: UIImage(named: "yoga"),
                                              questionType: QuestionType.date,
-                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.324931,
-                                                                                            longitude: 11.938181)]),
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324931,
+                                                                                            longitude: 11.938181)),
                                        Quest(answers: ["Unisee"],
                                              question: "Wie heißt der bei Studenten beliebte See direkt neben der Universität? (Punkt 31 auf der Karte)",
                                              image: UIImage(named: "yoga"),
                                              questionType: QuestionType.date,
-                                             locationPolygonPoints: [CLLocationCoordinate2D(latitude: 50.326699,
-                                                                                            longitude: 11.937674)])
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.326699,
+                                                                                            longitude: 11.937674))
                                        ])
 }
 
@@ -150,10 +150,10 @@ struct ActiveGameController {
     
     func isUserAllowedToAnswerTheQuest(userLocation: CLLocationCoordinate2D) -> Bool {
         let currentQuest = game.quests[currentQuestIndex]
-        let questLocation = currentQuest.locationPolygonPoints.first!
+        let questLocation = currentQuest.locationPolygonPoint
         let questRadius: Double = 100 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
         
-        let point1 = MKMapPointForCoordinate(questLocation)
+        let point1 = MKMapPointForCoordinate(questLocation!)
         let point2 = MKMapPointForCoordinate(userLocation)
         let distance = MKMetersBetweenMapPoints(point1, point2)
         

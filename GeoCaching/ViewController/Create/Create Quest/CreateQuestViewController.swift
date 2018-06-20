@@ -257,7 +257,7 @@ extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
     func didAdd(locationCoordinate2D: CLLocationCoordinate2D, withRadius radius: Float) {
         print("coordinate: \(locationCoordinate2D) - \(radius)")
         set(location: locationCoordinate2D)
-        questCreatorController.set(locationPolygonPoints: [locationCoordinate2D])
+        questCreatorController.set(locationPolygonPoint: locationCoordinate2D)
         navigationController?.popViewController(animated: true)
     }
 }
