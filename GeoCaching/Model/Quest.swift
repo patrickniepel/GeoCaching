@@ -24,12 +24,13 @@ struct Quest {
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String:Any],
-            let id = dict["id"] as? String,
+            let id = snapshot.key as? String,
             let answers = dict["answers"] as? [String],
             let question = dict["question"] as? String,
             let questionTypeDBName = dict["questionType"] as? String,
             let questionType = QuestionType(dbName: questionTypeDBName),
-            let locationPolygonPoints = dict["locationPolygonPoints"] as? [CLLocationCoordinate2D] else {
+            let locationPolygonPointsString = dict["locationPolygonPoints"] as? [String]
+            else {
                 return nil
         }
         
@@ -37,7 +38,10 @@ struct Quest {
         self.answers = answers
         self.question = question
         self.questionType = questionType
-        self.locationPolygonPoints = locationPolygonPoints
+        let locationPolygonPointsArray = locationPolygonPointsString[0].components(separatedBy: ";")
+        let locationPolygonPoints = CLLocationCoordinate2D(latitude: Double(locationPolygonPointsArray[0])!, longitude: Double(locationPolygonPointsArray[1])!)
+        let locationPolygonPointsArrayToSet = [locationPolygonPoints]
+        self.locationPolygonPoints = locationPolygonPointsArrayToSet
     }
     
     var id: String

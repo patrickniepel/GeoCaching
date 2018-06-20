@@ -44,6 +44,8 @@ struct User {
     private var isOnline: Bool {
         return true // TODO: ✅⚠️ zum debuggen auskommentiert currentLocation != nil
     }
+    var currentGameId : String
+    var currentQuestId : String
     
     init (id: String, username: String, userImage: UIImage?,
           isPresenter: Bool, points: Int, earnedAchivements: [Achivement]) {
@@ -53,15 +55,30 @@ struct User {
         self.isPresenter = isPresenter
         self.points = points
         self.earnedAchivements = earnedAchivements
+        self.currentGameId = ""
+        self.currentQuestId = ""
+    }
+    
+    init (id: String, username: String, userImage: UIImage?,
+          isPresenter: Bool, points: Int, earnedAchivements: [Achivement], currentGameId : String, currentQuestId : String) {
+        self.id = id
+        self.username = username
+        self.userImage = userImage
+        self.isPresenter = isPresenter
+        self.points = points
+        self.earnedAchivements = earnedAchivements
+        self.currentGameId = currentGameId
+        self.currentQuestId = currentQuestId
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String:Any],
             let username = dict["username"] as? String,
             let isPresenter = dict["isPresenter"] as? Bool,
-            let points = dict["points"] as? Int else {
-                return nil
-        }
+            let points = dict["points"] as? Int,
+            let currentGameId = dict["currentGameId"] as? String,
+            let currentQuestId = dict["currentQuestId"] as? String
+            else {return nil}
         
         if let achievementDictionaries = dict["earnedAchivements"] as? [[String:Any]] {
             var achievements: [Achivement] = []
@@ -78,6 +95,8 @@ struct User {
         self.username = username
         self.isPresenter = isPresenter
         self.points = points
+        self.currentGameId = currentGameId
+        self.currentQuestId = currentQuestId
     }
     
     var toDictionary: [String:Any] {
@@ -85,7 +104,9 @@ struct User {
             "username": username,
             "isPresenter": isPresenter,
             "points": points,
-            "earnedAchivements": earnedAchivements.map { $0.toDictionary }
+            "earnedAchivements": earnedAchivements.map { $0.toDictionary },
+            "currentGameId" : currentGameId,
+            "currentQuestId" : currentQuestId
         ]
     }
 }
