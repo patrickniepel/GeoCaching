@@ -18,11 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUA-KT-Hhc">
-                                <rect key="frame" x="92" y="278" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2PM-49-ela" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZd-aC-CC3" customClass="MenuButton" customModule="GeoCaching" customModuleProvider="target">
                                 <rect key="frame" x="16" y="86" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,43 +36,45 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_information" translatesAutoresizingMaskIntoConstraints="NO" id="vWv-IL-P0L">
                                         <rect key="frame" x="2" y="2" width="46" height="46"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="vWv-IL-P0L" secondAttribute="height" multiplier="1:1" id="gcc-Dg-ff1"/>
+                                            <constraint firstAttribute="width" secondItem="vWv-IL-P0L" secondAttribute="height" multiplier="1:1" id="bPy-Ik-UcO"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-If-8hL">
                                         <rect key="frame" x="48" y="0.0" width="303" height="50"/>
                                         <state key="normal" title="Questinformation"/>
-                                        <connections>
-                                            <action selector="informationButton:" destination="UcX-Gr-sjL" eventType="touchUpInside" id="6xd-Lv-GwB"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84987871159277328" green="1" blue="0.68103036282038376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="w0g-If-8hL" firstAttribute="leading" secondItem="vWv-IL-P0L" secondAttribute="trailing" id="316-Gy-v0r"/>
-                                    <constraint firstItem="vWv-IL-P0L" firstAttribute="top" secondItem="GJy-4O-Isc" secondAttribute="top" constant="2" id="6xK-3x-LaC"/>
-                                    <constraint firstAttribute="height" constant="50" id="76e-YI-Rxt"/>
-                                    <constraint firstItem="w0g-If-8hL" firstAttribute="top" secondItem="GJy-4O-Isc" secondAttribute="top" id="FsH-t6-b3e"/>
-                                    <constraint firstAttribute="bottom" secondItem="w0g-If-8hL" secondAttribute="bottom" id="JO9-PD-AUn"/>
-                                    <constraint firstAttribute="trailing" secondItem="w0g-If-8hL" secondAttribute="trailing" id="UVs-Zm-45H"/>
-                                    <constraint firstItem="vWv-IL-P0L" firstAttribute="leading" secondItem="GJy-4O-Isc" secondAttribute="leading" constant="2" id="WUY-0Y-voR"/>
-                                    <constraint firstAttribute="bottom" secondItem="vWv-IL-P0L" secondAttribute="bottom" constant="2" id="dkF-CH-knX"/>
+                                    <constraint firstItem="w0g-If-8hL" firstAttribute="top" secondItem="GJy-4O-Isc" secondAttribute="top" id="0cR-7n-mRU"/>
+                                    <constraint firstItem="w0g-If-8hL" firstAttribute="leading" secondItem="vWv-IL-P0L" secondAttribute="trailing" id="3Ut-1F-9r7"/>
+                                    <constraint firstItem="vWv-IL-P0L" firstAttribute="leading" secondItem="GJy-4O-Isc" secondAttribute="leading" constant="2" id="O4F-hw-Q8e"/>
+                                    <constraint firstItem="vWv-IL-P0L" firstAttribute="top" secondItem="GJy-4O-Isc" secondAttribute="top" constant="2" id="WiP-vQ-Ne3"/>
+                                    <constraint firstAttribute="trailing" secondItem="w0g-If-8hL" secondAttribute="trailing" id="XX7-6C-Vay"/>
+                                    <constraint firstAttribute="height" constant="50" id="cXg-FM-stV"/>
+                                    <constraint firstAttribute="bottom" secondItem="w0g-If-8hL" secondAttribute="bottom" id="l3v-kd-DOv"/>
+                                    <constraint firstAttribute="bottom" secondItem="vWv-IL-P0L" secondAttribute="bottom" constant="2" id="r0V-WC-0Po"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qZB-tK-oqm" firstAttribute="bottom" secondItem="GJy-4O-Isc" secondAttribute="bottom" constant="24" id="Vd7-z8-tR3"/>
-                            <constraint firstItem="GJy-4O-Isc" firstAttribute="leading" secondItem="qZB-tK-oqm" secondAttribute="leading" constant="12" id="nZS-9t-n31"/>
-                            <constraint firstItem="qZB-tK-oqm" firstAttribute="trailing" secondItem="GJy-4O-Isc" secondAttribute="trailing" constant="12" id="oCk-B5-CuG"/>
+                            <constraint firstItem="qZB-tK-oqm" firstAttribute="trailing" secondItem="GJy-4O-Isc" secondAttribute="trailing" constant="12" id="0KO-Ed-B8J"/>
+                            <constraint firstItem="qZB-tK-oqm" firstAttribute="bottom" secondItem="GJy-4O-Isc" secondAttribute="bottom" constant="24" id="7AV-ek-glq"/>
+                            <constraint firstItem="2PM-49-ela" firstAttribute="top" secondItem="yYO-AT-7us" secondAttribute="top" id="I08-FW-M7k"/>
+                            <constraint firstItem="2PM-49-ela" firstAttribute="leading" secondItem="qZB-tK-oqm" secondAttribute="leading" id="goC-yE-s9Y"/>
+                            <constraint firstAttribute="bottom" secondItem="2PM-49-ela" secondAttribute="bottom" id="lKW-Ls-Lkz"/>
+                            <constraint firstItem="2PM-49-ela" firstAttribute="trailing" secondItem="qZB-tK-oqm" secondAttribute="trailing" id="mcZ-bm-h0q"/>
+                            <constraint firstItem="GJy-4O-Isc" firstAttribute="leading" secondItem="qZB-tK-oqm" secondAttribute="leading" constant="12" id="piz-iX-Lqz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qZB-tK-oqm"/>
                     </view>
                     <connections>
                         <outlet property="expendableMenuButton" destination="vZd-aC-CC3" id="w9T-HC-0JG"/>
-                        <outlet property="informationBackground" destination="GJy-4O-Isc" id="75r-io-hfO"/>
-                        <outlet property="informationButtonOutlet" destination="w0g-If-8hL" id="ck4-ob-FbT"/>
-                        <outlet property="informationImage" destination="vWv-IL-P0L" id="W0S-YF-xSG"/>
+                        <outlet property="informationBackground" destination="GJy-4O-Isc" id="1t8-SK-sUS"/>
+                        <outlet property="informationButtonOutlet" destination="w0g-If-8hL" id="nNQ-ol-38H"/>
+                        <outlet property="informationImage" destination="vWv-IL-P0L" id="tBa-NT-kYU"/>
+                        <outlet property="theMapView" destination="2PM-49-ela" id="FK0-F6-uBJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHs-FB-a3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
