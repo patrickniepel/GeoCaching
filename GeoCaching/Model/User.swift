@@ -44,8 +44,8 @@ struct User {
     private var isOnline: Bool {
         return true // TODO: ✅⚠️ zum debuggen auskommentiert currentLocation != nil
     }
-    var currentGameId : String
-    var currentQuestId : String
+    var currentGameId : String?
+    var currentQuestId : String?
     
     init (id: String, username: String, userImage: UIImage?,
           isPresenter: Bool, points: Int, earnedAchivements: [Achivement]) {
@@ -55,8 +55,8 @@ struct User {
         self.isPresenter = isPresenter
         self.points = points
         self.earnedAchivements = earnedAchivements
-        self.currentGameId = ""
-        self.currentQuestId = ""
+        self.currentGameId = nil
+        self.currentQuestId = nil
     }
     
     init (id: String, username: String, userImage: UIImage?,
@@ -75,9 +75,8 @@ struct User {
         guard let dict = snapshot.value as? [String:Any],
             let username = dict["username"] as? String,
             let isPresenter = dict["isPresenter"] as? Bool,
-            let points = dict["points"] as? Int,
-            let currentGameId = dict["currentGameId"] as? String,
-            let currentQuestId = dict["currentQuestId"] as? String
+            let points = dict["points"] as? Int
+        
             else {return nil}
         
         if let achievementDictionaries = dict["earnedAchivements"] as? [[String:Any]] {
@@ -91,12 +90,13 @@ struct User {
             self.earnedAchivements = achievements
         }
         
+        
         self.id = snapshot.key
         self.username = username
         self.isPresenter = isPresenter
         self.points = points
-        self.currentGameId = currentGameId
-        self.currentQuestId = currentQuestId
+        self.currentGameId = dict["currentGameId"] as? String
+        self.currentQuestId = dict["currentQuestId"] as? String
     }
     
     var toDictionary: [String:Any] {

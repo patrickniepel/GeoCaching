@@ -70,6 +70,7 @@ struct AuthController {
     func checkIfUserAlreadySignedI() -> Bool{
         
         if Auth.auth().currentUser != nil{
+            print("\(Auth.auth().currentUser?.email)")
             return true
         }
         
