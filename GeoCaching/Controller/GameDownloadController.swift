@@ -63,12 +63,12 @@ struct GameDownloadController {
                         if let error = error{
                             completion(nil, error)
                         }else{
+                            gameToPass = game
                             gameToPass?.quests = downloadedQuestList!
                             completion(gameToPass, nil)
                         }
                     }
                 }
-                
             }
         }
     }

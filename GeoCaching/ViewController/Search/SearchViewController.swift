@@ -100,22 +100,22 @@ extension SearchViewController{
         cardCollectionViewDelegate.vc = self
         cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
         
-//        let gameCtrl = GameDownloadController()
-//        var gameList : [Game] = []
-//        gameCtrl.downloadAllGames { (downloadedGameList, error) in
-//            if let error = error{
-//                print(error)
-//            }else{
-//                gameList = downloadedGameList!
-//                gameCtrl.downloadGameWithQuests(for: gameList[0].id, completion: { (downloadedGame, error) in
-//                    if let error = error{
-//                        print(error)
-//                    }else{
-//                        print(downloadedGame!)
-//                    }
-//                })
-//            }
-//        }
+        let gameCtrl = GameDownloadController()
+        var gameList : [Game] = []
+        gameCtrl.downloadAllGames { (downloadedGameList, error) in
+            if let error = error{
+                print(error)
+            }else{
+                gameList = downloadedGameList!
+                gameCtrl.downloadGameWithQuests(for: gameList[0].id, completion: { (downloadedGame, error) in
+                    if let error = error{
+                        print(error)
+                    }else{
+                        print("downloadedGame: \(downloadedGame)")
+                    }
+                })
+            }
+        }
         
         
         
