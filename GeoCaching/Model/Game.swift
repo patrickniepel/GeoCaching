@@ -26,7 +26,7 @@ struct Game {
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String:Any],
-            let id = dict["id"] as? String,
+            let id = snapshot.key as? String,
             let name = dict["name"] as? String,
             let shortDescription = dict["shortDescription"] as? String,
             let longDescription = dict["longDescription"] as? String,
@@ -48,6 +48,7 @@ struct Game {
         self.duration = duration
         self.length = length
         self.rating = rating
+        self.questIDs = questIDs
         self.quests = []
     }
     
@@ -69,7 +70,7 @@ struct Game {
             "longDescription": longDescription,
             "categories": categories.map { $0.dbName },
             "duration": duration,
-            "legth": length,
+            "length": length,
             "raiting": rating,
             "quests": quests.map { $0.id }
         ]
