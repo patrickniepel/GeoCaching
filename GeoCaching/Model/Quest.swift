@@ -129,7 +129,6 @@ final class ItemProviderQuest: NSObject, NSItemProviderWriting, NSItemProviderRe
         return progress
     }
     
-    
     // MARK: - NSItemProviderReading
     static var readableTypeIdentifiersForItemProvider: [String] {
         return [(kUTTypeData as String)]
