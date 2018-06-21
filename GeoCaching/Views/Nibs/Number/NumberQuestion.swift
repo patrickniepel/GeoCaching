@@ -23,6 +23,14 @@ class NumberQuestion: QuestionView {
     
     @IBAction func inputChanged(_ sender: UITextField) {
         guard let delegate = delegate else { return }
-        delegate.answer("")
+        
+        //Nicht eingetragen
+        if sender.text?.trimmingCharacters(in: .whitespaces).count == 0 {
+            return
+        }
+        
+        guard let answerText = sender.text else { return }
+        
+        delegate.answer(answerText)
     }
 }
