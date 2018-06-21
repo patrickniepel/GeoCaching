@@ -18,6 +18,10 @@ enum SwissArmy {
     case none
 }
 
+protocol ActiveGameDelegate {
+    func userAnsweredQuestion()
+}
+
 class GameViewController: UIViewController {
     @IBOutlet weak var swissView: UIView!
     @IBOutlet weak var swissViewLabel: UILabel!
@@ -141,6 +145,8 @@ class GameViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Game", style: .done, target: self, action: #selector(doIt))
         
+        informationBackground.backgroundColor = AppColor.background
+        updateUI(forLocation: nil)
     }
     
     @objc func doIt() {
@@ -170,9 +176,14 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func informationButton(_ sender: UIButton) {
+        
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "" {
+            
+        }
+    }
     
     
     // MARK: - Helperfunctions
@@ -263,16 +274,39 @@ extension GameViewController: CLLocationManagerDelegate {
             default: break
             }
             
-            if activeGameController.isUserAllowedToAnswerTheQuest(userLocation: location.coordinate) {
-                
+            updateUI(forLocation: location.coordinate)
+        }
+    }
+    
+    func updateUI(forLocation location: CLLocationCoordinate2D?) {
+        guard let location = location else {
+            informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
+            informationButtonOutlet.isUserInteractionEnabled = false
+            informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
+            return
+        }
+        if activeGameController != nil {
+            if activeGameController.isUserAllowedToAnswerTheQuest(userLocation: location) {
+                informationBackground.layer.borderColor = AppColor.tint.cgColor
+                informationButtonOutlet.isUserInteractionEnabled = false
+                informationButtonOutlet.setTitleColor(AppColor.tint, for: .normal)
             } else {
-                
+                informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
+                informationButtonOutlet.isUserInteractionEnabled = false
+                informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
             }
         }
     }
 }
 
 
+extension GameViewController: ActiveGameDelegate {
+    
+    func userAnsweredQuestion() {
+        activeGameController.nextQuest()
+        drawLocationsInMap()
+    }
+}
 
 
 
