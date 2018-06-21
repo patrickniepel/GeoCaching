@@ -111,11 +111,17 @@ struct DummyContent {
                                              image: UIImage(named: "yoga"),
                                              questionType: QuestionType.date,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.326699,
-                                                                                            longitude: 11.937674))
+                                                                                            longitude: 11.937674)),
+                                       Quest(answers: ["PPMP"],
+                                             question: "Lauf zurück in B010 und gebe den Code an der Tafel ein :)",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.textInput,
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.325568,
+                                                                                          longitude: 11.939902))
                                        ])
 }
 
-struct ActiveGameController {
+class ActiveGameController {
     private(set) var game: Game
     private(set) var currentQuestIndex: Int = 0 {
         didSet {
@@ -127,10 +133,12 @@ struct ActiveGameController {
     var currentQuest: Quest {
         return game.quests[currentQuestIndex]
     }
+    private var startDate: Date
     
     
     init(game: Game) {
         self.game = game
+        startDate = Date()
     }
     
     
@@ -143,15 +151,14 @@ struct ActiveGameController {
         return correctAnswer ==  userAnswer.lowercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
-    mutating func nextQuest() -> Quest {
+    func nextQuest() {
         currentQuestIndex += 1
-        return game.quests[currentQuestIndex]
     }
     
     func isUserAllowedToAnswerTheQuest(userLocation: CLLocationCoordinate2D) -> Bool {
         let currentQuest = game.quests[currentQuestIndex]
         let questLocation = currentQuest.locationPolygonPoint
-        let questRadius: Double = 100 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
+        let questRadius: Double = 200 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
         
         let point1 = MKMapPointForCoordinate(questLocation!)
         let point2 = MKMapPointForCoordinate(userLocation)
@@ -169,8 +176,41 @@ struct ActiveGameController {
     //      - die Farbe vom Rand, je nachdem wie nah man dran ist
     // 2. Button aktivieren, wenn man nahgenug ist
     // 3. Quest an Patrick seinen ViewController schicken
+    // 4. Ergebnis von Patrick erhalten und demenstprechend die Map und das Spiel anpassen
     
     
+    // Startpunktzahl: +1000
+    // Richtig:        + 100
+    // Falsch:         -  50
+    // Anzahl der Sekunden von 1000 abziehen - bis max. 1000
+    //
+    
+    private var correctAnswers: Int = 0
+    private var wrongAnswer: Int = 0
+    
+    func answeredCorrect() {
+        correctAnswers += 1
+    }
+    
+    func answeredWrong() {
+        wrongAnswer += 1
+    }
+    
+    func calculatePoints() -> Int {
+        var totalPoints = 0
+        totalPoints += (correctAnswers * 100)
+        totalPoints -= (wrongAnswer * 50)
+        
+        let now = Date()
+        let secondsSinceStart = Int(startDate.timeIntervalSince(now))
+        
+        let startPoints = 1000
+        if secondsSinceStart < startPoints {
+            totalPoints += (startPoints - secondsSinceStart)
+        }
+        
+        return totalPoints
+    }
     
 }
 

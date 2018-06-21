@@ -9,11 +9,29 @@
 import UIKit
 import GoogleMaps
 
+enum SwissArmy {
+    case height
+    case location
+    case stopwatch
+    case timer
+    case speed
+    case none
+}
+
+protocol ActiveGameDelegate {
+    func userAnsweredQuestion()
+}
 
 class GameViewController: UIViewController {
+    @IBOutlet weak var swissView: UIView!
+    @IBOutlet weak var swissViewLabel: UILabel!
+    
+    var swissArmyElement = SwissArmy.none
+    
     @IBOutlet weak var expendableMenuButton: MenuButton!
     
     var locationManager = CLLocationManager()
+    private var hasZoomedToLocationOnAppStart = false
     
     @IBOutlet weak var informationBackground: UIView!
     @IBOutlet weak var informationImage: UIImageView!
@@ -29,7 +47,28 @@ class GameViewController: UIViewController {
     }
     
     func drawLocationsInMap() {
-
+        let allGameQuests = activeGameController.game.quests
+        let allLocations = allGameQuests.compactMap { $0.locationPolygonPoint }
+        let currentQuestIndex = activeGameController.currentQuestIndex
+        
+        theMapView.clear()
+        
+        for (index, location) in allLocations.enumerated() {
+            if currentQuestIndex == index {
+                var circle = GMSCircle()
+                circle.map = nil
+                circle = GMSCircle(position: location, radius: CLLocationDistance(100))
+                circle.strokeWidth = 3.0
+                circle.map = theMapView
+                circle.fillColor = AppColor.tint.withAlphaComponent(0.2)
+                circle.strokeColor = AppColor.tint
+            } else {
+                let marker = GMSMarker(position: location)
+                marker.title = "\(index + 1)"
+                marker.icon = GMSMarker.markerImage(with: AppColor.marker)
+                marker.map = theMapView
+            }
+        }
     }
     
     let hightButton = UIButton()
@@ -42,9 +81,23 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Test-Segue für QuestionScreen
+//        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
+        
+        
+            
+        swissView.isHidden = true
+        
         setupDesign()
         setupText()
         setupData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == GameSegues.displayQuestion.identifier {
+            
+            let destVC = segue.destination as! QuestionViewController
+        }
     }
     
     
@@ -61,6 +114,15 @@ class GameViewController: UIViewController {
         timerButton.setImage(UIImage(named: "icon_timer"), for: .normal)
         speedButton.setImage(UIImage(named: "icon_speed"), for: .normal)
         button6.setImage(UIImage(named: ""), for: .normal)
+        
+        swissViewLabel.numberOfLines = 2
+        swissViewLabel.adjustsFontSizeToFitWidth = true
+        swissViewLabel.textColor = AppColor.text
+        
+        swissView.backgroundColor = AppColor.background
+        swissView.layer.cornerRadius = 20
+        swissView.layer.borderColor = AppColor.tint.cgColor
+        swissView.layer.borderWidth = 4.0
         
         
         // ###########
@@ -89,11 +151,13 @@ class GameViewController: UIViewController {
             print("Google-Map-JSON-Style-Error: \(error)")
         }
         
-        theMapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
+//        theMapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
         self.view.addSubview(expendableMenuButton)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Game", style: .done, target: self, action: #selector(doIt))
         
+        informationBackground.backgroundColor = AppColor.background
+        updateUI(forLocation: nil)
     }
     
     @objc func doIt() {
@@ -123,9 +187,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func informationButton(_ sender: UIButton) {
+        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
+        print("--- Patrick")
     }
-    
-    
     
     
     // MARK: - Helperfunctions
@@ -134,20 +198,60 @@ class GameViewController: UIViewController {
         expendableMenuButton.layer.borderWidth = 2.0
     }
     
+    
+    // MARK: Swiss Army Stuff
+    
     @objc private func siwssArmyButtonAction(_ sender: UIButton) {
         if !expendableMenuButton.isRunningAnimation {
+            showSwissArmyView()
             switch sender {
-            case hightButton: print("height")
-            case locationButton: print("location")
-            case stopwatchButton: print("stopwatch")
-            case timerButton: print("timer")
-            case speedButton: print("speed")
-            case button6: print("button6")
-            default: break
+            case hightButton:
+                swissArmyElement = .height
+                print("height")
+            case locationButton:
+                swissArmyElement = .location
+                print("location")
+            case stopwatchButton:
+                swissArmyElement = .stopwatch
+                swissViewLabel.text = "Coming with Update 2.0"
+                print("stopwatch")
+            case timerButton:
+                swissArmyElement = .timer
+                swissViewLabel.text = "Coming with Update 2.0"
+                print("timer")
+            case speedButton:
+                swissArmyElement = .speed
+                print("speed")
+            case button6:
+                swissViewLabel.text = "Coming with Update 2.0"
+                print("button6")
+            default:
+                swissArmyElement = .none
+                closeSwissArmyView()
             }
             expendableMenuButton.toggle(onView: self.view)
         }
     }
+    
+    @IBAction func siwssViewCloseAction(_ sender: UIButton) {
+        closeSwissArmyView()
+    }
+    
+    private func closeSwissArmyView() {
+        UIView.animate(withDuration: 1.0, animations: {
+            self.swissView.alpha = 0.0
+        }) { (completed) in
+            self.swissView.isHidden = completed
+        }
+    }
+    
+    private func showSwissArmyView() {
+        self.swissView.isHidden = false
+        UIView.animate(withDuration: 1.0) {
+            self.swissView.alpha = 1.0
+        }
+    }
+    
 }
 
 extension GameViewController: CLLocationManagerDelegate {
@@ -156,14 +260,59 @@ extension GameViewController: CLLocationManagerDelegate {
             let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude, zoom: 17.0)
             if theMapView != nil {
-                self.theMapView.animate(to: camera)
+                if !hasZoomedToLocationOnAppStart {
+                    self.theMapView.animate(to: camera)
+                    hasZoomedToLocationOnAppStart = true
+                }
             }
             print("location: \(location)")
+            
+            switch swissArmyElement {
+            case .location:
+                let str = "lat: \(location.coordinate.latitude)\nlng: \(location.coordinate.longitude)"
+                swissViewLabel.text = str
+            case .speed:
+                let str = "Speed: \(location.speed)"
+                swissViewLabel.text = str
+            case .height:
+                let str = "Altitude: \(String(format: "%.1f", arguments: [Double(location.altitude)])) m"
+                swissViewLabel.text = str
+            default: break
+            }
+            
+            updateUI(forLocation: location.coordinate)
+        }
+    }
+    
+    func updateUI(forLocation location: CLLocationCoordinate2D?) {
+        guard let location = location else {
+            informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
+            informationButtonOutlet.isUserInteractionEnabled = false
+            informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
+            return
+        }
+        if activeGameController != nil {
+            if activeGameController.isUserAllowedToAnswerTheQuest(userLocation: location) {
+                informationBackground.layer.borderColor = AppColor.tint.cgColor
+                informationButtonOutlet.isUserInteractionEnabled = true
+                informationButtonOutlet.setTitleColor(AppColor.tint, for: .normal)
+            } else {
+                informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
+                informationButtonOutlet.isUserInteractionEnabled = false
+                informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
+            }
         }
     }
 }
 
 
+extension GameViewController: ActiveGameDelegate {
+    
+    func userAnsweredQuestion() {
+        activeGameController.nextQuest()
+        drawLocationsInMap()
+    }
+}
 
 
 

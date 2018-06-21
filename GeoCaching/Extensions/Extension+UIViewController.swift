@@ -48,4 +48,17 @@ extension UIViewController {
         
         present(popup, animated: true)
     }
+    
+    func alert(for title: String, message: String, actionText: String, delegate: ActiveGameDelegate? = nil) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionText, style: .default) { action -> Void in
+            if let delegate = delegate {
+                delegate.userAnsweredQuestion()
+            }
+        }
+        
+        alert.addAction(action)
+        return alert
+    }
+
 }

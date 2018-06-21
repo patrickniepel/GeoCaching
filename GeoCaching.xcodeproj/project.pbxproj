@@ -152,6 +152,18 @@
 		A30CC5D720C7C1B10017DEE1 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5D620C7C1B10017DEE1 /* Filter.swift */; };
 		A30CC5D920C7C2080017DEE1 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5D820C7C2080017DEE1 /* Game.swift */; };
 		A30CC5DB20C7C22E0017DEE1 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5DA20C7C22E0017DEE1 /* Voucher.swift */; };
+		A30E664E20DA3F4500E6EC72 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E664D20DA3F4500E6EC72 /* QuestionViewController.swift */; };
+		A30E665020DA3F6F00E6EC72 /* TextInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30E664F20DA3F6F00E6EC72 /* TextInputView.xib */; };
+		A30E665220DA3F7D00E6EC72 /* FourChoicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30E665120DA3F7D00E6EC72 /* FourChoicesView.xib */; };
+		A30E665420DA3FA500E6EC72 /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30E665320DA3FA500E6EC72 /* DateView.xib */; };
+		A30E665620DA3FBB00E6EC72 /* NumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30E665520DA3FBB00E6EC72 /* NumberView.xib */; };
+		A30E665820DA3FC100E6EC72 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30E665720DA3FC100E6EC72 /* ImageView.xib */; };
+		A30E665A20DA40CE00E6EC72 /* GameSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E665920DA40CE00E6EC72 /* GameSegues.swift */; };
+		A30E666120DA422E00E6EC72 /* TextInputQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666020DA422E00E6EC72 /* TextInputQuestion.swift */; };
+		A30E666320DA423C00E6EC72 /* FourChoicesQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666220DA423C00E6EC72 /* FourChoicesQuestion.swift */; };
+		A30E666520DA424600E6EC72 /* DateQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666420DA424600E6EC72 /* DateQuestion.swift */; };
+		A30E666720DA425000E6EC72 /* ImageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666620DA425000E6EC72 /* ImageQuestion.swift */; };
+		A30E666920DA429200E6EC72 /* NumberQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666820DA429200E6EC72 /* NumberQuestion.swift */; };
 		A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */ = {isa = PBXBuildFile; fileRef = A33C82CD20AC0C2B005762C2 /* testy2.dae */; };
 		A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */; };
 		A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */; };
@@ -159,6 +171,8 @@
 		A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */; };
 		A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */ = {isa = PBXBuildFile; fileRef = A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */; };
 		A342AFC320D156EA00B2DD55 /* firstChallengeAccepted.dae in Resources */ = {isa = PBXBuildFile; fileRef = A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */; };
+		A350A3EE20DA82DC009BE2B4 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */; };
+		A35B0F0220DB776D00E8CEA5 /* QuestionAnswerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */; };
 		A35E495120D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */; };
 		A35EB2CA20B538A900A1025F /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2C920B538A900A1025F /* CreateGameViewController.swift */; };
 		A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CB20B53C7800A1025F /* CreateGameController.swift */; };
@@ -178,7 +192,7 @@
 		A397AAFD20878C4800289B7D /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFC20878C4800289B7D /* HighscoreViewController.swift */; };
 		A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397AAFE20878C4F00289B7D /* SearchViewController.swift */; };
 		A39B091020AC623700D46CFD /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B090F20AC623700D46CFD /* Extension+ViewController.swift */; };
-		A3B8185520D1435300B39722 /* firstOfAll.dae in Resources */ = {isa = PBXBuildFile; fileRef = A3B8185420D1435300B39722 /* firstOfAll.dae */; };
+		A3E5F2D520D2473700CA6156 /* firstOfAll.dae in Resources */ = {isa = PBXBuildFile; fileRef = A3E5F2D420D2473700CA6156 /* firstOfAll.dae */; };
 		C6570B03F6D8B8FE57A2B878 /* Pods_GeoCachingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBA1A0A892834C6CEDA64EE /* Pods_GeoCachingTests.framework */; };
 		FB6B52F867EBAE1EAFCCDFC0 /* Pods_GeoCachingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF0B79A1DFC82098B829555 /* Pods_GeoCachingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -351,6 +365,18 @@
 		A30CC5D620C7C1B10017DEE1 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A30CC5D820C7C2080017DEE1 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A30CC5DA20C7C22E0017DEE1 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		A30E664D20DA3F4500E6EC72 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		A30E664F20DA3F6F00E6EC72 /* TextInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputView.xib; sourceTree = "<group>"; };
+		A30E665120DA3F7D00E6EC72 /* FourChoicesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourChoicesView.xib; sourceTree = "<group>"; };
+		A30E665320DA3FA500E6EC72 /* DateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
+		A30E665520DA3FBB00E6EC72 /* NumberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberView.xib; sourceTree = "<group>"; };
+		A30E665720DA3FC100E6EC72 /* ImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageView.xib; sourceTree = "<group>"; };
+		A30E665920DA40CE00E6EC72 /* GameSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSegues.swift; sourceTree = "<group>"; };
+		A30E666020DA422E00E6EC72 /* TextInputQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputQuestion.swift; sourceTree = "<group>"; };
+		A30E666220DA423C00E6EC72 /* FourChoicesQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourChoicesQuestion.swift; sourceTree = "<group>"; };
+		A30E666420DA424600E6EC72 /* DateQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateQuestion.swift; sourceTree = "<group>"; };
+		A30E666620DA425000E6EC72 /* ImageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuestion.swift; sourceTree = "<group>"; };
+		A30E666820DA429200E6EC72 /* NumberQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberQuestion.swift; sourceTree = "<group>"; };
 		A33C82CD20AC0C2B005762C2 /* testy2.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = testy2.dae; sourceTree = "<group>"; };
 		A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
 		A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -358,6 +384,8 @@
 		A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstChallengeCompleted.dae; sourceTree = "<group>"; };
 		A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstChallengeAccepted.dae; sourceTree = "<group>"; };
+		A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerDelegate.swift; sourceTree = "<group>"; };
 		A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_Wenge_1024_albedo.tiff; sourceTree = "<group>"; };
 		A35EB2C920B538A900A1025F /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		A35EB2CB20B53C7800A1025F /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
@@ -383,8 +411,8 @@
 		A397AAFC20878C4800289B7D /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		A397AAFE20878C4F00289B7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A39B090F20AC623700D46CFD /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
-		A3B8185420D1435300B39722 /* firstOfAll.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstOfAll.dae; sourceTree = "<group>"; };
 		A3CEEA0C7C73D21A706ADBA8 /* Pods-GeoCachingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3E5F2D420D2473700CA6156 /* firstOfAll.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstOfAll.dae; sourceTree = "<group>"; };
 		AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoCaching.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B27B21375A2FFB33B41C99 /* Pods-GeoCaching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.debug.xcconfig"; sourceTree = "<group>"; };
 		BBC62D53B36AAB3263CC0D6C /* Pods-GeoCachingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingUITests/Pods-GeoCachingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -572,6 +600,7 @@
 		0FF2A58B20A19E8400486CAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A30E664C20DA3B9400E6EC72 /* Nibs */,
 				17BC44E920AD6E5600062876 /* PopupDialog */,
 				17BC449720AD6E1E00062876 /* NVActivityIndicatorView */,
 				0F81259120A441BA0045C268 /* Expendable Menu Button */,
@@ -769,9 +798,68 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		A30E664C20DA3B9400E6EC72 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				A30E665B20DA41D600E6EC72 /* TextInput */,
+				A30E665C20DA41DD00E6EC72 /* FourChoices */,
+				A30E665D20DA41E500E6EC72 /* Date */,
+				A30E665F20DA41EE00E6EC72 /* Image */,
+				A30E665E20DA41EB00E6EC72 /* Number */,
+				A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */,
+			);
+			path = Nibs;
+			sourceTree = "<group>";
+		};
+		A30E665B20DA41D600E6EC72 /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				A30E664F20DA3F6F00E6EC72 /* TextInputView.xib */,
+				A30E666020DA422E00E6EC72 /* TextInputQuestion.swift */,
+			);
+			path = TextInput;
+			sourceTree = "<group>";
+		};
+		A30E665C20DA41DD00E6EC72 /* FourChoices */ = {
+			isa = PBXGroup;
+			children = (
+				A30E665120DA3F7D00E6EC72 /* FourChoicesView.xib */,
+				A30E666220DA423C00E6EC72 /* FourChoicesQuestion.swift */,
+			);
+			path = FourChoices;
+			sourceTree = "<group>";
+		};
+		A30E665D20DA41E500E6EC72 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				A30E665320DA3FA500E6EC72 /* DateView.xib */,
+				A30E666420DA424600E6EC72 /* DateQuestion.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		A30E665E20DA41EB00E6EC72 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				A30E665520DA3FBB00E6EC72 /* NumberView.xib */,
+				A30E666820DA429200E6EC72 /* NumberQuestion.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		A30E665F20DA41EE00E6EC72 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				A30E665720DA3FC100E6EC72 /* ImageView.xib */,
+				A30E666620DA425000E6EC72 /* ImageQuestion.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		A33C82CC20AC0C10005762C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3E5F2D420D2473700CA6156 /* firstOfAll.dae */,
 				A39537AB20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff */,
 				A39537A920D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff */,
 				A39537A720D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff */,
@@ -779,7 +867,6 @@
 				A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */,
 				A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */,
 				A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */,
-				A3B8185420D1435300B39722 /* firstOfAll.dae */,
 				A33C82CD20AC0C2B005762C2 /* testy2.dae */,
 			);
 			path = Resources;
@@ -793,6 +880,14 @@
 				A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */,
 			);
 			path = Friends;
+			sourceTree = "<group>";
+		};
+		A35B0F0020DB73B800E8CEA5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A397AAB32087645300289B7D = {
@@ -822,6 +917,7 @@
 			children = (
 				0FA96BCD20A2BDCC005485A3 /* AppColor.swift */,
 				A397AAC62087645400289B7D /* Assets.xcassets */,
+				A35B0F0020DB73B800E8CEA5 /* Protocols */,
 				0F0807A32099FB5200F716E1 /* Controller */,
 				0FF2A56520A18D8000486CAC /* Errors */,
 				0FF2A56F20A191AB00486CAC /* Extensions */,
@@ -876,6 +972,8 @@
 			isa = PBXGroup;
 			children = (
 				A397AAF320878BD500289B7D /* GameViewController.swift */,
+				A30E664D20DA3F4500E6EC72 /* QuestionViewController.swift */,
+				A30E665920DA40CE00E6EC72 /* GameSegues.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1025,26 +1123,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A39537AC20D158F80002E455 /* TexturesCom_RepolishedCopper_1024_albedo.tiff in Resources */,
+				A30E665220DA3F7D00E6EC72 /* FourChoicesView.xib in Resources */,
 				0FA96BEE20A39726005485A3 /* style.json in Resources */,
+				A3E5F2D520D2473700CA6156 /* firstOfAll.dae in Resources */,
 				A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */,
+				A30E665820DA3FC100E6EC72 /* ImageView.xib in Resources */,
 				17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */,
 				A39537A820D158E60002E455 /* TexturesCom_BaseSteel_1024_albedo.tiff in Resources */,
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
 				A39537A620D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif in Resources */,
 				A39537AA20D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff in Resources */,
+				A30E665020DA3F6F00E6EC72 /* TextInputView.xib in Resources */,
 				0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */,
 				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
 				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
 				A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */,
 				0F44FFC220A97BBD007D1093 /* CardCollectionViewCell.xib in Resources */,
 				0FF2A57820A192F800486CAC /* Search.storyboard in Resources */,
+				A30E665620DA3FBB00E6EC72 /* NumberView.xib in Resources */,
 				0FF2A57B20A1930300486CAC /* Game.storyboard in Resources */,
 				0FF2A57D20A1930A00486CAC /* Create.storyboard in Resources */,
+				A30E665420DA3FA500E6EC72 /* DateView.xib in Resources */,
 				A342AFC320D156EA00B2DD55 /* firstChallengeAccepted.dae in Resources */,
 				A397AAC72087645400289B7D /* Assets.xcassets in Resources */,
 				0FF2A58720A19AE900486CAC /* Login.storyboard in Resources */,
 				17BC44C720AD6E4200062876 /* Info.plist in Resources */,
-				A3B8185520D1435300B39722 /* firstOfAll.dae in Resources */,
 				A35E495120D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1189,6 +1292,7 @@
 				0F44FFC320A97BBD007D1093 /* CardCollectionViewModel.swift in Sources */,
 				17FD840720D1590400131AC6 /* QuestError.swift in Sources */,
 				17BC450220AD6E5600062876 /* UIViewController+Visibility.swift in Sources */,
+				A30E666920DA429200E6EC72 /* NumberQuestion.swift in Sources */,
 				17BC450720AD6E5600062876 /* PopupDialogDefaultButtons.swift in Sources */,
 				17BC44D020AD6E4200062876 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				17BC44FB20AD6E5600062876 /* PresentationController.swift in Sources */,
@@ -1209,6 +1313,8 @@
 				17BC44FC20AD6E5600062876 /* UIImageView+Calculations.swift in Sources */,
 				0F81259820A441BA0045C268 /* Direction.swift in Sources */,
 				A30CC5CF20C7B1E90017DEE1 /* GameController.swift in Sources */,
+				A30E665A20DA40CE00E6EC72 /* GameSegues.swift in Sources */,
+				A30E666520DA424600E6EC72 /* DateQuestion.swift in Sources */,
 				17BC44E120AD6E4200062876 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				17BC44E220AD6E4200062876 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 				0F01770A20B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift in Sources */,
@@ -1228,6 +1334,7 @@
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */,
 				17BC44C420AD6E4200062876 /* NVActivityIndicatorView.swift in Sources */,
+				A30E666720DA425000E6EC72 /* ImageQuestion.swift in Sources */,
 				A30CC5D920C7C2080017DEE1 /* Game.swift in Sources */,
 				17BC44D420AD6E4200062876 /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
 				17BC450820AD6E5600062876 /* PresentationManager.swift in Sources */,
@@ -1236,6 +1343,7 @@
 				17FD840320D1476900131AC6 /* GameDownloadController.swift in Sources */,
 				174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */,
 				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
+				A350A3EE20DA82DC009BE2B4 /* QuestionView.swift in Sources */,
 				17BC44E520AD6E4200062876 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				17BC44D820AD6E4200062876 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				17BC44D220AD6E4200062876 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
@@ -1269,12 +1377,14 @@
 				17BC44DD20AD6E4200062876 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				17BC44C920AD6E4200062876 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
+				A35B0F0220DB776D00E8CEA5 /* QuestionAnswerDelegate.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
 				0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */,
 				0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */,
 				17BC450020AD6E5600062876 /* PopupDialogOverlayView.swift in Sources */,
 				A30CC5D720C7C1B10017DEE1 /* Filter.swift in Sources */,
 				0FF2A59520A1DF0B00486CAC /* ProfileAchievementsCollectionViewDelegate.swift in Sources */,
+				A30E666320DA423C00E6EC72 /* FourChoicesQuestion.swift in Sources */,
 				0FF2A57120A191B600486CAC /* Extension+Date.swift in Sources */,
 				17BC44E620AD6E4200062876 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				0F01DDBE20AC9B9E0064ED11 /* CreateQuestController.swift in Sources */,
@@ -1309,6 +1419,7 @@
 				0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */,
 				0F01DDBC20AC997D0064ED11 /* CreateQuestAnswerTableViewDelegate.swift in Sources */,
 				0FF2A57520A191E400486CAC /* AchivementType.swift in Sources */,
+				A30E664E20DA3F4500E6EC72 /* QuestionViewController.swift in Sources */,
 				17BC44DE20AD6E4200062876 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				A30CC5D120C7C14F0017DEE1 /* QuestionType.swift in Sources */,
 				17508F0320B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.swift in Sources */,
@@ -1320,6 +1431,7 @@
 				0F01770D20B8AB1B00CEFCD8 /* CreateQuestSelectQuestGameCategoryTableViewController.swift in Sources */,
 				0FF2A59D20A1DF8200486CAC /* ProfileSegues.swift in Sources */,
 				0FD6C7AB209990CC00B8149D /* Model.swift in Sources */,
+				A30E666120DA422E00E6EC72 /* TextInputQuestion.swift in Sources */,
 				17BC44E420AD6E4200062876 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				0FA96BCC20A2BAFC005485A3 /* Extension+String.swift in Sources */,
 			);
@@ -1488,7 +1600,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1508,7 +1620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SX59NJ9YBW;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
