@@ -13,13 +13,13 @@ import MobileCoreServices
 
 struct Quest {
     
-    init(answers: [String], question: String, image: UIImage?, questionType: QuestionType, locationPolygonPoints: [CLLocationCoordinate2D]) {
+    init(answers: [String], question: String, image: UIImage?, questionType: QuestionType, locationPolygonPoint: CLLocationCoordinate2D?) {
         self.id = UUID().uuidString
         self.answers = answers
         self.question = question
         self.image = image
         self.questionType = questionType
-        self.locationPolygonPoints = locationPolygonPoints
+        self.locationPolygonPoint = locationPolygonPoint
     }
     
     init?(snapshot: DataSnapshot) {
@@ -29,7 +29,7 @@ struct Quest {
             let question = dict["question"] as? String,
             let questionTypeDBName = dict["questionType"] as? String,
             let questionType = QuestionType(dbName: questionTypeDBName),
-            let locationPolygonPointsString = dict["locationPolygonPoints"] as? [String]
+            let locationPolygonPointsStringArray = dict["locationPolygonPoint"] as? [String]
             else {
                 return nil
         }
@@ -38,10 +38,8 @@ struct Quest {
         self.answers = answers
         self.question = question
         self.questionType = questionType
-        let locationPolygonPointsArray = locationPolygonPointsString[0].components(separatedBy: ";")
-        let locationPolygonPoints = CLLocationCoordinate2D(latitude: Double(locationPolygonPointsArray[0])!, longitude: Double(locationPolygonPointsArray[1])!)
-        let locationPolygonPointsArrayToSet = [locationPolygonPoints]
-        self.locationPolygonPoints = locationPolygonPointsArrayToSet
+        self.locationPolygonPoint = CLLocationCoordinate2D(latitude: Double(locationPolygonPointsStringArray[0])!, longitude: Double(locationPolygonPointsStringArray[1])!)
+        
     }
     
     var id: String
@@ -52,13 +50,13 @@ struct Quest {
     var question: String
     var image: UIImage?
     var questionType: QuestionType
-    var locationPolygonPoints: [CLLocationCoordinate2D]
+    var locationPolygonPoint: CLLocationCoordinate2D!
     var toDictionary: [String:Any] {
         return [
             "answers": answers,
             "question": question,
             "questionType": questionType.dbName,
-            "locationPolygonPoints": locationPolygonPoints.map { "\($0.latitude);\($0.latitude)" }
+            "locationPolygonPoint": ["\(locationPolygonPoint.latitude)","\(locationPolygonPoint.longitude)"]
         ]
     }
 }
@@ -73,23 +71,25 @@ final class ItemProviderQuest: NSObject, NSItemProviderWriting, NSItemProviderRe
     private var question: String
     private var imageData: Data?
     private var questionType: QuestionType
-    private var locationPolygonPoints: [[String]]
+    private var locationPolygonPoint: [String]
     
     var quest: Quest {
         var image: UIImage? = nil
         if let imageData = imageData {
             image = UIImage(data: imageData)
         }
-        var locationPoints: [CLLocationCoordinate2D] = []
-        for loc in locationPolygonPoints {
-            guard let latitudeString = loc.first, let longitudeString = loc.last, let latitude = Double(latitudeString), let longitude = Double(longitudeString) else {
-                break
-            }
-            let point = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            locationPoints.append(point)
-        }
+        var locationPoint: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        locationPoint.latitude = Double(locationPolygonPoint[0])!
+        locationPoint.longitude = Double(locationPolygonPoint[1])!
+//        for loc in locationPolygonPoints {
+//            guard let latitudeString = loc.first, let longitudeString = loc.last, let latitude = Double(latitudeString), let longitude = Double(longitudeString) else {
+//                break
+//            }
+//            let point = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//            locationPoints.append(point)
+//        }
         
-        var quest = Quest(answers: answers, question: question, image: image, questionType: questionType, locationPolygonPoints: locationPoints)
+        var quest = Quest(answers: answers, question: question, image: image, questionType: questionType, locationPolygonPoint: locationPoint)
         quest.id = id
         return quest
     }
@@ -102,11 +102,11 @@ final class ItemProviderQuest: NSObject, NSItemProviderWriting, NSItemProviderRe
             self.imageData = UIImagePNGRepresentation(image)
         }
         self.questionType = quest.questionType
-        var locs: [[String]] = []
-        for loc in quest.locationPolygonPoints {
-            locs.append(["\(loc.latitude)", "\(loc.longitude)"])
-        }
-        self.locationPolygonPoints = locs
+        var locs: [String] = ["\(quest.locationPolygonPoint.latitude)","\(quest.locationPolygonPoint.longitude)"]
+//        for loc in quest.locationPolygonPoint {
+//            locs.append(["\(loc.latitude)", "\(loc.longitude)"])
+//        }
+        self.locationPolygonPoint = locs
     }
     
     

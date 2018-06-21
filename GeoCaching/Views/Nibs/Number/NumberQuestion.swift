@@ -8,14 +8,21 @@
 
 import UIKit
 
-class NumberQuestion: UIView {
+class NumberQuestion: QuestionView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var textFieldView: UIView!
+    
+    override func setupLayout() {
+        self.backgroundColor = AppColor.background
+        textFieldView.backgroundColor = AppColor.backgroundLighter2
+        textFieldView.layer.cornerRadius = 10
+        textFieldView.layer.borderWidth = 2
+        textFieldView.layer.borderColor = AppColor.tint.cgColor
     }
-    */
-
+    
+    
+    @IBAction func inputChanged(_ sender: UITextField) {
+        guard let delegate = delegate else { return }
+        delegate.answer("")
+    }
 }

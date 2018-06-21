@@ -16,9 +16,4 @@ extension UIView {
         self.layer.borderColor = AppColor.tint.cgColor
         self.backgroundColor = .clear
     }
-    
-    func loadNib(for name: String) -> UIView {
-        let nib = UINib(nibName: name, bundle: nil)
-        return nib.instantiate(withOwner: self, options: nil).first as! UIView
-    }
 }

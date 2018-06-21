@@ -25,7 +25,7 @@ struct CreateGameController {
     var game: Game
     
     var waypoints: [CLLocationCoordinate2D] {
-        return game.quests.compactMap { $0.locationPolygonPoints.first }
+        return game.quests.compactMap{ $0.locationPolygonPoint}
     }
     
     var delegate: CreateGameControllerDelegate?

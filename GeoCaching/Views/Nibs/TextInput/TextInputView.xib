@@ -15,40 +15,39 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oIk-xB-Yfk">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVH-3U-pNV">
+                    <rect key="frame" x="16" y="36" width="343" height="30"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A00-9h-wB9" customClass="QuestionHeader" customModule="GeoCaching" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RW8-ny-Lsm">
-                            <rect key="frame" x="0.0" y="323.5" width="375" height="323.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5o6-d1-f6u">
+                            <rect key="frame" x="6" y="0.0" width="333" height="30"/>
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="inputChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="mjh-Ra-sGJ"/>
+                            </connections>
+                        </textField>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="A00-9h-wB9" secondAttribute="trailing" id="0Wk-5o-R6R"/>
-                        <constraint firstItem="RW8-ny-Lsm" firstAttribute="top" secondItem="A00-9h-wB9" secondAttribute="bottom" id="2Rj-Y3-6Vy"/>
-                        <constraint firstItem="A00-9h-wB9" firstAttribute="leading" secondItem="oIk-xB-Yfk" secondAttribute="leading" id="DIF-S8-zTG"/>
-                        <constraint firstAttribute="bottom" secondItem="RW8-ny-Lsm" secondAttribute="bottom" id="GMD-uY-iuI"/>
-                        <constraint firstItem="A00-9h-wB9" firstAttribute="top" secondItem="oIk-xB-Yfk" secondAttribute="top" id="LYK-S3-zXN"/>
-                        <constraint firstItem="RW8-ny-Lsm" firstAttribute="top" secondItem="A00-9h-wB9" secondAttribute="bottom" id="Ph8-yv-cFI"/>
-                        <constraint firstAttribute="trailing" secondItem="RW8-ny-Lsm" secondAttribute="trailing" id="UfR-a2-0qy"/>
-                        <constraint firstItem="RW8-ny-Lsm" firstAttribute="leading" secondItem="oIk-xB-Yfk" secondAttribute="leading" id="c8Y-wC-Tqf"/>
+                        <constraint firstAttribute="bottom" secondItem="5o6-d1-f6u" secondAttribute="bottom" id="3dH-dT-UvB"/>
+                        <constraint firstAttribute="height" constant="30" id="9T6-FV-r19"/>
+                        <constraint firstAttribute="trailing" secondItem="5o6-d1-f6u" secondAttribute="trailing" constant="4" id="ABJ-W9-uit"/>
+                        <constraint firstItem="5o6-d1-f6u" firstAttribute="leading" secondItem="EVH-3U-pNV" secondAttribute="leading" constant="6" id="Ryk-em-SVX"/>
+                        <constraint firstItem="5o6-d1-f6u" firstAttribute="top" secondItem="EVH-3U-pNV" secondAttribute="top" id="aHE-d0-RHR"/>
                     </constraints>
-                </stackView>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="oIk-xB-Yfk" secondAttribute="bottom" id="FC7-ZZ-hUT"/>
-                <constraint firstItem="oIk-xB-Yfk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jKd-8x-FKa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oIk-xB-Yfk" secondAttribute="trailing" id="mOn-oN-Os4"/>
-                <constraint firstItem="oIk-xB-Yfk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qNk-Va-ODP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EVH-3U-pNV" secondAttribute="trailing" constant="16" id="AZM-JT-oJT"/>
+                <constraint firstItem="EVH-3U-pNV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="awq-M7-X6U"/>
+                <constraint firstItem="EVH-3U-pNV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="sLQ-d4-L9I"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="questionHeader" destination="A00-9h-wB9" id="InY-zW-NvV"/>
+                <outlet property="textFieldView" destination="EVH-3U-pNV" id="1cR-xv-GGt"/>
             </connections>
         </view>
     </objects>

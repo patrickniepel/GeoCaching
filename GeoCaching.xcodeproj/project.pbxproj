@@ -164,8 +164,6 @@
 		A30E666520DA424600E6EC72 /* DateQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666420DA424600E6EC72 /* DateQuestion.swift */; };
 		A30E666720DA425000E6EC72 /* ImageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666620DA425000E6EC72 /* ImageQuestion.swift */; };
 		A30E666920DA429200E6EC72 /* NumberQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666820DA429200E6EC72 /* NumberQuestion.swift */; };
-		A30E666B20DA43C200E6EC72 /* QuestionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30E666A20DA43C200E6EC72 /* QuestionHeader.xib */; };
-		A30E666D20DA44C000E6EC72 /* QuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666C20DA44C000E6EC72 /* QuestionHeader.swift */; };
 		A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */ = {isa = PBXBuildFile; fileRef = A33C82CD20AC0C2B005762C2 /* testy2.dae */; };
 		A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */; };
 		A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */; };
@@ -173,6 +171,8 @@
 		A33C82D820AC10FD005762C2 /* ProfileFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */; };
 		A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */ = {isa = PBXBuildFile; fileRef = A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */; };
 		A342AFC320D156EA00B2DD55 /* firstChallengeAccepted.dae in Resources */ = {isa = PBXBuildFile; fileRef = A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */; };
+		A350A3EE20DA82DC009BE2B4 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */; };
+		A35B0F0220DB776D00E8CEA5 /* QuestionAnswerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */; };
 		A35E495120D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */; };
 		A35EB2CA20B538A900A1025F /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2C920B538A900A1025F /* CreateGameViewController.swift */; };
 		A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35EB2CB20B53C7800A1025F /* CreateGameController.swift */; };
@@ -377,8 +377,6 @@
 		A30E666420DA424600E6EC72 /* DateQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateQuestion.swift; sourceTree = "<group>"; };
 		A30E666620DA425000E6EC72 /* ImageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuestion.swift; sourceTree = "<group>"; };
 		A30E666820DA429200E6EC72 /* NumberQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberQuestion.swift; sourceTree = "<group>"; };
-		A30E666A20DA43C200E6EC72 /* QuestionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionHeader.xib; sourceTree = "<group>"; };
-		A30E666C20DA44C000E6EC72 /* QuestionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHeader.swift; sourceTree = "<group>"; };
 		A33C82CD20AC0C2B005762C2 /* testy2.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = testy2.dae; sourceTree = "<group>"; };
 		A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
 		A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -386,6 +384,8 @@
 		A33C82D520AC10FD005762C2 /* ProfileFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		A342AFBF20D154A100B2DD55 /* firstChallengeCompleted.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstChallengeCompleted.dae; sourceTree = "<group>"; };
 		A342AFC220D156EA00B2DD55 /* firstChallengeAccepted.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = firstChallengeAccepted.dae; sourceTree = "<group>"; };
+		A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerDelegate.swift; sourceTree = "<group>"; };
 		A35E495020D158A6008138EC /* TexturesCom_Wenge_1024_albedo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TexturesCom_Wenge_1024_albedo.tiff; sourceTree = "<group>"; };
 		A35EB2C920B538A900A1025F /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		A35EB2CB20B53C7800A1025F /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
@@ -806,8 +806,7 @@
 				A30E665D20DA41E500E6EC72 /* Date */,
 				A30E665F20DA41EE00E6EC72 /* Image */,
 				A30E665E20DA41EB00E6EC72 /* Number */,
-				A30E666A20DA43C200E6EC72 /* QuestionHeader.xib */,
-				A30E666C20DA44C000E6EC72 /* QuestionHeader.swift */,
+				A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -883,6 +882,14 @@
 			path = Friends;
 			sourceTree = "<group>";
 		};
+		A35B0F0020DB73B800E8CEA5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A397AAB32087645300289B7D = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +917,7 @@
 			children = (
 				0FA96BCD20A2BDCC005485A3 /* AppColor.swift */,
 				A397AAC62087645400289B7D /* Assets.xcassets */,
+				A35B0F0020DB73B800E8CEA5 /* Protocols */,
 				0F0807A32099FB5200F716E1 /* Controller */,
 				0FF2A56520A18D8000486CAC /* Errors */,
 				0FF2A56F20A191AB00486CAC /* Extensions */,
@@ -1130,7 +1138,6 @@
 				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
 				0FD6C7AE209992D600B8149D /* GoogleService-Info.plist in Resources */,
 				A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */,
-				A30E666B20DA43C200E6EC72 /* QuestionHeader.xib in Resources */,
 				0F44FFC220A97BBD007D1093 /* CardCollectionViewCell.xib in Resources */,
 				0FF2A57820A192F800486CAC /* Search.storyboard in Resources */,
 				A30E665620DA3FBB00E6EC72 /* NumberView.xib in Resources */,
@@ -1336,6 +1343,7 @@
 				17FD840320D1476900131AC6 /* GameDownloadController.swift in Sources */,
 				174EB9D420AC0B5100E0A776 /* FilterPopupViewController.swift in Sources */,
 				1724710E20A392C300DC0AAE /* LoginSegues.swift in Sources */,
+				A350A3EE20DA82DC009BE2B4 /* QuestionView.swift in Sources */,
 				17BC44E520AD6E4200062876 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				17BC44D820AD6E4200062876 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				17BC44D220AD6E4200062876 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
@@ -1369,6 +1377,7 @@
 				17BC44DD20AD6E4200062876 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				17BC44C920AD6E4200062876 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
+				A35B0F0220DB776D00E8CEA5 /* QuestionAnswerDelegate.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
 				0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */,
 				0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */,
@@ -1390,7 +1399,6 @@
 				17BC450520AD6E5600062876 /* PopupDialogDefaultViewController.swift in Sources */,
 				0FF2A59920A1DF3100486CAC /* ProfileActionTableViewDataSource.swift in Sources */,
 				0FFF636B20AD55CD00C8F955 /* Extension+NSNotification.swift in Sources */,
-				A30E666D20DA44C000E6EC72 /* QuestionHeader.swift in Sources */,
 				179F392E20A32971002BDCEE /* RegisterViewController.swift in Sources */,
 				A30CC5CD20C7B1DD0017DEE1 /* PermissionController.swift in Sources */,
 				17BC44CA20AD6E4200062876 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,

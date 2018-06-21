@@ -109,7 +109,7 @@ extension SearchViewController{
 //                    if let error = error{
 //                        print(error)
 //                    }else{
-//                        print(downloadedGame!)
+//                        print("downloadedGame: \(downloadedGame)")
 //                    }
 //                })
 //            }

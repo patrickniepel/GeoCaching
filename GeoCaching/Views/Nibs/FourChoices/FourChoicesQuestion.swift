@@ -8,14 +8,32 @@
 
 import UIKit
 
-class FourChoicesQuestion: UIView {
+class FourChoicesQuestion: QuestionView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet var questionBtnCollection: [UIButton]!
+    
+    override func setupLayout() {
+        questionBtnCollection.forEach { btn in
+            btn.layer.cornerRadius = 10
+            btn.backgroundColor = AppColor.backgroundLighter2
+            //btn.layer.borderWidth = 2
+            btn.layer.borderColor = AppColor.tint.cgColor
+            btn.setTitleColor(.white, for: .normal)
+        }
+        self.backgroundColor = AppColor.background
     }
-    */
 
+    @IBAction func questionSelected(_ sender: UIButton) {
+        clearAll()
+        sender.backgroundColor = AppColor.tint
+        
+        guard let delegate = delegate else { return }
+        delegate.answer("")
+    }
+    
+    private func clearAll() {
+        questionBtnCollection.forEach { btn in
+            btn.backgroundColor = AppColor.backgroundLighter2
+        }
+    }
 }

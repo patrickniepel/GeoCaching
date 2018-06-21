@@ -12,7 +12,6 @@ import GoogleMaps
 
 class GameViewController: UIViewController {
     @IBOutlet weak var expendableMenuButton: MenuButton!
-    var mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     
     var locationManager = CLLocationManager()
     
@@ -20,12 +19,23 @@ class GameViewController: UIViewController {
     @IBOutlet weak var informationImage: UIImageView!
     @IBOutlet weak var informationButtonOutlet: UIButton!
     
+    @IBOutlet weak var theMapView: GMSMapView!
+    
     var activeGameController: ActiveGameController! {
         didSet {
             print("GAME STARTED :)")
+            informationBackground.isHidden = false
+            drawLocationsInMap()
         }
     }
     
+    func drawLocationsInMap() {
+//        let allGameQuests = activeGameController.game.quests
+//        allGameQuests.map { $0. }
+//        for quest in allGameQuests {
+//            for
+//        }
+    }
     
     let hightButton = UIButton()
     let locationButton = UIButton()
@@ -37,9 +47,21 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Test-Segue für QuestionScreen
+        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
+            
+        
+            
         setupDesign()
         setupText()
         setupData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == GameSegues.displayQuestion.identifier {
+            
+            let destVC = segue.destination as! QuestionViewController
+        }
     }
     
     
@@ -61,6 +83,7 @@ class GameViewController: UIViewController {
         // ###########
         informationBackground.makeButtonViewPretty()
         informationButtonOutlet.tintColor = AppColor.tint
+        informationBackground.isHidden = true
         
         expendableMenuButton.backgroundColor = AppColor.background
         expendableMenuButton.tintColor = AppColor.tint
@@ -74,16 +97,16 @@ class GameViewController: UIViewController {
                                                    timerButton, speedButton, button6]
         setDesign(forButton: expendableMenuButton)
         
-        mapView.isMyLocationEnabled = true
+        theMapView.isMyLocationEnabled = true
         do {
             if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
-                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                theMapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
             }
         } catch {
             print("Google-Map-JSON-Style-Error: \(error)")
         }
         
-        self.view = mapView
+        theMapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
         self.view.addSubview(expendableMenuButton)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Game", style: .done, target: self, action: #selector(doIt))
@@ -149,8 +172,15 @@ extension GameViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude, zoom: 17.0)
-            self.mapView.animate(to: camera)
+            if theMapView != nil {
+                self.theMapView.animate(to: camera)
+            }
             print("location: \(location)")
         }
     }
 }
+
+
+
+
+

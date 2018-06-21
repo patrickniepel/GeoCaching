@@ -8,16 +8,21 @@
 
 import UIKit
 
-class TextInputQuestion: UIView {
+class TextInputQuestion: QuestionView {
 
-    @IBOutlet weak var questionHeader: QuestionHeader!
+    @IBOutlet weak var textFieldView: UIView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupLayout() {
+        self.backgroundColor = AppColor.background
+        textFieldView.backgroundColor = AppColor.backgroundLighter2
+        textFieldView.layer.cornerRadius = 10
+        textFieldView.layer.borderWidth = 2
+        textFieldView.layer.borderColor = AppColor.tint.cgColor
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    @IBAction func inputChanged(_ sender: UITextField) {
+        guard let delegate = delegate else { return }
+        delegate.answer("")
     }
-
+    
 }
