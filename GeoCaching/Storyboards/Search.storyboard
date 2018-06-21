@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -57,17 +56,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wBO-RI-xCR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vcr-pu-ZfO" firstAttribute="trailing" secondItem="Heg-bT-mkM" secondAttribute="trailing" id="1nt-vv-Q5p"/>
                             <constraint firstItem="Vcr-pu-ZfO" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" id="3Wm-OI-2xs"/>
+                            <constraint firstItem="wBO-RI-xCR" firstAttribute="trailing" secondItem="Heg-bT-mkM" secondAttribute="trailing" id="9wy-Rt-Ac2"/>
+                            <constraint firstItem="wBO-RI-xCR" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" id="C3Z-ud-pE9"/>
                             <constraint firstItem="E3C-bF-kOi" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" constant="8" id="Gw6-6c-qgw"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="trailing" secondItem="ueT-tt-spp" secondAttribute="trailing" constant="8" id="Ira-VA-EBV"/>
                             <constraint firstItem="ueT-tt-spp" firstAttribute="leading" secondItem="Heg-bT-mkM" secondAttribute="leading" constant="8" id="Qjy-6m-cBg"/>
+                            <constraint firstItem="Heg-bT-mkM" firstAttribute="bottom" secondItem="wBO-RI-xCR" secondAttribute="bottom" id="a2N-8Z-R5S"/>
                             <constraint firstItem="E3C-bF-kOi" firstAttribute="top" secondItem="ueT-tt-spp" secondAttribute="bottom" constant="8" id="czm-Na-5MR"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="bottom" secondItem="E3C-bF-kOi" secondAttribute="bottom" constant="8" id="e47-kf-0hV"/>
                             <constraint firstItem="ueT-tt-spp" firstAttribute="top" secondItem="Heg-bT-mkM" secondAttribute="top" constant="8" id="mOK-Gj-1Qo"/>
+                            <constraint firstItem="wBO-RI-xCR" firstAttribute="top" secondItem="EeB-te-d9X" secondAttribute="top" id="p4H-Rw-EU6"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="bottom" secondItem="Vcr-pu-ZfO" secondAttribute="bottom" id="r0h-CI-R3u"/>
                             <constraint firstItem="Heg-bT-mkM" firstAttribute="trailing" secondItem="E3C-bF-kOi" secondAttribute="trailing" constant="8" id="u1X-6F-fQN"/>
                             <constraint firstItem="Vcr-pu-ZfO" firstAttribute="top" secondItem="ueT-tt-spp" secondAttribute="bottom" constant="8" id="vbE-M7-9iN"/>
@@ -88,6 +94,7 @@
                         <outlet property="cardCollectionView" destination="Vcr-pu-ZfO" id="T8i-jp-2ZT"/>
                         <outlet property="filterBarButttonItem" destination="6Wu-kv-B7i" id="p5F-Al-x6S"/>
                         <outlet property="gameView" destination="E3C-bF-kOi" id="pIq-kT-uYa"/>
+                        <outlet property="loadingIndicator" destination="wBO-RI-xCR" id="aMp-6V-2NR"/>
                         <outlet property="segmentedControl" destination="ueT-tt-spp" id="k9y-bJ-vLO"/>
                     </connections>
                 </viewController>
@@ -108,6 +115,9 @@
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="doIt" destination="fic-Fl-A3J" eventType="touchUpInside" id="SzI-vQ-obs"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-19-hFq">
                                 <rect key="frame" x="0.0" y="88" width="375" height="644"/>
@@ -240,11 +250,13 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="3QP-ve-gyO" id="lyB-nI-Rag"/>
+                        <outlet property="distanceLabel" destination="yk8-pt-1YV" id="sMF-5Z-NZV"/>
                         <outlet property="hashtags" destination="zQM-d8-4bh" id="nww-X6-x6X"/>
                         <outlet property="highscoreTableView" destination="dl8-aa-xQW" id="nb1-B3-h6c"/>
                         <outlet property="scrollView" destination="ytq-19-hFq" id="iC8-WT-gp9"/>
                         <outlet property="startGameButton" destination="Whp-3k-u4Z" id="sGz-5w-UkM"/>
                         <outlet property="subtitle" destination="cyA-hC-9jg" id="huI-fy-TK2"/>
+                        <outlet property="timeLabel" destination="I4n-fk-zhQ" id="Dyn-os-XOw"/>
                         <outlet property="titleLabel" destination="5i8-QF-RGU" id="Ytp-6b-h3Y"/>
                     </connections>
                 </viewController>

@@ -18,6 +18,7 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     private var cardCollectionViewDataSource : CardCollectionViewDataSource!
     private let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     private var testLocations : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: -33.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -32.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -34.86, longitude: 151.2)]
+    private var locationsOfGames : [CLLocationCoordinate2D] = []
     
     // MARK: - IBOutlets
     
@@ -25,6 +26,7 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet weak var filterBarButttonItem: UIBarButtonItem!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var gameView: GMSMapView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     
     // MARK: - IBActions
@@ -80,6 +82,8 @@ extension SearchViewController{
     }
     
     func setupDesign() {
+        loadingIndicator.isHidden = false
+        view.isUserInteractionEnabled = false
         self.view.backgroundColor = AppColor.background
         filterBarButttonItem.tintColor = AppColor.tint
         segmentedControl.backgroundColor = UIColor.clear
@@ -97,26 +101,23 @@ extension SearchViewController{
         cardCollectionView.delegate = cardCollectionViewDelegate
         cardCollectionViewDelegate.vc = self
         cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
-        
-        let gameCtrl = GameDownloadController()
-        var gameList : [Game] = []
-        gameCtrl.downloadAllGames { (downloadedGameList, error) in
-            if let error = error{
-                print(error)
-            }else{
-                gameList = downloadedGameList!
-                gameCtrl.downloadGameWithQuests(for: gameList[0].id, completion: { (downloadedGame, error) in
-                    if let error = error{
-                        print(error)
-                    }else{
-                        print("downloadedGame: \(downloadedGame)")
-                    }
-                })
-            }
+        GameDownloadController().fetchAllGamesWithQuests(notificationName: Notification.Name(SearchIdentifiers.gameDownloadNotification.identifier))
+        NotificationCenter.default.addObserver(self, selector: #selector(downloadFinished), name: Notification.Name(SearchIdentifiers.gameDownloadNotification.identifier), object: nil)
+    }
+    
+    @objc private func downloadFinished(){
+        loadingIndicator.isHidden = true
+        view.isUserInteractionEnabled = true
+        cardCollectionView.reloadData()
+        setupLocations()
+    }
+    
+    private func setupLocations(){
+        let games = GameDownloadController().getAllGames()
+        locationsOfGames.removeAll()
+        for game in games{
+            locationsOfGames.append(game.quests.first!.locationPolygonPoint)
         }
-        
-        
-        
     }
     
 }

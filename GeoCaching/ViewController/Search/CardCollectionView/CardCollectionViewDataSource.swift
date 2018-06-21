@@ -10,7 +10,7 @@ import UIKit
 
 class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    private var games = [Game]()
+    private var games = GameDownloadController().getAllGames()
     var exampleArray = [CardCollectionViewModel]()
     
     init(games: [Game]) {
@@ -29,18 +29,20 @@ class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return exampleArray.count
+        return games.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-        cell.backgroundImageView.image = exampleArray[indexPath.row].backgroundImageView
-        cell.firstIconImageView.image = exampleArray[indexPath.row].icon1
-        cell.firstIconLabel.text = exampleArray[indexPath.row].icon1Text
-        cell.secondIconImageView.image = exampleArray[indexPath.row].icon2
-        cell.secondIconLabel.text = exampleArray[indexPath.row].icon2Text
-        cell.cardTitleLabel.text = exampleArray[indexPath.row].cardTitle
-        cell.cardDescriptionLabel.text = exampleArray[indexPath.row].cardDescription
+        cell.backgroundImageView.image = games[indexPath.row].image
+        cell.firstIconImageView.image = UIImage(named: "icon_clock")
+        let readableTime = RouteController().readableValue(forTravelTime: games[indexPath.row].duration)
+        cell.firstIconLabel.text = readableTime
+        cell.secondIconImageView.image = UIImage(named: "icon_walking")
+        let readableDistance = RouteController().readableValue(forDistance: games[indexPath.row].length)
+        cell.secondIconLabel.text = readableDistance
+        cell.cardTitleLabel.text = games[indexPath.row].name
+        cell.cardDescriptionLabel.text = games[indexPath.row].shortDescription
         
         return cell
     }

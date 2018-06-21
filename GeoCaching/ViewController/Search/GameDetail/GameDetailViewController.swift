@@ -17,6 +17,8 @@ class GameDetailViewController: UIViewController {
     @IBOutlet weak var highscoreTableView: UITableView!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     
     var dataSource : GameDetailHighscoreTableViewDataSource!
     var delegate : GameDetailHighscoreTableViewDelegate!
@@ -47,7 +49,12 @@ class GameDetailViewController: UIViewController {
     
     private func setupText(){
         titleLabel.text = game.name
+        subtitle.text = game.shortDescription
+        hashtags.text = "Rating: \(game.rating)"
         descriptionLabel.text = game.longDescription
+        timeLabel.text = RouteController().readableValue(forTravelTime: game.duration)
+        distanceLabel.text = RouteController().readableValue(forDistance: game.length)
+        
     }
     
     private func setupDesign(){
@@ -59,8 +66,17 @@ class GameDetailViewController: UIViewController {
         
     }
     
+    @IBAction func doIt() {
+        let gameViewCtrlIndex = 1
+        if let navCtrl = tabBarController?.viewControllers?[gameViewCtrlIndex] as? UINavigationController {
+            if let gameVCtrl = navCtrl.viewControllers[0] as? GameViewController {
+                gameVCtrl.activeGameController = ActiveGameController(game: game)
+                tabBarController?.selectedIndex = gameViewCtrlIndex
+            }
+        }
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -68,6 +84,6 @@ class GameDetailViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
 }

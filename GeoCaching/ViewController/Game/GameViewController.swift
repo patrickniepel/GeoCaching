@@ -24,17 +24,12 @@ class GameViewController: UIViewController {
     var activeGameController: ActiveGameController! {
         didSet {
             print("GAME STARTED :)")
-            informationBackground.isHidden = false
             drawLocationsInMap()
         }
     }
     
     func drawLocationsInMap() {
-        let allGameQuests = activeGameController.game.quests
-        allGameQuests.map { $0. }
-        for quest in allGameQuests {
-            for
-        }
+
     }
     
     let hightButton = UIButton()
@@ -71,7 +66,7 @@ class GameViewController: UIViewController {
         // ###########
         informationBackground.makeButtonViewPretty()
         informationButtonOutlet.tintColor = AppColor.tint
-        informationBackground.isHidden = true
+        //informationBackground.isHidden = true
         
         expendableMenuButton.backgroundColor = AppColor.background
         expendableMenuButton.tintColor = AppColor.tint
