@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-PT-ZUN">
-                                <rect key="frame" x="120" y="52" width="247" height="120"/>
+                                <rect key="frame" x="120" y="28" width="247" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pps-86-FG2">
                                         <rect key="frame" x="0.0" y="0.0" width="247" height="120"/>
@@ -78,6 +78,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-If-8hL">
                                         <rect key="frame" x="38" y="0.0" width="313" height="50"/>
                                         <state key="normal" title="Questinformation"/>
+                                        <connections>
+                                            <action selector="informationButton:" destination="UcX-Gr-sjL" eventType="touchUpInside" id="8Dj-Ne-kM4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.84987871159277328" green="1" blue="0.68103036282038376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

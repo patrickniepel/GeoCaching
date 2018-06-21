@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         didSet {
             print("GAME STARTED :)")
             informationBackground.isHidden = false
-            
+            drawLocationsInMap()
         }
     }
     
@@ -83,8 +83,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         //Test-Segue für QuestionScreen
-        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
-            
+//        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
+        
         
             
         swissView.isHidden = true
@@ -188,13 +188,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func informationButton(_ sender: UIButton) {
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
-            
-        }
+        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
+        print("--- Patrick")
     }
     
     
@@ -300,7 +295,7 @@ extension GameViewController: CLLocationManagerDelegate {
         if activeGameController != nil {
             if activeGameController.isUserAllowedToAnswerTheQuest(userLocation: location) {
                 informationBackground.layer.borderColor = AppColor.tint.cgColor
-                informationButtonOutlet.isUserInteractionEnabled = false
+                informationButtonOutlet.isUserInteractionEnabled = true
                 informationButtonOutlet.setTitleColor(AppColor.tint, for: .normal)
             } else {
                 informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor

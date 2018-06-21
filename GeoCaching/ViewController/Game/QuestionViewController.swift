@@ -91,7 +91,6 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         
         // Anwort ausgewählt bzw Antwort eingegeben
         if let userAnswer = userAnswerCurrentQuestion {
-            activeGameCtrl?.currentQuest.answers.append(userAnswer)
             alertForUser = alert(for: "No Answer", message: "Select An Answer To Continue", actionText: "OK", useDelegate: true)
         }
         // Antwort noch nicht hinzufügen

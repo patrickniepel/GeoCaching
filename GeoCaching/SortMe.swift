@@ -158,7 +158,7 @@ class ActiveGameController {
     func isUserAllowedToAnswerTheQuest(userLocation: CLLocationCoordinate2D) -> Bool {
         let currentQuest = game.quests[currentQuestIndex]
         let questLocation = currentQuest.locationPolygonPoint
-        let questRadius: Double = 100 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
+        let questRadius: Double = 200 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
         
         let point1 = MKMapPointForCoordinate(questLocation!)
         let point2 = MKMapPointForCoordinate(userLocation)
