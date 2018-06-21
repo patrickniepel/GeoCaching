@@ -21,6 +21,8 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     lazy var userAnswerCurrentQuestion: String? = nil
     
+    var activeGameDelegate: ActiveGameDelegate? = nil
+    
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionTitle: UILabel!
     @IBOutlet weak var questionText: UILabel!
@@ -87,16 +89,26 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     /** Checks if answer is correct */
     @IBAction func answerQuestion(_ sender: UIButton) {
         
+        guard let delegate = activeGameDelegate else { return }
+        
         var alertForUser: UIAlertController!
         
         // Anwort ausgewählt bzw Antwort eingegeben
         if let userAnswer = userAnswerCurrentQuestion {
-            activeGameCtrl?.currentQuest.answers.append(userAnswer)
-            alertForUser = alert(for: "No Answer", message: "Select An Answer To Continue", actionText: "OK", useDelegate: true)
+            let answerCorrect = activeGameCtrl?.isUserAnswerCorrect(userAnswer: userAnswer)
+            
+            guard let isCorrect = answerCorrect else { return }
+            
+            if isCorrect {
+                alertForUser = alert(for: "Gratulations", message: "Your Answer Is Correct", actionText: "Continue", delegate: delegate)
+            }
+            else {
+                alertForUser = alert(for: "Sorry", message: "Your Answer Is Wrong", actionText: "Continue", delegate: delegate)
+            }
         }
         // Antwort noch nicht hinzufügen
         else {
-            alertForUser = alert(for: "No Answer", message: "Select An Answer To Continue", actionText: "OK", useDelegate: false)
+            alertForUser = alert(for: "No Answer", message: "Select An Answer To Continue", actionText: "OK")
         }
         
         self.present(alertForUser, animated: true)

@@ -21,14 +21,29 @@ class FourChoicesQuestion: QuestionView {
             btn.setTitleColor(.white, for: .normal)
         }
         self.backgroundColor = AppColor.background
+        setupButtonTitles()
+    }
+    
+    private func setupButtonTitles() {
+        
+        guard let q = quest else { return }
+        
+        if q.answers.count < 4 {
+            return
+        }
+        
+        for i in 0..<q.answers.count {
+            questionBtnCollection[i].setTitle(q.answers[i], for: .normal)
+        }
     }
 
     @IBAction func questionSelected(_ sender: UIButton) {
         clearAll()
         sender.backgroundColor = AppColor.tint
         
-        guard let delegate = delegate else { return }
-        delegate.answer("")
+        guard let delegate = delegate, let answerText = sender.titleLabel?.text else { return }
+        
+        delegate.answer(answerText)
     }
     
     private func clearAll() {

@@ -191,13 +191,6 @@ class GameViewController: UIViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
-            
-        }
-    }
-    
-    
     // MARK: - Helperfunctions
     private func setDesign(forButton button: UIButton) {
         expendableMenuButton.layer.borderColor = AppColor.tint.cgColor
