@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         didSet {
             print("GAME STARTED :)")
             informationBackground.isHidden = false
-            drawLocationsInMap()
+            
         }
     }
     
@@ -82,11 +82,23 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Test-Segue für QuestionScreen
+        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
+            
+        
+            
         swissView.isHidden = true
         
         setupDesign()
         setupText()
         setupData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == GameSegues.displayQuestion.identifier {
+            
+            let destVC = segue.destination as! QuestionViewController
+        }
     }
     
     

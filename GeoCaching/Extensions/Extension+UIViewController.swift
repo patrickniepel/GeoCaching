@@ -48,4 +48,15 @@ extension UIViewController {
         
         present(popup, animated: true)
     }
+    
+    func alert(for title: String, message: String, actionText: String, useDelegate: Bool) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionText, style: .default) { action -> Void in
+            
+        }
+        
+        alert.addAction(action)
+        return alert
+    }
+
 }
