@@ -49,11 +49,11 @@ extension UIViewController {
         present(popup, animated: true)
     }
     
-    func alert(for title: String, message: String, actionText: String, delegate: ActiveGameDelegate? = nil) -> UIAlertController {
+    func alert(for title: String, message: String, actionText: String, delegate: ActiveGameDelegate? = nil, vc: QuestionViewController? = nil) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: actionText, style: .default) { action -> Void in
-            if let delegate = delegate {
-                delegate.userAnsweredQuestion()
+            if let delegate = delegate, let vc = vc {
+                delegate.userAnsweredQuestion(vc: vc)
             }
         }
         

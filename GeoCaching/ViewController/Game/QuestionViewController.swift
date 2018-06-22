@@ -10,7 +10,7 @@ import UIKit
 
 class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
-    var activeGameCtrl: ActiveGameController? = nil {
+    var activeGameCtrl: ActiveGameController! {
         didSet {
             questionType = activeGameCtrl?.currentQuest.questionType
         }
@@ -53,6 +53,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         
         questionTitle.textColor = .white
         questionText.textColor = .white
+        questionText.numberOfLines = 2
         
         answerQuestionBtn.setTitleColor(AppColor.tint, for: .normal)
         answerQuestionBtn.layer.borderColor = AppColor.tint.cgColor
@@ -64,26 +65,32 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         
         guard let type = questionType else { return }
         
-        var view = QuestionView()
+        var questionView = QuestionView()
         
         switch type {
         case .textInput:
-            view = UINib(nibName: "TextInputView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! TextInputQuestion
+            questionView = UINib(nibName: "TextInputView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! TextInputQuestion
         case .fourChoices:
-            view = UINib(nibName: "FourChoicesView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! FourChoicesQuestion
+            questionView = UINib(nibName: "FourChoicesView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! FourChoicesQuestion
         case .date:
-            view = UINib(nibName: "DateView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! DateQuestion
+            questionView = UINib(nibName: "DateView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! DateQuestion
         case .number:
-            view = UINib(nibName: "NumberView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! NumberQuestion
+            questionView = UINib(nibName: "NumberView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! NumberQuestion
         case .image:
-            view = UINib(nibName: "ImageView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ImageQuestion
+            questionView = UINib(nibName: "ImageView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ImageQuestion
         }
         
-        view.quest = activeGameCtrl?.currentQuest
+        prepareQuestInfos(view: questionView)
+        questionTypeView.bounds = questionView.bounds
+        questionTypeView.addSubview(questionView)
+    }
+    
+    private func prepareQuestInfos(view: QuestionView) {
+        questionTitle.text = "Question \(activeGameCtrl.currentQuestIndex + 1)"
+        questionText.text = activeGameCtrl.currentQuest.question
+        view.quest = activeGameCtrl.currentQuest
         view.delegate = self
         view.setupLayout()
-        questionTypeView.bounds = view.bounds
-        questionTypeView.addSubview(view)
     }
     
     /** Checks if answer is correct */
@@ -100,10 +107,10 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
             guard let isCorrect = answerCorrect else { return }
             
             if isCorrect {
-                alertForUser = alert(for: "Gratulations", message: "Your Answer Is Correct", actionText: "Continue", delegate: delegate)
+                alertForUser = alert(for: "Gratulations", message: "Your Answer Is Correct", actionText: "Continue", delegate: delegate, vc: self)
             }
             else {
-                alertForUser = alert(for: "Sorry", message: "Your Answer Is Wrong", actionText: "Continue", delegate: delegate)
+                alertForUser = alert(for: "Sorry", message: "Your Answer Is Wrong", actionText: "Continue", delegate: delegate, vc: self)
             }
         }
         // Antwort noch nicht hinzufügen
@@ -118,7 +125,4 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     func answer(_ answer: String) {
         userAnswerCurrentQuestion = answer
     }
-    
-    
-    
 }

@@ -19,7 +19,7 @@ enum SwissArmy {
 }
 
 protocol ActiveGameDelegate {
-    func userAnsweredQuestion()
+    func userAnsweredQuestion(vc: QuestionViewController)
 }
 
 class GameViewController: UIViewController {
@@ -84,7 +84,6 @@ class GameViewController: UIViewController {
         //Test-Segue für QuestionScreen
 //        performSegue(withIdentifier: GameSegues.displayQuestion.identifier, sender: nil)
         
-        
             
         swissView.isHidden = true
         
@@ -97,6 +96,9 @@ class GameViewController: UIViewController {
         if segue.identifier == GameSegues.displayQuestion.identifier {
             
             let destVC = segue.destination as! QuestionViewController
+            destVC.activeGameCtrl = activeGameController
+            destVC.activeGameDelegate = self
+            print("ActiveGameCtrl", activeGameController.currentQuest)
         }
     }
     
@@ -308,7 +310,8 @@ extension GameViewController: CLLocationManagerDelegate {
 
 extension GameViewController: ActiveGameDelegate {
     
-    func userAnsweredQuestion() {
+    func userAnsweredQuestion(vc: QuestionViewController) {
+        vc.dismiss(animated: true, completion: nil)
         activeGameController.nextQuest()
         drawLocationsInMap()
     }
