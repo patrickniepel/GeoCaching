@@ -52,4 +52,35 @@ struct ProfileController {
             }
         }
     }
+    
+    func downloadUserProfileAndObserve(completion: @escaping (User?, Error?) -> ()) {
+        if let userID = Auth.auth().currentUser?.uid {
+            userDB.child(userID).observe(.value) { (dataSnapshot) in
+                print("11111")
+                if let user = User(snapshot: dataSnapshot) {
+                    completion(user, nil)
+                } else {
+                    completion(nil, ProfileError.failedFetchingProfile)
+                }
+            }
+        } else {
+            completion(nil, ProfileError.failedFetchingProfile)
+        }
+    }
+    
+    func updateUserProfile(newAchivementType: AchivementType) {
+        if let userID = Auth.auth().currentUser?.uid {
+            let achivement = Achivement(type: newAchivementType)
+            userDB.child(userID).observeSingleEvent(of: .value) { (dataSnapshot) in
+                if var user = User(snapshot: dataSnapshot) {
+                    user.earnedAchivements.append(achivement)
+                    self.userDB.child(userID).setValue(user.toDictionary)
+                }
+            }
+        }
+    }
+    
+    func updateUserProfile(picture: UIImage) {
+        
+    }
 }

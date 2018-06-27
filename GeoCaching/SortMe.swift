@@ -81,7 +81,6 @@ struct DummyContent {
                               duration: 21123,
                               length: 1.4,
                               image: UIImage(named: "cover_game_hof"),
-                              rating: 5,
                               quests: [Quest(answers: ["Antwort 1"],
                                              question: "Wer ist der Ehrenbürger der Stadt Hof der im Dezember 1991 gestorben ist und in Verbindung mit der Hochschule steht.",
                                              image: UIImage(named: "cover_1"),
@@ -126,7 +125,6 @@ struct DummyContent {
                               duration: 2300,
                               length: 10.4,
                               image: UIImage(named: "cover_game_1"),
-                              rating: 5,
                               quests: [
                                 Quest(answers: ["Answer"],
                                              question: "Question ",
@@ -141,7 +139,6 @@ struct DummyContent {
                      duration: 1234,
                      length: 12.34,
                      image: UIImage(named: "cover_game_2"),
-                     rating: 3,
                      quests: [
                         Quest(answers: ["Answer"],
                               question: "Question ",
@@ -156,7 +153,6 @@ struct DummyContent {
                      duration: 2900,
                      length: 19.4,
                      image: UIImage(named: "cover_game_3"),
-                     rating: 4,
                      quests: [
                         Quest(answers: ["Answer"],
                               question: "Question ",
@@ -171,7 +167,6 @@ struct DummyContent {
                      duration: 4900,
                      length: 120.4,
                      image: UIImage(named: "cover_game_4"),
-                     rating: 1,
                      quests: [
                         Quest(answers: ["Answer"],
                               question: "Question ",

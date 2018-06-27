@@ -33,7 +33,7 @@ struct CreateGameController {
     
     init(questionType: QuestionType) {
         game = Game(name: "", shortDescription: "", longDescription: "", categories: [],
-                    duration: 0.0, length: 0.0, image: nil, rating: 0, quests: [])
+                    duration: 0.0, length: 0.0, image: nil, quests: [])
     }
     
     

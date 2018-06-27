@@ -330,7 +330,8 @@ extension GameViewController: ActiveGameDelegate {
             let profileCtrl = ProfileController()
             let pointsToAdd = activeGameController.calculatePoints()
             profileCtrl.updateUserPoints(pointsToAdd: pointsToAdd)
-        } else {
+            
+            let game = activeGameController.game
             
         }
         

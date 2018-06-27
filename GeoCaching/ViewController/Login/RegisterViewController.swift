@@ -29,7 +29,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var indicatorView: NVActivityIndicatorView!
     
-
+    let profileCtrl = ProfileController()
     
     
     var authController = AuthController()
@@ -102,12 +102,12 @@ class RegisterViewController: UIViewController {
         authController.register(withEmail: emailTextField.text! , andPassword: passwordTextField.text!, username: usernameTextField.text!) {
             (user, error) in
             
-            if let error = error{
+            if let error = error {
                 self.handleErrorPopupDialog(error: error)
                 self.registerButtonOutlet.isEnabled = true
-            }else if let user = user{
-                print("Hello \(user)")
+            } else if user != nil {
                 self.dismiss(animated: false, completion: nil)
+                self.profileCtrl.updateUserProfile(newAchivementType: .firstChallengeAccepted)
             }
             
             self.indicatorView.stopAnimating()
