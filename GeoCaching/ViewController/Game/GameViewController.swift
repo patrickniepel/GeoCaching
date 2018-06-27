@@ -55,9 +55,10 @@ class GameViewController: UIViewController {
         
         for (index, location) in allLocations.enumerated() {
             if currentQuestIndex == index {
+                let radius = activeGameController.currentQuest.radius
                 var circle = GMSCircle()
                 circle.map = nil
-                circle = GMSCircle(position: location, radius: CLLocationDistance(100))
+                circle = GMSCircle(position: location, radius: CLLocationDistance(radius))
                 circle.strokeWidth = 3.0
                 circle.map = theMapView
                 circle.fillColor = AppColor.tint.withAlphaComponent(0.2)

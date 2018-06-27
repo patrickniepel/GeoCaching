@@ -33,11 +33,17 @@ struct CreateQuestController {
     init() {
         let defaultQuestionType = QuestionType.textInput
         quest = Quest(answers: [], question: "", image: nil,
-                      questionType: defaultQuestionType, locationPolygonPoint: nil)
+                      questionType: defaultQuestionType, locationPolygonPoint: nil, radius: 100)
     }
     
     
     // Quest - Setters
+    
+    mutating func set(radius: Double) {
+        quest.radius = radius
+        checkQuestConditions()
+        updateProgress()
+    }
     
     mutating func set(answers: [String]) {
         quest.answers = answers

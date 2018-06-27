@@ -73,7 +73,7 @@ class DrawQuestAreaViewController: UIViewController {
     func setupData() {
         setupMap()
         
-        circleRadiusSlider.minimumValue = 100
+        circleRadiusSlider.minimumValue = 25
         circleRadiusSlider.value = 100
         circleRadiusSlider.maximumValue = 1000
         
