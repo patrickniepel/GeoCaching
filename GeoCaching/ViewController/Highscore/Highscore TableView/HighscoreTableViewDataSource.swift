@@ -28,7 +28,12 @@ class HighscoreTableViewDataSource: NSObject, UITableViewDataSource {
         
         
         let user = getUser(atIndexPath: indexPath)
-        cell.profileImageView.image = user.userImage
+        if let userImage = user.userImage{
+            cell.profileImageView.image = userImage
+        }else{
+            cell.profileImageView.image = UIImage(named: "Schnitzlr_Boar")
+        }
+        print(user.userImage)
         cell.usernameLabel.text = user.username
         cell.titleLabel.text = "(\(user.rank.name))"
         cell.pointsLabel.text = user.formattedPoints
