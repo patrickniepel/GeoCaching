@@ -125,4 +125,8 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     func answer(_ answer: String) {
         userAnswerCurrentQuestion = answer
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }

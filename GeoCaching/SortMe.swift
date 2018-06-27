@@ -85,7 +85,7 @@ struct DummyContent {
                               quests: [Quest(answers: ["Antwort 1"],
                                              question: "Wer ist der Ehrenbürger der Stadt Hof der im Dezember 1991 gestorben ist und in Verbindung mit der Hochschule steht.",
                                              image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.date,
+                                             questionType: QuestionType.textInput,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324774,
                                                                                           longitude: 11.941077), radius: 1000),
                                        Quest(answers: ["Norden", "Osten", "Süden", "nach links"],
@@ -97,19 +97,19 @@ struct DummyContent {
                                        Quest(answers: ["20", "100", "1.000.000", "welches Dach?"],
                                              question: "Wie viele Fahrradstellplätze gibt es unter diesem Dach?",
                                              image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.date,
+                                             questionType: QuestionType.number,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324181,
                                                                                             longitude: 11.939300), radius: 1000),
                                        Quest(answers: ["2", "4", "8", "16"],
                                              question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
                                              image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.date,
+                                             questionType: QuestionType.number,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324931,
                                                                                             longitude: 11.938181), radius: 1000),
                                        Quest(answers: ["Unisee"],
                                              question: "Wie heißt der bei Studenten beliebte See direkt neben der Universität? (Punkt 31 auf der Karte)",
                                              image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.date,
+                                             questionType: QuestionType.textInput,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.326699,
                                                                                             longitude: 11.937674), radius: 1000),
                                        Quest(answers: ["PPMP"],
@@ -119,6 +119,67 @@ struct DummyContent {
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.325568,
                                                                                           longitude: 11.939902), radius: 1000)
                                        ])
+    var game1 = Game(name: "Game Name 1",
+                              shortDescription: "Kurze Beschreibung",
+                              longDescription: "Lange Beschreibung.",
+                              categories: [QuestCategory.nature],
+                              duration: 2300,
+                              length: 10.4,
+                              image: UIImage(named: "yoga"),
+                              rating: 5,
+                              quests: [
+                                Quest(answers: ["Answer"],
+                                             question: "Question ",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.textInput,
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324774,
+                                                                                          longitude: 11.941077), radius: 100)])
+    var game2 = Game(name: "Game Name 2",
+                     shortDescription: "Kurze Beschreibung",
+                     longDescription: "Lange Beschreibung.",
+                     categories: [QuestCategory.nature],
+                     duration: 1234,
+                     length: 12.34,
+                     image: UIImage(named: "yoga"),
+                     rating: 3,
+                     quests: [
+                        Quest(answers: ["Answer"],
+                              question: "Question ",
+                              image: UIImage(named: "yoga"),
+                              questionType: QuestionType.textInput,
+                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 49.940474,
+                                                                           longitude: 11.575026), radius: 100)])
+    var game3 = Game(name: "Game Name 3",
+                     shortDescription: "Kurze Beschreibung",
+                     longDescription: "Lange Beschreibung.",
+                     categories: [QuestCategory.nature],
+                     duration: 2900,
+                     length: 19.4,
+                     image: UIImage(named: "yoga"),
+                     rating: 4,
+                     quests: [
+                        Quest(answers: ["Answer"],
+                              question: "Question ",
+                              image: UIImage(named: "yoga"),
+                              questionType: QuestionType.textInput,
+                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 52.474975,
+                                                                           longitude: 13.454310), radius: 100)])
+    var game4 = Game(name: "Game Name 4",
+                     shortDescription: "Kurze Beschreibung",
+                     longDescription: "Lange Beschreibung.",
+                     categories: [QuestCategory.nature],
+                     duration: 4900,
+                     length: 120.4,
+                     image: UIImage(named: "yoga"),
+                     rating: 1,
+                     quests: [
+                        Quest(answers: ["Answer"],
+                              question: "Question ",
+                              image: UIImage(named: "yoga"),
+                              questionType: QuestionType.textInput,
+                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 51.311580,
+                                                                           longitude: 9.465461), radius: 100)])
+    
 }
 
 class ActiveGameController {
@@ -158,7 +219,7 @@ class ActiveGameController {
     func isUserAllowedToAnswerTheQuest(userLocation: CLLocationCoordinate2D) -> Bool {
         let currentQuest = game.quests[currentQuestIndex]
         let questLocation = currentQuest.locationPolygonPoint
-        let questRadius: Double = 200 // TODO: Implementieren - zur Quest hinzufügen + CreateQuestViewController hinzufügen
+        let questRadius: Double = currentQuest.radius
         
         let point1 = MKMapPointForCoordinate(questLocation!)
         let point2 = MKMapPointForCoordinate(userLocation)
