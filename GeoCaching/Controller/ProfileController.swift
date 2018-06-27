@@ -39,4 +39,17 @@ struct ProfileController {
         let downloadedImage = UIImage(named: "profileImage")
         completion(downloadedImage)
     }
+    
+    func updateUserPoints(pointsToAdd: Int) {
+        if let userID = Auth.auth().currentUser?.uid {
+            userDB.child(userID).observeSingleEvent(of: .value) { (dataSnapshot) in
+                if let user = User(snapshot: dataSnapshot) {
+                    let oldUserPoints = user.points
+                    let newUserPoints = oldUserPoints + pointsToAdd
+                    
+                    self.userDB.child(userID).child("points").setValue(newUserPoints)
+                }
+            }
+        }
+    }
 }
