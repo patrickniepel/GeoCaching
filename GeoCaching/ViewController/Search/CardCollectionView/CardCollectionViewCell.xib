@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -24,6 +23,10 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yoga" translatesAutoresizingMaskIntoConstraints="NO" id="9nZ-c5-qQr" userLabel="BackgroundImageView">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="182"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rK-BX-62c">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="182"/>
+                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h 27 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPV-Mf-3yv" userLabel="FirstIconLabel">
                         <rect key="frame" x="46.000000000000007" y="20" width="65.666666666666686" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -69,12 +72,16 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="5rK-BX-62c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2xF-dN-tPa"/>
                 <constraint firstItem="9nZ-c5-qQr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3R2-Sw-ECt"/>
                 <constraint firstAttribute="trailing" secondItem="PLt-1R-zjc" secondAttribute="trailing" id="3qq-Ak-xzX"/>
                 <constraint firstAttribute="trailing" secondItem="9nZ-c5-qQr" secondAttribute="trailing" id="4Zq-bK-K7M"/>
+                <constraint firstAttribute="bottom" secondItem="5rK-BX-62c" secondAttribute="bottom" id="5PS-VX-6ga"/>
                 <constraint firstItem="cPV-Mf-3yv" firstAttribute="leading" secondItem="mqY-ax-euc" secondAttribute="trailing" constant="8" id="6ex-sl-IHe"/>
+                <constraint firstAttribute="trailing" secondItem="5rK-BX-62c" secondAttribute="trailing" id="9FW-mV-ftm"/>
                 <constraint firstItem="uMg-RD-NkI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="9fC-CX-lii"/>
                 <constraint firstItem="cPV-Mf-3yv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="Cbh-PE-6A1"/>
+                <constraint firstItem="5rK-BX-62c" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Cw1-ky-hi0"/>
                 <constraint firstItem="uMg-RD-NkI" firstAttribute="leading" secondItem="p9P-dP-zit" secondAttribute="trailing" constant="8" id="DLq-KD-hfx"/>
                 <constraint firstItem="p9P-dP-zit" firstAttribute="width" secondItem="p9P-dP-zit" secondAttribute="height" multiplier="1:1" id="FRO-wU-sQR"/>
                 <constraint firstItem="crz-f5-WY1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="OKy-nq-mIh"/>

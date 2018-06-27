@@ -23,6 +23,8 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     var activeGameDelegate: ActiveGameDelegate? = nil
     
+    lazy var userDidAnswerQuestion = false
+    
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionTitle: UILabel!
     @IBOutlet weak var questionText: UILabel!
@@ -39,7 +41,13 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadQuestionType()
+         loadQuestionType()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if !userDidAnswerQuestion {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func setupLayout() {
@@ -88,6 +96,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     private func prepareQuestInfos(view: QuestionView) {
         questionTitle.text = "Question \(activeGameCtrl.currentQuestIndex + 1)"
         questionText.text = activeGameCtrl.currentQuest.question
+        questionImage.image = activeGameCtrl.currentQuest.image
         view.quest = activeGameCtrl.currentQuest
         view.delegate = self
         view.setupLayout()
@@ -101,17 +110,21 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         var alertForUser: UIAlertController!
         
         // Anwort ausgewählt bzw Antwort eingegeben
-        if let userAnswer = userAnswerCurrentQuestion {
-            let answerCorrect = activeGameCtrl?.isUserAnswerCorrect(userAnswer: userAnswer)
+        if userAnswerCurrentQuestion != nil && userAnswerCurrentQuestion?.trimmingCharacters(in: .whitespaces).count != 0 {
+            let answerCorrect = activeGameCtrl?.isUserAnswerCorrect(userAnswer: userAnswerCurrentQuestion!)
             
             guard let isCorrect = answerCorrect else { return }
             
             if isCorrect {
+                activeGameCtrl.answeredCorrect()
                 alertForUser = alert(for: "Gratulations", message: "Your Answer Is Correct", actionText: "Continue", delegate: delegate, vc: self)
             }
             else {
+                activeGameCtrl.answeredWrong()
                 alertForUser = alert(for: "Sorry", message: "Your Answer Is Wrong", actionText: "Continue", delegate: delegate, vc: self)
             }
+            
+            userDidAnswerQuestion = true
         }
         // Antwort noch nicht hinzufügen
         else {
