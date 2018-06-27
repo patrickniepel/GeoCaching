@@ -95,7 +95,11 @@ extension SearchViewController{
     func setupData() {
         
         cardCollectionViewDelegate = CardCollectionViewDelegate()
-        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame])
+        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame,
+                                                                            DummyContent.sharedInstance.game1,
+                                                                            DummyContent.sharedInstance.game2,
+                                                                            DummyContent.sharedInstance.game3,
+                                                                            DummyContent.sharedInstance.game4])
         
         cardCollectionView.dataSource = cardCollectionViewDataSource
         cardCollectionView.delegate = cardCollectionViewDelegate

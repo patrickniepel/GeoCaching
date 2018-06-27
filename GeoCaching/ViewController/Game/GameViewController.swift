@@ -304,6 +304,8 @@ extension GameViewController: CLLocationManagerDelegate {
                 informationButtonOutlet.isUserInteractionEnabled = false
                 informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
             }
+            let buttonTitle = "Questinformation \(activeGameController.currentQuestIndex + 1)"
+            informationButtonOutlet.setTitle(buttonTitle, for: .normal)
         }
     }
 }
@@ -315,6 +317,10 @@ extension GameViewController: ActiveGameDelegate {
         vc.dismiss(animated: true, completion: nil)
         activeGameController.nextQuest()
         drawLocationsInMap()
+        
+        informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
+        informationButtonOutlet.isUserInteractionEnabled = false
+        informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
     }
 }
 
