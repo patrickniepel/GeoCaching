@@ -19,6 +19,10 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     private let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     private var testLocations : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: -33.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -32.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -34.86, longitude: 151.2)]
     private var locationsOfGames : [CLLocationCoordinate2D] = []
+    private var games : [Game] = []
+    private var locationManager = CLLocationManager()
+    private var locationWasSetOnce = false
+    private var markerArray : [GMSMarker] = []
     
     // MARK: - IBOutlets
     
@@ -89,7 +93,6 @@ extension SearchViewController{
         segmentedControl.backgroundColor = UIColor.clear
         segmentedControl.tintColor = AppColor.tint
         cardCollectionView.backgroundColor = AppColor.background
-        setupMapViewDesign()
     }
     
     func setupData() {
@@ -107,6 +110,10 @@ extension SearchViewController{
         cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
         GameDownloadController().fetchAllGamesWithQuests(notificationName: Notification.Name(SearchIdentifiers.gameDownloadNotification.identifier))
         NotificationCenter.default.addObserver(self, selector: #selector(downloadFinished), name: Notification.Name(SearchIdentifiers.gameDownloadNotification.identifier), object: nil)
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     @objc private func downloadFinished(){
@@ -117,11 +124,12 @@ extension SearchViewController{
     }
     
     private func setupLocations(){
-        let games = GameDownloadController().getAllGames()
+        games = GameDownloadController().getAllGames()
         locationsOfGames.removeAll()
         for game in games{
             locationsOfGames.append(game.quests.first!.locationPolygonPoint)
         }
+        setupMapViewDesign()
     }
     
 }
@@ -131,7 +139,6 @@ extension SearchViewController{
 extension SearchViewController{
     
     private func setupMapViewDesign(){
-        gameView.camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D(latitude: -33.86, longitude: 151.2), zoom: 6.0)
         gameView.isHidden = true
         //Get MapViewStyle
         do {
@@ -141,12 +148,31 @@ extension SearchViewController{
         } catch {
             print("Google-Map-JSON-Style-Error: \(error)")
         }
-        for location in testLocations{
+        markerArray.removeAll()
+        for (index, location) in locationsOfGames.enumerated(){
             let marker = GMSMarker(position: location)
-            marker.title = "Event"
+            marker.title = games[index].name
             marker.icon = GMSMarker.markerImage(with: AppColor.tint)
             marker.map = gameView
+            markerArray.append(marker)
         }
-        
     }
 }
+
+extension SearchViewController : CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            if !locationWasSetOnce{
+                let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                                      longitude: location.coordinate.longitude, zoom: 13.0)
+                gameView.animate(to: camera)
+                locationWasSetOnce = true
+            }
+            
+        }
+    }
+    
+}
+
+
