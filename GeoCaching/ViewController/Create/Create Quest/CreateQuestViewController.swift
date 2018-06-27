@@ -258,6 +258,7 @@ extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
         print("coordinate: \(locationCoordinate2D) - \(radius)")
         set(location: locationCoordinate2D)
         questCreatorController.set(locationPolygonPoint: locationCoordinate2D)
+        questCreatorController.set(radius: Double(radius))
         navigationController?.popViewController(animated: true)
     }
 }

@@ -13,13 +13,14 @@ import MobileCoreServices
 
 struct Quest {
     
-    init(answers: [String], question: String, image: UIImage?, questionType: QuestionType, locationPolygonPoint: CLLocationCoordinate2D?) {
+    init(answers: [String], question: String, image: UIImage?, questionType: QuestionType, locationPolygonPoint: CLLocationCoordinate2D?, radius: Double) {
         self.id = UUID().uuidString
         self.answers = answers
         self.question = question
         self.image = image
         self.questionType = questionType
         self.locationPolygonPoint = locationPolygonPoint
+        self.radius = radius
     }
     
     init?(snapshot: DataSnapshot) {
@@ -29,7 +30,8 @@ struct Quest {
             let question = dict["question"] as? String,
             let questionTypeDBName = dict["questionType"] as? String,
             let questionType = QuestionType(dbName: questionTypeDBName),
-            let locationPolygonPointsStringArray = dict["locationPolygonPoint"] as? [String]
+            let locationPolygonPointsStringArray = dict["locationPolygonPoint"] as? [String],
+            let radius = dict["radius"] as? Double
             else {
                 return nil
         }
@@ -39,7 +41,7 @@ struct Quest {
         self.question = question
         self.questionType = questionType
         self.locationPolygonPoint = CLLocationCoordinate2D(latitude: Double(locationPolygonPointsStringArray[0])!, longitude: Double(locationPolygonPointsStringArray[1])!)
-        
+        self.radius = radius
     }
     
     var id: String
@@ -51,11 +53,13 @@ struct Quest {
     var image: UIImage?
     var questionType: QuestionType
     var locationPolygonPoint: CLLocationCoordinate2D!
+    var radius: Double
     var toDictionary: [String:Any] {
         return [
             "answers": answers,
             "question": question,
             "questionType": questionType.dbName,
+            "radius": radius,
             "locationPolygonPoint": ["\(locationPolygonPoint.latitude)","\(locationPolygonPoint.longitude)"]
         ]
     }
@@ -89,7 +93,7 @@ final class ItemProviderQuest: NSObject, NSItemProviderWriting, NSItemProviderRe
 //            locationPoints.append(point)
 //        }
         
-        var quest = Quest(answers: answers, question: question, image: image, questionType: questionType, locationPolygonPoint: locationPoint)
+        var quest = Quest(answers: answers, question: question, image: image, questionType: questionType, locationPolygonPoint: locationPoint, radius: 100)
         quest.id = id
         return quest
     }
