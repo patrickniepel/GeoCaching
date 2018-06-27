@@ -12,7 +12,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     var activeGameCtrl: ActiveGameController! {
         didSet {
-            questionType = activeGameCtrl?.currentQuest.questionType
+            questionType = activeGameCtrl.currentQuest.questionType
         }
     }
     

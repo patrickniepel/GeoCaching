@@ -47,6 +47,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="answerTextField" destination="5o6-d1-f6u" id="2QC-ha-sHw"/>
                 <outlet property="textFieldView" destination="EVH-3U-pNV" id="1cR-xv-GGt"/>
             </connections>
         </view>
