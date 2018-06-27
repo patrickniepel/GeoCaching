@@ -16,13 +16,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVH-3U-pNV">
-                    <rect key="frame" x="16" y="36" width="343" height="30"/>
+                    <rect key="frame" x="16" y="36" width="343" height="50"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5o6-d1-f6u">
-                            <rect key="frame" x="6" y="0.0" width="333" height="30"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5o6-d1-f6u">
+                            <rect key="frame" x="6" y="0.0" width="333" height="50"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <action selector="inputChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="mjh-Ra-sGJ"/>
@@ -31,8 +31,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="0qQ-sp-ott"/>
                         <constraint firstAttribute="bottom" secondItem="5o6-d1-f6u" secondAttribute="bottom" id="3dH-dT-UvB"/>
-                        <constraint firstAttribute="height" constant="30" id="9T6-FV-r19"/>
                         <constraint firstAttribute="trailing" secondItem="5o6-d1-f6u" secondAttribute="trailing" constant="4" id="ABJ-W9-uit"/>
                         <constraint firstItem="5o6-d1-f6u" firstAttribute="leading" secondItem="EVH-3U-pNV" secondAttribute="leading" constant="6" id="Ryk-em-SVX"/>
                         <constraint firstItem="5o6-d1-f6u" firstAttribute="top" secondItem="EVH-3U-pNV" secondAttribute="top" id="aHE-d0-RHR"/>
@@ -50,6 +50,7 @@
                 <outlet property="answerTextField" destination="5o6-d1-f6u" id="2QC-ha-sHw"/>
                 <outlet property="textFieldView" destination="EVH-3U-pNV" id="1cR-xv-GGt"/>
             </connections>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

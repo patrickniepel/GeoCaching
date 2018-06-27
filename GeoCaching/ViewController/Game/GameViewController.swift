@@ -21,6 +21,7 @@ enum SwissArmy {
 
 protocol ActiveGameDelegate {
     func userAnsweredQuestion(vc: QuestionViewController)
+    func userClosedQuestion(vc: QuestionViewController)
 }
 
 class GameViewController: UIViewController {
@@ -340,6 +341,10 @@ extension GameViewController: ActiveGameDelegate {
         informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
         informationButtonOutlet.isUserInteractionEnabled = false
         informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
+    }
+    
+    func userClosedQuestion(vc: QuestionViewController) {
+        vc.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -20,17 +20,12 @@ class NumberQuestion: QuestionView {
         textFieldView.layer.borderWidth = 2
         textFieldView.layer.borderColor = AppColor.tint.cgColor
         
-        answerTextField.placeholder = "Your Answer"
+        answerTextField.attributedPlaceholder = NSAttributedString(string: "Your Answer", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
     }
     
     
     @IBAction func inputChanged(_ sender: UITextField) {
         guard let delegate = delegate else { return }
-        
-        //Nichts eingetragen
-        if sender.text?.trimmingCharacters(in: .whitespaces).count == 0 {
-            return
-        }
         
         guard let answerText = sender.text else { return }
         

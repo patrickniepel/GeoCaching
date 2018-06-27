@@ -16,13 +16,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDN-a8-453">
-                    <rect key="frame" x="16" y="36" width="343" height="30"/>
+                    <rect key="frame" x="16" y="36" width="343" height="50"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-jU-vJz">
-                            <rect key="frame" x="6" y="0.0" width="333" height="30"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9S-jU-vJz">
+                            <rect key="frame" x="6" y="0.0" width="333" height="50"/>
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             <connections>
                                 <action selector="inputChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="sqa-zT-OLC"/>
@@ -34,7 +34,7 @@
                         <constraint firstAttribute="trailing" secondItem="j9S-jU-vJz" secondAttribute="trailing" constant="4" id="Kzq-Du-I3j"/>
                         <constraint firstItem="j9S-jU-vJz" firstAttribute="leading" secondItem="JDN-a8-453" secondAttribute="leading" constant="6" id="ay5-5P-tuH"/>
                         <constraint firstAttribute="bottom" secondItem="j9S-jU-vJz" secondAttribute="bottom" id="hBw-3y-Nhh"/>
-                        <constraint firstAttribute="height" constant="30" id="wHN-Rw-by9"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="iTa-2F-N19"/>
                         <constraint firstItem="j9S-jU-vJz" firstAttribute="top" secondItem="JDN-a8-453" secondAttribute="top" id="xRS-a4-UAk"/>
                     </constraints>
                 </view>

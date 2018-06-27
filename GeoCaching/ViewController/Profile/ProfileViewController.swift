@@ -54,7 +54,11 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
         profileImageView.layer.borderColor = AppColor.tint.cgColor
         profileImageView.layer.borderWidth = 5.0
-        
+        if let userImage = user.userImage {
+            profileImageView.image = userImage
+        }else{
+            profileImageView.image = UIImage(named: "Schnitzlr_Boar")
+        }
         self.view.backgroundColor = AppColor.background
         pointsLabel.textColor = AppColor.text
         fullnameLabel.textColor = AppColor.text
