@@ -96,6 +96,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     private func prepareQuestInfos(view: QuestionView) {
         questionTitle.text = "Question \(activeGameCtrl.currentQuestIndex + 1)"
         questionText.text = activeGameCtrl.currentQuest.question
+        questionImage.image = activeGameCtrl.currentQuest.image
         view.quest = activeGameCtrl.currentQuest
         view.delegate = self
         view.setupLayout()
