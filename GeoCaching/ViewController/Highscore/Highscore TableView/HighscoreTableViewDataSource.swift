@@ -9,7 +9,7 @@
 import UIKit
 
 class HighscoreTableViewDataSource: NSObject, UITableViewDataSource {
-    private var data: [User] = DummyContent.sharedInstance.users
+    var data: [User] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count

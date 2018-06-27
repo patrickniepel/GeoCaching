@@ -110,4 +110,19 @@ struct AuthController {
             completion(usernameIsAlreadyInUse, nil)
         }
     }
+    
+    func fetchAllUser(completion: @escaping ([User]?,Error?) -> Void) {
+        userDB.observe(.value) { (dataSnapshot) in
+            var users : [User] = []
+            for userSnapshot in dataSnapshot.children.allObjects as! [DataSnapshot] {
+                if let user = User(snapshot: userSnapshot) {
+                    users.append(user)
+                }else{
+                    completion(nil,AuthError.unknown)
+                    return
+                }
+            }
+            completion(users, nil)
+        }
+    }
 }

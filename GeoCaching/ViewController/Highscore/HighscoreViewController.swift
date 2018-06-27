@@ -58,6 +58,8 @@ class HighscoreViewController: UIViewController, UIPopoverPresentationController
         filterFriendsButton.addTarget(self, action: #selector(filterButtonAction(_:)), for: .touchUpInside)
         filterWorldButton.addTarget(self, action: #selector(filterButtonAction(_:)), for: .touchUpInside)
         filterLocaleButton.addTarget(self, action: #selector(filterButtonAction(_:)), for: .touchUpInside)
+        
+        downloadUsers()
     }
     
     
@@ -101,7 +103,21 @@ class HighscoreViewController: UIViewController, UIPopoverPresentationController
 //            expendableMenuButton.toggle(onView: self.view)
 //        }
     }
+    
+    private func downloadUsers(){
+        AuthController().fetchAllUser { (downloadedUsers, error) in
+            if error != nil{
+                print("Something went wrong with downloading users")
+            }else{
+                if let users = downloadedUsers{
+                    self.highscoreTableViewDataSource.data = users
+                    self.highscoreTableView.reloadData()
+                }
+            }
+        }
+    }
 }
+
 
 
 // MARK: - IBAction
