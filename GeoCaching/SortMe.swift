@@ -78,46 +78,46 @@ struct DummyContent {
                               shortDescription: "Kurze Beschreibung",
                               longDescription: "From the edge of the Fichtelgebirge, the Saale meanders in countless loops through Bayer to the Rhine. On its way it flows through picturesque valleys with wooded slopes, steep vineyards and rugged cliffs. On other passages, green meadows line the banks of wide fields and idyllic towns. Along the river, the Saale valley cycle path from Hof to Bayreuth covers about 370 kilometers (230 miles). On the way from its origin to the mouth of the Rhine, it flows past not only beatiful countryside, but also beautiful cities such as Oberkotzau and Neila.",
                               categories: [QuestCategory.nature, .under10km],
-                              duration: 21,
+                              duration: 21123,
                               length: 1.4,
-                              image: UIImage(named: "yoga"),
+                              image: UIImage(named: "cover_game_hof"),
                               rating: 5,
                               quests: [Quest(answers: ["Antwort 1"],
                                              question: "Wer ist der Ehrenbürger der Stadt Hof der im Dezember 1991 gestorben ist und in Verbindung mit der Hochschule steht.",
-                                             image: UIImage(named: "yoga"),
+                                             image: UIImage(named: "cover_1"),
                                              questionType: QuestionType.textInput,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324774,
                                                                                           longitude: 11.941077), radius: 1000),
                                        Quest(answers: ["Norden", "Osten", "Süden", "nach links"],
                                              question: "In welche Himmelsrichtung zeigt dieser Pfeil an der Bushaltestelle?",
-                                             image: UIImage(named: ""),
+                                             image: UIImage(named: "cover_2"),
                                              questionType: QuestionType.fourChoices,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.323779,
                                                                                           longitude: 11.940323), radius: 1000),
                                        Quest(answers: ["20", "100", "1.000.000", "welches Dach?"],
                                              question: "Wie viele Fahrradstellplätze gibt es unter diesem Dach?",
-                                             image: UIImage(named: "yoga"),
+                                             image: UIImage(named: "cover_3"),
                                              questionType: QuestionType.number,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324181,
-                                                                                            longitude: 11.939300), radius: 1000),
-                                       Quest(answers: ["2", "4", "8", "16"],
-                                             question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
-                                             image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.number,
-                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324931,
-                                                                                            longitude: 11.938181), radius: 1000),
-                                       Quest(answers: ["Unisee"],
-                                             question: "Wie heißt der bei Studenten beliebte See direkt neben der Universität? (Punkt 31 auf der Karte)",
-                                             image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.textInput,
-                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.326699,
-                                                                                            longitude: 11.937674), radius: 1000),
-                                       Quest(answers: ["PPMP"],
-                                             question: "Lauf zurück in B010 und gebe den Code an der Tafel ein :)",
-                                             image: UIImage(named: "yoga"),
-                                             questionType: QuestionType.textInput,
-                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.325568,
-                                                                                          longitude: 11.939902), radius: 1000)
+                                                                                            longitude: 11.939300), radius: 1000)
+//                                       Quest(answers: ["2", "4", "8", "16"],
+//                                             question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
+//                                             image: UIImage(named: "yoga"),
+//                                             questionType: QuestionType.number,
+//                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324931,
+//                                                                                            longitude: 11.938181), radius: 1000),
+//                                       Quest(answers: ["Unisee"],
+//                                             question: "Wie heißt der bei Studenten beliebte See direkt neben der Universität? (Punkt 31 auf der Karte)",
+//                                             image: UIImage(named: "yoga"),
+//                                             questionType: QuestionType.textInput,
+//                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.326699,
+//                                                                                            longitude: 11.937674), radius: 1000),
+//                                       Quest(answers: ["PPMP"],
+//                                             question: "Lauf zurück in B010 und gebe den Code an der Tafel ein :)",
+//                                             image: UIImage(named: "yoga"),
+//                                             questionType: QuestionType.textInput,
+//                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.325568,
+//                                                                                          longitude: 11.939902), radius: 1000)
                                        ])
     var game1 = Game(name: "Game Name 1",
                               shortDescription: "Kurze Beschreibung",
@@ -125,7 +125,7 @@ struct DummyContent {
                               categories: [QuestCategory.nature],
                               duration: 2300,
                               length: 10.4,
-                              image: UIImage(named: "yoga"),
+                              image: UIImage(named: "cover_game_1"),
                               rating: 5,
                               quests: [
                                 Quest(answers: ["Answer"],
@@ -140,7 +140,7 @@ struct DummyContent {
                      categories: [QuestCategory.nature],
                      duration: 1234,
                      length: 12.34,
-                     image: UIImage(named: "yoga"),
+                     image: UIImage(named: "cover_game_2"),
                      rating: 3,
                      quests: [
                         Quest(answers: ["Answer"],
@@ -155,7 +155,7 @@ struct DummyContent {
                      categories: [QuestCategory.nature],
                      duration: 2900,
                      length: 19.4,
-                     image: UIImage(named: "yoga"),
+                     image: UIImage(named: "cover_game_3"),
                      rating: 4,
                      quests: [
                         Quest(answers: ["Answer"],
@@ -170,7 +170,7 @@ struct DummyContent {
                      categories: [QuestCategory.nature],
                      duration: 4900,
                      length: 120.4,
-                     image: UIImage(named: "yoga"),
+                     image: UIImage(named: "cover_game_4"),
                      rating: 1,
                      quests: [
                         Quest(answers: ["Answer"],
@@ -204,7 +204,7 @@ class ActiveGameController {
     
     
     func hasGameCompleted() -> Bool {
-        return false
+        return currentQuestIndex >= game.quests.count - 1
     }
     
     func isUserAnswerCorrect(userAnswer: String) -> Bool {
@@ -259,16 +259,16 @@ class ActiveGameController {
     
     func calculatePoints() -> Int {
         var totalPoints = 0
-        totalPoints += (correctAnswers * 100)
-        totalPoints -= (wrongAnswer * 50)
-        
         let now = Date()
-        let secondsSinceStart = Int(startDate.timeIntervalSince(now))
+        let secondsSinceStart = Int(now.timeIntervalSince(startDate))
         
         let startPoints = 1000
         if secondsSinceStart < startPoints {
-            totalPoints += (startPoints - secondsSinceStart)
+            totalPoints = (startPoints - secondsSinceStart)
         }
+        
+        totalPoints += (correctAnswers * 100)
+        totalPoints -= (wrongAnswer * 50)
         
         return totalPoints
     }

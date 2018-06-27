@@ -65,8 +65,13 @@ class GameViewController: UIViewController {
                 circle.strokeColor = AppColor.tint
             } else {
                 let marker = GMSMarker(position: location)
-                marker.title = "\(index + 1)"
-                marker.icon = GMSMarker.markerImage(with: AppColor.marker)
+                marker.title = "Station \(index + 1)"
+                if index < activeGameController.currentQuestIndex {
+                    marker.icon = UIImage(named: "Marker_done")
+                } else {
+                    marker.icon = UIImage(named: "Marker_\(index + 1)")
+                }
+//                marker.icon = GMSMarker.markerImage(with: AppColor.marker)
                 marker.map = theMapView
             }
         }
@@ -285,6 +290,10 @@ extension GameViewController: CLLocationManagerDelegate {
             
             updateUI(forLocation: location.coordinate)
         }
+        
+        if activeGameController != nil {
+            print("USER POINTS: --- \(activeGameController.calculatePoints())")
+        }
     }
     
     func updateUI(forLocation location: CLLocationCoordinate2D?) {
@@ -321,6 +330,8 @@ extension GameViewController: ActiveGameDelegate {
         informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
         informationButtonOutlet.isUserInteractionEnabled = false
         informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
+        
+        print("HAS GAME FINISHED??? :) ---> \(activeGameController.hasGameCompleted())")
     }
 }
 
