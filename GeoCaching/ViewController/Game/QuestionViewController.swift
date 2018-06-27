@@ -23,7 +23,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     var activeGameDelegate: ActiveGameDelegate? = nil
     
-    lazy var userDidAnswerQuestion = false
+    lazy var userDidCloseIntentionally = false
     
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionTitle: UILabel!
@@ -31,6 +31,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var answerQuestionBtn: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     @IBOutlet weak var questionTypeView: UIView!
     
@@ -45,7 +46,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        if !userDidAnswerQuestion {
+        if !userDidCloseIntentionally {
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -61,12 +62,17 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         
         questionTitle.textColor = .white
         questionText.textColor = .white
-        questionText.numberOfLines = 2
+        questionText.numberOfLines = 0
         
         answerQuestionBtn.setTitleColor(AppColor.tint, for: .normal)
         answerQuestionBtn.layer.borderColor = AppColor.tint.cgColor
         answerQuestionBtn.layer.borderWidth = 2
         answerQuestionBtn.layer.cornerRadius = 10
+        
+        closeButton.layer.cornerRadius = 10
+        closeButton.layer.borderColor = AppColor.tint.cgColor
+        closeButton.layer.borderWidth = 2
+        closeButton.backgroundColor = AppColor.background
     }
     
     private func loadQuestionType() {
@@ -107,8 +113,6 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         
         guard let delegate = activeGameDelegate else { return }
         
-        var alertForUser: UIAlertController!
-        
         // Anwort ausgewählt bzw Antwort eingegeben
         if userAnswerCurrentQuestion != nil && userAnswerCurrentQuestion?.trimmingCharacters(in: .whitespaces).count != 0 {
             let answerCorrect = activeGameCtrl?.isUserAnswerCorrect(userAnswer: userAnswerCurrentQuestion!)
@@ -117,21 +121,27 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
             
             if isCorrect {
                 activeGameCtrl.answeredCorrect()
-                alertForUser = alert(for: "Gratulations", message: "Your Answer Is Correct", actionText: "Continue", delegate: delegate, vc: self)
+                informationPopupDialog(title: "Gratulations", message: "Your Answer Is Correct", actionText: "Continue", delegate: delegate, vc: self)
             }
             else {
                 activeGameCtrl.answeredWrong()
-                alertForUser = alert(for: "Sorry", message: "Your Answer Is Wrong", actionText: "Continue", delegate: delegate, vc: self)
+                informationPopupDialog(title: "Sorry", message: "Your Answer Is Wrong", actionText: "Continue", delegate: delegate, vc: self)
             }
             
-            userDidAnswerQuestion = true
+            userDidCloseIntentionally = true
         }
         // Antwort noch nicht hinzufügen
         else {
-            alertForUser = alert(for: "No Answer", message: "Select An Answer To Continue", actionText: "OK")
+            informationPopupDialog(title: "No Answer", message: "Select An Answer To Continue", actionText: "OK")
         }
+    }
+    
+    @IBAction func closeQuestion(_ sender: UIButton) {
+        userDidCloseIntentionally = true
         
-        self.present(alertForUser, animated: true)
+        if let delegate = activeGameDelegate {
+            delegate.userClosedQuestion(vc: self)
+        }
     }
     
     /** Gets Answer from question screen */
