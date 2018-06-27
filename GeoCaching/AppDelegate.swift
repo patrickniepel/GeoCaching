@@ -28,12 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let random = arc4random_uniform(10)
-        let luckyNumber = 7
-        if random == luckyNumber {
-            fatalError()
-        }
-        
         
         // Statusbar white
         UIApplication.shared.statusBarStyle = .lightContent

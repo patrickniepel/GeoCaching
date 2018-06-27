@@ -11,6 +11,7 @@ import UIKit
 class NumberQuestion: QuestionView {
 
     @IBOutlet weak var textFieldView: UIView!
+    @IBOutlet weak var answerTextField: UITextField!
     
     override func setupLayout() {
         self.backgroundColor = AppColor.background
@@ -18,13 +19,15 @@ class NumberQuestion: QuestionView {
         textFieldView.layer.cornerRadius = 10
         textFieldView.layer.borderWidth = 2
         textFieldView.layer.borderColor = AppColor.tint.cgColor
+        
+        answerTextField.placeholder = "Your Answer"
     }
     
     
     @IBAction func inputChanged(_ sender: UITextField) {
         guard let delegate = delegate else { return }
         
-        //Nicht eingetragen
+        //Nichts eingetragen
         if sender.text?.trimmingCharacters(in: .whitespaces).count == 0 {
             return
         }
