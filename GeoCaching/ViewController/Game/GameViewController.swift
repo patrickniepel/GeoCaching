@@ -97,6 +97,7 @@ class GameViewController: UIViewController {
         setupDesign()
         setupText()
         setupData()
+        //test() für rating und qr screen
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,6 +107,12 @@ class GameViewController: UIViewController {
             destVC.activeGameCtrl = activeGameController
             destVC.activeGameDelegate = self
             print("ActiveGameCtrl", activeGameController.currentQuest)
+        }
+        if segue.identifier == RatingQRSegues.displayRating.identifier {
+            
+            let destVC = segue.destination as! RatingQRViewController
+            destVC.activeGameCtrl = activeGameController
+            destVC.ratingQRDelegate = self
         }
     }
     
@@ -167,6 +174,13 @@ class GameViewController: UIViewController {
         
         informationBackground.backgroundColor = AppColor.background
         updateUI(forLocation: nil)
+    }
+    
+    // Test für rating und QR
+    func test() {
+        let game = DummyContent.sharedInstance.universityGame
+        activeGameController = ActiveGameController(game: game)
+        performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: nil)
     }
     
     @objc func doIt() {
@@ -321,7 +335,7 @@ extension GameViewController: CLLocationManagerDelegate {
 }
 
 
-extension GameViewController: ActiveGameDelegate {
+extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
     
     func userAnsweredQuestion(vc: QuestionViewController) {
         vc.dismiss(animated: true, completion: nil)
@@ -336,6 +350,10 @@ extension GameViewController: ActiveGameDelegate {
     }
     
     func userClosedQuestion(vc: QuestionViewController) {
+        vc.dismiss(animated: true, completion: nil)
+    }
+    
+    func closedRatingQRCreen(vc: RatingQRViewController) {
         vc.dismiss(animated: true, completion: nil)
     }
 }

@@ -23,7 +23,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     var activeGameDelegate: ActiveGameDelegate? = nil
     
-    lazy var userDidCloseIntentionally = false
+    private lazy var userDidCloseIntentionally = false
     
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionTitle: UILabel!
