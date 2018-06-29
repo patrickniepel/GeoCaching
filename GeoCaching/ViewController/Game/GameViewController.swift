@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import FirebaseAuth
 
 enum SwissArmy {
     case height
@@ -338,6 +339,16 @@ extension GameViewController: CLLocationManagerDelegate {
 extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
     
     func userAnsweredQuestion(vc: QuestionViewController) {
+        
+        if activeGameController.hasGameCompleted() {
+            let profileCtrl = ProfileController()
+            let pointsToAdd = activeGameController.calculatePoints()
+            profileCtrl.updateUserPoints(pointsToAdd: pointsToAdd)
+            
+            let game = activeGameController.game
+            
+        }
+        
         vc.dismiss(animated: true, completion: nil)
         activeGameController.nextQuest()
         drawLocationsInMap()
@@ -345,8 +356,6 @@ extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
         informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
         informationButtonOutlet.isUserInteractionEnabled = false
         informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
-        
-        print("HAS GAME FINISHED??? :) ---> \(activeGameController.hasGameCompleted())")
     }
     
     func userClosedQuestion(vc: QuestionViewController) {

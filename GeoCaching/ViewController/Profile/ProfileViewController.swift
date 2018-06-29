@@ -20,9 +20,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileActionsTableView: UITableView!
     @IBOutlet weak var achievementsCollectionView: UICollectionView!
     
-
+    var user: User?
     var authController : AuthController!
-    var user = DummyContent.sharedInstance.currentUser
     
     private var actionTableViewDataSource: ProfileActionTableViewDataSource!
     private var actionTableViewDelegate: ProfileActionTableViewDelegate!
@@ -30,13 +29,21 @@ class ProfileViewController: UIViewController {
     private var achievementsCollectionViewDataSource: ProfileAchievementsCollectionViewDataSource!
     private var achievementsCollectionViewDelegate: ProfileAchievementsCollectionViewDelegate!
     
+    private var profileCtrl = ProfileController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test", style: .done, target: self, action: #selector(theeesTest))
+        
         setupDesign()
         setupText()
         setupData()
+    }
+    
+    @objc func theeesTest() {
+        print("    --- 123")
+        profileCtrl.updateUserProfile(newAchivementType: .firstChallengeAccepted)
     }
     
     
@@ -44,21 +51,12 @@ class ProfileViewController: UIViewController {
     
     func setupText() {
         self.title = "Profile"
-        
-        pointsLabel.text = user.formattedPoints
-        fullnameLabel.text = "\(user.username)"
-        titleLabel.text = "(\(Rank.getRank(forPoints: user.points)))"
     }
     
     func setupDesign() {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
         profileImageView.layer.borderColor = AppColor.tint.cgColor
         profileImageView.layer.borderWidth = 5.0
-        if let userImage = user.userImage {
-            profileImageView.image = userImage
-        }else{
-            profileImageView.image = UIImage(named: "Schnitzlr_Boar")
-        }
         self.view.backgroundColor = AppColor.background
         pointsLabel.textColor = AppColor.text
         fullnameLabel.textColor = AppColor.text
@@ -77,12 +75,33 @@ class ProfileViewController: UIViewController {
         profileActionsTableView.dataSource = actionTableViewDataSource
         profileActionsTableView.delegate = actionTableViewDelegate
         
-        achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
         achievementsCollectionViewDelegate = ProfileAchievementsCollectionViewDelegate(viewCtrl: self)
-        achievementsCollectionView.dataSource = achievementsCollectionViewDataSource
         achievementsCollectionView.delegate = achievementsCollectionViewDelegate
         
         authController = AuthController()
+        
+        profileCtrl.downloadUserProfileAndObserve { (user, error) in
+            if let user = user {
+                self.setup(user: user)
+                
+                self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
+                self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
+                self.achievementsCollectionView.reloadData()
+            }
+            print("USER :) - \(user?.points)")
+        }
+    }
+    
+    private func setup(user: User) {
+        pointsLabel.text = user.formattedPoints
+        fullnameLabel.text = "\(user.username)"
+        titleLabel.text = "(\(Rank.getRank(forPoints: user.points)))"
+        
+        if let userImage = user.userImage {
+            profileImageView.image = userImage
+        }else{
+            profileImageView.image = UIImage(named: "Schnitzlr_Boar")
+        }
     }
     
     

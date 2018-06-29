@@ -61,7 +61,11 @@ class ProfileAchievementDetailViewController: UIViewController {
     }
     
     func setupText() {
-        achievementNameLabel.text = achievement.type.title
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        let dateString = dateFormatter.string(from: achievement.earnedDate!)
+        achievementNameLabel.text = "\(achievement.type.title) - (\(dateString))"
         achievementDescriptionLabel.text = achievement.type.conditionDescription
         //achievementImageView.image = UIImage(named: "gary")
     }
