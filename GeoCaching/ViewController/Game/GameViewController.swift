@@ -29,6 +29,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var swissViewLabel: UILabel!
     
     var swissArmyElement = SwissArmy.none
+    var lastLocation: CLLocation = CLLocation(latitude: 0, longitude: 0) {
+        didSet {
+            updateSiwssArmyUI(forLocation: lastLocation)
+        }
+    }
     
     @IBOutlet weak var expendableMenuButton: MenuButton!
     
@@ -271,16 +276,32 @@ class GameViewController: UIViewController {
     
     private func showSwissArmyView() {
         self.swissView.isHidden = false
+        updateSiwssArmyUI(forLocation: lastLocation)
         UIView.animate(withDuration: 1.0) {
             self.swissView.alpha = 1.0
         }
     }
     
+    func updateSiwssArmyUI(forLocation location: CLLocation) {
+        switch swissArmyElement {
+        case .location:
+            let str = "lat: \(location.coordinate.latitude)\nlng: \(location.coordinate.longitude)"
+            swissViewLabel.text = str
+        case .speed:
+            let str = "Speed: \(location.speed)"
+            swissViewLabel.text = str
+        case .height:
+            let str = "Altitude: \(String(format: "%.1f", arguments: [Double(location.altitude)])) m"
+            swissViewLabel.text = str
+        default: break
+        }
+    }
 }
 
 extension GameViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            lastLocation = location
             let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude, zoom: 17.0)
             if theMapView != nil {
@@ -291,18 +312,7 @@ extension GameViewController: CLLocationManagerDelegate {
             }
             print("location: \(location)")
             
-            switch swissArmyElement {
-            case .location:
-                let str = "lat: \(location.coordinate.latitude)\nlng: \(location.coordinate.longitude)"
-                swissViewLabel.text = str
-            case .speed:
-                let str = "Speed: \(location.speed)"
-                swissViewLabel.text = str
-            case .height:
-                let str = "Altitude: \(String(format: "%.1f", arguments: [Double(location.altitude)])) m"
-                swissViewLabel.text = str
-            default: break
-            }
+            
             
             updateUI(forLocation: location.coordinate)
         }
@@ -346,7 +356,9 @@ extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
             profileCtrl.updateUserPoints(pointsToAdd: pointsToAdd)
             
             let game = activeGameController.game
-            
+            let userPoints = activeGameController.calculatePoints()
+            // TODO: ✅ Patrick das Game übergeben
+            print("GAME IS OVER :)")
         }
         
         vc.dismiss(animated: true, completion: nil)
