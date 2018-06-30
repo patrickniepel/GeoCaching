@@ -21,7 +21,7 @@ enum SwissArmy {
 
 protocol ActiveGameDelegate {
     func userAnsweredQuestion(vc: QuestionViewController)
-    func userClosedQuestion(vc: QuestionViewController)
+    func userClosedQuestionScreen(vc: QuestionViewController)
 }
 
 class GameViewController: UIViewController {
@@ -103,7 +103,7 @@ class GameViewController: UIViewController {
         setupDesign()
         setupText()
         setupData()
-        //test() für rating und qr screen
+        //test() //für rating und qr screen
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,8 +117,12 @@ class GameViewController: UIViewController {
         if segue.identifier == RatingQRSegues.displayRating.identifier {
             
             let destVC = segue.destination as! RatingQRViewController
-            destVC.activeGameCtrl = activeGameController
+            destVC.game = activeGameController.game
             destVC.ratingQRDelegate = self
+            
+            if let userPoints = sender as? Int {
+                destVC.userPoints = userPoints
+            }
         }
     }
     
@@ -186,7 +190,7 @@ class GameViewController: UIViewController {
     func test() {
         let game = DummyContent.sharedInstance.universityGame
         activeGameController = ActiveGameController(game: game)
-        performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: nil)
+        performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: 1000)
     }
     
     @objc func doIt() {
@@ -355,10 +359,12 @@ extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
             let pointsToAdd = activeGameController.calculatePoints()
             profileCtrl.updateUserPoints(pointsToAdd: pointsToAdd)
             
-            let game = activeGameController.game
+            //let game = activeGameController.game
             let userPoints = activeGameController.calculatePoints()
+            
             // TODO: ✅ Patrick das Game übergeben
             print("GAME IS OVER :)")
+            performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: userPoints)
         }
         
         vc.dismiss(animated: true, completion: nil)
@@ -370,11 +376,11 @@ extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
         informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
     }
     
-    func userClosedQuestion(vc: QuestionViewController) {
+    func userClosedQuestionScreen(vc: QuestionViewController) {
         vc.dismiss(animated: true, completion: nil)
     }
     
-    func closedRatingQRCreen(vc: RatingQRViewController) {
+    func userClosedRatingQRScreen(vc: RatingQRViewController) {
         vc.dismiss(animated: true, completion: nil)
     }
 }

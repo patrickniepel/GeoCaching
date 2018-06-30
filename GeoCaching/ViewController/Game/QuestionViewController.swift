@@ -140,7 +140,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
         userDidCloseIntentionally = true
         
         if let delegate = activeGameDelegate {
-            delegate.userClosedQuestion(vc: self)
+            delegate.userClosedQuestionScreen(vc: self)
         }
     }
     

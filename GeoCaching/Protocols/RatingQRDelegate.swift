@@ -9,5 +9,5 @@
 import UIKit
 
 protocol RatingQRDelegate {
-    func closedRatingQRCreen(vc: RatingQRViewController)
+    func userClosedRatingQRScreen(vc: RatingQRViewController)
 }

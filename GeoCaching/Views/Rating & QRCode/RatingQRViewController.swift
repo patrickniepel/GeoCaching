@@ -13,9 +13,10 @@ enum RatingQR {
     case qr
 }
 
-class RatingQRViewController: UIViewController, RatingSliderDelegate {
+class RatingQRViewController: UIViewController {
     
-    var activeGameCtrl: ActiveGameController!
+    var game: Game!
+    var userPoints: Int = 0
     
     var ratingQRDelegate: RatingQRDelegate? = nil
     
@@ -90,8 +91,8 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
     }
     
     private func prepareInfos(view: RatingQRView) {
-        view.game = activeGameCtrl.game
-        view.delegate = self
+        view.game = game
+        view.userPoints = userPoints
         view.setupLayout()
     }
     
@@ -104,7 +105,7 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
     
     @IBAction func submit(_ sender: UIButton) {
         if ratingQRState == .rating {
-            //Slidervalue hochladen
+            //Slidervalue hochladen & in game übetragen
             loadQRView()
         }
         else if ratingQRState == .qr {
@@ -116,13 +117,9 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
         dismissScreen()
     }
     
-    func changedSliderValue(sliderValue: Int) {
-        ratingSliderValue = sliderValue
-    }
-    
     private func dismissScreen() {
         userDidCloseIntentionally = true
         guard let delegate = ratingQRDelegate else { return }
-        delegate.closedRatingQRCreen(vc: self)
+        delegate.userClosedRatingQRScreen(vc: self)
     }
 }

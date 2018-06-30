@@ -10,9 +10,8 @@ import UIKit
 
 class RatingQRView: UIView {
 
-    var game : Game? = nil
-    var delegate: RatingSliderDelegate? = nil
-    
+    var game: Game? = nil
+    var userPoints = 0
     func setupLayout() {}
 
 }
