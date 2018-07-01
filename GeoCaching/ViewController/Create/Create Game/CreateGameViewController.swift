@@ -45,10 +45,36 @@ class CreateGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Upload", style: .done, target: self, action: #selector(doIt))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .done, target: self, action: #selector(doIt2))
+        
         setupDesign()
         setupText()
         setupData()
         setupGestures()
+    }
+    
+    @objc func doIt() {
+        print("START - UPLOAD")
+        let game = DummyContent.sharedInstance.universityGame
+        gameUploadController.upload(game: game) { (progress, error) in
+            print("Progress: \(progress) --- \(error)")
+        }
+    }
+    
+    let gameDownloadController = GameDownloadController()
+    @objc func doIt2() {
+        print("START - DOWNLOAD")
+        gameDownloadController.downloadAllGames { (allGames, error) in
+            print("Download-Error: \(error)")
+            for game in allGames {
+                print("gameID: \(game.id) - image: \( game.image)")
+                
+                for quest in game.quests {
+                    print("Quest: \(quest.id) - \(quest.image)")
+                }
+            }
+        }
     }
     
     

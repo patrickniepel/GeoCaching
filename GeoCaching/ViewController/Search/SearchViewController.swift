@@ -98,25 +98,31 @@ extension SearchViewController{
     func setupData() {
         
         cardCollectionViewDelegate = CardCollectionViewDelegate()
-        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame,
-                                                                            DummyContent.sharedInstance.game1,
-                                                                            DummyContent.sharedInstance.game2,
-                                                                            DummyContent.sharedInstance.game3,
-                                                                            DummyContent.sharedInstance.game4])
-        
-        cardCollectionView.dataSource = cardCollectionViewDataSource
         cardCollectionView.delegate = cardCollectionViewDelegate
         cardCollectionViewDelegate.vc = self
         cardCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
-        GameDownloadController().fetchAllGamesWithQuests(notificationName: Notification.Name(SearchIdentifiers.gameDownloadNotification.identifier))
-        NotificationCenter.default.addObserver(self, selector: #selector(downloadFinished), name: Notification.Name(SearchIdentifiers.gameDownloadNotification.identifier), object: nil)
-        
+        GameDownloadController().downloadAllGames { (allGames, error) in
+            GameSingleton.sharedInstance.games = allGames
+            self.games = GameSingleton.sharedInstance.games
+            self.downloadFinished()
+            print("#### - DOWNLOAD FINISHED GAMES (\(GameSingleton.sharedInstance.games.count)) - ####")
+        }
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
     @objc private func downloadFinished(){
+//         Falls mit Dummy Dateng getestet werden muss! - kann sonst gelöscht werden
+//        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame,
+//                                                                            DummyContent.sharedInstance.game1,
+//                                                                            DummyContent.sharedInstance.game2,
+//                                                                            DummyContent.sharedInstance.game3,
+//                                                                            DummyContent.sharedInstance.game4])
+//
+        cardCollectionViewDataSource = CardCollectionViewDataSource(games: GameSingleton.sharedInstance.games)
+        cardCollectionView.dataSource = cardCollectionViewDataSource
+        
         loadingIndicator.isHidden = true
         view.isUserInteractionEnabled = true
         cardCollectionView.reloadData()
@@ -124,7 +130,6 @@ extension SearchViewController{
     }
     
     private func setupLocations(){
-        games = GameDownloadController().getAllGames()
         locationsOfGames.removeAll()
         for game in games{
             locationsOfGames.append(game.quests.first!.locationPolygonPoint)

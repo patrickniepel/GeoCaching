@@ -48,14 +48,23 @@ struct GameUploadController {
     
     // MARK: - Game
     
-    func upload(game: Game, completion: @escaping (Error?) -> ()) {
+    func upload(game: Game, completion: @escaping ((progress: Double, error: Error?)) -> ()) {
         gameDB.child(game.id).setValue(game.toDictionary) { (error, _) in
             if let error = error {
-                completion(error)
+                completion((0, error))
             } else {
                 if let image = game.image {
                     self.gameImageManager.upload(image: image, withImageName: game.id, completion: { (error) in
-                        completion(error)
+                        
+                        var numberOfUploadedQuests = 0
+                        for quest in game.quests {
+                            self.upload(quest: quest, completion: { (error) in
+                                numberOfUploadedQuests += 1
+                                let progress = Double(numberOfUploadedQuests) / Double(game.quests.count)
+                                completion((progress, error))
+                            })
+                        }
+                        
                     })
                 } else {
                     // TODO: ✅ kein Bild vorhanden error zurück geben

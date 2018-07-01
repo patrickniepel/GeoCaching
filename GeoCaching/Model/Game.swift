@@ -26,21 +26,21 @@ struct Game {
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String:Any],
-            let id = snapshot.key as? String,
             let name = dict["name"] as? String,
             let shortDescription = dict["shortDescription"] as? String,
             let longDescription = dict["longDescription"] as? String,
             let categorieNames = dict["categories"] as? [String],
             let duration = dict["duration"] as? Double,
             let length = dict["length"] as? Double,
-            let ratings = dict["raitings"] as? [Int],
             let questIDs = dict["quests"] as? [String] else {
                 return nil
         }
         
+        let ratings = dict["ratings"] as? [Int] ?? []
+        
         let categories = categorieNames.compactMap { QuestCategory(dbName: $0) }
         
-        self.id = id
+        self.id = snapshot.key
         self.name = name
         self.shortDescription = shortDescription
         self.longDescription = longDescription
@@ -61,6 +61,9 @@ struct Game {
     var length: Double // in km
     var image: UIImage?
     var rating: Int {
+        if ratings.count == 0 {
+            return 0
+        }
         return ratings.reduce(0) { $0 + $1 } / ratings.count
     }
     var quests: [Quest]

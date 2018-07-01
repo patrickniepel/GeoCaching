@@ -273,7 +273,14 @@ class ActiveGameController {
 
 
 
-
+class GameSingleton {
+    
+    static let sharedInstance = GameSingleton()
+    
+    var games : [Game] = []
+    
+    private init() {}
+}
 
 
 

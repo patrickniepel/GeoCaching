@@ -88,7 +88,6 @@ class ProfileViewController: UIViewController {
                 self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
                 self.achievementsCollectionView.reloadData()
             }
-            print("USER :) - \(user?.points)")
         }
     }
     
