@@ -88,12 +88,16 @@ class GameDownloadController {
                 
                 for (gameIndex, game) in gameList.enumerated() {
                     
-                    for (index, questID) in game.questIDs.enumerated() {
+                    var sortedQuestList = [Quest]()
+                    
+                    for questID in game.questIDs {
                         if let questIndex = game.quests.index(where: { $0.id == questID }) {
-                            gameList[gameIndex].quests.swapAt(questIndex, index)
+                            let quest = game.quests[questIndex]
+                            sortedQuestList.append(quest)
                         }
                     }
                     
+                    gameList[gameIndex].quests = sortedQuestList
                 }
                 
                 completion(gameList, nil)

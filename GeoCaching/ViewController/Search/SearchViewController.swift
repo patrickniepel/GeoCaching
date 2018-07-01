@@ -106,6 +106,12 @@ extension SearchViewController{
             self.games = GameSingleton.sharedInstance.games
             self.downloadFinished()
             print("#### - DOWNLOAD FINISHED GAMES (\(GameSingleton.sharedInstance.games.count)) - ####")
+            
+            print("### 1 \((GameSingleton.sharedInstance.games.first?.questIDs)!)")
+            print("### 2 \((GameSingleton.sharedInstance.games.first?.quests.map() { $0.id })!)")
+            for quest in (GameSingleton.sharedInstance.games.first?.quests)! {
+                print("-----> ID: \(quest.id)")
+            }
         }
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
