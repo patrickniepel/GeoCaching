@@ -253,6 +253,7 @@
                         <outlet property="distanceLabel" destination="yk8-pt-1YV" id="sMF-5Z-NZV"/>
                         <outlet property="hashtags" destination="zQM-d8-4bh" id="nww-X6-x6X"/>
                         <outlet property="highscoreTableView" destination="dl8-aa-xQW" id="nb1-B3-h6c"/>
+                        <outlet property="imageView" destination="9uj-Z0-FFL" id="dry-oG-xPq"/>
                         <outlet property="scrollView" destination="ytq-19-hFq" id="iC8-WT-gp9"/>
                         <outlet property="startGameButton" destination="Whp-3k-u4Z" id="sGz-5w-UkM"/>
                         <outlet property="subtitle" destination="cyA-hC-9jg" id="huI-fy-TK2"/>
