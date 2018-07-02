@@ -58,7 +58,7 @@ class GameViewController: UIViewController {
         let allLocations = allGameQuests.compactMap { $0.locationPolygonPoint }
         let currentQuestIndex = activeGameController.currentQuestIndex
         
-        theMapView.clear()
+        theMapView?.clear()
         
         for (index, location) in allLocations.enumerated() {
             if currentQuestIndex == index {
@@ -188,8 +188,6 @@ class GameViewController: UIViewController {
     
     // Test für rating und QR
     func test() {
-        let game = DummyContent.sharedInstance.universityGame
-        activeGameController = ActiveGameController(game: game)
         performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: 1000)
     }
     
