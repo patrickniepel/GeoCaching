@@ -284,6 +284,13 @@ class GameSingleton {
 }
 
 
+class UserSingleton {
+    static let sharedInstance = UserSingleton()
+    
+    var currentUser: User?
+    
+    private init() {}
+}
 
 
 

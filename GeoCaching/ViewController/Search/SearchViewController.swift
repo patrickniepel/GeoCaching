@@ -91,6 +91,9 @@ extension SearchViewController{
     
     func setupDesign() {
         loadingIndicator.isHidden = false
+        loadingIndicator.color = AppColor.text
+        loadingIndicator.activityIndicatorViewStyle = .whiteLarge
+        loadingIndicator.startAnimating()
         view.isUserInteractionEnabled = false
         self.view.backgroundColor = AppColor.background
         filterBarButttonItem.tintColor = AppColor.tint
@@ -142,6 +145,7 @@ extension SearchViewController{
         cardCollectionView.dataSource = cardCollectionViewDataSource
         
         loadingIndicator.isHidden = true
+        loadingIndicator.stopAnimating()
         view.isUserInteractionEnabled = true
         cardCollectionView.reloadData()
         setupLocations()
