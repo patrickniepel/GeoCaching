@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -189,15 +188,6 @@
                                                 </constraints>
                                                 <viewLayoutGuide key="safeArea" id="hIm-Lw-f8x"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEp-Wv-6Mb">
-                                                <rect key="frame" x="126" y="145" width="123" height="65"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Skip"/>
-                                                <connections>
-                                                    <action selector="SkipAction:" destination="eQm-MW-RoU" eventType="touchUpInside" id="P3h-3X-mbh"/>
-                                                    <action selector="skipAction:" destination="q2O-P7-MgR" eventType="touchUpInside" id="LVa-Vm-seG"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="79s-r4-0Jd" firstAttribute="centerY" secondItem="HlD-So-hAV" secondAttribute="centerY" id="CON-Df-Uar"/>
@@ -441,23 +431,6 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OM5-14-O7h">
                                 <rect key="frame" x="0.0" y="411" width="375" height="367"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lq-0r-zZS">
-                                        <rect key="frame" x="147" y="329" width="80" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="1zk-vG-VOE"/>
-                                            <constraint firstAttribute="height" constant="30" id="Rzi-77-6ry"/>
-                                        </constraints>
-                                        <state key="normal" title="Skip"/>
-                                        <connections>
-                                            <action selector="skipAction:" destination="q2O-P7-MgR" eventType="touchUpInside" id="o6c-Jp-rtf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="2lq-0r-zZS" secondAttribute="bottom" constant="8" id="2Vl-bb-WRy"/>
-                                    <constraint firstItem="2lq-0r-zZS" firstAttribute="centerX" secondItem="OM5-14-O7h" secondAttribute="centerX" id="KtX-ij-wzs"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bio-ZI-b9l" customClass="NVActivityIndicatorView" customModule="GeoCaching" customModuleProvider="target">
                                 <rect key="frame" x="157" y="381" width="60" height="60"/>

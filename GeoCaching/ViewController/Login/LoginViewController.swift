@@ -170,11 +170,6 @@ extension LoginViewController {
     @IBAction func registerAction(_ sender: UIButton) {
         
     }
-    
-    @IBAction func SkipAction(_ sender: UIButton) {
-        dismissLogin()
-    }
-    
 }
 
 
@@ -185,6 +180,12 @@ extension LoginViewController {
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let tabBarCtrl = appDelegate.createAppTabBarController()
 //        present(tabBarCtrl, animated: true)
+        
+        ProfileController().downloadUserProfileAndObserve { (user, error) in
+            if let user = user {
+                UserSingleton.sharedInstance.currentUser = user
+            }
+        }
         
         self.dismiss(animated: true, completion: nil)
     }

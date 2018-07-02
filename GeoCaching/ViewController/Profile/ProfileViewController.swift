@@ -28,8 +28,6 @@ class ProfileViewController: UIViewController {
     private var achievementsCollectionViewDataSource: ProfileAchievementsCollectionViewDataSource!
     private var achievementsCollectionViewDelegate: ProfileAchievementsCollectionViewDelegate!
     
-    var isCurrentUserProfile = true
-    
     private var profileCtrl = ProfileController()
     
     override func viewDidLoad() {
@@ -84,25 +82,12 @@ class ProfileViewController: UIViewController {
         
         authController = AuthController()
         
-        if isCurrentUserProfile {
-            profileCtrl.downloadUserProfileAndObserve { (user, error) in
-                if let user = user {
-                    UserSingleton.sharedInstance.currentUser = user
-                    self.setup(user: user)
-                    
-                    self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
-                    self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
-                    self.achievementsCollectionView.reloadData()
-                }
-            }
-        } else {
-            if let user = user {
-                self.setup(user: user)
-                
-                self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
-                self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
-                self.achievementsCollectionView.reloadData()
-            }
+        if let user = user {
+            self.setup(user: user)
+            
+            self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
+            self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
+            self.achievementsCollectionView.reloadData()
         }
     }
     

@@ -124,11 +124,6 @@ extension RegisterViewController {
         registerUser()
     }
     
-    @IBAction func skipAction(_ sender: UIButton) {
-        //showGameViewController()
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

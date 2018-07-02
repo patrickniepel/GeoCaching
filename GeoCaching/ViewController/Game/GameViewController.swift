@@ -310,7 +310,10 @@ extension GameViewController: CLLocationManagerDelegate {
                 if !hasZoomedToLocationOnAppStart {
                     self.theMapView.animate(to: camera)
                     hasZoomedToLocationOnAppStart = true
-                    drawLocationsInMap()
+                    
+                    if activeGameController != nil {
+                         drawLocationsInMap()
+                    }
                 }
             }
             print("location: \(location)")
