@@ -51,6 +51,17 @@ class GameDownloadController {
         }
     }
     
+    func downloadRating(for gameID: String, completion: @escaping (Int?, Error?) -> ()) {
+        gameDB.child(gameID).observeSingleEvent(of: .value) { (dataSnapshot) in
+            if let game = Game(snapshot: dataSnapshot) {
+                let rating = game.rating
+                completion(rating, nil)
+            } else {
+                completion(nil, nil)
+            }
+        }
+    }
+    
     func downloadAllGames(completion: @escaping ([Game], Error?) -> ()) {
         gameDB.observeSingleEvent(of: .value) { (dataSnapshot) in
             var gameList : [Game] = []

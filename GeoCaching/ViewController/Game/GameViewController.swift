@@ -188,8 +188,6 @@ class GameViewController: UIViewController {
     
     // Test für rating und QR
     func test() {
-        let game = DummyContent.sharedInstance.universityGame
-        activeGameController = ActiveGameController(game: game)
         performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: 1000)
     }
     
@@ -312,6 +310,7 @@ extension GameViewController: CLLocationManagerDelegate {
                 if !hasZoomedToLocationOnAppStart {
                     self.theMapView.animate(to: camera)
                     hasZoomedToLocationOnAppStart = true
+                    drawLocationsInMap()
                 }
             }
             print("location: \(location)")
@@ -354,6 +353,8 @@ extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
     
     func userAnsweredQuestion(vc: QuestionViewController) {
         
+        vc.dismiss(animated: true, completion: nil)
+        
         if activeGameController.hasGameCompleted() {
             let profileCtrl = ProfileController()
             let pointsToAdd = activeGameController.calculatePoints()
@@ -367,7 +368,6 @@ extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
             performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: userPoints)
         }
         
-        vc.dismiss(animated: true, completion: nil)
         activeGameController.nextQuest()
         drawLocationsInMap()
         

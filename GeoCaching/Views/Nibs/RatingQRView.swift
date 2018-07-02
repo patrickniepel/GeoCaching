@@ -12,6 +12,7 @@ class RatingQRView: UIView {
 
     var game: Game? = nil
     var userPoints = 0
+    var delegate : RatingSliderDelegate? = nil
     func setupLayout() {}
 
 }
