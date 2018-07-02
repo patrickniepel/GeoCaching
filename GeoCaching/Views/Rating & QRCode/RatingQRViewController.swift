@@ -22,7 +22,7 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
     
     private lazy var userDidCloseIntentionally = false
     
-    private var ratingQRState: RatingQR = .qr
+    private var ratingQRState: RatingQR = .rating
     var ratingQRView = RatingQRView()
     
     //Default rating value
@@ -113,9 +113,14 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
     
     private func updateDatabases() {
         GameUploadController().updateRating(ofGameID: game.id, withRating: ratingSliderValue)
+        
         let profileCtrl = ProfileController()
         profileCtrl.updateUserPoints(pointsToAdd: userPoints)
-        profileCtrl.updateUserProfile(newAchivementType: .firstOfAll)
+        
+        //If achievement does not already exist, it will be appended to array
+        if !(UserSingleton.sharedInstance.currentUser?.earnedAchivements.map ({ $0.type }).contains(.firstChallengeCompleted))! {
+            profileCtrl.updateUserProfile(newAchivementType: .firstChallengeCompleted)
+        }
     }
     
     private func dismissScreen() {
