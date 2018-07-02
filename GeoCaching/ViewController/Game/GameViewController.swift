@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import FirebaseAuth
 
 enum SwissArmy {
     case height
@@ -20,6 +21,7 @@ enum SwissArmy {
 
 protocol ActiveGameDelegate {
     func userAnsweredQuestion(vc: QuestionViewController)
+    func userClosedQuestionScreen(vc: QuestionViewController)
 }
 
 class GameViewController: UIViewController {
@@ -27,6 +29,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var swissViewLabel: UILabel!
     
     var swissArmyElement = SwissArmy.none
+    var lastLocation: CLLocation = CLLocation(latitude: 0, longitude: 0) {
+        didSet {
+            updateSiwssArmyUI(forLocation: lastLocation)
+        }
+    }
     
     @IBOutlet weak var expendableMenuButton: MenuButton!
     
@@ -96,6 +103,7 @@ class GameViewController: UIViewController {
         setupDesign()
         setupText()
         setupData()
+        //test() //für rating und qr screen
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,6 +113,16 @@ class GameViewController: UIViewController {
             destVC.activeGameCtrl = activeGameController
             destVC.activeGameDelegate = self
             print("ActiveGameCtrl", activeGameController.currentQuest)
+        }
+        if segue.identifier == RatingQRSegues.displayRating.identifier {
+            
+            let destVC = segue.destination as! RatingQRViewController
+            destVC.game = activeGameController.game
+            destVC.ratingQRDelegate = self
+            
+            if let userPoints = sender as? Int {
+                destVC.userPoints = userPoints
+            }
         }
     }
     
@@ -166,6 +184,13 @@ class GameViewController: UIViewController {
         
         informationBackground.backgroundColor = AppColor.background
         updateUI(forLocation: nil)
+    }
+    
+    // Test für rating und QR
+    func test() {
+        let game = DummyContent.sharedInstance.universityGame
+        activeGameController = ActiveGameController(game: game)
+        performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: 1000)
     }
     
     @objc func doIt() {
@@ -255,16 +280,32 @@ class GameViewController: UIViewController {
     
     private func showSwissArmyView() {
         self.swissView.isHidden = false
+        updateSiwssArmyUI(forLocation: lastLocation)
         UIView.animate(withDuration: 1.0) {
             self.swissView.alpha = 1.0
         }
     }
     
+    func updateSiwssArmyUI(forLocation location: CLLocation) {
+        switch swissArmyElement {
+        case .location:
+            let str = "lat: \(location.coordinate.latitude)\nlng: \(location.coordinate.longitude)"
+            swissViewLabel.text = str
+        case .speed:
+            let str = "Speed: \(location.speed)"
+            swissViewLabel.text = str
+        case .height:
+            let str = "Altitude: \(String(format: "%.1f", arguments: [Double(location.altitude)])) m"
+            swissViewLabel.text = str
+        default: break
+        }
+    }
 }
 
 extension GameViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            lastLocation = location
             let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude, zoom: 17.0)
             if theMapView != nil {
@@ -275,18 +316,7 @@ extension GameViewController: CLLocationManagerDelegate {
             }
             print("location: \(location)")
             
-            switch swissArmyElement {
-            case .location:
-                let str = "lat: \(location.coordinate.latitude)\nlng: \(location.coordinate.longitude)"
-                swissViewLabel.text = str
-            case .speed:
-                let str = "Speed: \(location.speed)"
-                swissViewLabel.text = str
-            case .height:
-                let str = "Altitude: \(String(format: "%.1f", arguments: [Double(location.altitude)])) m"
-                swissViewLabel.text = str
-            default: break
-            }
+            
             
             updateUI(forLocation: location.coordinate)
         }
@@ -320,9 +350,23 @@ extension GameViewController: CLLocationManagerDelegate {
 }
 
 
-extension GameViewController: ActiveGameDelegate {
+extension GameViewController: ActiveGameDelegate, RatingQRDelegate {
     
     func userAnsweredQuestion(vc: QuestionViewController) {
+        
+        if activeGameController.hasGameCompleted() {
+            let profileCtrl = ProfileController()
+            let pointsToAdd = activeGameController.calculatePoints()
+            profileCtrl.updateUserPoints(pointsToAdd: pointsToAdd)
+            
+            //let game = activeGameController.game
+            let userPoints = activeGameController.calculatePoints()
+            
+            // TODO: ✅ Patrick das Game übergeben
+            print("GAME IS OVER :)")
+            performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: userPoints)
+        }
+        
         vc.dismiss(animated: true, completion: nil)
         activeGameController.nextQuest()
         drawLocationsInMap()
@@ -330,8 +374,14 @@ extension GameViewController: ActiveGameDelegate {
         informationBackground.layer.borderColor = AppColor.backgroundLighter2.cgColor
         informationButtonOutlet.isUserInteractionEnabled = false
         informationButtonOutlet.setTitleColor(AppColor.backgroundLighter2, for: .normal)
-        
-        print("HAS GAME FINISHED??? :) ---> \(activeGameController.hasGameCompleted())")
+    }
+    
+    func userClosedQuestionScreen(vc: QuestionViewController) {
+        vc.dismiss(animated: true, completion: nil)
+    }
+    
+    func userClosedRatingQRScreen(vc: RatingQRViewController) {
+        vc.dismiss(animated: true, completion: nil)
     }
 }
 

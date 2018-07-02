@@ -164,6 +164,15 @@
 		A30E666520DA424600E6EC72 /* DateQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666420DA424600E6EC72 /* DateQuestion.swift */; };
 		A30E666720DA425000E6EC72 /* ImageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666620DA425000E6EC72 /* ImageQuestion.swift */; };
 		A30E666920DA429200E6EC72 /* NumberQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E666820DA429200E6EC72 /* NumberQuestion.swift */; };
+		A337A7BA20E4258B00668632 /* RatingQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7B920E4258B00668632 /* RatingQRViewController.swift */; };
+		A337A7BE20E4260400668632 /* RatingQRDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7BD20E4260400668632 /* RatingQRDelegate.swift */; };
+		A337A7C020E4264900668632 /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A337A7BF20E4264900668632 /* RatingView.xib */; };
+		A337A7C220E4265600668632 /* QRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A337A7C120E4265600668632 /* QRCodeView.xib */; };
+		A337A7C420E4267500668632 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7C320E4267500668632 /* QRCodeView.swift */; };
+		A337A7C620E4268300668632 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7C520E4268300668632 /* RatingView.swift */; };
+		A337A7C820E426A200668632 /* RatingQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7C720E426A200668632 /* RatingQRView.swift */; };
+		A337A7CA20E4277100668632 /* RatingQRSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7C920E4277100668632 /* RatingQRSegues.swift */; };
+		A337A7CC20E42CBA00668632 /* RatingSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A337A7CB20E42CBA00668632 /* RatingSliderDelegate.swift */; };
 		A33C82CE20AC0C2B005762C2 /* testy2.dae in Resources */ = {isa = PBXBuildFile; fileRef = A33C82CD20AC0C2B005762C2 /* testy2.dae */; };
 		A33C82D020AC10BA005762C2 /* ProfileFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */; };
 		A33C82D620AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */; };
@@ -377,6 +386,15 @@
 		A30E666420DA424600E6EC72 /* DateQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateQuestion.swift; sourceTree = "<group>"; };
 		A30E666620DA425000E6EC72 /* ImageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuestion.swift; sourceTree = "<group>"; };
 		A30E666820DA429200E6EC72 /* NumberQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberQuestion.swift; sourceTree = "<group>"; };
+		A337A7B920E4258B00668632 /* RatingQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingQRViewController.swift; sourceTree = "<group>"; };
+		A337A7BD20E4260400668632 /* RatingQRDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingQRDelegate.swift; sourceTree = "<group>"; };
+		A337A7BF20E4264900668632 /* RatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
+		A337A7C120E4265600668632 /* QRCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeView.xib; sourceTree = "<group>"; };
+		A337A7C320E4267500668632 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		A337A7C520E4268300668632 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		A337A7C720E426A200668632 /* RatingQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingQRView.swift; sourceTree = "<group>"; };
+		A337A7C920E4277100668632 /* RatingQRSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingQRSegues.swift; sourceTree = "<group>"; };
+		A337A7CB20E42CBA00668632 /* RatingSliderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingSliderDelegate.swift; sourceTree = "<group>"; };
 		A33C82CD20AC0C2B005762C2 /* testy2.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = testy2.dae; sourceTree = "<group>"; };
 		A33C82CF20AC10B9005762C2 /* ProfileFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsViewController.swift; sourceTree = "<group>"; };
 		A33C82D320AC10FD005762C2 /* ProfileFriendsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFriendsTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -600,6 +618,7 @@
 		0FF2A58B20A19E8400486CAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A337A7B820E4252300668632 /* Rating & QRCode */,
 				A30E664C20DA3B9400E6EC72 /* Nibs */,
 				17BC44E920AD6E5600062876 /* PopupDialog */,
 				17BC449720AD6E1E00062876 /* NVActivityIndicatorView */,
@@ -801,12 +820,15 @@
 		A30E664C20DA3B9400E6EC72 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				A337A7BC20E425C500668632 /* QR */,
+				A337A7BB20E425BE00668632 /* Rating */,
 				A30E665B20DA41D600E6EC72 /* TextInput */,
 				A30E665C20DA41DD00E6EC72 /* FourChoices */,
 				A30E665D20DA41E500E6EC72 /* Date */,
 				A30E665F20DA41EE00E6EC72 /* Image */,
 				A30E665E20DA41EB00E6EC72 /* Number */,
 				A350A3ED20DA82DC009BE2B4 /* QuestionView.swift */,
+				A337A7C720E426A200668632 /* RatingQRView.swift */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -856,6 +878,33 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		A337A7B820E4252300668632 /* Rating & QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				A337A7B920E4258B00668632 /* RatingQRViewController.swift */,
+				A337A7C920E4277100668632 /* RatingQRSegues.swift */,
+			);
+			path = "Rating & QRCode";
+			sourceTree = "<group>";
+		};
+		A337A7BB20E425BE00668632 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				A337A7BF20E4264900668632 /* RatingView.xib */,
+				A337A7C520E4268300668632 /* RatingView.swift */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
+		A337A7BC20E425C500668632 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				A337A7C120E4265600668632 /* QRCodeView.xib */,
+				A337A7C320E4267500668632 /* QRCodeView.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
 		A33C82CC20AC0C10005762C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +935,8 @@
 			isa = PBXGroup;
 			children = (
 				A35B0F0120DB776D00E8CEA5 /* QuestionAnswerDelegate.swift */,
+				A337A7BD20E4260400668632 /* RatingQRDelegate.swift */,
+				A337A7CB20E42CBA00668632 /* RatingSliderDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1126,6 +1177,7 @@
 				A30E665220DA3F7D00E6EC72 /* FourChoicesView.xib in Resources */,
 				0FA96BEE20A39726005485A3 /* style.json in Resources */,
 				A3E5F2D520D2473700CA6156 /* firstOfAll.dae in Resources */,
+				A337A7C220E4265600668632 /* QRCodeView.xib in Resources */,
 				A342AFC120D154A100B2DD55 /* firstChallengeCompleted.dae in Resources */,
 				A30E665820DA3FC100E6EC72 /* ImageView.xib in Resources */,
 				17508F0420B694DE00E3C0EA /* GameDetailHighscoreTableViewCell.xib in Resources */,
@@ -1133,6 +1185,7 @@
 				A397AACA2087645400289B7D /* LaunchScreen.storyboard in Resources */,
 				A39537A620D158D00002E455 /* TexturesCom_GoldPaint_1024_albedo.tif in Resources */,
 				A39537AA20D158F10002E455 /* TexturesCom_ScratchedMetal_1024_albedo.tiff in Resources */,
+				A337A7C020E4264900668632 /* RatingView.xib in Resources */,
 				A30E665020DA3F6F00E6EC72 /* TextInputView.xib in Resources */,
 				0FF2A57F20A1931100486CAC /* Highscore.storyboard in Resources */,
 				0FF2A58120A1931700486CAC /* Profile.storyboard in Resources */,
@@ -1294,8 +1347,10 @@
 				17BC450220AD6E5600062876 /* UIViewController+Visibility.swift in Sources */,
 				A30E666920DA429200E6EC72 /* NumberQuestion.swift in Sources */,
 				17BC450720AD6E5600062876 /* PopupDialogDefaultButtons.swift in Sources */,
+				A337A7BE20E4260400668632 /* RatingQRDelegate.swift in Sources */,
 				17BC44D020AD6E4200062876 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				17BC44FB20AD6E5600062876 /* PresentationController.swift in Sources */,
+				A337A7C820E426A200668632 /* RatingQRView.swift in Sources */,
 				0FF2A59320A1DEF700486CAC /* ProfileAchievementsCollectionViewCell.swift in Sources */,
 				17BC44E820AD6E4200062876 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				17BC44D720AD6E4200062876 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
@@ -1305,6 +1360,7 @@
 				0F44FFC020A97BBD007D1093 /* CardCollectionViewCell.swift in Sources */,
 				17BC44FA20AD6E5600062876 /* InteractiveTransition.swift in Sources */,
 				0FA96BD320A31FCE005485A3 /* HighscoreTableViewDataSource.swift in Sources */,
+				A337A7CA20E4277100668632 /* RatingQRSegues.swift in Sources */,
 				17BC450920AD6E5600062876 /* PopupDialogContainerView.swift in Sources */,
 				17BC44E320AD6E4200062876 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				0FF2A56920A18D9900486CAC /* ProfileError.swift in Sources */,
@@ -1320,6 +1376,7 @@
 				0F01770A20B88C1000CEFCD8 /* CreateGameQuestOverviewCollectionViewDropDelegate.swift in Sources */,
 				0F01DDB220AC6F5D0064ED11 /* CreateSegues.swift in Sources */,
 				17BC44FE20AD6E5600062876 /* PopupDialogDefaultView.swift in Sources */,
+				A337A7C620E4268300668632 /* RatingView.swift in Sources */,
 				17BC44E720AD6E4200062876 /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				0F01770420B88B0600CEFCD8 /* Quest.swift in Sources */,
 				0F56B95820B541BC00CEAEBE /* AddGameCategoriesTableViewController.swift in Sources */,
@@ -1331,6 +1388,7 @@
 				0F01770620B88BBF00CEFCD8 /* CreateGameQuestOverviewCollectionViewDataSource.swift in Sources */,
 				17BC44E020AD6E4200062876 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				17BC44FF20AD6E5600062876 /* PopupDialog.swift in Sources */,
+				A337A7BA20E4258B00668632 /* RatingQRViewController.swift in Sources */,
 				A397AAFF20878C4F00289B7D /* SearchViewController.swift in Sources */,
 				0FA96BD720A326B7005485A3 /* UIProfileImageView.swift in Sources */,
 				17BC44C420AD6E4200062876 /* NVActivityIndicatorView.swift in Sources */,
@@ -1378,6 +1436,7 @@
 				17BC44C920AD6E4200062876 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
 				A35B0F0220DB776D00E8CEA5 /* QuestionAnswerDelegate.swift in Sources */,
+				A337A7C420E4267500668632 /* QRCodeView.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,
 				0FF2A58D20A19EAE00486CAC /* UIGeoButton.swift in Sources */,
 				0F0807A72099FBC100F716E1 /* ProfileController.swift in Sources */,
@@ -1414,6 +1473,7 @@
 				17BC44CE20AD6E4200062876 /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
 				17BC44CD20AD6E4200062876 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				A30CC5D320C7C18A0017DEE1 /* QuestCategory.swift in Sources */,
+				A337A7CC20E42CBA00668632 /* RatingSliderDelegate.swift in Sources */,
 				0FF2A59B20A1DF3F00486CAC /* ProfileActionTableViewDelegate.swift in Sources */,
 				0F81259620A441BA0045C268 /* MenuButton.swift in Sources */,
 				0FF2A5A020A1DFB400486CAC /* ProfileActionEntry.swift in Sources */,
@@ -1600,7 +1660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6C2B5VUSRK;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1620,7 +1680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6C2B5VUSRK;
+				DEVELOPMENT_TEAM = 5DB3XUQ936;
 				INFOPLIST_FILE = GeoCaching/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

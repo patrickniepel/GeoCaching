@@ -81,25 +81,24 @@ struct DummyContent {
                               duration: 21123,
                               length: 1.4,
                               image: UIImage(named: "cover_game_hof"),
-                              rating: 5,
                               quests: [Quest(answers: ["Antwort 1"],
                                              question: "Wer ist der Ehrenbürger der Stadt Hof der im Dezember 1991 gestorben ist und in Verbindung mit der Hochschule steht.",
                                              image: UIImage(named: "cover_1"),
                                              questionType: QuestionType.textInput,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324774,
-                                                                                          longitude: 11.941077), radius: 1000),
+                                                                                          longitude: 11.941077), radius: 3000),
                                        Quest(answers: ["Norden", "Osten", "Süden", "nach links"],
                                              question: "In welche Himmelsrichtung zeigt dieser Pfeil an der Bushaltestelle?",
                                              image: UIImage(named: "cover_2"),
                                              questionType: QuestionType.fourChoices,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.323779,
-                                                                                          longitude: 11.940323), radius: 1000),
+                                                                                          longitude: 11.940323), radius: 3000),
                                        Quest(answers: ["20", "100", "1.000.000", "welches Dach?"],
                                              question: "Wie viele Fahrradstellplätze gibt es unter diesem Dach?",
                                              image: UIImage(named: "cover_3"),
                                              questionType: QuestionType.number,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324181,
-                                                                                            longitude: 11.939300), radius: 1000)
+                                                                                            longitude: 11.939300), radius: 3000)
 //                                       Quest(answers: ["2", "4", "8", "16"],
 //                                             question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
 //                                             image: UIImage(named: "yoga"),
@@ -126,7 +125,6 @@ struct DummyContent {
                               duration: 2300,
                               length: 10.4,
                               image: UIImage(named: "cover_game_1"),
-                              rating: 5,
                               quests: [
                                 Quest(answers: ["Answer"],
                                              question: "Question ",
@@ -141,7 +139,6 @@ struct DummyContent {
                      duration: 1234,
                      length: 12.34,
                      image: UIImage(named: "cover_game_2"),
-                     rating: 3,
                      quests: [
                         Quest(answers: ["Answer"],
                               question: "Question ",
@@ -156,7 +153,6 @@ struct DummyContent {
                      duration: 2900,
                      length: 19.4,
                      image: UIImage(named: "cover_game_3"),
-                     rating: 4,
                      quests: [
                         Quest(answers: ["Answer"],
                               question: "Question ",
@@ -171,7 +167,6 @@ struct DummyContent {
                      duration: 4900,
                      length: 120.4,
                      image: UIImage(named: "cover_game_4"),
-                     rating: 1,
                      quests: [
                         Quest(answers: ["Answer"],
                               question: "Question ",
@@ -278,11 +273,14 @@ class ActiveGameController {
 
 
 
-
-
-
-
-
+class GameSingleton {
+    
+    static let sharedInstance = GameSingleton()
+    
+    var games : [Game] = []
+    
+    private init() {}
+}
 
 
 

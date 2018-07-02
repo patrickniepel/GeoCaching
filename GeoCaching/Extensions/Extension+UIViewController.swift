@@ -27,6 +27,20 @@ extension UIViewController {
             print("Hello inside Button Action from Popup Error")
         }))
         
+        showPopupDialog(dialog: popup)
+    }
+    
+    func informationPopupDialog(title: String, message: String, actionText: String, delegate: ActiveGameDelegate? = nil, vc: QuestionViewController? = nil) {
+        let popup = PopupDialog(title: title, message: message)
+        popup.addButton(PopupDialogButton(title: "Continue", height: 60, dismissOnTap: true, action: {
+            if let delegate = delegate, let vc = vc {
+                delegate.userAnsweredQuestion(vc: vc)
+            }
+        }))
+        showPopupDialog(dialog: popup)
+    }
+    
+    private func showPopupDialog(dialog: PopupDialog) {
         let dialogAppearance = PopupDialogDefaultView.appearance()
         
         dialogAppearance.backgroundColor      = AppColor.background
@@ -46,7 +60,7 @@ extension UIViewController {
         buttonAppearance.separatorColor = .black
         
         
-        present(popup, animated: true)
+        present(dialog, animated: true)
     }
     
     func alert(for title: String, message: String, actionText: String, delegate: ActiveGameDelegate? = nil, vc: QuestionViewController? = nil) -> UIAlertController {

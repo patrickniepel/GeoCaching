@@ -26,9 +26,7 @@ class TextInputQuestion: QuestionView {
     
     @IBAction func inputChanged(_ sender: UITextField) {
         guard let delegate = delegate else { return }
-        
-        
-        
+ 
         guard let answerText = sender.text else { return }
         
         delegate.answer(answerText)

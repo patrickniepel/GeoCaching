@@ -29,157 +29,83 @@ class GameDownloadController {
         gameImageManager = FirebaseImageManager(database: .game)
     }
     
-    // MARK: - Quest
+
+    func download(gameImageforGameID gameID: String, completion: @escaping (UIImage?) -> ()) {
+        gameImageManager.download(imageWithName: gameID) { (image) in
+            completion(image)
+        }
+    }
     
-    private func downloadAllGames(completion: @escaping ([Game]?, Error?) -> ()) {
+    func download(questWithID questID: String, completion: @escaping (Quest?, Error?) -> ()) {
+        questDB.child(questID).observeSingleEvent(of: .value) { (dataSnapshot) in
+            if var quest = Quest(snapshot: dataSnapshot) {
+                
+                self.questImageManager.download(imageWithName: questID, completion: { (questCoverImage) in
+                    quest.image = questCoverImage
+                    completion(quest, nil)
+                })
+                
+            } else {
+                completion(nil, nil)
+            }
+        }
+    }
+    
+    func downloadAllGames(completion: @escaping ([Game], Error?) -> ()) {
         gameDB.observeSingleEvent(of: .value) { (dataSnapshot) in
             var gameList : [Game] = []
             for gameSnapShot in dataSnapshot.children.allObjects as! [DataSnapshot] {
                 if let game = Game(snapshot: gameSnapShot){
                     gameList.append(game)
-                }else{
-                    completion(nil, GameError.failedFetchingGame)
+                } else {
+                    completion([], GameError.failedFetchingGame)
                 }
             }
-            completion(gameList, nil)
-        }
-    }
-    
-    private func downloadGame(for id: String, completion: @escaping (Game?, Error?) -> ()) {
-        gameDB.child(id).observeSingleEvent(of: .value) { (dataSnapshot) in
-            if let game = Game(snapshot: dataSnapshot){
-                completion(game,nil)
-            }else{
-                completion(nil, GameError.failedFetchingGame)
-            }
-        }
-    }
-    
-    private func downloadGameWithQuests(for id: String, completion: @escaping (Game?, Error?) -> ()) {
-        downloadGame(for: id) { (downloadedGame, error) in
-            var gameToPass : Game? = nil
-            if let error = error{
-                completion(nil, error)
-            }else{
-                if let game = downloadedGame{
-                    self.downloadQuests(for: game) { (downloadedQuestList, error) in
-                        if let error = error{
-                            completion(nil, error)
-                        }else{
-                            gameToPass = game
-                            gameToPass?.quests = downloadedQuestList!
-                            completion(gameToPass, nil)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func downloadQuests(for game: Game, completion: @escaping ([Quest]?,Error?) -> ()) {
-        var questList : [Quest] = []
-        let group = DispatchGroup()
-        for questID in game.questIDs {
-            group.enter()
-            questDB.child(questID).observeSingleEvent(of: .value) { (dataSnapshot) in
-                if let quest = Quest(snapshot: dataSnapshot){
-                    questList.append(quest)
-                }else{
-                    completion(nil,QuestError.failedFetchingQuest)
-                }
-                group.leave()
-            }
-        }
-        
-        group.notify(queue: DispatchQueue.main) {
-            completion(questList, nil)
-        }
-    }
-    
-    func fetchAllGames(notificationName : Notification.Name? = nil){
-        downloadAllGames { (downloadedGames, error) in
-            if let error = error{
-                print(error)
-            }else{
-                guard let games = downloadedGames else{ return }
-                self.model.games = games
-                if let notification = notificationName{
-                    NotificationCenter.default.post(Notification(name: notification))
-                }
-            }
-        }
-    }
-    
-    func fetchAllGamesWithQuests(notificationName : Notification.Name? = nil){
-        downloadAllGames { (downloadedGames, error) in
-            if let error = error {
-                print(error)
-            }else{
-                guard let games = downloadedGames else { return }
-                self.model.games = games
-                let group = DispatchGroup()
-                for game in games{
+            
+            // games in gameList - beinhalten kein Titelbild + keine Quests
+            let group = DispatchGroup()
+            
+            for (index, game) in gameList.enumerated() {
+                
+                group.enter()
+                self.download(gameImageforGameID: game.id, completion: { (gameCoverImage) in
+                    gameList[index].image = gameCoverImage
+                    group.leave()
+                })
+                
+                for questID in game.questIDs {
                     group.enter()
-                    let index = self.getGameIndex(for: game.id)
-                    self.downloadGameWithQuests(for: game.id, completion: { (downloadedGame, error) in
-                        if let error = error{
-                            print(error)
-                        }else{
-                            guard let newGame = downloadedGame else { return }
-                            self.model.games[index] = newGame
-                            print(newGame.name)
-                        }
+                    self.download(questWithID: questID, completion: { (quest, error) in
+                        guard let quest = quest else { return }
+                        gameList[index].quests.append(quest)
                         group.leave()
                     })
                 }
-                group.notify(queue: DispatchQueue.main){
-                    if let notification = notificationName{
-                        NotificationCenter.default.post(Notification(name: notification))
+            }
+            
+            group.notify(queue: .main, execute: {
+                // quests in die richtige Reihenfolge sortieren
+                
+                for (gameIndex, game) in gameList.enumerated() {
+                    
+                    var sortedQuestList = [Quest]()
+                    
+                    for questID in game.questIDs {
+                        if let questIndex = game.quests.index(where: { $0.id == questID }) {
+                            let quest = game.quests[questIndex]
+                            sortedQuestList.append(quest)
+                        }
                     }
+                    
+                    gameList[gameIndex].quests = sortedQuestList
                 }
-            }
+                
+                completion(gameList, nil)
+            })
+            
         }
-    }
-    
-    func fetchQuests(notificationName : Notification.Name? = nil, for game: Game){
-        downloadQuests(for: game) { (downloadedQuests, error) in
-            if let error = error{
-                print(error)
-            }else{
-                guard let quests = downloadedQuests else { return }
-                let index = self.getGameIndex(for: game.id)
-                self.model.games[index].quests = quests
-                if let notification = notificationName{
-                    NotificationCenter.default.post(Notification(name: notification))
-                }
-            }
-        }
-    }
-    
-    private func getGameIndex(for id : String) -> Int {
-        for (index, element) in model.games.enumerated() {
-            if element.id == id{
-                return index
-            }
-        }
-        return -1
-    }
-    
-    func getAllGames() -> [Game]{
-        return model.games
-    }
-    
-    func getGame(for id: String) -> Game{
-        return model.games.filter{ $0.id == id}[0]
+
     }
     
 }
 
-class GameSingleton{
-    
-    static let sharedInstance = GameSingleton()
-    
-    var games : [Game] = []
-    
-    private init() {}
-}

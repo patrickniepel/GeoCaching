@@ -25,7 +25,7 @@ struct GameController {
                         categories: [.nature, .city, .under10km],
                         duration: 97, length: 2.7,
                         image: nil,
-                        rating: 21, quests: [])
+                        quests: [])
         delegate?.downloaded(games: [game])
     }
 }
