@@ -113,6 +113,7 @@ class HighscoreViewController: UIViewController, UIPopoverPresentationController
             }else{
                 if let users = downloadedUsers{
                     self.highscoreTableViewDataSource.data = users
+                    self.highscoreTableViewDataSource.data.sort(by: { $0.points > $1.points })
                     self.highscoreTableView.reloadData()
                 }
             }
