@@ -39,9 +39,7 @@ class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let readableTime = RouteController().readableValue(forTravelTime: games[indexPath.row].duration)
         cell.firstIconLabel.text = readableTime
         cell.secondIconImageView.image = UIImage(named: "icon_walking")
-        print(games[indexPath.row].length)
         let readableDistance = RouteController().readableValue(forDistance: games[indexPath.row].length)
-        print(readableDistance)
         cell.secondIconLabel.text = readableDistance
         cell.cardTitleLabel.text = games[indexPath.row].name
         cell.cardDescriptionLabel.text = games[indexPath.row].shortDescription

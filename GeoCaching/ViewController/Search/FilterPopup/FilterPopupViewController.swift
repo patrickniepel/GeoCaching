@@ -40,10 +40,12 @@ class FilterPopupViewController: UIViewController {
     func setupData(){
         delegate = FilterPopupTableViewDelegate()
         dataSource = FilterPopupTableViewDataSource()
-        if let destination = destinationSearch{
+        if let destination = destinationSearch {
             delegate.destinationSearch = destination
-        }else if let destination = desitinationHighscore{
+            dataSource.destinationSearch = destination
+        }else if let destination = desitinationHighscore {
             delegate.desitinationHighscore = destination
+            dataSource.desitinationHighscore = destination
         }
         tableView.delegate = delegate
         tableView.dataSource = dataSource
