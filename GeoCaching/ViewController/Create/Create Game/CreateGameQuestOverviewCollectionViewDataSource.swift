@@ -42,7 +42,6 @@ class CreateGameQuestOverviewCollectionViewDelegate: NSObject, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected Item: \(indexPath)")
         if let dSource = collectionView.dataSource as? CreateGameQuestOverviewCollectionViewDataSource {
             let selectedQuest = dSource.getQuest(atIndexPath: indexPath)
             vCtrl.performSegue(withIdentifier: CreateStoryboardSegue.editQuest.identifier, sender: selectedQuest)

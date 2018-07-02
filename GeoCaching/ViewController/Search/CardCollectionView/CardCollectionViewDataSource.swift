@@ -40,7 +40,6 @@ class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         cell.firstIconLabel.text = readableTime
         cell.secondIconImageView.image = UIImage(named: "icon_walking")
         let readableDistance = RouteController().readableValue(forDistance: games[indexPath.row].length)
-        print(readableDistance)
         
         if games[indexPath.row].name != GameSingleton.sharedInstance.weilMorgenDieAbgabeIst {
             cell.bannerImageView.isHidden = true

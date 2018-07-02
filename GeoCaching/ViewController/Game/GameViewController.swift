@@ -112,7 +112,6 @@ class GameViewController: UIViewController {
             let destVC = segue.destination as! QuestionViewController
             destVC.activeGameCtrl = activeGameController
             destVC.activeGameDelegate = self
-            print("ActiveGameCtrl", activeGameController.currentQuest)
         }
         if segue.identifier == RatingQRSegues.displayRating.identifier {
             
@@ -180,7 +179,7 @@ class GameViewController: UIViewController {
 //        theMapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
         self.view.addSubview(expendableMenuButton)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Game", style: .done, target: self, action: #selector(doIt))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start Game", style: .done, target: self, action: #selector(doIt))
         
         informationBackground.backgroundColor = AppColor.background
         updateUI(forLocation: nil)
@@ -316,7 +315,6 @@ extension GameViewController: CLLocationManagerDelegate {
                     }
                 }
             }
-            print("location: \(location)")
             
             
             
@@ -324,7 +322,6 @@ extension GameViewController: CLLocationManagerDelegate {
         }
         
         if activeGameController != nil {
-            print("USER POINTS: --- \(activeGameController.calculatePoints())")
         }
     }
     

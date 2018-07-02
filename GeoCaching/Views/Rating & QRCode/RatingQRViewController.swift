@@ -103,7 +103,6 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
         if ratingQRState == .rating {
             updateDatabases()
             
-            print("SLIDERVALUE", ratingSliderValue)
             loadQRView()
         }
         else if ratingQRState == .qr {
@@ -131,6 +130,5 @@ class RatingQRViewController: UIViewController, RatingSliderDelegate {
     
     func changedSliderValue(sliderValue: Int) {
         ratingSliderValue = sliderValue
-        print("Quests", game.toDictionary)
     }
 }

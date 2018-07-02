@@ -245,7 +245,6 @@ extension CreateQuestViewController: CreateQuestControllerDelegate {
     }
     
     func createQuest(progress: Float) {
-        print("PROGRESS: \(progress)")
         self.title = String(format: "%.0f %%", progress*100)
     }
 }
@@ -255,7 +254,6 @@ extension CreateQuestViewController: CreateQuestControllerDelegate {
 
 extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
     func didAdd(locationCoordinate2D: CLLocationCoordinate2D, withRadius radius: Float) {
-        print("coordinate: \(locationCoordinate2D) - \(radius)")
         set(location: locationCoordinate2D)
         questCreatorController.set(locationPolygonPoint: locationCoordinate2D)
         questCreatorController.set(radius: Double(radius))
@@ -265,7 +263,6 @@ extension CreateQuestViewController: DrawQuestAreaViewControllerDelegate {
 
 extension CreateQuestViewController: CreateQuestSelectQuestGameCategoryTableViewControllerDelegate {
     func didSelect(questionType: QuestionType) {
-        print("selectedQuestionType: \(questionType)")
         set(questionType: questionType)
         self.questionType = questionType
         questCreatorController.set(questionType: questionType)

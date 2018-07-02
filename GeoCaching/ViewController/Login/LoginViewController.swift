@@ -147,7 +147,6 @@ class LoginViewController: UIViewController , NVActivityIndicatorViewable{
                 self.handleErrorPopupDialog(error: error)
                 self.loginButtonOutlet.isEnabled = true
             }else if let user = user{
-                print(user)
                 self.dismissLogin()
             }
             

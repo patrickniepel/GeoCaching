@@ -46,8 +46,8 @@ class CreateGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Upload", style: .done, target: self, action: #selector(doIt))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .done, target: self, action: #selector(doIt2))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Upload", style: .done, target: self, action: #selector(doIt))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .done, target: self, action: #selector(doIt2))
         
         setupDesign()
         setupText()
@@ -74,10 +74,9 @@ class CreateGameViewController: UIViewController {
         gameDownloadController.downloadAllGames { (allGames, error) in
             print("Download-Error: \(error)")
             for game in allGames {
-                print("gameID: \(game.id) - image: \( game.image)")
                 
                 for quest in game.quests {
-                    print("Quest: \(quest.id) - \(quest.image)")
+
                 }
             }
         }
@@ -134,6 +133,8 @@ class CreateGameViewController: UIViewController {
         
         informationBackgroundView.layer.cornerRadius = 10
         informationBackgroundView.backgroundColor = AppColor.backgroundLighter
+        
+        categoriesLabel.text = ""
     }
     
     func setupData() {
@@ -294,7 +295,6 @@ extension CreateGameViewController: CreateGameControllerDelegate {
     func gameInfoDidChange(duration: Double, length: Double) {
         durationLabel.text = "\(duration)"
         lengthLabel.text = "\(length)"
-        print("info did change: \(duration) -- \(length)")
     }
     
     
@@ -303,7 +303,6 @@ extension CreateGameViewController: CreateGameControllerDelegate {
     }
     
     func createGame(progress: Float) {
-        print("PROGRESS: \(progress)")
         progressView.progress = progress
         navigationItem.rightBarButtonItem?.isEnabled = progress >= 1.0
     }
@@ -340,7 +339,6 @@ extension CreateGameViewController: AddGameCategoriesDelegate {
 extension CreateGameViewController: CreateGameQuestOverviewCollectionViewDataChangedDelegate {
     
     func didMovedQuest(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
-        print("TODO ✅ @Patrick - Calculate new route - source: \(sourceIndexPath) - dest: \(destinationIndexPath)")
         // update methoden für Patrick
 //        gameCreatorController.set(duration: 1.0)
 //        gameCreatorController.set(length: 1.0)

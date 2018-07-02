@@ -83,7 +83,6 @@ struct User {
             var achievements: [Achivement] = []
             for achievementDict in achievementDictionaries {
                 if let achievement =  Achivement(dict: achievementDict) {
-                    print(achievement)
                     achievements.append(achievement)
                 }
             }

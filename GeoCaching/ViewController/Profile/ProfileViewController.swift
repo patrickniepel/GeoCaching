@@ -67,9 +67,6 @@ class ProfileViewController: UIViewController {
         profileActionsTableView.backgroundColor = UIColor.clear
         achievementsCollectionView.backgroundColor = UIColor.clear
         
-        print("USERID", user?.id)
-        print("CURRENTUSER", UserSingleton.sharedInstance.currentUser?.id)
-        
         setupLogoutButton()
     }
     

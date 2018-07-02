@@ -54,7 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dest2 = CLLocationCoordinate2D(latitude: 53.3396955, longitude: 12.3730747)
         
         RouteController().calculateEntireRoute(with: [source, dest, dest2], transportType: .any) { (distance, travelTime) in
-             print("Distance: \(distance), Time: \(travelTime)")
         }
         
         return true

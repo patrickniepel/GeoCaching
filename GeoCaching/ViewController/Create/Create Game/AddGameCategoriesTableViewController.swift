@@ -24,7 +24,6 @@ class AddGameCategoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        print("------ heeeeelllo. \(delegate)")
         
         setupDesign()
         setupText()

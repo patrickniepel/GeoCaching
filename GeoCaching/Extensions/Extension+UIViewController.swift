@@ -32,7 +32,7 @@ extension UIViewController {
     
     func informationPopupDialog(title: String, message: String, actionText: String, delegate: ActiveGameDelegate? = nil, vc: QuestionViewController? = nil) {
         let popup = PopupDialog(title: title, message: message)
-        popup.addButton(PopupDialogButton(title: "Continue", height: 60, dismissOnTap: true, action: {
+        popup.addButton(PopupDialogButton(title: actionText, height: 60, dismissOnTap: true, action: {
             if let delegate = delegate, let vc = vc {
                 delegate.userAnsweredQuestion(vc: vc)
             }
