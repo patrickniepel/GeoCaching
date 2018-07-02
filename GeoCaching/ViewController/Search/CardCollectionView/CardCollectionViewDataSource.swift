@@ -10,7 +10,7 @@ import UIKit
 
 class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    var games = GameDownloadController().getAllGames()
+    var games : [Game] = []
     var exampleArray = [CardCollectionViewModel]()
     
     init(games: [Game]) {

@@ -143,8 +143,6 @@ extension SearchViewController{
         
         loadingIndicator.isHidden = true
         view.isUserInteractionEnabled = true
-        games = GameDownloadController().getAllGames()
-        cardCollectionViewDataSource.games = games
         cardCollectionView.reloadData()
         setupLocations()
     }
