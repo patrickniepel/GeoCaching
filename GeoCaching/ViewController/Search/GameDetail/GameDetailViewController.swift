@@ -19,6 +19,7 @@ class GameDetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var dataSource : GameDetailHighscoreTableViewDataSource!
     var delegate : GameDetailHighscoreTableViewDelegate!
@@ -45,6 +46,12 @@ class GameDetailViewController: UIViewController {
     }
     
     private func setupData(){
+        imageView.image = game.image
+        
+        if game.name != GameSingleton.sharedInstance.weilMorgenDieAbgabeIst {
+            startGameButton.isEnabled = false
+            startGameButton.alpha = 0.3
+        }
     }
     
     private func setupText(){

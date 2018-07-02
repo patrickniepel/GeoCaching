@@ -110,6 +110,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backgroundImageView" destination="9nZ-c5-qQr" id="flt-12-n3Y"/>
+                <outlet property="bannerImageView" destination="PLt-1R-zjc" id="ZcC-Kh-ba6"/>
                 <outlet property="cardDescriptionLabel" destination="aip-Bh-opm" id="YCF-9m-pf4"/>
                 <outlet property="cardTitleLabel" destination="crz-f5-WY1" id="eki-m7-Una"/>
                 <outlet property="firstIconImageView" destination="mqY-ax-euc" id="MV0-Tv-0DV"/>

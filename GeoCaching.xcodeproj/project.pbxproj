@@ -138,11 +138,14 @@
 		17BC450820AD6E5600062876 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC44F820AD6E5600062876 /* PresentationManager.swift */; };
 		17BC450920AD6E5600062876 /* PopupDialogContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC44F920AD6E5600062876 /* PopupDialogContainerView.swift */; };
 		17BD38C420AD65A200D23F76 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BD38C320AD65A100D23F76 /* Extension+UIViewController.swift */; };
+		17C673D420EA0D9100DD5700 /* HighscorePopupFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C673D320EA0D9100DD5700 /* HighscorePopupFilter.swift */; };
 		17FD840320D1476900131AC6 /* GameDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD840220D1476900131AC6 /* GameDownloadController.swift */; };
 		17FD840520D1519800131AC6 /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD840420D1519800131AC6 /* GameError.swift */; };
 		17FD840720D1590400131AC6 /* QuestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD840620D1590400131AC6 /* QuestError.swift */; };
 		7C9EEBAC6B263B766F80CD41 /* Pods_GeoCaching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF58E1121A5A0759067119B3 /* Pods_GeoCaching.framework */; };
 		9A5F503D20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F503C20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift */; };
+		9AC2CA4520EA205F00DDF583 /* ProfilHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2CA4420EA205F00DDF583 /* ProfilHistoryViewController.swift */; };
+		9AC2CA4720EA208B00DDF583 /* ProfilCreatedGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2CA4620EA208B00DDF583 /* ProfilCreatedGamesViewController.swift */; };
 		A30CC5CB20C7B1A30017DEE1 /* HighscoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5CA20C7B1A30017DEE1 /* HighscoreController.swift */; };
 		A30CC5CD20C7B1DD0017DEE1 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5CC20C7B1DD0017DEE1 /* PermissionController.swift */; };
 		A30CC5CF20C7B1E90017DEE1 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CC5CE20C7B1E90017DEE1 /* GameController.swift */; };
@@ -357,6 +360,7 @@
 		17BC44F820AD6E5600062876 /* PresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationManager.swift; sourceTree = "<group>"; };
 		17BC44F920AD6E5600062876 /* PopupDialogContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogContainerView.swift; sourceTree = "<group>"; };
 		17BD38C320AD65A100D23F76 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		17C673D320EA0D9100DD5700 /* HighscorePopupFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscorePopupFilter.swift; sourceTree = "<group>"; };
 		17FD840220D1476900131AC6 /* GameDownloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDownloadController.swift; sourceTree = "<group>"; };
 		17FD840420D1519800131AC6 /* GameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
 		17FD840620D1590400131AC6 /* QuestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestError.swift; sourceTree = "<group>"; };
@@ -364,6 +368,8 @@
 		809A0E1B55D5BBE337D1D73D /* Pods-GeoCachingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A45B4A87A89D25CF61EF3B5 /* Pods-GeoCachingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCachingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCachingTests/Pods-GeoCachingTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A5F503C20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchnitzlrBoarWaitingAnimationView.swift; sourceTree = "<group>"; };
+		9AC2CA4420EA205F00DDF583 /* ProfilHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilHistoryViewController.swift; sourceTree = "<group>"; };
+		9AC2CA4620EA208B00DDF583 /* ProfilCreatedGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilCreatedGamesViewController.swift; sourceTree = "<group>"; };
 		9BC2814B3EEFEE0447FCDC88 /* Pods-GeoCaching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoCaching.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoCaching/Pods-GeoCaching.release.xcconfig"; sourceTree = "<group>"; };
 		A30CC5CA20C7B1A30017DEE1 /* HighscoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreController.swift; sourceTree = "<group>"; };
 		A30CC5CC20C7B1DD0017DEE1 /* PermissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionController.swift; sourceTree = "<group>"; };
@@ -684,6 +690,7 @@
 				174EB9D520AC0C1900E0A776 /* FilterPopupTableViewDelegate.swift */,
 				174EB9D720AC0C3200E0A776 /* FilterPopupTableViewDataSource.swift */,
 				174EB9DD20AC168900E0A776 /* SearchPopupFilter.swift */,
+				17C673D320EA0D9100DD5700 /* HighscorePopupFilter.swift */,
 			);
 			path = FilterPopup;
 			sourceTree = "<group>";
@@ -1050,6 +1057,8 @@
 				0FF2A59E20A1DF9100486CAC /* Profile Action Model */,
 				0FF2A59120A1DECC00486CAC /* Profile Achievement CollectionView */,
 				0FF2A59020A1DEC300486CAC /* Profile Action TableView */,
+				9AC2CA4420EA205F00DDF583 /* ProfilHistoryViewController.swift */,
+				9AC2CA4620EA208B00DDF583 /* ProfilCreatedGamesViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1338,10 +1347,12 @@
 				17BC44DF20AD6E4200062876 /* NVActivityIndicatorAnimationLineScale.swift in Sources */,
 				9A5F503D20D0344D0017281A /* SchnitzlrBoarWaitingAnimationView.swift in Sources */,
 				A35EB2CC20B53C7800A1025F /* CreateGameController.swift in Sources */,
+				9AC2CA4520EA205F00DDF583 /* ProfilHistoryViewController.swift in Sources */,
 				17BC450620AD6E5600062876 /* TransitionAnimations.swift in Sources */,
 				17BC450420AD6E5600062876 /* PopupDialog+Keyboard.swift in Sources */,
 				17BC44C820AD6E4200062876 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				0FF2A57320A191D200486CAC /* Rank.swift in Sources */,
+				17C673D420EA0D9100DD5700 /* HighscorePopupFilter.swift in Sources */,
 				0F44FFC320A97BBD007D1093 /* CardCollectionViewModel.swift in Sources */,
 				17FD840720D1590400131AC6 /* QuestError.swift in Sources */,
 				17BC450220AD6E5600062876 /* UIViewController+Visibility.swift in Sources */,
@@ -1435,6 +1446,7 @@
 				17BC44DD20AD6E4200062876 /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				17BC44C920AD6E4200062876 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				0FF2A59720A1DF2300486CAC /* ProfileAchievementsCollectionViewDataSource.swift in Sources */,
+				9AC2CA4720EA208B00DDF583 /* ProfilCreatedGamesViewController.swift in Sources */,
 				A35B0F0220DB776D00E8CEA5 /* QuestionAnswerDelegate.swift in Sources */,
 				A337A7C420E4267500668632 /* QRCodeView.swift in Sources */,
 				0FF2A56720A18D8B00486CAC /* AuthError.swift in Sources */,

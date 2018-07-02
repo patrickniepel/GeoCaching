@@ -74,7 +74,7 @@ struct DummyContent {
                       isPresenter: false, points: 4_364_477,
                       earnedAchivements: [Achivement(type: AchivementType.firstChallengeAccepted)])]
     
-    var universityGame = Game(name: "Hochschule Game",
+    var universityGame = Game(name: "FH Hof Challenge",
                               shortDescription: "Kurze Beschreibung",
                               longDescription: "From the edge of the Fichtelgebirge, the Saale meanders in countless loops through Bayer to the Rhine. On its way it flows through picturesque valleys with wooded slopes, steep vineyards and rugged cliffs. On other passages, green meadows line the banks of wide fields and idyllic towns. Along the river, the Saale valley cycle path from Hof to Bayreuth covers about 370 kilometers (230 miles). On the way from its origin to the mouth of the Rhine, it flows past not only beatiful countryside, but also beautiful cities such as Oberkotzau and Neila.",
                               categories: [QuestCategory.nature, .under10km],
@@ -98,7 +98,7 @@ struct DummyContent {
                                              image: UIImage(named: "cover_3"),
                                              questionType: QuestionType.number,
                                              locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.324181,
-                                                                                            longitude: 11.939300), radius: 3000)
+                                                                                            longitude: 11.939300), radius: 3000),
 //                                       Quest(answers: ["2", "4", "8", "16"],
 //                                             question: "Wie viele Gebäudekomplexe besitzt die Hochschule Hof?",
 //                                             image: UIImage(named: "yoga"),
@@ -111,12 +111,12 @@ struct DummyContent {
 //                                             questionType: QuestionType.textInput,
 //                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.326699,
 //                                                                                            longitude: 11.937674), radius: 1000),
-//                                       Quest(answers: ["PPMP"],
-//                                             question: "Lauf zurück in B010 und gebe den Code an der Tafel ein :)",
-//                                             image: UIImage(named: "yoga"),
-//                                             questionType: QuestionType.textInput,
-//                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.325568,
-//                                                                                          longitude: 11.939902), radius: 1000)
+                                       Quest(answers: ["PPMP"],
+                                             question: "Lauf zurück in B010 und gebe den Code an der Tafel ein :)",
+                                             image: UIImage(named: "yoga"),
+                                             questionType: QuestionType.textInput,
+                                             locationPolygonPoint: CLLocationCoordinate2D(latitude: 50.325568,
+                                                                                          longitude: 11.939902), radius: 1000)
                                        ])
     var game1 = Game(name: "Game Name 1",
                               shortDescription: "Kurze Beschreibung",
@@ -276,6 +276,7 @@ class ActiveGameController {
 class GameSingleton {
     
     static let sharedInstance = GameSingleton()
+    let weilMorgenDieAbgabeIst = "FH Hof Challenge"
     
     var games : [Game] = []
     
@@ -283,6 +284,13 @@ class GameSingleton {
 }
 
 
+class UserSingleton {
+    static let sharedInstance = UserSingleton()
+    
+    var currentUser: User?
+    
+    private init() {}
+}
 
 
 

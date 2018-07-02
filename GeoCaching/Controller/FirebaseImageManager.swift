@@ -32,7 +32,7 @@ struct FirebaseImageManager {
     // MARK: - Upload
     
     func upload(image: UIImage, withImageName imageName: String, completion: @escaping (Error?) -> ()) {
-        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+        if let imageData = UIImageJPEGRepresentation(image, 0.2) {
             let fileName = "\(imageName).jpg"
             let imageRef = imageStorage.child(fileName)
             

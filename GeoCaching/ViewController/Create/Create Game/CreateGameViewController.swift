@@ -27,6 +27,7 @@ class CreateGameViewController: UIViewController {
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var informationBackgroundView: UIView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     @IBOutlet var textElementCollection: [UILabel]!
     @IBOutlet var buttonElementCollection: [UIButton]!
@@ -54,12 +55,17 @@ class CreateGameViewController: UIViewController {
         setupGestures()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        progressView.progress = 0.0
+    }
+    
     @objc func doIt() {
-        print("START - UPLOAD")
-        let game = DummyContent.sharedInstance.universityGame
-        gameUploadController.upload(game: game) { (progress, error) in
-            print("Progress: \(progress) --- \(error)")
-        }
+//        print("START - UPLOAD")
+//        let game = DummyContent.sharedInstance.universityGame
+//        gameUploadController.upload(game: game) { (progress, error) in
+//            print("Progress: \(progress) --- \(error)")
+//        }
     }
     
     let gameDownloadController = GameDownloadController()
@@ -118,6 +124,7 @@ class CreateGameViewController: UIViewController {
         longDescriptionTextView.tintColor = AppColor.tint
         longDescriptionTextView.textColor = AppColor.text
         
+        progressView.tintColor = AppColor.tint
         
         // Fat Publish Button
         publishButtonOutlet.layer.borderWidth = 2
@@ -297,6 +304,7 @@ extension CreateGameViewController: CreateGameControllerDelegate {
     
     func createGame(progress: Float) {
         print("PROGRESS: \(progress)")
+        progressView.progress = progress
         navigationItem.rightBarButtonItem?.isEnabled = progress >= 1.0
     }
 }
