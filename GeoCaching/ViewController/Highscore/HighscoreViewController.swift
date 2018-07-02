@@ -13,7 +13,7 @@ class HighscoreViewController: UIViewController, UIPopoverPresentationController
     
     @IBOutlet weak var filterButton: UIBarButtonItem!
     
-    private var highscoreTableViewDataSource: HighscoreTableViewDataSource!
+    var highscoreTableViewDataSource: HighscoreTableViewDataSource!
     private var highscoreTableViewDelegate: HighscoreTableViewDelegate!
     
     let filterWorldButton = UIButton()
