@@ -127,6 +127,8 @@ class CreateGameViewController: UIViewController {
         
         // Fat Publish Button
         publishButtonOutlet.layer.borderWidth = 2
+        publishButtonOutlet.isEnabled = false
+        publishButtonOutlet.alpha = 0.3
 
         questCollectionView.layer.cornerRadius = 10
         questCollectionView.backgroundColor = AppColor.backgroundLighter
@@ -189,7 +191,23 @@ class CreateGameViewController: UIViewController {
         }
         
     }
+    
     @IBAction func publishButton(_ sender: UIButton) {
+        let game = gameCreatorController.game
+        gameUploadController.upload(game: game) { (progress, error) in
+            print("Progress: \(progress) --- \(error)")
+            var alertMessage = ""
+            var alertTitle = ""
+            if error == nil {
+                alertTitle = "Upload Succeed"
+                alertMessage = "Your was successfully uploaded :) Please start the app again."
+            } else {
+                alertTitle = "Upload Error"
+                alertMessage = "Folgender Fehler ist aufgetaucht: \(errno)"
+            }
+            
+            self.informationPopupDialog(title: alertTitle, message: alertMessage, actionText: "Continue")
+        }
     }
     
     @IBAction func addCategoryAction(_ sender: UIButton) {
@@ -304,7 +322,18 @@ extension CreateGameViewController: CreateGameControllerDelegate {
     
     func createGame(progress: Float) {
         progressView.progress = progress
-        navigationItem.rightBarButtonItem?.isEnabled = progress >= 1.0
+        
+        if progress >= 1.0 {
+            publishButtonOutlet.alpha = 1.0
+            publishButtonOutlet.isEnabled = true
+            publishButtonOutlet.setTitle("Publish this Game", for: .normal)
+        } else {
+            publishButtonOutlet.alpha = 0.3
+            publishButtonOutlet.isEnabled = false
+            let progressInPercentage = progress * 100
+            let progressString = String(format: "%.0f", progressInPercentage)
+            publishButtonOutlet.setTitle("\(progressString)% completed", for: .normal)
+        }
     }
 }
 
