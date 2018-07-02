@@ -19,7 +19,7 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     // MARK: - Private Properties
     
     private var cardCollectionViewDelegate : CardCollectionViewDelegate!
-    private var cardCollectionViewDataSource : CardCollectionViewDataSource!
+    var cardCollectionViewDataSource : CardCollectionViewDataSource!
     private let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     private var testLocations : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: -33.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -32.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -34.86, longitude: 151.2)]
     private var locationsOfGames : [CLLocationCoordinate2D] = []
