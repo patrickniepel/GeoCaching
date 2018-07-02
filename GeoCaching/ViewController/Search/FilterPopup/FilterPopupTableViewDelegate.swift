@@ -48,7 +48,7 @@ class FilterPopupTableViewDelegate: NSObject, UITableViewDelegate {
             switch filter{
             case .points:
                 destination.highscoreTableViewDataSource.data.sort(by: {
-                    return $0.formattedPoints < $1.formattedPoints
+                    return $0.points > $1.points
                 })
             case .distance:
                 break
@@ -57,7 +57,7 @@ class FilterPopupTableViewDelegate: NSObject, UITableViewDelegate {
             case .games:
                 break
             case .achievements:
-                destination.highscoreTableViewDataSource.data.sort(by: {$0.earnedAchivements.count < $1.earnedAchivements.count})
+                destination.highscoreTableViewDataSource.data.sort(by: {$0.earnedAchivements.count > $1.earnedAchivements.count})
             case .local:
                 break
             case .friends:

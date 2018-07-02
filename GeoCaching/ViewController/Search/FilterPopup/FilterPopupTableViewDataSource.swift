@@ -17,7 +17,7 @@ class FilterPopupTableViewDataSource: NSObject, UITableViewDataSource {
     var desitinationHighscore : HighscoreViewController?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let destination = destinationSearch {
+        if let _ = destinationSearch {
             return SearchPopupFilter.allCases.count
         }
         return HighscorePopupFilter.allCases.count
@@ -27,7 +27,10 @@ class FilterPopupTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: SearchIdentifiers.filterPopupCell.identifier)!
-        if let destination = destinationSearch {
+        if let _ = destinationSearch {
+            
+            checkForSavedSearchFilter()
+            
             cell.textLabel?.text = SearchPopupFilter.allCases[indexPath.row].name
             
             let filter = SearchPopupFilter.allCases[indexPath.row]
@@ -41,7 +44,10 @@ class FilterPopupTableViewDataSource: NSObject, UITableViewDataSource {
             
             return cell
         }
-        if let destination = desitinationHighscore {
+        if let _ = desitinationHighscore {
+            
+            checkForSavedHighscoreFilter()
+            
             cell.textLabel?.text = HighscorePopupFilter.allCases[indexPath.row].name
             
             let filter = HighscorePopupFilter.allCases[indexPath.row]
@@ -60,6 +66,16 @@ class FilterPopupTableViewDataSource: NSObject, UITableViewDataSource {
         
     }
     
+    private func checkForSavedSearchFilter() {
+        let filterIndex = UserDefaults.standard.integer(forKey: "selectedFilter")
+        selectedFilter = [SearchPopupFilter.allCases[filterIndex]]
+    }
+    
+    private func checkForSavedHighscoreFilter() {
+        let filterIndex = UserDefaults.standard.integer(forKey: "selectedFilterHighscore")
+        selectedFilterHighscore = [HighscorePopupFilter.allCases[filterIndex]]
+    }
+    
     func toggleAccessory(_ cell : Int){
         let selectedFilterCell = SearchPopupFilter.allCases[cell]
         if !selectedFilter.contains(selectedFilterCell){
@@ -67,6 +83,7 @@ class FilterPopupTableViewDataSource: NSObject, UITableViewDataSource {
             selectedFilter.removeAll()
             selectedFilter.append(selectedFilterCell)
         }
+        UserDefaults.standard.set(cell, forKey: "selectedFilter")
     }
     
     func toggleHighscoreAccessory(_ cell : Int) {
@@ -76,6 +93,7 @@ class FilterPopupTableViewDataSource: NSObject, UITableViewDataSource {
             selectedFilterHighscore.removeAll()
             selectedFilterHighscore.append(selectedFilterCell)
         }
+        UserDefaults.standard.set(cell, forKey: "selectedFilterHighscore")
     }
     
     private func setupCellDesign(_ cell : UITableViewCell) -> UITableViewCell{

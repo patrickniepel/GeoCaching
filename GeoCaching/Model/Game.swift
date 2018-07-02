@@ -78,7 +78,7 @@ struct Game {
             "duration": duration,
             "length": length,
             "ratings": ratings,
-            "quests": quests.map { $0.id }
+            "quests": questIDs
         ]
     }
 }

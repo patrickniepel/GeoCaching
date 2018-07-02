@@ -13,7 +13,7 @@ enum RatingQR {
     case qr
 }
 
-class RatingQRViewController: UIViewController {
+class RatingQRViewController: UIViewController, RatingSliderDelegate {
     
     var game: Game!
     var userPoints: Int = 0
@@ -25,9 +25,9 @@ class RatingQRViewController: UIViewController {
     private var ratingQRState: RatingQR = .rating
     var ratingQRView = RatingQRView()
     
-    private(set) var ratingSliderValue : Int = 0
+    //Default rating value
+    private(set) var ratingSliderValue : Int = 1
 
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var topImage: UIImageView!
     @IBOutlet weak var typeView: UIView!
@@ -51,7 +51,7 @@ class RatingQRViewController: UIViewController {
     
     private func setupLayout() {
         topImage.clipsToBounds = true
-        topImage.image = #imageLiteral(resourceName: "yoga")
+        topImage.image = game.image ?? #imageLiteral(resourceName: "yoga")
         topImage.contentMode = .scaleAspectFill
         
         backgroundView.layer.cornerRadius = 10
@@ -64,11 +64,6 @@ class RatingQRViewController: UIViewController {
         submitButton.layer.cornerRadius = 10
         
         switchButtonTitle()
-        
-        closeButton.layer.cornerRadius = 10
-        closeButton.layer.borderColor = AppColor.tint.cgColor
-        closeButton.layer.borderWidth = 2
-        closeButton.backgroundColor = AppColor.background
     }
     
     private func switchButtonTitle() {
@@ -92,6 +87,7 @@ class RatingQRViewController: UIViewController {
     
     private func prepareInfos(view: RatingQRView) {
         view.game = game
+        view.delegate = self
         view.userPoints = userPoints
         view.setupLayout()
     }
@@ -105,7 +101,9 @@ class RatingQRViewController: UIViewController {
     
     @IBAction func submit(_ sender: UIButton) {
         if ratingQRState == .rating {
-            //Slidervalue hochladen & in game übetragen
+            updateDatabases()
+            
+            print("SLIDERVALUE", ratingSliderValue)
             loadQRView()
         }
         else if ratingQRState == .qr {
@@ -113,13 +111,26 @@ class RatingQRViewController: UIViewController {
         }
     }
     
-    @IBAction func closeScreen(_ sender: UIButton) {
-        dismissScreen()
+    private func updateDatabases() {
+        GameUploadController().updateRating(ofGameID: game.id, withRating: ratingSliderValue)
+        
+        let profileCtrl = ProfileController()
+        profileCtrl.updateUserPoints(pointsToAdd: userPoints)
+        
+        //If achievement does not already exist, it will be appended to array
+        if !(UserSingleton.sharedInstance.currentUser?.earnedAchivements.map ({ $0.type }).contains(.firstChallengeCompleted))! {
+            profileCtrl.updateUserProfile(newAchivementType: .firstChallengeCompleted)
+        }
     }
     
     private func dismissScreen() {
         userDidCloseIntentionally = true
         guard let delegate = ratingQRDelegate else { return }
         delegate.userClosedRatingQRScreen(vc: self)
+    }
+    
+    func changedSliderValue(sliderValue: Int) {
+        ratingSliderValue = sliderValue
+        print("Quests", game.toDictionary)
     }
 }

@@ -13,11 +13,40 @@ class RatingView: RatingQRView {
     @IBOutlet weak var gratulationsTitle: UILabel!
     @IBOutlet weak var gratulationsMessage: UILabel!
     @IBOutlet weak var rateThisTourLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var currentRatingLabel: UILabel!
+    @IBOutlet weak var userRatingLabel: UILabel!
+    @IBOutlet weak var ratingBackgroundView: UIView!
+    
+    var ratingTextLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "No Ratings Yet"
+        label.textColor = AppColor.tint
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica Neue", size: 20)
+        
+        return label
+    }()
+    
+    var stackView : UIStackView = {
+        let stackView = UIStackView()
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
+    private var starImages = [UIImageView]()
+    
+    private var currentRating = 0
     
     override func setupLayout() {
+        
+        currentRating = game?.rating ?? 0
+        downloadCurrentRating()
+        
         self.backgroundColor = AppColor.background
         gratulationsTitle.textColor = .white
         
@@ -29,30 +58,90 @@ class RatingView: RatingQRView {
         scoreLabel.text = "Your score: \(userPoints)"
         
         rateThisTourLabel.textColor = .white
+        currentRatingLabel.textColor = .white
         
-        valueLabel.textColor = AppColor.tint
+        ratingBackgroundView.backgroundColor = AppColor.background
         
-        slider.value = 0
-        slider.minimumValue = 0
+        slider.value = 1
+        slider.minimumValue = 1
         slider.maximumValue = 5
         slider.thumbTintColor = AppColor.tint
         slider.minimumTrackTintColor = AppColor.tint
         slider.maximumTrackTintColor = .white
         
-        //Initial value for current rating
-        game?.ratings.append(0)
-        valueLabel.text = "\(game!.rating)"
+        userRatingLabel.textColor = AppColor.tint
+        userRatingLabel.text = "1"
     }
     
+    private func checkRating() {
+        
+        if currentRating == 0 {
+            addRatingTextLabel()
+        }
+        else {
+            createStarImages(for: currentRating)
+            addStarImages()
+        }
+    }
+    
+    private func addRatingTextLabel() {
+        ratingBackgroundView.addSubview(ratingTextLabel)
+        
+        addConstraint(NSLayoutConstraint(item: ratingTextLabel, attribute: .top, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .top, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: ratingTextLabel, attribute: .left, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: ratingTextLabel, attribute: .right, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .right, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: ratingTextLabel, attribute: .bottom, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .bottom, multiplier: 1, constant: 0))
+    }
+    
+    private func addStarImages() {
+        starImages.forEach { imageView in
+            stackView.addArrangedSubview(imageView)
+        }
+        
+        ratingBackgroundView.addSubview(stackView)
+        
+        addConstraint(NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .top, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: stackView, attribute: .bottom, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .bottom, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: stackView, attribute: .centerX, relatedBy: .equal, toItem: ratingBackgroundView, attribute: .centerX, multiplier: 1, constant: 0))
+    }
+    
+    private func createStarImages(for count: Int) {
+        
+        for _ in 0..<count {
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.image = UIImage(named: "star")
+            imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1).isActive = true
+            
+            starImages.append(imageView)
+        }
+    }
+    
+    func downloadCurrentRating() {
+        guard let gameID = game?.id else { return }
+
+        GameDownloadController().downloadRating(for: gameID) { (rating, error) in
+            if error != nil {
+                print("Error - ratingView - downloadcurrentRating", error)
+                return
+            }
+            
+            if let rating = rating {
+                self.currentRating = rating
+
+                DispatchQueue.main.async(execute: {
+                    self.checkRating()
+                })
+            }
+        }
+    }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
-        
-        //Exchange old value with new one
-        game?.ratings.removeLast()
-        
         let sliderValue = Int(sender.value)
-        game?.ratings.append(sliderValue)
+        userRatingLabel.text = "\(sliderValue)"
         
-        valueLabel.text = "\(game!.rating)"
+        guard let delegate = delegate else { return }
+        delegate.changedSliderValue(sliderValue: sliderValue)
     }
 }

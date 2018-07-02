@@ -77,7 +77,8 @@ struct GameUploadController {
         gameDB.child(gameID).observeSingleEvent(of: .value) { (dataSnapshot) in
             if var game = Game(snapshot: dataSnapshot) {
                 game.ratings.append(newRating)
-                self.gameDB.child(gameID).setValue(game)
+                self.gameDB.child(gameID).setValue(game.toDictionary)
+                print("HOCHGELADEN")
             }
         }
     }

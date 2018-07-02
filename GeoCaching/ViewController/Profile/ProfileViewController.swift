@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var achievementsTitleLabel: UILabel!
-    @IBOutlet weak var logoutButtonOutlet: UIBarButtonItem!
     
     @IBOutlet weak var profileActionsTableView: UITableView!
     @IBOutlet weak var achievementsCollectionView: UICollectionView!
@@ -29,12 +28,14 @@ class ProfileViewController: UIViewController {
     private var achievementsCollectionViewDataSource: ProfileAchievementsCollectionViewDataSource!
     private var achievementsCollectionViewDelegate: ProfileAchievementsCollectionViewDelegate!
     
+    var isCurrentUserProfile = true
+    
     private var profileCtrl = ProfileController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test", style: .done, target: self, action: #selector(theeesTest))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test", style: .done, target: self, action: #selector(theeesTest))
         
         setupDesign()
         setupText()
@@ -66,7 +67,10 @@ class ProfileViewController: UIViewController {
         profileActionsTableView.backgroundColor = UIColor.clear
         achievementsCollectionView.backgroundColor = UIColor.clear
         
-        logoutButtonOutlet.tintColor = AppColor.tint
+        if user?.id == UserSingleton.sharedInstance.currentUser?.id {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutAction(_:)))
+            navigationItem.rightBarButtonItem?.tintColor = AppColor.tint
+        }
     }
     
     func setupData() {
@@ -80,7 +84,18 @@ class ProfileViewController: UIViewController {
         
         authController = AuthController()
         
-        profileCtrl.downloadUserProfileAndObserve { (user, error) in
+        if isCurrentUserProfile {
+            profileCtrl.downloadUserProfileAndObserve { (user, error) in
+                if let user = user {
+                    UserSingleton.sharedInstance.currentUser = user
+                    self.setup(user: user)
+                    
+                    self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
+                    self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
+                    self.achievementsCollectionView.reloadData()
+                }
+            }
+        } else {
             if let user = user {
                 self.setup(user: user)
                 
@@ -115,22 +130,15 @@ class ProfileViewController: UIViewController {
             destVCtrl.achievement = selectedAchivement
         }
     }
-    
-   
 }
 
 
 // MARK: - Actions
 extension ProfileViewController {
-    @IBAction func logoutAction(_ sender: UIBarButtonItem) {
-        authController.logoutUser()
-        print("Logout User")
+    @objc func logoutAction(_ sender: UIBarButtonItem) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let loginViewCtrl = appDelegate.goToLogin()
-        
-        present(loginViewCtrl, animated: false, completion: nil)
+        logoutDialog(title: "Logout", message: "Are you sure?", authCtrl: authController)
         
 //        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
 //        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController

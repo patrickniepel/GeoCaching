@@ -24,6 +24,7 @@ class QRCodeView: RatingQRView {
     override func setupLayout() {
         self.backgroundColor = AppColor.background
         yourCouponLabel.textColor = .white
-        qrCodeImageView.image = "Hello World".qrCode(withScaleFactor: 20)
+        let qrText = "Well done!\nAsk the developers to receive your present :)"
+        qrCodeImageView.image = qrText.qrCode(withScaleFactor: 20)
     }
 }
