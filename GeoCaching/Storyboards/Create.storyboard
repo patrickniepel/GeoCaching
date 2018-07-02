@@ -300,7 +300,7 @@
                                                     <constraint firstAttribute="width" constant="180" id="F2V-cz-FAV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <state key="normal" title="Publish this Game"/>
+                                                <state key="normal" title="0% completed"/>
                                                 <connections>
                                                     <action selector="publishButton:" destination="yGQ-0I-YCG" eventType="touchUpInside" id="Kh0-yV-jY4"/>
                                                 </connections>
