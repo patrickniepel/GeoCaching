@@ -203,6 +203,16 @@ class ActiveGameController {
     }
     
     func isUserAnswerCorrect(userAnswer: String) -> Bool {
+        if currentQuest.questionType == .number {
+            if let correctAnswer = Double(currentQuest.correctAnswer), let userAnswerNumber = Double(userAnswer) {
+                let allowedDifferenceInPercent = 0.05 // %
+                let difference = correctAnswer * allowedDifferenceInPercent
+                
+                let allowedRange = (correctAnswer-difference)...(correctAnswer+difference)
+                return allowedRange.contains(userAnswerNumber)
+            }
+        }
+        
         let correctAnswer = currentQuest.correctAnswer.lowercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return correctAnswer ==  userAnswer.lowercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }

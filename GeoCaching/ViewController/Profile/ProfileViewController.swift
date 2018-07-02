@@ -97,7 +97,6 @@ class ProfileViewController: UIViewController {
             }
         } else {
             if let user = user {
-                UserSingleton.sharedInstance.currentUser = user
                 self.setup(user: user)
                 
                 self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)

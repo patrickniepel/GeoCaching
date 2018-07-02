@@ -75,7 +75,7 @@ class RouteController {
     
     
     func readableValue(forDistance distance: Double) -> String {
-        return distance < 1000 ? "\(distance) m" : "\(distance / 1000) km"
+        return distance < 1000 ? "\(String(format: "%.0f", distance)) m" : "\(distance / 1000) km"
     }
     
     func readableValue(forTravelTime travelTime: Double) -> String {
