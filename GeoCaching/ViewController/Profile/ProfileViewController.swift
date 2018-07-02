@@ -28,6 +28,8 @@ class ProfileViewController: UIViewController {
     private var achievementsCollectionViewDataSource: ProfileAchievementsCollectionViewDataSource!
     private var achievementsCollectionViewDelegate: ProfileAchievementsCollectionViewDelegate!
     
+    var isCurrentUserProfile = true
+    
     private var profileCtrl = ProfileController()
     
     override func viewDidLoad() {
@@ -36,8 +38,8 @@ class ProfileViewController: UIViewController {
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test", style: .done, target: self, action: #selector(theeesTest))
         
         setupDesign()
-        setupText()
         setupData()
+        setupText()
     }
     
     @objc func theeesTest() {
@@ -65,6 +67,13 @@ class ProfileViewController: UIViewController {
         profileActionsTableView.backgroundColor = UIColor.clear
         achievementsCollectionView.backgroundColor = UIColor.clear
         
+        print("USERID", user?.id)
+        print("CURRENTUSER", UserSingleton.sharedInstance.currentUser?.id)
+        
+        setupLogoutButton()
+    }
+    
+    private func setupLogoutButton() {
         if user?.id == UserSingleton.sharedInstance.currentUser?.id {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutAction(_:)))
             navigationItem.rightBarButtonItem?.tintColor = AppColor.tint
@@ -82,12 +91,29 @@ class ProfileViewController: UIViewController {
         
         authController = AuthController()
         
-        if let user = user {
-            self.setup(user: user)
-            
-            self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
-            self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
-            self.achievementsCollectionView.reloadData()
+        if isCurrentUserProfile {
+            profileCtrl.downloadUserProfileAndObserve { (user, error) in
+                if let user = user {
+                    
+                    self.user = user
+                    UserSingleton.sharedInstance.currentUser = user
+                    self.setup(user: user)
+                    
+                    self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
+                    self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
+                    self.achievementsCollectionView.reloadData()
+                    
+                    self.setupLogoutButton()
+                }
+            }
+        } else {
+            if let user = user {
+                self.setup(user: user)
+                
+                self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
+                self.achievementsCollectionView.dataSource = self.achievementsCollectionViewDataSource
+                self.achievementsCollectionView.reloadData()
+            }
         }
     }
     

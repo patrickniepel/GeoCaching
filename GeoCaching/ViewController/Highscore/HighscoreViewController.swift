@@ -69,7 +69,7 @@ class HighscoreViewController: UIViewController, UIPopoverPresentationController
             guard let selectedUser = sender as? User, let destVCtrl = segue.destination as? ProfileViewController else {
                 return
             }
- 
+            destVCtrl.isCurrentUserProfile = false
             destVCtrl.user = selectedUser
         }
         if segue.identifier == HighscoreStoryboardSegue.segue2FilterPopup.identifier{
