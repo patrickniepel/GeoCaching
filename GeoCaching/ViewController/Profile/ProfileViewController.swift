@@ -97,7 +97,6 @@ class ProfileViewController: UIViewController {
             }
         } else {
             if let user = user {
-                UserSingleton.sharedInstance.currentUser = user
                 self.setup(user: user)
                 
                 self.achievementsCollectionViewDataSource = ProfileAchievementsCollectionViewDataSource(achievements: user.earnedAchivements)
@@ -131,22 +130,15 @@ class ProfileViewController: UIViewController {
             destVCtrl.achievement = selectedAchivement
         }
     }
-    
-   
 }
 
 
 // MARK: - Actions
 extension ProfileViewController {
     @objc func logoutAction(_ sender: UIBarButtonItem) {
-        authController.logoutUser()
-        print("Logout User")
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let loginViewCtrl = appDelegate.goToLogin()
-        
-        present(loginViewCtrl, animated: false, completion: nil)
+        logoutDialog(title: "Logout", message: "Are you sure?", authCtrl: authController)
         
 //        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
 //        let loginViewCtrl = loginStoryboard.instantiateViewController(withIdentifier: "storyboardID_login_vc") as! LoginViewController

@@ -40,6 +40,21 @@ extension UIViewController {
         showPopupDialog(dialog: popup)
     }
     
+    func logoutDialog(title: String, message: String, authCtrl: AuthController) {
+        let popup = PopupDialog(title: title, message: message)
+        popup.addButton(PopupDialogButton(title: "Cancel", height: 60, dismissOnTap: true, action: {
+
+        }))
+        popup.addButton(PopupDialogButton(title: "Logout", height: 60, dismissOnTap: true, action: {
+            authCtrl.logoutUser()
+            print("Logout User")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let loginViewCtrl = appDelegate.goToLogin()
+            self.present(loginViewCtrl, animated: false, completion: nil)
+        }))
+        showPopupDialog(dialog: popup)
+    }
+    
     private func showPopupDialog(dialog: PopupDialog) {
         let dialogAppearance = PopupDialogDefaultView.appearance()
         
