@@ -42,6 +42,13 @@ class CardCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         print(games[indexPath.row].length)
         let readableDistance = RouteController().readableValue(forDistance: games[indexPath.row].length)
         print(readableDistance)
+        
+        if games[indexPath.row].name != GameSingleton.sharedInstance.weilMorgenDieAbgabeIst {
+            cell.bannerImageView.isHidden = true
+        } else {
+            cell.bannerImageView.isHidden = false
+        }
+        
         cell.secondIconLabel.text = readableDistance
         cell.cardTitleLabel.text = games[indexPath.row].name
         cell.cardDescriptionLabel.text = games[indexPath.row].shortDescription

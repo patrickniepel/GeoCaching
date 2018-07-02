@@ -55,11 +55,11 @@ class CreateGameViewController: UIViewController {
     }
     
     @objc func doIt() {
-        print("START - UPLOAD")
-        let game = DummyContent.sharedInstance.universityGame
-        gameUploadController.upload(game: game) { (progress, error) in
-            print("Progress: \(progress) --- \(error)")
-        }
+//        print("START - UPLOAD")
+//        let game = DummyContent.sharedInstance.universityGame
+//        gameUploadController.upload(game: game) { (progress, error) in
+//            print("Progress: \(progress) --- \(error)")
+//        }
     }
     
     let gameDownloadController = GameDownloadController()

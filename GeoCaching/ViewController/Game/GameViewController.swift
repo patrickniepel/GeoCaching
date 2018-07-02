@@ -58,7 +58,7 @@ class GameViewController: UIViewController {
         let allLocations = allGameQuests.compactMap { $0.locationPolygonPoint }
         let currentQuestIndex = activeGameController.currentQuestIndex
         
-        theMapView.clear()
+        theMapView?.clear()
         
         for (index, location) in allLocations.enumerated() {
             if currentQuestIndex == index {

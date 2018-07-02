@@ -17,6 +17,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondIconLabel: UILabel!
     @IBOutlet weak var cardTitleLabel: UILabel!
     @IBOutlet weak var cardDescriptionLabel: UILabel!
+    @IBOutlet weak var bannerImageView: UIImageView!
     
     
     
