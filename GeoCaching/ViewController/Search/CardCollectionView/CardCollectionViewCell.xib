@@ -45,8 +45,8 @@
                             <constraint firstAttribute="width" secondItem="p9P-dP-zit" secondAttribute="height" multiplier="1:1" id="5PR-kl-n3I"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.8 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMg-RD-NkI" userLabel="SecondIconLabel">
-                        <rect key="frame" x="161.66666666666666" y="20" width="46.333333333333343" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.7 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMg-RD-NkI" userLabel="SecondIconLabel">
+                        <rect key="frame" x="161.66666666666666" y="20" width="46" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
                 <outlet property="firstIconImageView" destination="mqY-ax-euc" id="MV0-Tv-0DV"/>
                 <outlet property="firstIconLabel" destination="cPV-Mf-3yv" id="cie-Y0-gCL"/>
                 <outlet property="secondIconImageView" destination="p9P-dP-zit" id="OI0-q6-QoV"/>
-                <outlet property="secondIconLabel" destination="crz-f5-WY1" id="PHx-fC-wbY"/>
+                <outlet property="secondIconLabel" destination="uMg-RD-NkI" id="Nau-Wf-CuW"/>
             </connections>
             <point key="canvasLocation" x="-5" y="120"/>
         </collectionViewCell>

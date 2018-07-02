@@ -12,6 +12,10 @@ import CoreLocation
 
 class SearchViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
+    // MARK: - Public Properties
+    
+    var games : [Game] = []
+    
     // MARK: - Private Properties
     
     private var cardCollectionViewDelegate : CardCollectionViewDelegate!
@@ -19,7 +23,6 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
     private let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.2, zoom: 6.0))
     private var testLocations : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: -33.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -32.86, longitude: 151.2),CLLocationCoordinate2D(latitude: -34.86, longitude: 151.2)]
     private var locationsOfGames : [CLLocationCoordinate2D] = []
-    private var games : [Game] = []
     private var locationManager = CLLocationManager()
     private var locationWasSetOnce = false
     private var markerArray : [GMSMarker] = []
@@ -64,6 +67,7 @@ class SearchViewController: UIViewController, UIPopoverPresentationControllerDel
             popoverViewController.popoverPresentationController!.delegate = self
             popoverViewController.popoverPresentationController?.backgroundColor = AppColor.tint
             popoverViewController.preferredContentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height*0.3)
+            popoverViewController.destinationSearch = self
         } else if segue.identifier == SearchIdentifiers.segue2GameDetail.identifier {
             let destCtrl = segue.destination as! GameDetailViewController
             destCtrl.game = sender as? Game
@@ -98,11 +102,12 @@ extension SearchViewController{
     func setupData() {
         
         cardCollectionViewDelegate = CardCollectionViewDelegate()
-        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame,
-                                                                            DummyContent.sharedInstance.game1,
-                                                                            DummyContent.sharedInstance.game2,
-                                                                            DummyContent.sharedInstance.game3,
-                                                                            DummyContent.sharedInstance.game4])
+//        cardCollectionViewDataSource = CardCollectionViewDataSource(games: [DummyContent.sharedInstance.universityGame,
+//                                                                            DummyContent.sharedInstance.game1,
+//                                                                            DummyContent.sharedInstance.game2,
+//                                                                            DummyContent.sharedInstance.game3,
+//                                                                            DummyContent.sharedInstance.game4])
+        cardCollectionViewDataSource = CardCollectionViewDataSource(games: games)
         
         cardCollectionView.dataSource = cardCollectionViewDataSource
         cardCollectionView.delegate = cardCollectionViewDelegate
@@ -119,12 +124,13 @@ extension SearchViewController{
     @objc private func downloadFinished(){
         loadingIndicator.isHidden = true
         view.isUserInteractionEnabled = true
+        games = GameDownloadController().getAllGames()
+        cardCollectionViewDataSource.games = games
         cardCollectionView.reloadData()
         setupLocations()
     }
     
     private func setupLocations(){
-        games = GameDownloadController().getAllGames()
         locationsOfGames.removeAll()
         for game in games{
             locationsOfGames.append(game.quests.first!.locationPolygonPoint)

@@ -78,6 +78,7 @@ class HighscoreViewController: UIViewController, UIPopoverPresentationController
             popoverViewController.popoverPresentationController!.delegate = self
             popoverViewController.popoverPresentationController?.backgroundColor = AppColor.tint
             popoverViewController.preferredContentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height*0.3)
+            popoverViewController.desitinationHighscore = self
         }
     }
     

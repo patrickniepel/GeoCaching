@@ -15,6 +15,10 @@ class FilterPopupViewController: UIViewController {
     
     var delegate : FilterPopupTableViewDelegate!
     var dataSource : FilterPopupTableViewDataSource!
+    
+    var destinationSearch : SearchViewController?
+    var desitinationHighscore : HighscoreViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
@@ -36,8 +40,13 @@ class FilterPopupViewController: UIViewController {
     func setupData(){
         delegate = FilterPopupTableViewDelegate()
         dataSource = FilterPopupTableViewDataSource()
-        tableView.delegate = self.delegate
-        tableView.dataSource = self.dataSource
+        if let destination = destinationSearch{
+            delegate.destinationSearch = destination
+        }else if let destination = desitinationHighscore{
+            delegate.desitinationHighscore = destination
+        }
+        tableView.delegate = delegate
+        tableView.dataSource = dataSource
     }
     
     func setupDesign(){
