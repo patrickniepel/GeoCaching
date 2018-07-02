@@ -188,8 +188,6 @@ class GameViewController: UIViewController {
     
     // Test für rating und QR
     func test() {
-        let game = DummyContent.sharedInstance.universityGame
-        activeGameController = ActiveGameController(game: game)
         performSegue(withIdentifier: RatingQRSegues.displayRating.identifier, sender: 1000)
     }
     

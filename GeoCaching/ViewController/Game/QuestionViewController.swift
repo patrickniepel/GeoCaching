@@ -53,7 +53,6 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     
     private func setupLayout() {
         questionImage.clipsToBounds = true
-        questionImage.image = #imageLiteral(resourceName: "yoga")
         questionImage.contentMode = .scaleAspectFill
         
         backgroundView.layer.cornerRadius = 10
@@ -102,7 +101,7 @@ class QuestionViewController: UIViewController, QuestionAnswerDelegate {
     private func prepareQuestInfos(view: QuestionView) {
         questionTitle.text = "Question \(activeGameCtrl.currentQuestIndex + 1)"
         questionText.text = activeGameCtrl.currentQuest.question
-        questionImage.image = activeGameCtrl.currentQuest.image
+        questionImage.image = activeGameCtrl.currentQuest.image ?? #imageLiteral(resourceName: "yoga")
         view.quest = activeGameCtrl.currentQuest
         view.delegate = self
         view.setupLayout()
