@@ -71,6 +71,7 @@ struct CreateGameController {
     
     mutating func append(newQuest: Quest) {
         game.quests.append(newQuest)
+//        game.questIDs.append(newQuest.id) // TODO: ✅🚨⚠️♥️
         checkGameConditions()
         updateProgress()
     }
